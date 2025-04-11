@@ -168,12 +168,12 @@
             <div class="student-profile">
 
 
-                <div class=" pt-0">
+                <div class=" pt-2 pb-4" >
                     <h4 class="mb-0 info-title">Guardian Information
 
 
                     </h4>
-                    <table class="table">
+                    <table class="table" >
                         <tr>
                             <th width="20%">Guardian Name </th>
                             <td width="1%">:</td>

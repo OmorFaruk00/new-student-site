@@ -20960,6 +20960,12 @@ dl li {
   border: 1px solid #e8e5e5;
   padding: 0.75rem 1.5rem;
 }
+@media (max-width: 450px) {
+  .nav-tabs .nav-link {
+    padding: 10px 10px;
+   
+  }
+}
 .nav-tabs .nav-item:first-child .nav-link {
   border-radius: 4px 0 0 0;
 }
@@ -25178,12 +25184,18 @@ div.tagsinput span.tag a {
     width: calc(100% - 40px);
   }
 }
+@media (max-width: 1024px) {
+  .navbar .navbar-menu-wrapper .navbar-nav .nav-item.user-dropdown .dropdown-menu {
+    margin-right: 200px;
+  }
+}
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.user-dropdown {
   position: relative;
 }
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.user-dropdown .dropdown-menu {
   min-width: 225px;
   margin-top: 9px;
+  margin-left: 40px;
 }
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.user-dropdown .dropdown-menu .dropdown-header {
   padding: 20px;
