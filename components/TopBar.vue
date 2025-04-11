@@ -2,20 +2,20 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-      <a class="navbar-brand brand-logo" href="index.html">
+      <a class="navbar-brand brand-logo" href="#">
         <img src="/images/white-logo.png" alt="logo" class="logo-dark" />
         <img src="/images/white-logo.png" alt="logo-light" class="logo-light">
       </a>
-      <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+      <a class="navbar-brand brand-logo-mini" href="#"><img src="/images/white-logo.png" alt="logo" /></a>
       <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
         <span class="icon-menu"></span>
       </button>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center">
-      <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome To Student Protal</h5>
+      <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome To Student Portal</h5>
       <ul class="navbar-nav navbar-nav-right">
   
-        <!-- <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
           <a class="nav-link count-indicator message-dropdown" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="icon-speech"></i>
             <span class="count">7</span>
@@ -54,21 +54,22 @@
               </div>
             </a>
           </div>
-        </li> -->
+        </li>
 
-        <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
+        <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown ">
           <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-            <img class="img-xs rounded-circle ms-2" src="assets/images/faces/face8.jpg" alt="Profile image"> <span class="font-weight-normal"> Henry Klein </span></a>
+            <img class="img-xs rounded-circle ms-2" :src="authuser.profile_photo" alt="Profile image"> <span class="font-weight-normal"> {{ authuser.name }}</span></a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
             <div class="dropdown-header text-center">
-              <img class="img-md rounded-circle" src="assets/images/faces/face8.jpg" alt="Profile image">
-              <p class="mb-1 mt-3">Henry Klein</p>
-              <p class="font-weight-light text-muted mb-0">kleinhenry@gmail.com</p>
+              <img class="img-md rounded-circle" style="height: 120px; width: 120px;" :src="authuser.profile_photo" alt="Profile image">
+              <p class="mb-1 mt-3">{{ authuser.name }}</p>
+              <p class="font-weight-light text-muted mb-0">{{ authuser.email }}</p>
             </div>
-            <a class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+            <nuxt-link to="/profile" class="dropdown-item" active-class="active-link"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile 
+            </nuxt-link>
          
             <a class="dropdown-item"><i class="dropdown-item-icon icon-energy text-primary"></i> Activity</a>          
-            <a class="dropdown-item"><i class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
+            <a class="dropdown-item" @click="logout()"><i class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
           </div>
         </li>
       </ul>
@@ -79,3 +80,46 @@
   </nav>
   <!-- partial -->
 </template>
+
+<script>
+
+
+export default {
+
+  data() {
+    return {
+      authuser: "",
+      currentExamSchedule: "",
+      currentExamRoutine: "",
+      accountShow: false,
+      sidebarShow: false,
+      error: "",
+      wantToDonate: "",
+      donate_date: "",
+      last_donate: false
+    };
+  },
+  mounted() {
+    this.authuser = window.$nuxt.$cookies.get("user");
+  },
+
+  methods: {
+    logout() {
+      window.$nuxt.$cookies.remove("token");
+      window.$nuxt.$cookies.remove("user");
+      // window.$nuxt.$cookies.remove("currentExamSchedule");
+      // window.$nuxt.$cookies.remove("currentExamRoutine");
+      // window.$nuxt.$cookies.remove("feedbackMiddlewareStatus");
+      this.$router.push("/");
+    },
+   
+  }
+
+}
+</script>
+<style>
+.active-link {
+  background-color: #e6f7ff; /* light blue or your choice */
+  color: #000; /* optional text color */
+}
+</style>

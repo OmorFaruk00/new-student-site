@@ -29,27 +29,11 @@
 
                         </div>
                         <div class="tab-pane fade" id="edit-profile" role="tabpanel" aria-labelledby="edit-profile-tab">
-                            <div class="media">
-                                <img class="profile-img" src="/assets/images/faces/face12.jpg" alt="sample image">
-                                <div class="media-body">
-                                    <h4 class="mt-0">John Doe</h4>
-                                    <p> Fail most room even gone her end like. Comparison dissimilar unpleasant six
-                                        compliment two unpleasing any add. Ashamed my company thought wishing
-                                        colonel it prevent he in. Pretended residence are something far engrossed
-                                        old off. </p>
-                                </div>
-                            </div>
+                          <EditProfile />
                         </div>
                         <div class="tab-pane fade" id="change-password-1" role="tabpanel"
                             aria-labelledby="change-password-tab">
-                            <h4>change-password us </h4>
-                            <p> Feel free to change-password us if you have any questions! </p>
-                            <p>
-                                <i class="icon-phone text-info"></i> +123456789
-                            </p>
-                            <p>
-                                <i class="icon-envelope text-success"></i> change-passwordus@example.com
-                            </p>
+                        <ChnagePassword />
                         </div>
                     </div>
                 </div>
@@ -65,10 +49,14 @@
 
 <script>
 import Profile from '~/components/Profile/index.vue'
+import EditProfile from '~/components/Profile/edit.vue'
+import ChnagePassword from '~/components/Profile/change-password.vue'
 
 export default {
     components: {
-        Profile
+        Profile,
+        EditProfile,
+        ChnagePassword
     }
 }
 </script>

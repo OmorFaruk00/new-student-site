@@ -23,6 +23,7 @@ import SideBar from '~/components/SideBar.vue';
 import Footer from '~/components/Footer.vue';
 
 export default {
+  middleware: "authenticated",
   components: {
     TopBar,
     SideBar,

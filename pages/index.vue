@@ -12,16 +12,16 @@
               
                <h4>Welcome back!</h4>
                <h6 class="font-weight-light">Happy to see you again!</h6>
-               <form class="pt-3">
+               <form class="pt-3" @submit.prevent="submitLoginForm()" autocomplete="off">
                  <div class="form-group">
-                   <label for="exampleInputEmail">Username</label>
+                   <label for="exampleInputEmail">Email</label>
                    <div class="input-group">
                      <div class="input-group-prepend bg-transparent">
                        <span class="input-group-text bg-transparent border-right-0">
-                         <i class="icon-user text-primary"></i>
+                        <i class="fa fa-envelope text-primary" aria-hidden="true"></i>
                        </span>
                      </div>
-                     <input type="text" class="form-control form-control-lg border-left-0" id="" placeholder="Username">
+                     <input type="text" class="form-control form-control-lg border-left-0" id="" placeholder="Enter Email" v-model="email" required>
                    </div>
                  </div>
                  <div class="form-group">
@@ -32,7 +32,7 @@
                          <i class="icon-lock text-primary"></i>
                        </span>
                      </div>
-                     <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password">
+                     <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Enter Password" v-model="password" required>
                    </div>
                  </div>
                  <div class="my-2 d-flex justify-content-between align-items-center">
@@ -43,7 +43,7 @@
                    <a href="#" class="auth-link  text-primary font-weight-medium">Forgot password?</a>
                  </div>
                  <div class="my-3">
-                   <a class="btn d-grid btn-primary btn-lg font-weight-medium auth-form-btn" href="#">LOGIN</a>
+                   <button type="submit" class="btn d-grid btn-primary btn-lg font-weight-medium auth-form-btn" >LOGIN</button>
                  </div>
              
                  <div class="text-center mt-4 font-weight-light"> Don't have an account?  <nuxt-link to="/auth/register" class="text-primary font-weight-bold">Create Accounts</nuxt-link>
@@ -64,11 +64,61 @@
 <script>
 import Footer from '~/components/Footer.vue';
 
-
 export default {
+  // middleware: "authenticated",
   layout: "authLayout",
   components: {
     Footer
+  },
+  data() {
+    return {
+      email: "omorfaruk5020@gmail.com",
+      password: "Diu@12345",
+      showPassword: false
+    };
+  },
+  methods: {
+    async submitLoginForm() {
+      return await this.$axios
+        .post("/student/login", {
+          email: this.email,
+          password: this.password
+        })
+        .then(response => {
+          $(".form-text").html("&nbsp;");
+
+          window.$nuxt.$cookies.remove("token");
+          window.$nuxt.$cookies.remove("user");
+          window.$nuxt.$cookies.remove("currentExamSchedule");
+
+          window.$nuxt.$cookies.set("token", response.data.token, {
+            path: "/",
+            maxAge: 1800
+          });
+
+          window.$nuxt.$cookies.set("user", response.data.user, {
+            path: "/",
+            maxAge: 1800
+          });
+          window.location.href = "/profile";
+        })
+        .catch(error => {
+          this.$toast.error(error.response.data.error, {
+            icon: "error_outline"
+          });
+          $(".form-text").html("&nbsp;");
+          $.each(error.response.data, function(index, value) {
+            $("#" + index + "_help").html(value[0]);
+          });
+          if (error.response.status == 404) {
+            this.$router.push("auth/account_verified");
+          }
+          if (error.response.status == 422) {
+            this.$toast.error("Validation Error", { icon: "error_outline" });
+          }
+        });
+    }
   }
+
 }
 </script>
