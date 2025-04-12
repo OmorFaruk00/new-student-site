@@ -82,8 +82,8 @@ module.exports = {
       {src: '/assets/js/settings.js'},
       {src: '/assets/js/todolist.js'},
       {src: '/assets/js/dashboard.js'},
-      {src: '/assets/js/jq.tablesort.js'},
-      {src: '/assets/js/tablesorter.js'},
+      // {src: '/assets/js/jq.tablesort.js'},
+      // {src: '/assets/js/tablesorter.js'},
 
       
     ],

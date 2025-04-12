@@ -20,6 +20,7 @@
     "cookie-universal-nuxt": "^2.1.4",
     "downloadjs": "^1.4.7",
     "express-session": "^1.17.1",
+    "html2pdf.js": "^0.10.3",
     "numeral": "^2.0.6",
     "nuxt": "^2.14.12",
     "nuxt-lazy-load": "^1.2.5",
@@ -44,6 +45,6 @@
     "eslint-loader": "^2.1.1",
     "eslint-plugin-vue": "^4.0.0",
     "sass": "^1.80.4",
-    "sass-loader": "^7.3.1"
+    "sass-loader": "^10.5.2"
   }
 }

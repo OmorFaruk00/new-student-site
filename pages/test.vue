@@ -1,110 +1,77 @@
 <template>
-  <div>
-
-
-
-    <div class="form-body">
-      <div class="form-header">
-        <h4>Personal Information</h4>
-      </div>
-           
-      <div class="row px-3 pt-3">
-
-
-        <div class="col-lg-12 col-md-12 col-sm-12">
-          <div class="form-group">
-
-            <textarea class="form-control" id="about_me" name="about_me"></textarea>
-
-            <label for="about_me">About Me</label>
-            <small id="about_me_help" class="form-text text-danger">&nbsp;</small>
-          </div>
+  <div class="form-body col-lg-6 col-md-6 col-sm-12 mx-auto">
+    <div class="form-header">
+                <h4 class="">Change Password</h4>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-12">
-          <div class="form-group">
-            <input type="text" class="form-control" id="slug_name" name="slug_name">
-            <label for="slug_name">Your public profile name </label>
-            <small id="slug_name_help" class="form-text text-danger">&nbsp;</small>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12">
-          <div class="form-group">
-            <input type="text" class="form-control" id="site_tag" name="site_tag"
-              placeholder="ex. Full Stack Developer">
-            <label for="site_tag">Site Tag </label>
-            <small id="site_tag_help" class="form-text text-danger">&nbsp;</small>
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-12">
-          <div class="form-group">
-            <select class="form-control" id="blood_group" name="blood_group">
-              <option selected disabled>Select Blood Group</option>
-              <option value="O+">O+</option>
-              <option value="O-">O-</option>
-              <option value="A+">A+</option>
-              <option value="A-">A-</option>
-              <option value="B+">B+</option>
-              <option value="B-">B-</option>
-              <option value="AB+">AB+</option>
-              <option value="AB-">AB-</option>
-            </select>
-            <label for="blood_group">Blood Group </label>
-            <small id="blood_group_help" class="form-text text-danger">&nbsp;</small>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12">
-          <div class="form-group">
-            <select class="form-control" id="blood_group" name="blood_group">
-              <option selected disabled value="">Select Gender</option>
-              <option value="M">Male</option>
-              <option value="F">Female</option>
-
-            </select>
-            <label for="blood_group">Gender</label>
-            <small id="blood_group_help" class="form-text text-danger">&nbsp;</small>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12"></div>
-        <div class="col-lg-6 col-md-6 col-sm-12"></div>
-        <div class="col-lg-6 col-md-6 col-sm-12"></div>
-        <div class="col-lg-6 col-md-6 col-sm-12"></div>
-        <div class="col-lg-6 col-md-6 col-sm-12"></div>
-        <div class="col-lg-6 col-md-6 col-sm-12"></div>
-        <div class="col-lg-6 col-md-6 col-sm-12"></div>
-        <div class="col-lg-6 col-md-6 col-sm-12"></div>
-        <div class="col-lg-6 col-md-6 col-sm-12"></div>
-        <div class="col-lg-6 col-md-6 col-sm-12"></div>
-        <div class="col-lg-6 col-md-6 col-sm-12"></div>
-        <div class="col-lg-6 col-md-6 col-sm-12"></div>
-        <div class="col-lg-6 col-md-6 col-sm-12"></div>
-        <div class="col-lg-6 col-md-6 col-sm-12"></div>
-        <div class="col-lg-6 col-md-6 col-sm-12"></div>
-        <div class="col-lg-6 col-md-6 col-sm-12"></div>
-
-
-
-      </div>
-      <div class="form-header">
-        <h4 class="">Father Information</h4>
-      </div>
-      
-      
-
-      <!-- <button type="submit" class="btn btn-default">Submit</button> -->
-   
-
+  
+  <form class="form-centent" @submit.prevent="changePasswordForm()">
+    <div class="form-group mb-5 mt-3">
+      <label>Current Password *</label>
+      <i class="fa fa-lock text-primary"></i>
+      <input required="" name="login[password]" type="password" class="form-control" placeholder="Enter Current Password"  v-model="current_password">
     </div>
-  </div>
-
+    <div class="form-group mb-5">
+      <label>New Password *</label>
+      <i class="fa fa-lock text-primary"></i>
+      <input required="" name="login[password]" type="password" class="form-control" placeholder="Enter New Password" v-model="password">
+    </div>
+    <div class="form-group mb-5">
+      <label>Confirmed Password *</label>
+      <i class="fa fa-lock text-primary"></i>
+      <input required="" name="login[password]" type="password" class="form-control" placeholder="Enter Confirmed  Password" v-model="password_confirmation">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>  
+  </div> 
 
 </template>
+<script>
+export default {
+  // middleware: 'feedbackAuthenticated',
+  data() {
+    return {
+      current_password: "",
+      password: "",
+      password_confirmation: "",
+      showCurrentPassword: false,
+      showPassword: false,
+      showCPassword: false,
+    }
+  },
+  methods: {
+    async changePasswordForm() {
+      var token = window.$nuxt.$cookies.get('token');
+      return await this.$axios.post('/student/change_password?token=' + token, {
+        current_password: this.current_password,
+        password: this.password,
+        password_confirmation: this.password_confirmation,
+      })
+        .then((response) => {
+          $(".form-text").html("&nbsp;");
+          this.$toast.success('Password Changed Successfully');
+          this.logout();
+        })
+        .catch((error) => {
+          this.$toast.error('Password Changed Failed');
+          $(".form-text").html("&nbsp;");
+          $.each(error.response.data, function (index, value) {
+            $("#" + index + "_help").html(value[0]);
+          });
+        })
+    },
+    logout() {
+      window.$nuxt.$cookies.remove('token');
+      window.$nuxt.$cookies.remove('user');
+      this.$router.push('/');
+    }
+  }
+}
+</script>
 
-
-<style scoped>
+<!-- <style scoped>
 .form-body {
-  background: #fff;
-  padding-bottom: 100px;
+  background: #ecf0f4;
+
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
 }
@@ -122,12 +89,13 @@
   font-weight: bold;
   margin-bottom: 10px;
 }
-.form-header h4{
+
+.form-header h4 {
   padding: 7px 0px;
 }
 
 .form-body .form-group {
-  margin: 0 0 5px 0;
+  margin: 0 0 10px 0;
   position: relative;
 }
 
@@ -138,7 +106,7 @@
   height: 50px;
   line-height: 50px;
   font-size: 18px;
-  color: #c4c4c4;
+  color: #fff;
   text-align: center;
   position: absolute;
   top: 0;
@@ -150,9 +118,10 @@
 
 .form-body .form-control {
   height: 50px;
+  background: #fff;
   border: 2px solid #d9d9d9;
   box-shadow: none;
-  padding: 5px 10px 0 10px;
+  padding: 5px 10px 0 40px;
   font-size: 16px;
   color: #000;
   position: relative;
@@ -229,4 +198,5 @@
 
 
 }
-</style>
+</style> -->
+

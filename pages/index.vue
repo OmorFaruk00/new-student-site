@@ -22,6 +22,7 @@
                        </span>
                      </div>
                      <input type="text" class="form-control form-control-lg border-left-0" id="" placeholder="Enter Email" v-model="email" required>
+                     <small id="email_help" class="form-text text-danger">&nbsp;</small>
                    </div>
                  </div>
                  <div class="form-group">
@@ -33,6 +34,7 @@
                        </span>
                      </div>
                      <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Enter Password" v-model="password" required>
+                     <small id="password_help" class="form-text text-danger">&nbsp;</small>
                    </div>
                  </div>
                  <div class="my-2 d-flex justify-content-between align-items-center">
@@ -103,9 +105,7 @@ export default {
           window.location.href = "/profile";
         })
         .catch(error => {
-          this.$toast.error(error.response.data.error, {
-            icon: "error_outline"
-          });
+          this.$toast.error(error.response.data.error);
           $(".form-text").html("&nbsp;");
           $.each(error.response.data, function(index, value) {
             $("#" + index + "_help").html(value[0]);
@@ -114,7 +114,7 @@ export default {
             this.$router.push("auth/account_verified");
           }
           if (error.response.status == 422) {
-            this.$toast.error("Validation Error", { icon: "error_outline" });
+            this.$toast.error("Validation Error");
           }
         });
     }

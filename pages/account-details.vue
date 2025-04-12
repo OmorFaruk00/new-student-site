@@ -123,11 +123,14 @@
 
 
         </div>
+        <div v-if="loading" class="text-center mt-5">
+                    <i class="fa fa-spinner text-primary fa-spin fa-4x"></i>
+        </div>
 
-        <h3 v-if="(accounts.length < 0 || accounts_summary == '')" class="p-4 text-center text-uppercase text-danger">
+        <!-- <h3 v-if="(accounts.length < 0 || accounts_summary == '')" class="p-4 text-center text-uppercase text-danger">
             <p>😢</p>
             <small>Account Details Not Found</small>
-        </h3>
+        </h3> -->
     </section>
 </template>
 
@@ -160,6 +163,7 @@ export default {
             var user = window.$nuxt.$cookies.get('user');
             return await this.$axios.get('/student_account_info/' + user.id + '?token=' + token)
                 .then((response) => {
+                    this.loading = false;
                     this.accounts = response.data;
 
                     var total_amount = 0;
