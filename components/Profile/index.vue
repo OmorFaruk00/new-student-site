@@ -219,7 +219,7 @@
                         </tr>
 
                         <tr>
-                            <th width="20%">Emergency Person Relation :</th>
+                            <th width="20%">Emergency Person Relation</th>
                             <td width="1%">:</td>
                             <td>{{ profile.emergency_relation }}</td>
                         </tr>
@@ -372,12 +372,16 @@ export default {
 }
 
 @media (max-width: 576px) {
+    .student-profile {   
+    padding: 10px;
+    
+}
 
     .student-profile .table th,
     .student-profile .table td {
         font-size: 12px;
         /* or smaller if needed */
-        padding: 5px 4px;
+        padding: 5px 2px;
     }
 
     .info-title {
@@ -388,14 +392,14 @@ export default {
         padding-left: 3px;
     }
 
-    .content-wrapper {
+    /* .content-wrapper {
         background: #ecf0f4;
         padding: 50px 0px 0px 0px;
         width: 100%;
         -webkit-box-flex: 1;
         -ms-flex-positive: 1;
         flex-grow: 1;
-    }
+    } */
 }
 
 .table th,  th,

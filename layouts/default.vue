@@ -56,9 +56,7 @@
               </div>
             </a>
           </div>
-        </li>
-
-        <!-- <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown "> -->
+        </li>        
         <li class="nav-item dropdown  user-dropdown ">
           <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-bs-toggle="dropdown"
             aria-expanded="false">
@@ -107,26 +105,26 @@
         </li>
         <li class="nav-item">
           <nuxt-link class="nav-link" to="/profile">
-            <span class="menu-title">Profile</span>
+            <span class="menu-title" @click="taggleMenu()">Profile</span>
             <i class="icon-user menu-icon"></i>
           </nuxt-link>
         </li>
         <li class="nav-item">
           <nuxt-link class="nav-link" to="/dashboard">
-            <span class="menu-title">Dashboard</span>
+            <span class="menu-title" @click="taggleMenu()">Dashboard</span>
             <i class="icon-screen-desktop menu-icon"></i>
           </nuxt-link>
         </li>
         <li class="nav-item">
           <nuxt-link class="nav-link" to="/account-details">
-            <span class="menu-title">Accounts Details</span>
-            <i class="icon-screen-desktop menu-icon"></i>
+            <span class="menu-title" @click="taggleMenu()">Accounts Details</span>
+            <i class="fa fa-university menu-icon" aria-hidden="true"></i>
           </nuxt-link>
         </li>
         <li class="nav-item">
           <nuxt-link class="nav-link" to="/academic-result">
-            <span class="menu-title">Academic Result</span>
-            <i class="icon-screen-desktop menu-icon"></i>
+            <span class="menu-title" @click="taggleMenu()">Academic Result</span>
+            <i class="fa fa-book menu-icon"></i>
           </nuxt-link>
         </li>
         
@@ -157,7 +155,6 @@
 
 </div>
 <!-- page-body-wrapper ends -->
-<!-- <Footer /> -->
 </div>
  </template>
 
@@ -210,6 +207,9 @@ export default {
     toggleSidebarMobile()
     {
       this.isSidebarActive = !this.isSidebarActive;
+    },
+    taggleMenu() {
+      this.isSidebarActive = false;
     }
    
   }
@@ -219,6 +219,14 @@ export default {
 .active-link {
   background-color: #e6f7ff;
   color: #000;
+}
+.nuxt-link-exact-active .menu-icon{
+  color: #38ce3c !important;
+  font-weight: bolder;
+}
+.nuxt-link-exact-active{
+  color: #38ce3c !important;
+  font-weight: bolder;
 }
 
 @media (max-width: 1200px) {

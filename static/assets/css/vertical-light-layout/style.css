@@ -18495,7 +18495,8 @@ code {
   border: 0;
 }
 .card .card-body {
-  padding: 1.875rem 1.875rem;
+  /* padding: 1.875rem 1.875rem; */
+  padding: 1.875rem 1rem;
 }
 .card .card-body + .card-body {
   padding-top: 1rem;
@@ -26049,7 +26050,8 @@ div.tagsinput span.tag a {
 
 .content-wrapper {
   background: #ecf0f4;
-  padding: 2.75rem 1.5rem 0;
+  /* padding: 2.75rem 1.5rem 0; */
+  padding: 2.75rem 1rem 0;
   width: 100%;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
@@ -26795,7 +26797,7 @@ div.tagsinput span.tag a {
   color: #fff;
   border-radius: 6px;
   text-transform: uppercase;
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
 
 .form-horizontal .btn:focus {

@@ -2,7 +2,7 @@
 
     <div class="row">
 
-        <div class="col-md-12 grid-margin ">
+        <div class="">
             <div class="card">
                 <div class="">
                     <!-- <h4 class="card-title">Basic Tab</h4>
