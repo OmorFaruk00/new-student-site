@@ -7,7 +7,7 @@
         <img src="/images/white-logo.png" alt="logo-light" class="logo-light">
       </a>
       <a class="navbar-brand brand-logo-mini" href="#"><img src="/images/white-logo.png" alt="logo" /></a>
-      <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+      <button @click="toggleSidebar"  class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
         <span class="icon-menu"></span>
       </button>
     </div>
@@ -83,7 +83,7 @@
           </div>
         </li>
       </ul>
-      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+      <button @click="toggleSidebar" class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
         data-toggle="offcanvas">
         <span class="icon-menu"></span>
       </button>
@@ -123,6 +123,16 @@ export default {
       // window.$nuxt.$cookies.remove("feedbackMiddlewareStatus");
       this.$router.push("/");
     },
+    toggleSidebar() {
+      const body = document.body;
+      // alert("toggleSidebar");
+
+      if (body.classList.contains('sidebar-toggle-display') || body.classList.contains('sidebar-absolute')) {
+        body.classList.toggle('sidebar-hidden');
+      } else {
+        body.classList.toggle('sidebar-icon-only');
+      }
+    }
 
   }
 

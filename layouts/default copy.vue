@@ -7,7 +7,7 @@
         <img src="/images/white-logo.png" alt="logo-light" class="logo-light">
       </a>
       <a class="navbar-brand brand-logo-mini" href="#"><img src="/images/white-logo.png" alt="logo" /></a>
-      <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+      <button @click="toggleSidebar" class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
         <span class="icon-menu"></span>
       </button>
     </div>
@@ -83,8 +83,8 @@
           </div>
         </li>
       </ul>
-      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-        data-toggle="offcanvas">
+      <button @click="toggleSidebarMobile" class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+    >
         <span class="icon-menu"></span>
       </button>
     </div>
@@ -92,7 +92,7 @@
 
   <div class="container-fluid page-body-wrapper">
     <!-- partials/sidebar -->
-    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <nav class="sidebar sidebar-offcanvas" :class="{ active: isSidebarActive }" id="sidebar">
       <ul class="nav pt-4">
         <!-- <li class="nav-item navbar-brand-mini-wrapper">
           <a class="nav-link navbar-brand brand-logo-mini" href="#"><i class="dropdown-item-icon icon-user"></i></a>
@@ -247,11 +247,13 @@ export default {
   data() {
     return {
       authuser: "",    
+      isSidebarActive: false,
     };
   },
 
   mounted() {
     this.authuser = window.$nuxt.$cookies.get("user");
+
   },
   methods: {
     logout() {
@@ -262,7 +264,48 @@ export default {
       // window.$nuxt.$cookies.remove("feedbackMiddlewareStatus");
       this.$router.push("/");
     },
+    toggleSidebar() {
+      const body = document.body;
+      // alert("toggleSidebar");
+
+      if (
+      body.classList.contains('sidebar-toggle-display') ||
+      body.classList.contains('sidebar-absolute')
+    ) {
+      body.classList.toggle('sidebar-hidden');
+    } else {
+      body.classList.toggle('sidebar-icon-only');
+      
+    }
+    },
+    toggleSidebarMobile()
+    {
+      // alert("toggleSidebarMobile");
+      this.isSidebarActive = !this.isSidebarActive;
+    }
    
   }
 }
 </script>
+<style>
+.active-link {
+  background-color: #e6f7ff;
+  /* light blue or your choice */
+  color: #000;
+  /* optional text color */
+}
+
+@media (max-width: 1200px) {
+  .log-out-dropdown {
+    left: -150px !important;
+
+  }
+}
+
+@media (max-width: 320px) {
+  .log-out-dropdown {
+    left: -85px !important;
+
+  }
+}
+</style>
