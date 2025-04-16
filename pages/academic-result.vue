@@ -1,5 +1,5 @@
 <template>
-    <section class="mb-5">
+    <div class="row">
         <div class="card card-body mb-3 pt-4 no-print">
 
             <form class="form-horizontal" id="findBatchMateResultForm" @submit.prevent="findBatchMateResultForm()">
@@ -22,210 +22,262 @@
                 </div>
             </form>
         </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="result transcriptPrint" v-if="results.student_info.name && !isloading" id="transcriptPrint">
+                <div class="header px-4">
+                    <div class="title d-flex">
+                        <img src="/images/logo.png" alt="logo" style="height: 40px; width: 40px; margin-right: 5PX;">
+                        <span class="logo ">Dhaka International University
+                        </span>
+                    </div>
+                    <div class="subtitle">
+                        <div><strong>Academic</strong></div>
+                        <div><strong>Transcript</strong></div>
+                    </div>
+                </div>
 
-        <div class="row">
+                <div class="sub-header">
+                    ACADEMIC TRANSCRIPT ACADEMIC TRANSCRIPT ACADEMIC TRANSCRIPT ACADEMIC TRANSCRIPT ACADEMIC
+                    TRANSCRIPT ACADEMIC TRANSCRIPT
+                </div>
 
-            <div class="col-lg-6 col-md-6 col-sm-12 print">
-                 
-                <div v-if="results.student_info.name && !isloading">
-                    <div id="transcriptPrint" class="transcriptPrint">
-
-                        <div class="text-center">
-                            <h3>Dhaka International University</h3>
-                            <h5>{{ results.student_info.name }}</h5>
-                            <h6> Roll : {{ results.student_info.roll_no }}, Reg : {{ results.student_info.reg_code }}
-
-                                <template v-if="results.student_info.session_name">
-                                    ,Session : {{ results.student_info.session_name }}
-                                </template>
-                            </h6>
+                <div class="px-4 py-3 result-content">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                            <p><strong>Name:</strong> {{ results.student_info.name }}</p>
+                            <p><strong>Roll:</strong> {{ results.student_info.roll_no }}</p>
                         </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
 
-                        <div class="table-responsive" v-for="(transcript, index) in results.transcript_data.semesters"
-                            :key="index">
-                            <table class="table" v-for="(semesters, semesterIndex) in transcript" :key="semesterIndex">
-                                <thead class="">
+                            <p><strong>Reg:</strong> {{ results.student_info.reg_code }} </p>
+                            <p v-if="results.student_info.session_name"><strong>Session:</strong> {{
+                                results.student_info.session_name }}</p>
+                        </div>
+                    </div>
+
+
+
+
+                    <div v-for="(transcript, index) in results.transcript_data.semesters" :key="index">
+                        <div class="table-responsive table-bg" v-for="(semesters, semesterIndex) in transcript"
+                            :key="semesterIndex">
+                            <table class="table table-sm">
+
+
+
+                                <thead>
                                     <tr>
-                                        <th colspan="8" class="text-left bg-primary text-white py-1">Semester : {{
-                                            semesters.semester }}</th>
+                                        <td class="issue" style="text-align: left;" colspan="5"><strong>Semester : {{
+                                            semesters.semester }}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align: left;">Course No</th>
+                                        <th style="text-align: left;">Course Title</th>
+                                        <th>Credit Hours</th>
+                                        <th v-if="semesters.exempted == 0">Incourse</th>
+                                        <th v-if="semesters.exempted == 0">Final</th>
+                                        <th>Grade Earned</th>
+                                        <th>Grade Point</th>
                                     </tr>
                                 </thead>
-                                <tr>
-                                    <th>Course No</th>
-                                    <th>Course Title</th>
-                                    <th>Credit Hours</th>
-                                    <th v-if="semesters.exempted == 0">Incourse</th>
-                                    <th v-if="semesters.exempted == 0">Final</th>
-                                    <th>Grade Earned</th>
-                                    <th style="text-align: right;">Grade Point</th>
-                                </tr>
-                                <tr v-if="semesters.allocated_courses != 'Semester or Marks not exists' && semesters.allocated_courses != 'Please, clear Due to show result'"
-                                    v-for="(course, courseIndex) in semesters.allocated_courses" :key="courseIndex">
-                                    <td>{{ course.code }}</td>
-                                    <td>{{ course.name }}</td>
-                                    <td>{{ course.credit }}</td>
-                                    <td v-if="semesters.exempted == 0">{{ course.marks.conti_total }}</td>
-                                    <td v-if="semesters.exempted == 0">{{ course.marks.final_total }}</td>
-                                    <td><span v-if="semesters.exempted == 0">{{ course.marks.letter_grade }}</span><span
-                                            v-else>Exempted</span>
-                                    </td>
-                                    <td style="text-align: right;"><span v-if="semesters.exempted == 0">{{
-                                        course.marks.grade_point | numFormat('0.00')
-                                            }}</span><span v-else>Exempted</span></td>
-                                </tr>
-                                <tr v-if="semesters.allocated_courses == 'Semester or Marks not exists'">
-                                    <td colspan="7" class="text-center">Semester or Marks not exists</td>
-                                </tr>
-                                <tr v-if="semesters.allocated_courses == 'Please, clear Due to show result'">
-                                    <td colspan="7" class="text-center">Please, clear Due to show result</td>
-                                </tr>
-                                <tr
-                                    v-if="semesters.allocated_courses != 'Semester or Marks not exists' && semesters.allocated_courses != 'Please, clear Due to show result'">
-                                    <th colspan="1">Subject: {{ semesters.total_subject }}</th>
-                                    <th colspan="2">Total Credit: {{ semesters.total_credit }}</th>
-                                    <th colspan="2">Avg. Grade: {{ semesters.average_grade }}</th>
-                                    <th style="text-align: right;" colspan="2">GPA: {{ semesters.total_semester_gpa |
-                                        numFormat('0.00') }}</th>
-                                </tr>
-                            </table>
-                        </div>
+                                <tbody>
 
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover mb-0 table-sm">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th class="text-left">Total Result</th>
+                                    <tr v-if="semesters.allocated_courses != 'Semester or Marks not exists' && semesters.allocated_courses != 'Please, clear Due to show result'"
+                                        v-for="(course, courseIndex) in semesters.allocated_courses" :key="courseIndex">
+                                        <td style="text-align: left;">{{ course.code }}</td>
+                                        <td style="text-align: left;">{{ course.name }}</td>
+                                        <td>{{ course.credit }}</td>
+                                        <td v-if="semesters.exempted == 0">{{ course.marks.conti_total }}</td>
+                                        <td v-if="semesters.exempted == 0">{{ course.marks.final_total }}</td>
+                                        <td><span v-if="semesters.exempted == 0">{{ course.marks.letter_grade
+                                                }}</span><span v-else>Exempted</span>
+                                        </td>
+                                        <td style="text-align: right;"><span v-if="semesters.exempted == 0">{{
+                                            course.marks.grade_point | numFormat('0.00')
+                                                }}</span><span v-else>Exempted</span></td>
                                     </tr>
-                                </thead>
-                                <tr>
-                                    <td class="text-left">
-                                        <span>Total Credit Required:<b> {{
-                                            results.transcript_data.results.total_credit_required }}</b></span>
-                                        <span>Credit Exempted:<b> {{ results.transcript_data.results.exempted_credit
-                                                }}</b></span>
-                                        <span>Credit Earned:<b> {{ results.transcript_data.results.total_credit_earned
-                                                }}</b></span>
-                                        <span>Average Grade:<b> {{ results.transcript_data.results.grade_letter
-                                                }}</b></span>
-                                        <span>CGPA:<b> {{ results.transcript_data.results.cgpa | numFormat('0.00')
-                                                }}</b></span>
-                                    </td>
-                                </tr>
+                                    <tr v-if="semesters.allocated_courses == 'Semester or Marks not exists'">
+                                        <td colspan="7" class="text-center">Semester or Marks not exists</td>
+                                    </tr>
+                                    <tr v-if="semesters.allocated_courses == 'Please, clear Due to show result'">
+                                        <td colspan="7" class="text-center">Please, clear Due to show result</td>
+                                    </tr>
+                                    <tr
+                                        v-if="semesters.allocated_courses != 'Semester or Marks not exists' && semesters.allocated_courses != 'Please, clear Due to show result'">
+                                        <th style="text-align: left;">Subject: {{ semesters.total_subject }}</th>
+                                        <th></th>
+                                        <th>Total Credit: {{ semesters.total_credit }}</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>Avg. Grade: {{ semesters.average_grade }}</th>
+                                        <th style="text-align: right;">GPA: {{ semesters.total_semester_gpa |
+                                            numFormat('0.00') }}</th>
+                                    </tr>
+
+
+
+
+                                </tbody>
                             </table>
                         </div>
+                    </div>
+
+                    <div class="table-responsive ">
+                        <table>
+
+                            <tr>
+                                <th style="text-align: left;">Total Result</th>
+                            </tr>
+
+                            <tr>
+                                <td style="text-align: left;">
+                                    <span>Total Credit Required:<b> {{
+                                        results.transcript_data.results.total_credit_required }}</b></span>
+                                    <span>Credit Exempted:<b> {{ results.transcript_data.results.exempted_credit
+                                    }}</b></span>
+                                    <span>Credit Earned:<b> {{ results.transcript_data.results.total_credit_earned
+                                    }}</b></span>
+                                    <span>Average Grade:<b> {{ results.transcript_data.results.grade_letter
+                                    }}</b></span>
+                                    <span>CGPA:<b> {{ results.transcript_data.results.cgpa | numFormat('0.00')
+                                    }}</b></span>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
 
                     <button type="button" class="btn btn-primary btn-sm no-print" id="printButton"
                         @click="printButton"><i class="fa fa-print"> </i> &nbsp;Print
                     </button>
                 </div>
-                <div v-if="isloading" class="text-center mt-5">
-                    <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
-                </div>
-                <!-- <h3 class="p-4 text-center text-uppercase text-danger" v-else>
-                    <p>😢</p>
-                    <small>Academic Result Not Found</small>
-                </h3> -->
+
+
+
             </div>
-
-
-            <div class="col-lg-6 col-md-6 col-sm-12 no-print">
-
-                <div v-if="loading" class="text-center mt-5">
-                    <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
+            <div v-if="isloading" class="text-center mt-5">
+                <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div v-if="loading" class="text-center mt-5">
+                <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
+            </div>
+            <div class="result" v-if="batch_mate_results.student_info.name && !loading">
+                <div class="header px-4">
+                    <div class="title d-flex">
+                        <img src="/images/logo.png" alt="logo" style="height: 40px; width: 40px;margin-right: 5px;">
+                        <span class="logo">Dhaka International University
+                        </span>
+                    </div>
+                    <div class="subtitle">
+                        <div><strong>Academic</strong></div>
+                        <div><strong>Transcript</strong></div>
+                    </div>
                 </div>
 
-                <div v-if="batch_mate_results && !loading">
+                <div class="sub-header">
+                    ACADEMIC TRANSCRIPT ACADEMIC TRANSCRIPT ACADEMIC TRANSCRIPT ACADEMIC TRANSCRIPT ACADEMIC
+                    TRANSCRIPT ACADEMIC TRANSCRIPT
+                </div>
 
-                    <div class="text-center">
-                        <h3 v-if="batch_mate_results.student_info.name">Dhaka International University</h3>
-                        <h5 v-if="batch_mate_results.student_info.name">{{ batch_mate_results.student_info.name }}</h5>
-                        <h6 v-if="batch_mate_results.student_info.name"> Roll : {{
-                            batch_mate_results.student_info.roll_no }}, Reg :
-                            {{ batch_mate_results.student_info.reg_code }}
+                <div class="px-4 py-3 result-content">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <p><strong>Name:</strong> {{ batch_mate_results.student_info.name }}</p>
+                            <p><strong>Roll:</strong> {{ batch_mate_results.student_info.roll_no }}</p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
 
-                            <template v-if="batch_mate_results.student_info.session_name">
-                                ,Session : {{ batch_mate_results.student_info.session_name }}
-                            </template>
-
-                        </h6>
+                            <p><strong>Reg:</strong> {{ batch_mate_results.student_info.reg_code }} </p>
+                            <p v-if="batch_mate_results.student_info.session_name"><strong>Session:</strong> {{
+                                batch_mate_results.student_info.session_name }}</p>
+                        </div>
                     </div>
 
 
-                    <div class="transcriptPrint">
-                        <div class="table-responsive"
-                            v-for="(transcript, transcriptIndex) in batch_mate_results.transcript_data.semesters"
-                            :key="transcriptIndex">
-                            <table class="table table-striped table-hover mb-0 table-sm"
-                                v-for="(semesters, semestersIndex) in transcript" :key="semestersIndex">
-                                <thead class="thead-dark">
+
+
+                    <div v-for="(transcript, transcriptIndex) in batch_mate_results.transcript_data.semesters"
+                        :key="transcriptIndex">
+                        <div class="table-responsive table-bg" v-for="(semesters, semestersIndex) in transcript"
+                            :key="semestersIndex">
+                            <table class="table">
+
+                                <thead>
                                     <tr>
-                                        <th colspan="8" class="text-left bg-primary text-white py-1">Semester : {{
-                                            semesters.semester }}</th>
+                                        <td class="issue" style="text-align: left;" colspan="5"><strong>Semester : {{
+                                            semesters.semester }}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align: left;">Course No</th>
+                                        <th style="text-align: left;">Course Title</th>
+                                        <th>Credit Hours</th>
+                                        <th v-if="semesters.exempted == 0">Incourse</th>
+                                        <th v-if="semesters.exempted == 0">Final</th>
+                                        <th>Grade Earned</th>
+                                        <th>Grade Point</th>
                                     </tr>
                                 </thead>
-                                <tr>
-                                    <th>Course No</th>
-                                    <th>Course Title</th>
-                                    <th>Credit Hours</th>
-                                    <th v-if="semesters.exempted == 0">Incourse</th>
-                                    <th v-if="semesters.exempted == 0">Final</th>
-                                    <th>Grade Earned</th>
-                                    <th style="text-align: right;">Grade Point</th>
-                                </tr>
-                                <tr v-if="semesters.allocated_courses != 'Semester or Marks not exists' && semesters.allocated_courses != 'Please, clear Due to show result'"
-                                    v-for="(course, courseIndex) in semesters.allocated_courses" :key="courseIndex">
-                                    <td>{{ course.code }}</td>
-                                    <td>{{ course.name }}</td>
-                                    <td>{{ course.credit }}</td>
-                                    <td v-if="semesters.exempted == 0">{{ course.marks.conti_total }}</td>
-                                    <td v-if="semesters.exempted == 0">{{ course.marks.final_total }}</td>
-                                    <td><span v-if="semesters.exempted == 0">{{ course.marks.letter_grade }}</span><span
-                                            v-else>Exempted</span></td>
-                                    <td style="text-align: right;"><span v-if="semesters.exempted == 0">{{
-                                        course.marks.grade_point | numFormat('0.00')
-                                            }}</span><span v-else>Exempted</span></td>
-                                </tr>
-                                <tr v-if="semesters.allocated_courses == 'Semester or Marks not exists'">
-                                    <td colspan="7" class="text-center">Semester or Marks not exists</td>
-                                </tr>
-                                <tr v-if="semesters.allocated_courses == 'Please, clear Due to show result'">
-                                    <td colspan="7" class="text-center">Please, clear Due to show result</td>
-                                </tr>
-                                <tr
-                                    v-if="semesters.allocated_courses != 'Semester or Marks not exists' && semesters.allocated_courses != 'Please, clear Due to show result'">
-                                    <th colspan="1">Subject: {{ semesters.total_subject }}</th>
-                                    <th colspan="2">Total Credit: {{ semesters.total_credit }}</th>
-                                    <th colspan="2">Avg. Grade: {{ semesters.average_grade }}</th>
-                                    <th style="text-align: right;" colspan="2">GPA: {{ semesters.total_semester_gpa |
-                                        numFormat('0.00') }}</th>
-                                </tr>
+                                <tbody>
 
+                                    <tr v-if="semesters.allocated_courses != 'Semester or Marks not exists' && semesters.allocated_courses != 'Please, clear Due to show result'"
+                                        v-for="(course, courseIndex) in semesters.allocated_courses" :key="courseIndex">
+                                        <td style="text-align: left;">{{ course.code }}</td>
+                                        <td style="text-align: left;">{{ course.name }}</td>
+                                        <td>{{ course.credit }}</td>
+                                        <td v-if="semesters.exempted == 0">{{ course.marks.conti_total }}</td>
+                                        <td v-if="semesters.exempted == 0">{{ course.marks.final_total }}</td>
+                                        <td><span v-if="semesters.exempted == 0">{{ course.marks.letter_grade
+                                                }}</span><span v-else>Exempted</span>
+                                        </td>
+                                        <td style="text-align: right;"><span v-if="semesters.exempted == 0">{{
+                                            course.marks.grade_point | numFormat('0.00')
+                                                }}</span><span v-else>Exempted</span></td>
+                                    </tr>
+                                    <tr v-if="semesters.allocated_courses == 'Semester or Marks not exists'">
+                                        <td colspan="7" class="text-center">Semester or Marks not exists</td>
+                                    </tr>
+                                    <tr v-if="semesters.allocated_courses == 'Please, clear Due to show result'">
+                                        <td colspan="7" class="text-center">Please, clear Due to show result</td>
+                                    </tr>
+                                    <tr
+                                        v-if="semesters.allocated_courses != 'Semester or Marks not exists' && semesters.allocated_courses != 'Please, clear Due to show result'">
+                                        <th style="text-align: left;">Subject: {{ semesters.total_subject }}</th>
+                                        <th></th>
+                                        <th>Total Credit: {{ semesters.total_credit }}</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>Avg. Grade: {{ semesters.average_grade }}</th>
+                                        <th style="text-align: right;">GPA: {{ semesters.total_semester_gpa |
+                                            numFormat('0.00') }}</th>
+                                    </tr>
+
+
+
+
+                                </tbody>
                             </table>
                         </div>
                     </div>
 
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover mb-0 table-sm"
-                            v-if="batch_mate_results.transcript_data.results.total_credit_required">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th class="text-left">Total Result</th>
-                                </tr>
-                            </thead>
+                    <div class="table-responsive ">
+                        <table v-if="batch_mate_results.transcript_data.results.total_credit_required">
+
                             <tr>
-                                <td class="text-left">
+                                <th style="text-align: left;">Total Result</th>
+                            </tr>
+
+                            <tr>
+                                <td style="text-align: left;">
                                     <span>Total Credit Required:<b> {{
                                         batch_mate_results.transcript_data.results.total_credit_required
                                             }}</b></span>
                                     <span>Credit Exempted:<b> {{
-                                        batch_mate_results.transcript_data.results.exempted_credit
-                                            }}</b></span>
+                                        batch_mate_results.transcript_data.results.exempted_credit }}</b></span>
                                     <span>Credit Earned:<b> {{
-                                        batch_mate_results.transcript_data.results.total_credit_earned
-                                            }}</b></span>
+                                        batch_mate_results.transcript_data.results.total_credit_earned }}</b></span>
                                     <span>Average Grade:<b> {{ batch_mate_results.transcript_data.results.grade_letter
-                                            }}</b></span>
+                                    }}</b></span>
                                     <span>CGPA:<b> {{ batch_mate_results.transcript_data.results.cgpa }}</b></span>
                                 </td>
                             </tr>
@@ -233,17 +285,16 @@
                     </div>
                 </div>
 
-                <h3 class="p-4 text-center text-uppercase text-danger" v-if="!batch_mate_results">
-                    <p>😢</p>
-                    <small>Academic Result Not Found</small>
-                </h3>
+
 
             </div>
 
         </div>
-    </section>
-</template>
+    </div>
 
+
+
+</template>
 <script>
 // import print from 'print-js';
 import Vue from 'vue'
@@ -355,43 +406,47 @@ export default {
                 })
         },
 
+
+
         async printButton() {
-            // if (process.client) {
-            //     const element = document.getElementById('transcriptPrint');
-            //     if (!element) {
-            //         console.error('Element not found');
-            //         return;
-            //     }
+            if (process.client) {
+                const html2pdf = (await import('html2pdf.js')).default;
 
-            //     const html2pdf = (await import('html2pdf.js')).default;
+                const element = document.getElementById('transcriptPrint');
+                const printBtn = document.getElementById('printButton');
+                if (printBtn) printBtn.style.display = 'none';
+                if (!element) {
+                    console.error('Element not found');
+                    return;
+                }
+                // element.style.backgroundColor = '#fff';
+                // element.style.padding = '40px';
+                const opt = {
+                    margin: 10,
+                    filename: 'provisional-result.pdf',
+                    html2canvas: { scale: 2, backgroundColor: null },
+                    jsPDF: { unit: 'mm', format: 'a3', orientation: 'portrait' }
+                };
 
-            //     const opt = {
-            //         margin: 10,
-            //         filename: 'provisional-result.pdf',
-            //         image: { type: 'jpeg', quality: 0.98 },
-            //         html2canvas: {
-            //             scale: 2,
-            //             useCORS: true,
-            //         },
-            //         jsPDF: {
-            //             unit: 'mm',
-            //             format: 'a4',
-            //             orientation: 'portrait',
-            //         },
-            //     };
+                html2pdf()
+                    .set(opt)
+                    .from(element)
+                    // .save()
+                    .toPdf()
+                    .get('pdf')
+                    .then(function (pdf) {
+                        const blobURL = pdf.output('bloburl');
+                        const printWindow = window.open(blobURL, '_blank');
+                        printWindow.onload = () => {
+                            printWindow.focus();
 
-            //     html2pdf()
-            //         .set(opt)
-            //         .from(element)
-            //         .toPdf()
-            //         .get('pdf')
-            //         .then(function (pdf) {
-            //             const blob = pdf.output('bloburl');
-            //             window.open(blob);
-
-            //         });
-            // }
+                            //   printWindow.print();
+                        };
+                    });
+            }
         }
+
+
 
 
 
@@ -400,13 +455,159 @@ export default {
 
 </script>
 
-<style type="text/css" scoped>
-.transcriptPrint table,
-.tableBackImage {
-    background-image: url(/watermark.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain;
+<style scoped>
+body {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
 
+.result {
+    background: #EBF5EC;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+
+
+
+}
+
+
+.table-bg {
+    background-image: url('/images/white-logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 300px 150px;
+}
+
+.result-content {}
+
+
+.header {
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    background: #000;
+    color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+    margin-right: 10px;
+    height: 40px;
+}
+
+.header .title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header .subtitle {
+    text-align: right;
+    color: #000;
+    font-size: 22px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+@media (max-width: 1400px) {
+    .header .title {
+        font-size: 10px;
+
+    }
+
+    .header .logo {
+        padding: 12px 10px;
+
+
+    }
+
+    .header .subtitle {
+        font-size: 10px;
+    }
+}
+/* @media print {
+  .no-print {
+    display: none !important;
+  }
+} */
+
+.sub-header {
+    background: #C4960B;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.info p {
+    line-height: 15px;
+}
+
+.info div {
+    width: 48%;
+}
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border: none;
+}
+
+table th,
+table td {
+    border: none;
+    padding: 5px;
+    text-align: right;
+    font-size: 12px;
+}
+
+
+
+.issue {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.footer {
+    text-align: left;
+    font-size: 12px;
+    margin: 30px 20px 10px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-number {
+    text-align: right;
+    margin: 0 20px 10px 20px;
+    font-size: 11px;
+}
+
+.watermark {
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.05;
+    font-size: 100px;
+    z-index: 0;
 }
 </style>
