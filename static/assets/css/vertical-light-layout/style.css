@@ -26686,9 +26686,9 @@ div.tagsinput span.tag a {
 
 
 .form-horizontal {
-  /* background: #ecf0f4; */
-  /* padding-bottom: 70px; */
-  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+  background: #fff;
+  padding-bottom: 40px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
 }
 
@@ -26722,7 +26722,7 @@ div.tagsinput span.tag a {
   height: 50px;
   line-height: 50px;
   font-size: 18px;
-  color: #fff;
+  /* color: #fff; */
   text-align: center;
   position: absolute;
   top: 0;
@@ -26734,7 +26734,7 @@ div.tagsinput span.tag a {
 
 .form-horizontal .form-control {
   height: 50px;
-  background: #fff;
+  /* background: #fff; */
   border: 2px solid #d9d9d9;
   box-shadow: none;
   padding: 5px 10px 0 10px;

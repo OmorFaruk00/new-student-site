@@ -127,6 +127,12 @@
             <i class="fa fa-book menu-icon"></i>
           </nuxt-link>
         </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/download-form">
+            <span class="menu-title" @click="taggleMenu()">Download Form</span>
+            <i class="fa fa-book menu-icon"></i>
+          </nuxt-link>
+        </li>
         
         <li class="nav-item nav-category"><span class="nav-link">Extra Pages</span></li>
         <li class="nav-item">
@@ -242,4 +248,30 @@ export default {
 
   }
 }
+
+/* Chrome, Edge, Safari */
+/* ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #38ce3c, #1e8f2d);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #1e8f2d, #155c1f);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+} */
+
+
 </style>
