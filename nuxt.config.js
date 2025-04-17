@@ -54,6 +54,7 @@ module.exports = {
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.png'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900'},
+      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons'},
       {rel: 'stylesheet', href: '/assets/vendors/simple-line-icons/css/simple-line-icons.css'},
       {rel: 'stylesheet', href: '/assets/vendors/flag-icon-css/css/flag-icons.min.css'},
       {rel: 'stylesheet', href: '/assets/vendors/css/vendor.bundle.base.css'},
@@ -63,11 +64,14 @@ module.exports = {
       {rel: 'stylesheet', href: '/assets/vendors/daterangepicker/daterangepicker.css'},
       {rel: 'stylesheet', href: '/assets/vendors/chartist/chartist.min.css'},
       {rel: 'stylesheet', href: '/assets/css/vertical-light-layout/style.css'},
+      // { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/vue-multiselect@2.1.6/dist/vue-multiselect.min.css" },
    
       
     ],
     script: [
       {src: '/assets/vendors/js/vendor.bundle.base.js'},
+      // {src: '/bootstrap/js/jquery-3.3.1.slim.min.js'},
+      // { src: "https://cdn.jsdelivr.net/npm/vue-multiselect@2.1.6", defer: true },
       // {src: '/assets/vendors/chart.js/chart.umd.js'},
       // {src: '/assets/vendors/jvectormap/jquery-jvectormap.min.js'},
       // {src: '/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js'},
@@ -146,7 +150,7 @@ module.exports = {
 
   plugins: [
     {src: '@/plugins/datepicker.js', ssr: false},
-    // {src: '@/plugins/scrollTo.js'},
+    {src: '@/plugins/vue-multiselect.js', ssr: false},
   ],
 
   pwa: {

@@ -110,9 +110,9 @@
           </nuxt-link>
         </li>
         <li class="nav-item">
-          <nuxt-link class="nav-link" to="/dashboard">
-            <span class="menu-title" @click="taggleMenu()">Dashboard</span>
-            <i class="icon-screen-desktop menu-icon"></i>
+          <nuxt-link class="nav-link" to="/download-form">
+            <span class="menu-title" @click="taggleMenu()">Download Form</span>
+            <i class="fa fa-download menu-icon"></i>
           </nuxt-link>
         </li>
         <li class="nav-item">
@@ -127,14 +127,9 @@
             <i class="fa fa-book menu-icon"></i>
           </nuxt-link>
         </li>
-        <li class="nav-item">
-          <nuxt-link class="nav-link" to="/download-form">
-            <span class="menu-title" @click="taggleMenu()">Download Form</span>
-            <i class="fa fa-book menu-icon"></i>
-          </nuxt-link>
-        </li>
+     
         
-        <li class="nav-item nav-category"><span class="nav-link">Extra Pages</span></li>
+        <!-- <li class="nav-item nav-category"><span class="nav-link">Extra Pages</span></li> -->
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
             <span class="menu-title">User Pages</span>

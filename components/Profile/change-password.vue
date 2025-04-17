@@ -5,17 +5,17 @@
           </div>
     
     <form class="form-centent" @submit.prevent="changePasswordForm()">
-      <div class="form-group mb-5 mt-3">
+      <div class="form-group mb-4 mt-3">
         <label>Current Password *</label>
         <i class="fa fa-lock text-primary"></i>
         <input required="" name="login[password]" type="password" class="form-control" placeholder="Enter Current Password"  v-model="current_password">
       </div>
-      <div class="form-group mb-5">
+      <div class="form-group mb-4">
         <label>New Password *</label>
         <i class="fa fa-lock text-primary"></i>
         <input required="" name="login[password]" type="password" class="form-control" placeholder="Enter New Password" v-model="password">
       </div>
-      <div class="form-group mb-5">
+      <div class="form-group mb-4">
         <label>Confirmed Password *</label>
         <i class="fa fa-lock text-primary"></i>
         <input required="" name="login[password]" type="password" class="form-control" placeholder="Enter Confirmed  Password" v-model="password_confirmation">

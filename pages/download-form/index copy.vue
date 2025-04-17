@@ -3,12 +3,49 @@
   <div>
 
     <div class="row">
-      <div class="col-lg-4 col-md-4">
-        <div class="glass-card">
-
-          <a href="#?" class="btn">Research /Internship / Project / Thesis</a>
+      <div class="col-lg-4 col-md-4 mb-4">
+        <div class="button-card">
+          <button type="button"  class="download-btn">Scholarship</button>
         </div>
+      </div>
+      <div class="col-lg-4 col-md-4 mb-4">
+        <div class="button-card">
+          <button type="button"  class="download-btn">Re-admission</button>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 mb-4">
+        <div class="button-card">
+          <nuxt-link to="/download-form/bank-slip" class="download-btn"
+          >Bank Slip</nuxt-link
+        >
+        </div>
+      </div>
 
+      <div class="col-lg-4 col-md-4 mb-4">
+        <div class="button-card">
+          <nuxt-link to="/download-form/bank-slip" class="download-btn"
+          >Admit Card</nuxt-link
+        >
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 mb-4">
+        <div class="button-card">
+          <nuxt-link to="/download-form/permission-for-exam" class="download-btn"
+          >Permission For Exam</nuxt-link
+        >
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 mb-4">
+        <div class="button-card">
+          <nuxt-link to="//download-form/mid-term-retake" class="download-btn"
+          >Mid Term Retake</nuxt-link
+        >
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 mb-4">
+        <div class="button-card">
+          <button type="button"  class="download-btn"> Provisional Certificate</button>
+        </div>
       </div>
 
     </div>
@@ -20,11 +57,8 @@
 
 
 <style lang="scss" scoped>
-.container {
-  background: #fff;
-}
 
-.btn {
+.download-btn {
   display: inline-block; 
   text-align: center;
   width: 100%;
@@ -34,21 +68,19 @@
   letter-spacing: 1px;
   color: #FFF;
   text-decoration: none;
-  background: #2AB22E;
+  border: none;
+  background: #28a745;
   transform: translate3d(0, 0, 0);
   transition: .1s background,
     .1s transform;
 
   &:hover {
-    background: darken(#2AB22E, 5);
+    background: #28a745;
+    color: #000;
     // transform: translate3d(0, 8px, 0);
-    margin-bottom: 1.5em;
+    // margin-bottom: 1.5em;
 
-    &:after,
-    &:before {
-      height: 0;
-      background: darken(#2AB22E, 10);
-    }
+   
   }
 
   &:after,
@@ -58,7 +90,7 @@
     top: 100%;
     width: 50%;
     height: 8px;
-    background: darken(#2AB22E, 5);
+    background: #2AB22E;
     transition: .1s height,
       .1s background;
   }
@@ -76,10 +108,10 @@
   }
 }
 
-.glass-card {
+.button-card {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
-  padding: 40px 20px;
+  padding: 20px ;
   width: 100%;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);

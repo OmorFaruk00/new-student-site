@@ -30,8 +30,10 @@
     "print-js": "^1.5.0",
     "save": "^2.4.0",
     "vue-filter-number-format": "^3.0.1",
+    "vue-multiselect": "^2.1.9",
     "vue-scrollto": "^2.20.0",
     "vue-search-select": "^2.9.3",
+    "vue-select": "^3.20.4",
     "vue-sessionstorage": "^1.0.0",
     "vuejs-datepicker": "^1.6.2"
   },

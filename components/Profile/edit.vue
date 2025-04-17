@@ -290,7 +290,7 @@
 
 
 
-            <button type="submit" class="btn btn-default" style="margin-right: 20px;">Submit</button>
+            <button type="submit" class="btn btn-primary" style="margin-right: 20px;">Submit</button>
 
 
         </form>
