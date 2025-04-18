@@ -17971,6 +17971,8 @@ code {
 
 .btn-info:not(.btn-light) {
   color: #ffffff !important;
+  font-size: 18px;
+  text-transform: uppercase;
 }
 .btn-info:not(.btn-light):hover, .btn-info:not(.btn-light):focus, .btn-info:not(.btn-light):active {
   color: #ffffff;

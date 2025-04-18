@@ -133,10 +133,18 @@
             <i class="fa fa-book menu-icon"></i>
           </nuxt-link>
         </li>
+       
         <li class="nav-item">
           <nuxt-link class="nav-link" to="/mail-account">
             <span class="menu-title" @click="taggleMenu()">DIU Mail Account</span>
             <i class="fa fa-envelope menu-icon"></i>
+          </nuxt-link>
+        </li>
+
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/support-ticket">
+            <span class="menu-title" @click="taggleMenu()">IT Support Ticket</span>
+            <i class="fa fa-life-ring menu-icon"></i>
           </nuxt-link>
         </li>
      
