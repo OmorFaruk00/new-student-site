@@ -67,7 +67,7 @@
             </div>
           </div>
 
-          <div class="float-right">
+          <div class="float-right mb-3">
             <button class="btn btn-primary btn-block" @click="addFeeType">
               <i class="fa fa-plus-circle"></i> Add
             </button>

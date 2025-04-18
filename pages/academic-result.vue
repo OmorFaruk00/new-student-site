@@ -1,9 +1,9 @@
 <template>
     <div class="row">
-        <div class="card card-body mb-3 pt-4 no-print">
+        <div class=" no-print">
 
-            <form class="form-horizontal" id="findBatchMateResultForm" @submit.prevent="findBatchMateResultForm()">
-                <div class="form-group focused">
+            <form class="form-horizontal p-4 mb-3" id="findBatchMateResultForm" @submit.prevent="findBatchMateResultForm()">
+                <div class="form-group">
                     <select class="form-control" id="batch_mate_id" name="batch_mate_id" v-model="batch_mate_id"
                         required>
                         <option selected value="">Select student name</option>
@@ -16,7 +16,7 @@
                     <label for="batch_mate_id">Show batch mate result </label>
                     <small id="batch_mate_id_help" class="form-text text-danger">&nbsp;</small>
                 </div>
-                <div class="form-group">
+                <div class="form-group pb-4">
                     <button type="submit" class="btn btn-primary btn-sm">Show <i v-if="loading"
                             class="fas fa-spinner fa-spin text-primary"></i></button>
                 </div>

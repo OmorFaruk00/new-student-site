@@ -17833,6 +17833,8 @@ code {
 
 .btn-primary:not(.btn-light), .wizard > .actions a:not(.btn-light) {
   color: #ffffff !important;
+  font-size: 18px !important;
+  text-transform: uppercase;
 }
 .btn-primary:not(.btn-light):hover, .wizard > .actions a:not(.btn-light):hover, .btn-primary:not(.btn-light):focus, .wizard > .actions a:not(.btn-light):focus, .btn-primary:not(.btn-light):active, .wizard > .actions a:not(.btn-light):active {
   color: #ffffff;

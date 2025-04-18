@@ -110,6 +110,12 @@
           </nuxt-link>
         </li>
         <li class="nav-item">
+          <nuxt-link class="nav-link" to="/Payment">
+            <span class="menu-title" @click="taggleMenu()">Pay Now</span>
+            <i class="fa fa-credit-card menu-icon"></i>
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
           <nuxt-link class="nav-link" to="/download-form">
             <span class="menu-title" @click="taggleMenu()">Download Form</span>
             <i class="fa fa-download menu-icon"></i>
@@ -125,6 +131,12 @@
           <nuxt-link class="nav-link" to="/academic-result">
             <span class="menu-title" @click="taggleMenu()">Academic Result</span>
             <i class="fa fa-book menu-icon"></i>
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/mail-account">
+            <span class="menu-title" @click="taggleMenu()">DIU Mail Account</span>
+            <i class="fa fa-envelope menu-icon"></i>
           </nuxt-link>
         </li>
      
