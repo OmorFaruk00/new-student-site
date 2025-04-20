@@ -110,6 +110,18 @@
           </nuxt-link>
         </li>
         <li class="nav-item">
+          <nuxt-link class="nav-link" to="/staffs-service-feedback">
+            <span class="menu-title" @click="taggleMenu()">Staffs Feedback</span>
+            <i class="fa fa-comment	 menu-icon"></i>
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/teachers-service-feedback">
+            <span class="menu-title" @click="taggleMenu()">Teachers Feedback</span>
+            <i class="fa fa-comment menu-icon"></i>
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
           <nuxt-link class="nav-link" to="/Payment">
             <span class="menu-title" @click="taggleMenu()">Pay Now</span>
             <i class="fa fa-credit-card menu-icon"></i>
@@ -124,6 +136,12 @@
         <li class="nav-item">
           <nuxt-link class="nav-link" to="/account-details">
             <span class="menu-title" @click="taggleMenu()">Accounts Details</span>
+            <i class="fa fa-university menu-icon" aria-hidden="true"></i>
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/hostel-account-details">
+            <span class="menu-title" @click="taggleMenu()">Hostel Accounts Details</span>
             <i class="fa fa-university menu-icon" aria-hidden="true"></i>
           </nuxt-link>
         </li>
@@ -145,6 +163,24 @@
           <nuxt-link class="nav-link" to="/support-ticket">
             <span class="menu-title" @click="taggleMenu()">IT Support Ticket</span>
             <i class="fa fa-life-ring menu-icon"></i>
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/attendance">
+            <span class="menu-title" @click="taggleMenu()">Class Attendance</span>
+            <i class="fa fa-clock-o menu-icon"></i>
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/education-materials">
+            <span class="menu-title" @click="taggleMenu()">Education Meterials</span>
+            <i class="fa fa-graduation-cap menu-icon"></i>
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/blog-post">
+            <span class="menu-title" @click="taggleMenu()">Blog Post</span>
+            <i class="fa fa-newspaper-o menu-icon"></i>
           </nuxt-link>
         </li>
      
