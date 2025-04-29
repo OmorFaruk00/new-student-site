@@ -41,7 +41,7 @@
           </tr>
         </tbody>
       </table>
-      <div class="text-center card p-3" v-else>
+      <div class="text-center card p-3 mx-auto" v-else>
         <h4 >No Post Found</h4>
       </div>
     </div>

@@ -185,21 +185,52 @@
         </li>
      
         
-        <!-- <li class="nav-item nav-category"><span class="nav-link">Extra Pages</span></li> -->
+     
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-            <span class="menu-title">User Pages</span>
+            <span class="menu-title">Improvement</span>
             <i class="icon-disc menu-icon"></i>
           </a>
           <div class="collapse" id="auth">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="#"> Blank Page </a></li>
-              <li class="nav-item"> <a class="nav-link" href="#"> Login </a></li>
-              <li class="nav-item"> <a class="nav-link" href="#"> Register </a></li>
-              <li class="nav-item"> <a class="nav-link" href="#"> 404 </a></li>
-              <li class="nav-item"> <a class="nav-link" href="#"> 500 </a></li>
+            
+              <li class="nav-item"> <nuxt-link class="nav-link" to="/improvement/formfillup"> Eligible Subject </nuxt-link></li>
+              <li class="nav-item"> <nuxt-link class="nav-link" to="/improvement/result"> Improvement Result </nuxt-link></li>
             </ul>
           </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="collapse" href="#tolet" aria-expanded="false" aria-controls="tolet">
+            <span class="menu-title">To-let</span>
+            <i class="fa fa-bed menu-icon"></i>
+          </a>
+          <div class="collapse" id="tolet">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <nuxt-link class="nav-link" to="/to-let/publish">T0-Let Publish</nuxt-link>
+              </li>
+              <li class="nav-item">
+                <nuxt-link class="nav-link" to="/to-let/find">To-let Find</nuxt-link>
+              </li>
+              <li class="nav-item">
+                <nuxt-link class="nav-link" to="/to-let/request">To-let Request</nuxt-link>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/campus-adda">
+            <span class="menu-title" @click="taggleMenu()">Campus Adda</span>
+            <i class="fa fa-user-secret menu-icon"></i>
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/blood_bank">
+            <span class="menu-title" @click="taggleMenu()">Blood Donate</span>
+            <i class="fa fa-suitcase menu-icon"></i>
+          </nuxt-link>
         </li>
     
       </ul>

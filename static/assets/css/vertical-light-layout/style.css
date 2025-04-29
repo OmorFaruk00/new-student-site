@@ -26770,7 +26770,8 @@ div.tagsinput span.tag a {
 .form-horizontal .form-control:focus {
   box-shadow: none;
   outline: 0 none;
-  border-color: #28a745;
+  /* border-color: #28a745; */
+  border-color: #000;
 }
 
 .form-horizontal .form-control::-webkit-input-placeholder,
@@ -26793,7 +26794,8 @@ div.tagsinput span.tag a {
 
 .form-horizontal .form-group label {
   padding: 2px 7px;
-  background: #28a745;
+  /* background: #28a745; */
+  background: #666666;
   font-size: 14px;
   color: #fff;
   letter-spacing: 0.5px;
@@ -26805,6 +26807,7 @@ div.tagsinput span.tag a {
   top: -9px;
   left: 15px;
   transition: all 0.3s ease 0s;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
 }
 

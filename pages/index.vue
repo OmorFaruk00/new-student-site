@@ -3,7 +3,7 @@
      <div class="container-fluid page-body-wrapper full-page-wrapper">
        <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
          <div class="row flex-grow">
-           <div class="col-lg-6 d-flex align-items-center justify-content-center">
+           <div class="col-lg-4 d-flex align-items-center justify-content-center">
              <div class="auth-form-transparent text-left p-3">
                <div class="brand-logo">
                  <img src="/images/logo.png" alt="logo">
@@ -53,7 +53,7 @@
                </form>
              </div>
            </div>
-           <div class="col-lg-6 login-half-bg d-flex flex-row">
+           <div class="col-lg-8 login-half-bg d-flex flex-row">
            <Footer />
            </div>
          </div>

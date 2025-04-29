@@ -6,21 +6,23 @@
     
     <form class="form-centent" @submit.prevent="changePasswordForm()">
       <div class="form-group mb-4 mt-3">
-        <label>Current Password *</label>
+        <label>Current Password <span class="text-danger">*</span></label>
         <i class="fa fa-lock text-primary"></i>
         <input required="" name="login[password]" type="password" class="form-control" placeholder="Enter Current Password"  v-model="current_password">
       </div>
       <div class="form-group mb-4">
-        <label>New Password *</label>
+        <label>New Password <span class="text-danger">*</span></label>
         <i class="fa fa-lock text-primary"></i>
         <input required="" name="login[password]" type="password" class="form-control" placeholder="Enter New Password" v-model="password">
       </div>
       <div class="form-group mb-4">
-        <label>Confirmed Password *</label>
+        <label>Confirmed Password <span class="text-danger">*</span></label>
         <i class="fa fa-lock text-primary"></i>
         <input required="" name="login[password]" type="password" class="form-control" placeholder="Enter Confirmed  Password" v-model="password_confirmation">
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <div class="d-flex justify-content-end">
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
     </form>  
     </div> 
   
@@ -71,13 +73,13 @@
 <style scoped>
 .form-body {
     background: #ecf0f4;
- 
+    /* background: #fff;  */
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
 }
 
 .form-centent {
-    padding: 20px 20px 80px 20px;
+    padding: 20px 20px 30px 20px;
 }
 
 .form-header {
@@ -106,7 +108,7 @@
     height: 50px;
     line-height: 50px;
     font-size: 18px;
-    color: #fff;
+    color: #000 !important;
     text-align: center;
     position: absolute;
     top: 0;
@@ -118,7 +120,8 @@
 
 .form-body .form-control {
     height: 50px;
-    background: #fff;
+    /* background: #ecf0f4; */
+    background: #ffff;
     border: 2px solid #d9d9d9;
     box-shadow: none;
     padding: 5px 10px 0 40px;
@@ -135,7 +138,8 @@
 .form-body .form-control:focus {
     box-shadow: none;
     outline: 0 none;
-    border-color: #28a745;
+    /* border-color: #28a745; */
+    border-color: #000;
 }
 
 .form-body .form-control::-webkit-input-placeholder,
@@ -146,18 +150,20 @@
 
 .form-body .form-group label {
     padding: 2px 7px;
-    background: #28a745;
+    /* background: #28a745; */
+    background: #f5f5f5;
     font-size: 14px;
-    color: #fff;
-    letter-spacing: 0.5px;
+    color: #000;
+    /* letter-spacing: 0.5px; */
     margin-bottom: 10px;
-    border-radius: 3px;
+    /* border-radius: 3px; */
     opacity: 1;
     z-index: 1;
     position: absolute;
     top: -9px;
     left: 15px;
     transition: all 0.3s ease 0s;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
 }
 
@@ -171,7 +177,7 @@
 
 
 
-.form-body .btn {
+/* .form-body .btn {
     padding: 15px 30px;
     background: #28a745;
     float: right;
@@ -186,7 +192,7 @@
 .form-body .btn:focus {
     background: #28a745;
     color: #fff;
-}
+} */
 
 @media only screen and (max-width: 479px) {
 

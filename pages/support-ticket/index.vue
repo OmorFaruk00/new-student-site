@@ -56,7 +56,7 @@
                     <td>
 
                       <nuxt-link :to="{name: 'support-ticket-id', params: { id:row.id} }"
-                                 class="btn btn-info">
+                                 class="btn btn-primary">
 
                         <i class="fa fa-eye" ></i>
 
