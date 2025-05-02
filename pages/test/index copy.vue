@@ -5,13 +5,12 @@
             <form @submit.prevent="submitLoginForm()" autocomplete="off">
                 <div class="form-icon"><i class="fa fa-user"></i></div>
                 <div class="input">
-                  <label for="email"> Email</label>
                     <input id="email" type="email" class="validate" v-model="email">
-                    
+                    <label for="email"> Email</label>
                 </div>
                 <div class="input">
-                  <label for="password">Password</label>
-                    <input id="password" type="password" class="validate" v-model="password">                    
+                    <input id="password" type="password" class="validate" v-model="password">
+                    <label for="password">Password</label>
                     <i :class="isVisible ? 'fa fa-eye' : 'fa fa-eye'" @click="togglePassword"></i>
 
                 </div>
@@ -52,7 +51,6 @@ export default {
     },
 
     methods: {
-
         async submitLoginForm() {
       return await this.$axios
         .post("/student/login", {
@@ -78,7 +76,7 @@ export default {
           window.location.href = "/profile";
         })
         .catch(error => {
-          this.$toast.error(error.response.data.error, {icon: "error_outline"});
+          this.$toast.error(error.response.data.error);
           $(".form-text").html("&nbsp;");
           $.each(error.response.data, function(index, value) {
             $("#" + index + "_help").html(value[0]);
@@ -87,11 +85,10 @@ export default {
             this.$router.push("auth/account_verified");
           }
           if (error.response.status == 422) {
-            this.$toast.error("Validation Error", {icon: "error_outline"});
+            this.$toast.error("Validation Error");
           }
         });
     },
-        
         togglePassword() {
             this.isVisible = !this.isVisible;
             const passwordInput = document.getElementById("password");

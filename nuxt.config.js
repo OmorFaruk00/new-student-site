@@ -64,6 +64,7 @@ module.exports = {
       {rel: 'stylesheet', href: '/assets/vendors/daterangepicker/daterangepicker.css'},
       {rel: 'stylesheet', href: '/assets/vendors/chartist/chartist.min.css'},
       {rel: 'stylesheet', href: '/assets/css/vertical-light-layout/style.css'},
+      {rel: 'stylesheet', href: '/assets/css/vertical-light-layout/welcome.css'},
       // { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/vue-multiselect@2.1.6/dist/vue-multiselect.min.css" },
    
       
