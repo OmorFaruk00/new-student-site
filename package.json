@@ -1,0 +1,52 @@
+{
+  "name": "diu-students-portal",
+  "version": "2.0.0",
+  "description": "Dhaka International University",
+  "author": "Mesbaul Islam <rony.max24@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@nuxtjs/auth": "^4.9.1",
+    "@nuxtjs/axios": "^5.12.4",
+    "@nuxtjs/robots": "^2.4.2",
+    "@nuxtjs/toast": "^3.3.1",
+    "cookie-universal-nuxt": "^2.1.4",
+    "downloadjs": "^1.4.7",
+    "express-session": "^1.17.1",
+    "html2pdf.js": "^0.10.3",
+    "numeral": "^2.0.6",
+    "nuxt": "^2.14.12",
+    "nuxt-lazy-load": "^1.2.5",
+    "nuxt-session": "^1.0.3",
+    "nuxt-storage": "^1.2.2",
+    "nuxt-vuex-localstorage": "^1.2.7",
+    "print-js": "^1.5.0",
+    "save": "^2.4.0",
+    "vue-filter-number-format": "^3.0.1",
+    "vue-multiselect": "^2.1.9",
+    "vue-scrollto": "^2.20.0",
+    "vue-search-select": "^2.9.3",
+    "vue-select": "^3.20.4",
+    "vue-sessionstorage": "^1.0.0",
+    "vuejs-datepicker": "^1.6.2"
+  },
+  "devDependencies": {
+    "@nuxtjs/moment": "^1.6.1",
+    "@nuxtjs/pwa": "^3.3.3",
+    "@nuxtjs/router": "^1.5.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^4.19.1",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "sass": "^1.86.3",
+    "sass-loader": "^10.5.2"
+  }
+}
