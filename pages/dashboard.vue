@@ -1,299 +1,251 @@
 <template>
-        <!-- partial -->
-        <div >
-      <div>
-        <div class="row">
-          <div class="col-md-8 grid-margin stretch-card">
-            <div class="card">
-              <div class="card-body performane-indicator-card">
-                <div class="d-sm-flex">
-                  <h4 class="card-title flex-shrink-1">Performance Indicator</h4>
-                  <p class="m-sm-0 ms-sm-auto flex-shrink-0">
-                    <span class="data-time-range ms-0">7d</span>
-                    <span class="data-time-range active">2w</span>
-                    <span class="data-time-range">1m</span>
-                    <span class="data-time-range">3m</span>
-                    <span class="data-time-range">6m</span>
-                  </p>
-                </div>
-                <div class="d-sm-flex flex-wrap mt-3">
-                  <div class="d-flex align-items-center">
-                    <span class="dot-indicator bg-primary ms-2"></span>
-                    <p class="mb-0 ms-2 text-muted font-weight-semibold">Complaints (2098)</p>
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <span class="dot-indicator bg-info ms-2"></span>
-                    <p class="mb-0 ms-2 text-muted font-weight-semibold"> Task Done (1123)</p>
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <span class="dot-indicator bg-danger ms-2"></span>
-                    <p class="mb-0 ms-2 text-muted font-weight-semibold">Attends (876)</p>
-                  </div>
-                </div>
-                <div class="dotted-chart-height">
-                  <canvas id="performance-indicator-chart" class="mt-5"></canvas>
-                </div>
+  <div class="">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-12 ">
+        <div class="row g-3 mb-3">
+
+
+          <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="bg-white shadow-sm p-3 rounded d-flex justify-content-start align-items-center"
+              style="height:100px;">
+              <div class="rounded-circle d-flex justify-content-center align-items-center me-3"
+                style="width: 48px; height: 48px; background-color: #2563eb;">
+                <i class="fa fa-file-text text-white" style="font-size: 20px;"></i>
+              </div>
+              <div>
+                <h5 class="mb-0 fw-bold text-dark pt-1">$4,200.00</h5>
+                <small class="text-muted fw-bold">Total Payable</small>
               </div>
             </div>
           </div>
-          <div class="col-md-4 grid-margin stretch-card">
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Sessions by channel</h4>
-                <div class="aligner-wrapper py-3">
-                  <div class="doughnut-chart-height">
-                    <canvas id="sessionsDoughnutChart" height="210"></canvas>
-                  </div>
-                  <div class="wrapper d-flex flex-column justify-content-center absolute absolute-center">
-                    <h2 class="text-center mb-0 font-weight-bold">8.234</h2>
-                    <small class="d-block text-center text-muted  font-weight-semibold mb-0">Total Leads</small>
-                  </div>
-                </div>
-                <div class="wrapper mt-4 d-flex flex-wrap align-items-cente">
-                  <div class="d-flex">
-                    <span class="square-indicator bg-danger ms-2"></span>
-                    <p class="mb-0 ms-2">Assigned</p>
-                  </div>
-                  <div class="d-flex">
-                    <span class="square-indicator bg-success ms-2"></span>
-                    <p class="mb-0 ms-2">Not Assigned</p>
-                  </div>
-                  <div class="d-flex">
-                    <span class="square-indicator bg-warning ms-2"></span>
-                    <p class="mb-0 ms-2">Reassigned</p>
-                  </div>
-                </div>
+          <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="bg-white shadow-sm p-3 rounded d-flex justify-content-start align-items-center"
+              style="height:100px;">
+              <div class="rounded-circle d-flex justify-content-center align-items-center me-3"
+                style="width: 48px; height: 48px; background-color: orange;">
+                <i class="fa fa-file-text text-white" style="font-size: 20px;"></i>
+              </div>
+              <div>
+                <h5 class="mb-0 fw-bold text-dark pt-1">$4,200.00</h5>
+                <small class="text-muted fw-bold">Total Paid</small>
               </div>
             </div>
           </div>
+          <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="bg-white shadow-sm p-3 rounded d-flex justify-content-start align-items-center"
+              style="height:100px;">
+              <div class="rounded-circle d-flex justify-content-center align-items-center me-3"
+                style="width: 48px; height: 48px; background-color: #000;">
+                <i class="fa fa-file-text text-white" style="font-size: 20px;"></i>
+              </div>
+              <div>
+                <h5 class="mb-0 fw-bold text-dark pt-1">$4,200.00</h5>
+                <small class="text-muted fw-bold">Total Due</small>
+              </div>
+            </div>
+          </div>
+
+          <div class=" col-12 bg-white shadow-sm p-3 rounded">
+            <div class="">
+              <h4 class="fw-semibold">Semester’s Grade</h4>
+              <hr>
+
+              <div class="vertical ">
+                <div class="progress-bar">
+                  <div class="progress-track">
+                    <div class="progress-fill">
+                      <span>100%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="progress-bar">
+                  <div class="progress-track">
+                    <div class="progress-fill">
+                      <span>75%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="progress-bar">
+                  <div class="progress-track">
+                    <div class="progress-fill">
+                      <span>60%</span>
+                    </div>
+
+                  </div>
+                </div>
+
+
+
+                <div class="progress-bar">
+                  <div class="progress-track">
+                    <div class="progress-fill">
+                      <span>34%</span>
+                    </div>
+                  </div>
+                  
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="bg-white shadow-sm p-3 rounded">
+              <h4 class="fw-semibold">Summary</h4>
+              <hr>
+              <table class="table table-borderless table-sm mb-0">
+                <tbody>
+                  <tr>
+                    <td class="fw-semibold"> <i class="fa fa-star me-2 text-muted"></i>GPA</td>
+                    <td class="text-start fw-bold">: &nbsp; &nbsp; 3.36</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-semibold"> <i class="fa fa-file-text me-2 text-muted"></i>Avarage Grade</td>
+                    <td class="text-start fw-bold">: &nbsp; &nbsp; B</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-semibold"> <i class="fa fa-file-text me-2 text-muted"></i>Total Credit</td>
+                    <td class="text-start fw-bold">: &nbsp; &nbsp; 138</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-semibold"> <i class="fa fa-file-text me-2 text-muted"></i>Credit Examped</td>
+                    <td class="text-start fw-bold">: &nbsp; &nbsp; 0</td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="bg-white shadow-sm p-3 rounded">
+              <h4 class="fw-semibold">Attendance</h4>
+              <hr>
+              <div class="attendence-progress blue">
+                <span class="attendence-progress-left">
+                  <span class="attendence-progress-bar"></span>
+                </span>
+                <span class="attendence-progress-right">
+                  <span class="attendence-progress-bar"></span>
+                </span>
+                <div class="attendence-progress-value">90%</div>
+              </div>
+
+              <div class="pt-4">
+                <p class="progress-title">Present</p>
+                <div class="progress pink">
+                  <div class="progress-bar" style="width:90%; background:#ff4b7d;">
+                    <div class="progress-value">90%</div>
+                  </div>
+                </div>
+
+                <p class="progress-title">Absense</p>
+                <div class="progress green">
+                  <div class="progress-bar" style="width:75%; background:#5fad56;">
+                    <div class="progress-value">75%</div>
+                  </div>
+                </div>
+
+                <p class="progress-title">Permission</p>
+                <div class="progress yellow">
+                  <div class="progress-bar" style="width:60%; background:#e8d324;">
+                    <div class="progress-value">60%</div>
+                  </div>
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+
+
         </div>
-        <!-- Quick Action Toolbar Starts-->
-        <div class="row quick-action-toolbar">
-          <div class="col-md-12 grid-margin">
-            <div class="card">
-              <div class="card-header d-block d-md-flex">
-                <h5 class="mb-0">Quick Actions</h5>
-                <p class="ms-auto mb-0">How are your active users trending overtime?<i class="icon-bulb"></i></p>
-              </div>
-              <div class="d-md-flex row m-0 quick-action-btns" role="group" aria-label="Quick action buttons">
-                <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
-                  <button type="button" class="btn px-0"> <i class="icon-user me-2"></i> Add Client</button>
-                </div>
-                <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
-                  <button type="button" class="btn px-0"><i class="icon-docs me-2"></i> Create Quote</button>
-                </div>
-                <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
-                  <button type="button" class="btn px-0"><i class="icon-folder me-2"></i> Enter Payment</button>
-                </div>
-                <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
-                  <button type="button" class="btn px-0"><i class="icon-book-open me-2"></i>Create Invoice</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Quick Action Toolbar Ends-->
-        <div class="row">
-          <div class="col-md-12 grid-margin">
-            <div class="card">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="d-sm-flex align-items-baseline report-summary-header">
-                      <h5 class="font-weight-semibold">Report Summary</h5> <span class="ms-auto">Updated Report</span> <button class="btn btn-icons border-0 p-2"><i class="icon-refresh"></i></button>
-                    </div>
-                  </div>
-                </div>
-                <div class="row report-inner-cards-wrapper">
-                  <div class=" col-md -6 col-xl report-inner-card">
-                    <div class="inner-card-text">
-                      <span class="report-title">EXPENSE</span>
-                      <h4>$32123</h4>
-                      <span class="report-count"> 2 Reports</span>
-                    </div>
-                    <div class="inner-card-icon bg-success">
-                      <i class="icon-rocket"></i>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-xl report-inner-card">
-                    <div class="inner-card-text">
-                      <span class="report-title">PURCHASE</span>
-                      <h4>95,458</h4>
-                      <span class="report-count"> 3 Reports</span>
-                    </div>
-                    <div class="inner-card-icon bg-danger">
-                      <i class="icon-briefcase"></i>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-xl report-inner-card">
-                    <div class="inner-card-text">
-                      <span class="report-title">QUANTITY</span>
-                      <h4>2650</h4>
-                      <span class="report-count"> 5 Reports</span>
-                    </div>
-                    <div class="inner-card-icon bg-warning">
-                      <i class="icon-globe-alt"></i>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-xl report-inner-card">
-                    <div class="inner-card-text">
-                      <span class="report-title">RETURN</span>
-                      <h4>25,542</h4>
-                      <span class="report-count"> 9 Reports</span>
-                    </div>
-                    <div class="inner-card-icon bg-primary">
-                      <i class="icon-diamond"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 grid-margin stretch-card">
-            <div class="card">
-              <div class="card-body">
-                <div class="d-sm-flex align-items-center mb-4">
-                  <h4 class="card-title mb-sm-0">Products Inventory</h4>
-                  <a href="#" class="text-dark ms-auto mb-3 mb-sm-0"> View all Products</a>
-                </div>
-                <div class="table-responsive border rounded p-1">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th class="font-weight-bold">Store ID</th>
-                        <th class="font-weight-bold">Amount</th>
-                        <th class="font-weight-bold">Gateway</th>
-                        <th class="font-weight-bold">Created at</th>
-                        <th class="font-weight-bold">Paid at</th>
-                        <th class="font-weight-bold">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <img class="img-sm rounded-circle" src="assets/images/faces/face1.jpg" alt="profile image"> Katie Holmes
-                        </td>
-                        <td>$3621</td>
-                        <td><img src="assets/images/dashboard/alipay.png" alt="alipay" class="gateway-icon me-2"> alipay</td>
-                        <td>04 Jun 2019</td>
-                        <td>18 Jul 2019</td>
-                        <td>
-                          <div class="badge badge-success p-2">Paid</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <img class="img-sm rounded-circle" src="assets/images/faces/face2.jpg" alt="profile image"> Minnie Copeland
-                        </td>
-                        <td>$6245</td>
-                        <td><img src="assets/images/dashboard/paypal.png" alt="alipay" class="gateway-icon me-2"> Paypal</td>
-                        <td>25 Sep 2019</td>
-                        <td>07 Oct 2019</td>
-                        <td>
-                          <div class="badge badge-danger p-2">Pending</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <img class="img-sm rounded-circle" src="assets/images/faces/face3.jpg" alt="profile image"> Rodney Sims
-                        </td>
-                        <td>$9265</td>
-                        <td><img src="assets/images/dashboard/alipay.png" alt="alipay" class="gateway-icon me-2"> alipay</td>
-                        <td>12 dec 2019</td>
-                        <td>26 Aug 2019</td>
-                        <td>
-                          <div class="badge badge-warning p-2">Failed</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <img class="img-sm rounded-circle" src="assets/images/faces/face4.jpg" alt="profile image"> Carolyn Barker
-                        </td>
-                        <td>$2263</td>
-                        <td><img src="assets/images/dashboard/alipay.png" alt="alipay" class="gateway-icon me-2"> alipay</td>
-                        <td>30 Sep 2019</td>
-                        <td>20 Oct 2019</td>
-                        <td>
-                          <div class="badge badge-success p-2">Paid</div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div class="d-flex mt-4 flex-wrap align-items-center">
-                  <p class="text-muted mb-sm-0">Showing 1 to 10 of 57 entries</p>
-                  <nav class="ms-auto">
-                    <ul class="pagination separated pagination-info mb-sm-0">
-                      <li class="page-item"><a href="#" class="page-link"><i class="icon-arrow-left"></i></a></li>
-                      <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                      <li class="page-item"><a href="#" class="page-link">2</a></li>
-                      <li class="page-item"><a href="#" class="page-link">3</a></li>
-                      <li class="page-item"><a href="#" class="page-link">4</a></li>
-                      <li class="page-item"><a href="#" class="page-link"><i class="icon-arrow-right"></i></a></li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
+
       </div>
-      <!-- content-wrapper ends -->
-      <!-- partial:partials/_footer.html -->
-      <!-- <footer class="footer">
-        <div class="d-sm-flex justify-content-center justify-content-sm-between">
-          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2024 Stellar. All rights reserved. <a href="#"> Terms of use</a><a href="#">Privacy Policy</a></span>
-          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="icon-heart text-danger"></i></span>
+      <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="bg-white shadow-sm rounded p-3 mb-3">
+          <h4 class="fw-semibold">Announcements</h4>
+          <hr>
+          <div class="announcement">
+            <ul>
+              <li><span class="me-2 text-dark">●</span>মানোন্নয়ন পরীক্ষার (Improvement Exam) ফরম পূরণের সময় 20 মে
+                পর্যন্ত বৃদ্ধি। ফরম পূরণের সময় 20 মে পর্যন্ত বৃদ্ধি। </li>
+              <li><span class="me-2 text-dark">●</span>মানোন্নয়ন পরীক্ষার (Improvement Exam) ফরম পূরণের সময় 20 মে
+                পর্যন্ত বৃদ্ধি। ফরম পূরণের সময় 20 মে পর্যন্ত বৃদ্ধি। </li>
+              <li><span class="me-2 text-dark">●</span>মানোন্নয়ন পরীক্ষার (Improvement Exam) ফরম পূরণের সময় 20 মে
+                পর্যন্ত বৃদ্ধি। ফরম পূরণের সময় 20 মে পর্যন্ত বৃদ্ধি। </li>
+              <li><span class="me-2 text-dark">●</span>মানোন্নয়ন পরীক্ষার (Improvement Exam) ফরম পূরণের সময় 20 মে
+                পর্যন্ত বৃদ্ধি। ফরম পূরণের সময় 20 মে পর্যন্ত বৃদ্ধি। </li>
+              <li><span class="me-2 text-dark">●</span>মানোন্নয়ন পরীক্ষার (Improvement Exam) ফরম পূরণের সময় 20 মে
+                পর্যন্ত বৃদ্ধি। ফরম পূরণের সময় 20 মে পর্যন্ত বৃদ্ধি। </li>
+              <li><span class="me-2 text-dark">●</span>মানোন্নয়ন পরীক্ষার (Improvement Exam) ফরম পূরণের সময় 20 মে
+                পর্যন্ত বৃদ্ধি। ফরম পূরণের সময় 20 মে পর্যন্ত বৃদ্ধি। </li>
+              <li><span class="me-2 text-dark">●</span>মানোন্নয়ন পরীক্ষার (Improvement Exam) ফরম পূরণের সময় 20 মে
+                পর্যন্ত বৃদ্ধি। ফরম পূরণের সময় 20 মে পর্যন্ত বৃদ্ধি। </li>
+
+
+            </ul>
+          </div>
         </div>
-      </footer> -->
-      <!-- partial -->
+
+        <div class="bg-white shadow-sm p-3 rounded">
+          <h4 class="fw-semibold">Today's Class Update</h4>
+          <hr>
+          <ul class="list-unstyled small mb-0">
+            <li>
+              <span class="fw-semibold">Computer Science</span> <br>
+              <span class="text-muted me-2">Today, 9:00 AM</span>
+            </li>
+            <li>
+              <span class="fw-semibold">Computer Science</span> <br>
+              <span class="text-muted me-2">Today, 9:00 AM</span>
+            </li>
+            <li>
+              <span class="fw-semibold">Computer Science</span> <br>
+              <span class="text-muted me-2">Today, 9:00 AM</span>
+            </li>
+            <li>
+              <span class="fw-semibold">Computer Science</span> <br>
+              <span class="text-muted me-2">Today, 9:00 AM</span>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
     </div>
-    <!-- main-panel ends -->
-    </template>
-    
-    <script>
-    import Logo from '~/components/Logo.vue'
-    
-    export default {
-      components: {
-        Logo
-      }
+
+
+
+
+  </div>
+
+</template>
+<script>
+export default {
+  mounted() {
+    // DOM is ready
+    this.updateProgressBars();
+  },
+  methods: {
+    updateProgressBars() {
+      const spans = document.querySelectorAll('.vertical .progress-fill span');
+      spans.forEach(span => {
+        const percent = span.textContent.trim(); // "70%"
+        const value = parseFloat(percent.replace('%', '')); // 70
+        const pTop = (100 - value) + "%";
+
+        const parent = span.parentElement;
+        parent.style.height = percent;
+        parent.style.top = pTop;
+      });
     }
-    </script>
-    
-    <style>
-    .container {
-      margin: 0 auto;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    
-    .title {
-      font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-        'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      display: block;
-      font-weight: 300;
-      font-size: 100px;
-      color: #35495e;
-      letter-spacing: 1px;
-    }
-    
-    .subtitle {
-      font-weight: 300;
-      font-size: 42px;
-      color: #526488;
-      word-spacing: 5px;
-      padding-bottom: 15px;
-    }
-    
-    .links {
-      padding-top: 15px;
-    }
-    </style>
-    
+  }
+};
+</script>

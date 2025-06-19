@@ -3,10 +3,10 @@
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
       <a class="navbar-brand brand-logo" href="#">
-        <img src="/images/white-logo.png" alt="logo" class="logo-dark" />
-        <img src="/images/white-logo.png" alt="logo-light" class="logo-light">
+        <img src="/images/logo.png" alt="logo" class="logo-dark" />
+        <img src="/images/logo.png" alt="logo-light" class="logo-light">
       </a>
-      <a class="navbar-brand brand-logo-mini" href="#"><img src="/images/white-logo.png" alt="logo" /></a>
+      <a class="navbar-brand brand-logo-mini" href="#"><img src="/images/logo.png" alt="logo" /></a>
       <button @click="toggleSidebar" class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
         <span class="icon-menu"></span>
       </button>
@@ -57,8 +57,6 @@
             </a>
           </div>
         </li>
-
-        <!-- <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown "> -->
         <li class="nav-item dropdown  user-dropdown ">
           <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-bs-toggle="dropdown"
             aria-expanded="false">
@@ -94,9 +92,6 @@
     <!-- partials/sidebar -->
     <nav class="sidebar sidebar-offcanvas" :class="{ active: isSidebarActive }" id="sidebar">
       <ul class="nav pt-4">
-        <!-- <li class="nav-item navbar-brand-mini-wrapper">
-          <a class="nav-link navbar-brand brand-logo-mini" href="#"><i class="dropdown-item-icon icon-user"></i></a>
-        </li> -->
         <li class="nav-item nav-profile">
           <a href="#" class="nav-link">
             <div class="profile-image">
@@ -105,119 +100,139 @@
             </div>
             <div class="text-wrapper">
               <p class="profile-name">{{authuser.name}}</p>
-              <!-- <p class="designation">Administrator</p> -->
             </div>
-            <!-- <div class="icon-container">
-              <i class="icon-bubbles"></i>
-              <div class="dot-indicator bg-danger"></div>
-            </div> -->
           </a>
         </li>
         <li class="nav-item">
           <nuxt-link class="nav-link" to="/profile">
-            <span class="menu-title">Profile</span>
+            <span class="menu-title" @click="taggleMenu()">Profile</span>
             <i class="icon-user menu-icon"></i>
           </nuxt-link>
         </li>
         <li class="nav-item">
-          <nuxt-link class="nav-link" to="/dashboard">
-            <span class="menu-title">Dashboard</span>
-            <i class="icon-screen-desktop menu-icon"></i>
+          <nuxt-link class="nav-link" to="/staffs-service-feedback">
+            <span class="menu-title" @click="taggleMenu()">Staffs Feedback</span>
+            <i class="fa fa-comment	 menu-icon"></i>
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/teachers-service-feedback">
+            <span class="menu-title" @click="taggleMenu()">Teachers Feedback</span>
+            <i class="fa fa-comment menu-icon"></i>
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/Payment">
+            <span class="menu-title" @click="taggleMenu()">Pay Now</span>
+            <i class="fa fa-credit-card menu-icon"></i>
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/download-form">
+            <span class="menu-title" @click="taggleMenu()">Download Form</span>
+            <i class="fa fa-download menu-icon"></i>
           </nuxt-link>
         </li>
         <li class="nav-item">
           <nuxt-link class="nav-link" to="/account-details">
-            <span class="menu-title">Accounts Details</span>
-            <i class="icon-screen-desktop menu-icon"></i>
+            <span class="menu-title" @click="taggleMenu()">Accounts Details</span>
+            <i class="fa fa-university menu-icon" aria-hidden="true"></i>
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/hostel-account-details">
+            <span class="menu-title" @click="taggleMenu()">Hostel Accounts Details</span>
+            <i class="fa fa-university menu-icon" aria-hidden="true"></i>
           </nuxt-link>
         </li>
         <li class="nav-item">
           <nuxt-link class="nav-link" to="/academic-result">
-            <span class="menu-title">Academic Result</span>
-            <i class="icon-screen-desktop menu-icon"></i>
+            <span class="menu-title" @click="taggleMenu()">Academic Result</span>
+            <i class="fa fa-book menu-icon"></i>
           </nuxt-link>
         </li>
-        <!-- <li class="nav-item nav-category"><span class="nav-link">UI Elements</span></li> -->
-        <!-- <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-            <span class="menu-title">Basic UI Elements</span>
-            <i class="icon-layers menu-icon"></i>
-          </a>
-          <div class="collapse" id="ui-basic">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-            </ul>
-          </div>
-        </li> -->
-        <!-- <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-            <span class="menu-title">Icons</span>
-            <i class="icon-globe menu-icon"></i>
-          </a>
-          <div class="collapse" id="icons">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="pages/icons/font-awesome.html">Font Awesome</a></li>
-            </ul>
-          </div>
-        </li> -->
-        <!-- <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#forms" aria-expanded="false" aria-controls="forms">
-            <span class="menu-title">Forms</span>
-            <i class="icon-book-open menu-icon"></i>
-          </a>
-          <div class="collapse" id="forms">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="pages/forms/basic_elements.html">Form Elements</a></li>
-            </ul>
-          </div>
-        </li> -->
-        <!-- <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-            <span class="menu-title">Charts</span>
-            <i class="icon-chart menu-icon"></i>
-          </a>
-          <div class="collapse" id="charts">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
-            </ul>
-          </div>
-        </li> -->
-        <!-- <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-            <span class="menu-title">Tables</span>
-            <i class="icon-grid menu-icon"></i>
-          </a>
-          <div class="collapse" id="tables">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic Table</a></li>
-            </ul>
-          </div>
-        </li> -->
-        <li class="nav-item nav-category"><span class="nav-link">Extra Pages</span></li>
+
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/mail-account">
+            <span class="menu-title" @click="taggleMenu()">DIU Mail Account</span>
+            <i class="fa fa-envelope menu-icon"></i>
+          </nuxt-link>
+        </li>
+
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/support-ticket">
+            <span class="menu-title" @click="taggleMenu()">IT Support Ticket</span>
+            <i class="fa fa-life-ring menu-icon"></i>
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/attendance">
+            <span class="menu-title" @click="taggleMenu()">Class Attendance</span>
+            <i class="fa fa-clock-o menu-icon"></i>
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/education-materials">
+            <span class="menu-title" @click="taggleMenu()">Education Meterials</span>
+            <i class="fa fa-graduation-cap menu-icon"></i>
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/blog-post">
+            <span class="menu-title" @click="taggleMenu()">Blog Post</span>
+            <i class="fa fa-newspaper-o menu-icon"></i>
+          </nuxt-link>
+        </li>
+
+
+
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-            <span class="menu-title">User Pages</span>
+            <span class="menu-title">Improvement</span>
             <i class="icon-disc menu-icon"></i>
           </a>
           <div class="collapse" id="auth">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="#"> Blank Page </a></li>
-              <li class="nav-item"> <a class="nav-link" href="#"> Login </a></li>
-              <li class="nav-item"> <a class="nav-link" href="#"> Register </a></li>
-              <li class="nav-item"> <a class="nav-link" href="#"> 404 </a></li>
-              <li class="nav-item"> <a class="nav-link" href="#"> 500 </a></li>
+
+              <li class="nav-item"> <nuxt-link class="nav-link" to="/improvement/formfillup"> Eligible Subject </nuxt-link></li>
+              <li class="nav-item"> <nuxt-link class="nav-link" to="/improvement/result"> Improvement Result </nuxt-link></li>
             </ul>
           </div>
         </li>
-        <!-- <li class="nav-item nav-category"><span class="nav-link">Help</span></li>
         <li class="nav-item">
-          <a class="nav-link" href="../../docs/documentation.html" target="_blank">
-            <span class="menu-title">Documentation</span>
-            <i class="icon-folder-alt menu-icon"></i>
+          <a class="nav-link" data-bs-toggle="collapse" href="#tolet" aria-expanded="false" aria-controls="tolet">
+            <span class="menu-title">To-let</span>
+            <i class="fa fa-bed menu-icon"></i>
           </a>
-        </li> -->
+          <div class="collapse" id="tolet">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <nuxt-link class="nav-link" to="/to-let/publish">T0-Let Publish</nuxt-link>
+              </li>
+              <li class="nav-item">
+                <nuxt-link class="nav-link" to="/to-let/find">To-let Find</nuxt-link>
+              </li>
+              <li class="nav-item">
+                <nuxt-link class="nav-link" to="/to-let/request">To-let Request</nuxt-link>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/campus-adda">
+            <span class="menu-title" @click="taggleMenu()">Campus Adda</span>
+            <i class="fa fa-user-secret menu-icon"></i>
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/blood_bank">
+            <span class="menu-title" @click="taggleMenu()">Blood Donate</span>
+            <i class="fa fa-suitcase menu-icon"></i>
+          </nuxt-link>
+        </li>
+
       </ul>
     </nav>
     <div class="main-panel">
@@ -228,7 +243,6 @@
 
 </div>
 <!-- page-body-wrapper ends -->
-<!-- <Footer /> -->
 </div>
  </template>
 
@@ -246,7 +260,7 @@ export default {
   // }
   data() {
     return {
-      authuser: "",    
+      authuser: "",
       isSidebarActive: false,
     };
   },
@@ -275,24 +289,32 @@ export default {
       body.classList.toggle('sidebar-hidden');
     } else {
       body.classList.toggle('sidebar-icon-only');
-      
+
     }
     },
     toggleSidebarMobile()
     {
-      // alert("toggleSidebarMobile");
       this.isSidebarActive = !this.isSidebarActive;
+    },
+    taggleMenu() {
+      this.isSidebarActive = false;
     }
-   
+
   }
 }
 </script>
 <style>
 .active-link {
   background-color: #e6f7ff;
-  /* light blue or your choice */
   color: #000;
-  /* optional text color */
+}
+.nuxt-link-exact-active .menu-icon{
+  color: #38ce3c !important;
+  font-weight: bolder;
+}
+.nuxt-link-exact-active{
+  color: #38ce3c !important;
+  font-weight: bolder;
 }
 
 @media (max-width: 1200px) {
@@ -308,4 +330,30 @@ export default {
 
   }
 }
+
+/* Chrome, Edge, Safari */
+/* ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #38ce3c, #1e8f2d);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #1e8f2d, #155c1f);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+} */
+
+
 </style>

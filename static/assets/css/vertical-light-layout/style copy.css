@@ -16494,7 +16494,6 @@ body,
 html {
   overflow-x: hidden;
   padding-right: 0 !important;
-   background: #ecf0f4 !important;
 }
 
 *:-moz-full-screen,
@@ -16505,9 +16504,6 @@ html {
 
 .container-scroller {
   overflow: hidden;
-  /* margin:  0px 15px !important; */
-
-
 }
 
 pre {
@@ -17458,7 +17454,9 @@ code {
   color: currentColor;
 }
 
-
+.btn-group .btn + .btn, .btn-group .wizard > .actions a + .btn, .wizard > .actions .btn-group a + .btn, .btn-group .wizard > .actions .btn + a, .wizard > .actions .btn-group .btn + a, .btn-group .wizard > .actions a + a, .wizard > .actions .btn-group a + a, .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel + .btn, .btn-group .swal2-modal .swal2-buttonswrapper .wizard > .actions .swal2-styled.swal2-cancel + a, .wizard > .actions .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel + a, .swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled.swal2-cancel + .btn, .swal2-modal .swal2-buttonswrapper .btn-group .wizard > .actions .swal2-styled.swal2-cancel + a, .wizard > .actions .swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled.swal2-cancel + a, .btn-group .swal2-modal .swal2-buttonswrapper .btn + .swal2-styled.swal2-cancel, .btn-group .swal2-modal .swal2-buttonswrapper .wizard > .actions a + .swal2-styled.swal2-cancel, .wizard > .actions .btn-group .swal2-modal .swal2-buttonswrapper a + .swal2-styled.swal2-cancel, .swal2-modal .swal2-buttonswrapper .btn-group .btn + .swal2-styled.swal2-cancel, .swal2-modal .swal2-buttonswrapper .btn-group .wizard > .actions a + .swal2-styled.swal2-cancel, .wizard > .actions .swal2-modal .swal2-buttonswrapper .btn-group a + .swal2-styled.swal2-cancel, .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel + .swal2-styled.swal2-cancel, .swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled.swal2-cancel + .swal2-styled.swal2-cancel, .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm + .btn, .btn-group .swal2-modal .swal2-buttonswrapper .wizard > .actions .swal2-styled.swal2-confirm + a, .wizard > .actions .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm + a, .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm + .swal2-styled.swal2-cancel, .swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled.swal2-confirm + .btn, .swal2-modal .swal2-buttonswrapper .btn-group .wizard > .actions .swal2-styled.swal2-confirm + a, .wizard > .actions .swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled.swal2-confirm + a, .swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled.swal2-confirm + .swal2-styled.swal2-cancel, .btn-group .swal2-modal .swal2-buttonswrapper .btn + .swal2-styled.swal2-confirm, .btn-group .swal2-modal .swal2-buttonswrapper .wizard > .actions a + .swal2-styled.swal2-confirm, .wizard > .actions .btn-group .swal2-modal .swal2-buttonswrapper a + .swal2-styled.swal2-confirm, .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel + .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .btn-group .btn + .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .btn-group .wizard > .actions a + .swal2-styled.swal2-confirm, .wizard > .actions .swal2-modal .swal2-buttonswrapper .btn-group a + .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled.swal2-cancel + .swal2-styled.swal2-confirm, .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm + .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled.swal2-confirm + .swal2-styled.swal2-confirm, .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled + .btn, .btn-group .swal2-modal .swal2-buttonswrapper .wizard > .actions .swal2-styled + a, .wizard > .actions .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled + a, .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled + .swal2-styled.swal2-cancel, .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled + .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled + .btn, .swal2-modal .swal2-buttonswrapper .btn-group .wizard > .actions .swal2-styled + a, .wizard > .actions .swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled + a, .swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled + .swal2-styled.swal2-cancel, .swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled + .swal2-styled.swal2-confirm, .btn-group .swal2-modal .swal2-buttonswrapper .btn + .swal2-styled, .btn-group .swal2-modal .swal2-buttonswrapper .wizard > .actions a + .swal2-styled, .wizard > .actions .btn-group .swal2-modal .swal2-buttonswrapper a + .swal2-styled, .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel + .swal2-styled, .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm + .swal2-styled, .swal2-modal .swal2-buttonswrapper .btn-group .btn + .swal2-styled, .swal2-modal .swal2-buttonswrapper .btn-group .wizard > .actions a + .swal2-styled, .wizard > .actions .swal2-modal .swal2-buttonswrapper .btn-group a + .swal2-styled, .swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled.swal2-cancel + .swal2-styled, .swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled.swal2-confirm + .swal2-styled, .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled + .swal2-styled, .swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled + .swal2-styled, .btn-group .ajax-upload-dragdrop .ajax-file-upload + .btn, .btn-group .ajax-upload-dragdrop .wizard > .actions .ajax-file-upload + a, .wizard > .actions .btn-group .ajax-upload-dragdrop .ajax-file-upload + a, .btn-group .ajax-upload-dragdrop .swal2-modal .swal2-buttonswrapper .ajax-file-upload + .swal2-styled.swal2-cancel, .swal2-modal .swal2-buttonswrapper .btn-group .ajax-upload-dragdrop .ajax-file-upload + .swal2-styled.swal2-cancel, .btn-group .ajax-upload-dragdrop .swal2-modal .swal2-buttonswrapper .ajax-file-upload + .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .btn-group .ajax-upload-dragdrop .ajax-file-upload + .swal2-styled.swal2-confirm, .btn-group .ajax-upload-dragdrop .swal2-modal .swal2-buttonswrapper .ajax-file-upload + .swal2-styled, .swal2-modal .swal2-buttonswrapper .btn-group .ajax-upload-dragdrop .ajax-file-upload + .swal2-styled, .ajax-upload-dragdrop .btn-group .ajax-file-upload + .btn, .ajax-upload-dragdrop .btn-group .wizard > .actions .ajax-file-upload + a, .wizard > .actions .ajax-upload-dragdrop .btn-group .ajax-file-upload + a, .ajax-upload-dragdrop .btn-group .swal2-modal .swal2-buttonswrapper .ajax-file-upload + .swal2-styled.swal2-cancel, .swal2-modal .swal2-buttonswrapper .ajax-upload-dragdrop .btn-group .ajax-file-upload + .swal2-styled.swal2-cancel, .ajax-upload-dragdrop .btn-group .swal2-modal .swal2-buttonswrapper .ajax-file-upload + .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .ajax-upload-dragdrop .btn-group .ajax-file-upload + .swal2-styled.swal2-confirm, .ajax-upload-dragdrop .btn-group .swal2-modal .swal2-buttonswrapper .ajax-file-upload + .swal2-styled, .swal2-modal .swal2-buttonswrapper .ajax-upload-dragdrop .btn-group .ajax-file-upload + .swal2-styled, .btn-group .ajax-upload-dragdrop .btn + .ajax-file-upload, .btn-group .ajax-upload-dragdrop .wizard > .actions a + .ajax-file-upload, .wizard > .actions .btn-group .ajax-upload-dragdrop a + .ajax-file-upload, .btn-group .ajax-upload-dragdrop .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel + .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .btn-group .ajax-upload-dragdrop .swal2-styled.swal2-cancel + .ajax-file-upload, .btn-group .ajax-upload-dragdrop .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm + .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .btn-group .ajax-upload-dragdrop .swal2-styled.swal2-confirm + .ajax-file-upload, .btn-group .ajax-upload-dragdrop .swal2-modal .swal2-buttonswrapper .swal2-styled + .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .btn-group .ajax-upload-dragdrop .swal2-styled + .ajax-file-upload, .ajax-upload-dragdrop .btn-group .btn + .ajax-file-upload, .ajax-upload-dragdrop .btn-group .wizard > .actions a + .ajax-file-upload, .wizard > .actions .ajax-upload-dragdrop .btn-group a + .ajax-file-upload, .ajax-upload-dragdrop .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel + .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .ajax-upload-dragdrop .btn-group .swal2-styled.swal2-cancel + .ajax-file-upload, .ajax-upload-dragdrop .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm + .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .ajax-upload-dragdrop .btn-group .swal2-styled.swal2-confirm + .ajax-file-upload, .ajax-upload-dragdrop .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled + .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .ajax-upload-dragdrop .btn-group .swal2-styled + .ajax-file-upload, .btn-group .ajax-upload-dragdrop .ajax-file-upload + .ajax-file-upload, .ajax-upload-dragdrop .btn-group .ajax-file-upload + .ajax-file-upload, .fc .fc-button-group .btn + .btn, .fc .fc-button-group .wizard > .actions a + .btn, .wizard > .actions .fc .fc-button-group a + .btn, .fc .fc-button-group .wizard > .actions .btn + a, .wizard > .actions .fc .fc-button-group .btn + a, .fc .fc-button-group .wizard > .actions a + a, .wizard > .actions .fc .fc-button-group a + a, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel + .btn, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .wizard > .actions .swal2-styled.swal2-cancel + a, .wizard > .actions .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel + a, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled.swal2-cancel + .btn, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .wizard > .actions .swal2-styled.swal2-cancel + a, .wizard > .actions .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled.swal2-cancel + a, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .btn + .swal2-styled.swal2-cancel, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .wizard > .actions a + .swal2-styled.swal2-cancel, .wizard > .actions .fc .fc-button-group .swal2-modal .swal2-buttonswrapper a + .swal2-styled.swal2-cancel, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .btn + .swal2-styled.swal2-cancel, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .wizard > .actions a + .swal2-styled.swal2-cancel, .wizard > .actions .swal2-modal .swal2-buttonswrapper .fc .fc-button-group a + .swal2-styled.swal2-cancel, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel + .swal2-styled.swal2-cancel, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled.swal2-cancel + .swal2-styled.swal2-cancel, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm + .btn, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .wizard > .actions .swal2-styled.swal2-confirm + a, .wizard > .actions .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm + a, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm + .swal2-styled.swal2-cancel, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled.swal2-confirm + .btn, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .wizard > .actions .swal2-styled.swal2-confirm + a, .wizard > .actions .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled.swal2-confirm + a, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled.swal2-confirm + .swal2-styled.swal2-cancel, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .btn + .swal2-styled.swal2-confirm, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .wizard > .actions a + .swal2-styled.swal2-confirm, .wizard > .actions .fc .fc-button-group .swal2-modal .swal2-buttonswrapper a + .swal2-styled.swal2-confirm, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel + .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .btn + .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .wizard > .actions a + .swal2-styled.swal2-confirm, .wizard > .actions .swal2-modal .swal2-buttonswrapper .fc .fc-button-group a + .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled.swal2-cancel + .swal2-styled.swal2-confirm, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm + .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled.swal2-confirm + .swal2-styled.swal2-confirm, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled + .btn, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .wizard > .actions .swal2-styled + a, .wizard > .actions .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled + a, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled + .swal2-styled.swal2-cancel, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled + .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled + .btn, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .wizard > .actions .swal2-styled + a, .wizard > .actions .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled + a, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled + .swal2-styled.swal2-cancel, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled + .swal2-styled.swal2-confirm, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .btn + .swal2-styled, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .wizard > .actions a + .swal2-styled, .wizard > .actions .fc .fc-button-group .swal2-modal .swal2-buttonswrapper a + .swal2-styled, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel + .swal2-styled, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm + .swal2-styled, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .btn + .swal2-styled, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .wizard > .actions a + .swal2-styled, .wizard > .actions .swal2-modal .swal2-buttonswrapper .fc .fc-button-group a + .swal2-styled, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled.swal2-cancel + .swal2-styled, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled.swal2-confirm + .swal2-styled, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled + .swal2-styled, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled + .swal2-styled, .fc .fc-button-group .ajax-upload-dragdrop .ajax-file-upload + .btn, .fc .fc-button-group .ajax-upload-dragdrop .wizard > .actions .ajax-file-upload + a, .wizard > .actions .fc .fc-button-group .ajax-upload-dragdrop .ajax-file-upload + a, .fc .fc-button-group .ajax-upload-dragdrop .swal2-modal .swal2-buttonswrapper .ajax-file-upload + .swal2-styled.swal2-cancel, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .ajax-upload-dragdrop .ajax-file-upload + .swal2-styled.swal2-cancel, .fc .fc-button-group .ajax-upload-dragdrop .swal2-modal .swal2-buttonswrapper .ajax-file-upload + .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .ajax-upload-dragdrop .ajax-file-upload + .swal2-styled.swal2-confirm, .fc .fc-button-group .ajax-upload-dragdrop .swal2-modal .swal2-buttonswrapper .ajax-file-upload + .swal2-styled, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .ajax-upload-dragdrop .ajax-file-upload + .swal2-styled, .ajax-upload-dragdrop .fc .fc-button-group .ajax-file-upload + .btn, .ajax-upload-dragdrop .fc .fc-button-group .wizard > .actions .ajax-file-upload + a, .wizard > .actions .ajax-upload-dragdrop .fc .fc-button-group .ajax-file-upload + a, .ajax-upload-dragdrop .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .ajax-file-upload + .swal2-styled.swal2-cancel, .swal2-modal .swal2-buttonswrapper .ajax-upload-dragdrop .fc .fc-button-group .ajax-file-upload + .swal2-styled.swal2-cancel, .ajax-upload-dragdrop .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .ajax-file-upload + .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .ajax-upload-dragdrop .fc .fc-button-group .ajax-file-upload + .swal2-styled.swal2-confirm, .ajax-upload-dragdrop .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .ajax-file-upload + .swal2-styled, .swal2-modal .swal2-buttonswrapper .ajax-upload-dragdrop .fc .fc-button-group .ajax-file-upload + .swal2-styled, .fc .fc-button-group .ajax-upload-dragdrop .btn + .ajax-file-upload, .fc .fc-button-group .ajax-upload-dragdrop .wizard > .actions a + .ajax-file-upload, .wizard > .actions .fc .fc-button-group .ajax-upload-dragdrop a + .ajax-file-upload, .fc .fc-button-group .ajax-upload-dragdrop .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel + .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .ajax-upload-dragdrop .swal2-styled.swal2-cancel + .ajax-file-upload, .fc .fc-button-group .ajax-upload-dragdrop .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm + .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .ajax-upload-dragdrop .swal2-styled.swal2-confirm + .ajax-file-upload, .fc .fc-button-group .ajax-upload-dragdrop .swal2-modal .swal2-buttonswrapper .swal2-styled + .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .ajax-upload-dragdrop .swal2-styled + .ajax-file-upload, .ajax-upload-dragdrop .fc .fc-button-group .btn + .ajax-file-upload, .ajax-upload-dragdrop .fc .fc-button-group .wizard > .actions a + .ajax-file-upload, .wizard > .actions .ajax-upload-dragdrop .fc .fc-button-group a + .ajax-file-upload, .ajax-upload-dragdrop .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel + .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .ajax-upload-dragdrop .fc .fc-button-group .swal2-styled.swal2-cancel + .ajax-file-upload, .ajax-upload-dragdrop .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm + .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .ajax-upload-dragdrop .fc .fc-button-group .swal2-styled.swal2-confirm + .ajax-file-upload, .ajax-upload-dragdrop .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled + .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .ajax-upload-dragdrop .fc .fc-button-group .swal2-styled + .ajax-file-upload, .fc .fc-button-group .ajax-upload-dragdrop .ajax-file-upload + .ajax-file-upload, .ajax-upload-dragdrop .fc .fc-button-group .ajax-file-upload + .ajax-file-upload, .btn-group .fc button + .btn, .btn-group .fc .wizard > .actions button + a, .wizard > .actions .btn-group .fc button + a, .btn-group .fc .swal2-modal .swal2-buttonswrapper button + .swal2-styled.swal2-cancel, .swal2-modal .swal2-buttonswrapper .btn-group .fc button + .swal2-styled.swal2-cancel, .btn-group .fc .swal2-modal .swal2-buttonswrapper button + .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .btn-group .fc button + .swal2-styled.swal2-confirm, .btn-group .fc .swal2-modal .swal2-buttonswrapper button + .swal2-styled, .swal2-modal .swal2-buttonswrapper .btn-group .fc button + .swal2-styled, .btn-group .fc .ajax-upload-dragdrop button + .ajax-file-upload, .ajax-upload-dragdrop .btn-group .fc button + .ajax-file-upload, .fc .btn-group button + .btn, .fc .btn-group .wizard > .actions button + a, .wizard > .actions .fc .btn-group button + a, .fc .btn-group .swal2-modal .swal2-buttonswrapper button + .swal2-styled.swal2-cancel, .swal2-modal .swal2-buttonswrapper .fc .btn-group button + .swal2-styled.swal2-cancel, .fc .btn-group .swal2-modal .swal2-buttonswrapper button + .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .fc .btn-group button + .swal2-styled.swal2-confirm, .fc .btn-group .swal2-modal .swal2-buttonswrapper button + .swal2-styled, .swal2-modal .swal2-buttonswrapper .fc .btn-group button + .swal2-styled, .fc .btn-group .ajax-upload-dragdrop button + .ajax-file-upload, .ajax-upload-dragdrop .fc .btn-group button + .ajax-file-upload, .fc .fc-button-group button + .btn, .fc .fc-button-group .wizard > .actions button + a, .wizard > .actions .fc .fc-button-group button + a, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper button + .swal2-styled.swal2-cancel, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group button + .swal2-styled.swal2-cancel, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper button + .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group button + .swal2-styled.swal2-confirm, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper button + .swal2-styled, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group button + .swal2-styled, .fc .fc-button-group .ajax-upload-dragdrop button + .ajax-file-upload, .ajax-upload-dragdrop .fc .fc-button-group button + .ajax-file-upload, .btn-group .fc .btn + button, .btn-group .fc .wizard > .actions a + button, .wizard > .actions .btn-group .fc a + button, .btn-group .fc .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel + button, .swal2-modal .swal2-buttonswrapper .btn-group .fc .swal2-styled.swal2-cancel + button, .btn-group .fc .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm + button, .swal2-modal .swal2-buttonswrapper .btn-group .fc .swal2-styled.swal2-confirm + button, .btn-group .fc .swal2-modal .swal2-buttonswrapper .swal2-styled + button, .swal2-modal .swal2-buttonswrapper .btn-group .fc .swal2-styled + button, .btn-group .fc .ajax-upload-dragdrop .ajax-file-upload + button, .ajax-upload-dragdrop .btn-group .fc .ajax-file-upload + button, .fc .btn-group .btn + button, .fc .btn-group .wizard > .actions a + button, .wizard > .actions .fc .btn-group a + button, .fc .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel + button, .swal2-modal .swal2-buttonswrapper .fc .btn-group .swal2-styled.swal2-cancel + button, .fc .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm + button, .swal2-modal .swal2-buttonswrapper .fc .btn-group .swal2-styled.swal2-confirm + button, .fc .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled + button, .swal2-modal .swal2-buttonswrapper .fc .btn-group .swal2-styled + button, .fc .btn-group .ajax-upload-dragdrop .ajax-file-upload + button, .ajax-upload-dragdrop .fc .btn-group .ajax-file-upload + button, .fc .fc-button-group .btn + button, .fc .fc-button-group .wizard > .actions a + button, .wizard > .actions .fc .fc-button-group a + button, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel + button, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled.swal2-cancel + button, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm + button, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled.swal2-confirm + button, .fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled + button, .swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled + button, .fc .fc-button-group .ajax-upload-dragdrop .ajax-file-upload + button, .ajax-upload-dragdrop .fc .fc-button-group .ajax-file-upload + button, .btn-group .fc button + button, .fc .btn-group button + button, .fc .fc-button-group button + button {
+  border-left: 0;
+}
 
 /*social buttons*/
 .btn-twitter {
@@ -20168,8 +20166,630 @@ dl li {
   margin: 0.125rem;
 }
 
+/* Pagination */
+.pagination .page-item .page-link, .jsgrid .jsgrid-pager .page-item .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .page-link,
+.jsgrid .jsgrid-pager .jsgrid-pager-page a {
+  border-color: #e8e5e5;
+  color: #343a40;
+  font-size: 0.875rem;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.pagination .page-item .page-link:focus, .jsgrid .jsgrid-pager .page-item .page-link:focus, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link:focus, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a:focus,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .page-link:focus,
+.jsgrid .jsgrid-pager .jsgrid-pager-page a:focus {
+  background: inherit;
+}
+.pagination .page-item .page-link i:before, .jsgrid .jsgrid-pager .page-item .page-link i:before, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link i:before, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a i:before,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .page-link i:before,
+.jsgrid .jsgrid-pager .jsgrid-pager-page a i:before {
+  font-size: inherit;
+  line-height: 1;
+  vertical-align: middle;
+}
+.pagination .page-item.active .page-link, .pagination .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a,
+.pagination .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-page a, .jsgrid .jsgrid-pager .page-item.active .page-link, .jsgrid .jsgrid-pager .page-item.active .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-item.active a,
+.jsgrid .jsgrid-pager .page-item.active .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .page-item.active a, .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button a,
+.jsgrid .jsgrid-pager .active.jsgrid-pager-page .page-link,
+.jsgrid .jsgrid-pager .active.jsgrid-pager-page a, .pagination .page-item:hover .page-link, .pagination .page-item:hover .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a,
+.pagination .page-item:hover .jsgrid .jsgrid-pager .jsgrid-pager-page a, .jsgrid .jsgrid-pager .page-item:hover .page-link, .jsgrid .jsgrid-pager .page-item:hover .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-item:hover a,
+.jsgrid .jsgrid-pager .page-item:hover .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .page-item:hover a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:hover .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:hover a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page:hover .page-link,
+.jsgrid .jsgrid-pager .jsgrid-pager-page:hover a, .pagination .page-item:focus .page-link, .pagination .page-item:focus .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a,
+.pagination .page-item:focus .jsgrid .jsgrid-pager .jsgrid-pager-page a, .jsgrid .jsgrid-pager .page-item:focus .page-link, .jsgrid .jsgrid-pager .page-item:focus .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-item:focus a,
+.jsgrid .jsgrid-pager .page-item:focus .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .page-item:focus a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:focus .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:focus a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page:focus .page-link,
+.jsgrid .jsgrid-pager .jsgrid-pager-page:focus a, .pagination .page-item:active .page-link, .pagination .page-item:active .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a,
+.pagination .page-item:active .jsgrid .jsgrid-pager .jsgrid-pager-page a, .jsgrid .jsgrid-pager .page-item:active .page-link, .jsgrid .jsgrid-pager .page-item:active .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-item:active a,
+.jsgrid .jsgrid-pager .page-item:active .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .page-item:active a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:active .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:active a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page:active .page-link,
+.jsgrid .jsgrid-pager .jsgrid-pager-page:active a {
+  background: #28a745;
+  border-color: #28a745;
+  color: #ffffff;
+}
+.pagination.flat .page-item .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination.flat .page-item a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination.flat .page-item a, .pagination.flat .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link, .pagination.flat .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .pagination.flat .jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .pagination.flat .jsgrid-pager-nav-button a,
+.pagination.flat .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link,
+.pagination.flat .jsgrid .jsgrid-pager .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .pagination.flat .jsgrid-pager-page .page-link,
+.jsgrid .jsgrid-pager .pagination.flat .jsgrid-pager-page a, .jsgrid .flat.jsgrid-pager .page-item .page-link, .jsgrid .flat.jsgrid-pager .jsgrid-pager-nav-button .page-link, .jsgrid .flat.jsgrid-pager .jsgrid-pager-nav-button a,
+.jsgrid .flat.jsgrid-pager .jsgrid-pager-page .page-link,
+.jsgrid .flat.jsgrid-pager .jsgrid-pager-page a {
+  border: none;
+  border-radius: 2px;
+}
+.pagination.separated .page-item, .pagination.separated .jsgrid .jsgrid-pager .jsgrid-pager-nav-button, .jsgrid .jsgrid-pager .pagination.separated .jsgrid-pager-nav-button,
+.pagination.separated .jsgrid .jsgrid-pager .jsgrid-pager-page,
+.jsgrid .jsgrid-pager .pagination.separated .jsgrid-pager-page, .jsgrid .separated.jsgrid-pager .page-item, .jsgrid .separated.jsgrid-pager .jsgrid-pager-nav-button,
+.jsgrid .separated.jsgrid-pager .jsgrid-pager-page {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+.pagination.separated .page-item:first-child, .pagination.separated .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:first-child, .jsgrid .jsgrid-pager .pagination.separated .jsgrid-pager-nav-button:first-child,
+.pagination.separated .jsgrid .jsgrid-pager .jsgrid-pager-page:first-child,
+.jsgrid .jsgrid-pager .pagination.separated .jsgrid-pager-page:first-child, .jsgrid .separated.jsgrid-pager .page-item:first-child, .jsgrid .separated.jsgrid-pager .jsgrid-pager-nav-button:first-child,
+.jsgrid .separated.jsgrid-pager .jsgrid-pager-page:first-child {
+  margin-left: 0;
+}
+.pagination.separated .page-item:last-child, .pagination.separated .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:last-child, .jsgrid .jsgrid-pager .pagination.separated .jsgrid-pager-nav-button:last-child,
+.pagination.separated .jsgrid .jsgrid-pager .jsgrid-pager-page:last-child,
+.jsgrid .jsgrid-pager .pagination.separated .jsgrid-pager-page:last-child, .jsgrid .separated.jsgrid-pager .page-item:last-child, .jsgrid .separated.jsgrid-pager .jsgrid-pager-nav-button:last-child,
+.jsgrid .separated.jsgrid-pager .jsgrid-pager-page:last-child {
+  margin-right: 0;
+}
+.pagination.separated .page-item .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination.separated .page-item a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination.separated .page-item a, .pagination.separated .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link, .pagination.separated .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .pagination.separated .jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .pagination.separated .jsgrid-pager-nav-button a,
+.pagination.separated .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link,
+.pagination.separated .jsgrid .jsgrid-pager .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .pagination.separated .jsgrid-pager-page .page-link,
+.jsgrid .jsgrid-pager .pagination.separated .jsgrid-pager-page a, .jsgrid .separated.jsgrid-pager .page-item .page-link, .jsgrid .separated.jsgrid-pager .jsgrid-pager-nav-button .page-link, .jsgrid .separated.jsgrid-pager .jsgrid-pager-nav-button a,
+.jsgrid .separated.jsgrid-pager .jsgrid-pager-page .page-link,
+.jsgrid .separated.jsgrid-pager .jsgrid-pager-page a {
+  border-radius: 2px;
+}
+.pagination.rounded .page-item:first-child .page-link, .pagination.rounded .page-item:first-child .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination.rounded .page-item:first-child a,
+.pagination.rounded .page-item:first-child .jsgrid .jsgrid-pager .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination.rounded .page-item:first-child a, .pagination.rounded .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:first-child .page-link, .pagination.rounded .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:first-child a, .jsgrid .jsgrid-pager .pagination.rounded .jsgrid-pager-nav-button:first-child .page-link, .jsgrid .jsgrid-pager .pagination.rounded .jsgrid-pager-nav-button:first-child a,
+.pagination.rounded .jsgrid .jsgrid-pager .jsgrid-pager-page:first-child .page-link,
+.pagination.rounded .jsgrid .jsgrid-pager .jsgrid-pager-page:first-child a,
+.jsgrid .jsgrid-pager .pagination.rounded .jsgrid-pager-page:first-child .page-link,
+.jsgrid .jsgrid-pager .pagination.rounded .jsgrid-pager-page:first-child a, .jsgrid .rounded.jsgrid-pager .page-item:first-child .page-link, .jsgrid .rounded.jsgrid-pager .page-item:first-child .jsgrid-pager-nav-button a, .jsgrid .rounded.jsgrid-pager .jsgrid-pager-nav-button .page-item:first-child a,
+.jsgrid .rounded.jsgrid-pager .page-item:first-child .jsgrid-pager-page a,
+.jsgrid .rounded.jsgrid-pager .jsgrid-pager-page .page-item:first-child a, .jsgrid .rounded.jsgrid-pager .jsgrid-pager-nav-button:first-child .page-link, .jsgrid .rounded.jsgrid-pager .jsgrid-pager-nav-button:first-child a,
+.jsgrid .rounded.jsgrid-pager .jsgrid-pager-page:first-child .page-link,
+.jsgrid .rounded.jsgrid-pager .jsgrid-pager-page:first-child a, .pagination.loader-demo-box .page-item:first-child .page-link, .pagination.loader-demo-box .page-item:first-child .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination.loader-demo-box .page-item:first-child a,
+.pagination.loader-demo-box .page-item:first-child .jsgrid .jsgrid-pager .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination.loader-demo-box .page-item:first-child a, .pagination.loader-demo-box .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:first-child .page-link, .pagination.loader-demo-box .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:first-child a, .jsgrid .jsgrid-pager .pagination.loader-demo-box .jsgrid-pager-nav-button:first-child .page-link, .jsgrid .jsgrid-pager .pagination.loader-demo-box .jsgrid-pager-nav-button:first-child a,
+.pagination.loader-demo-box .jsgrid .jsgrid-pager .jsgrid-pager-page:first-child .page-link,
+.pagination.loader-demo-box .jsgrid .jsgrid-pager .jsgrid-pager-page:first-child a,
+.jsgrid .jsgrid-pager .pagination.loader-demo-box .jsgrid-pager-page:first-child .page-link,
+.jsgrid .jsgrid-pager .pagination.loader-demo-box .jsgrid-pager-page:first-child a, .jsgrid .loader-demo-box.jsgrid-pager .page-item:first-child .page-link, .jsgrid .loader-demo-box.jsgrid-pager .page-item:first-child .jsgrid-pager-nav-button a, .jsgrid .loader-demo-box.jsgrid-pager .jsgrid-pager-nav-button .page-item:first-child a,
+.jsgrid .loader-demo-box.jsgrid-pager .page-item:first-child .jsgrid-pager-page a,
+.jsgrid .loader-demo-box.jsgrid-pager .jsgrid-pager-page .page-item:first-child a, .jsgrid .loader-demo-box.jsgrid-pager .jsgrid-pager-nav-button:first-child .page-link, .jsgrid .loader-demo-box.jsgrid-pager .jsgrid-pager-nav-button:first-child a,
+.jsgrid .loader-demo-box.jsgrid-pager .jsgrid-pager-page:first-child .page-link,
+.jsgrid .loader-demo-box.jsgrid-pager .jsgrid-pager-page:first-child a {
+  border-radius: 25px 0 0 25px;
+}
+.pagination.rounded .page-item:last-child .page-link, .pagination.rounded .page-item:last-child .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination.rounded .page-item:last-child a,
+.pagination.rounded .page-item:last-child .jsgrid .jsgrid-pager .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination.rounded .page-item:last-child a, .pagination.rounded .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:last-child .page-link, .pagination.rounded .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:last-child a, .jsgrid .jsgrid-pager .pagination.rounded .jsgrid-pager-nav-button:last-child .page-link, .jsgrid .jsgrid-pager .pagination.rounded .jsgrid-pager-nav-button:last-child a,
+.pagination.rounded .jsgrid .jsgrid-pager .jsgrid-pager-page:last-child .page-link,
+.pagination.rounded .jsgrid .jsgrid-pager .jsgrid-pager-page:last-child a,
+.jsgrid .jsgrid-pager .pagination.rounded .jsgrid-pager-page:last-child .page-link,
+.jsgrid .jsgrid-pager .pagination.rounded .jsgrid-pager-page:last-child a, .jsgrid .rounded.jsgrid-pager .page-item:last-child .page-link, .jsgrid .rounded.jsgrid-pager .page-item:last-child .jsgrid-pager-nav-button a, .jsgrid .rounded.jsgrid-pager .jsgrid-pager-nav-button .page-item:last-child a,
+.jsgrid .rounded.jsgrid-pager .page-item:last-child .jsgrid-pager-page a,
+.jsgrid .rounded.jsgrid-pager .jsgrid-pager-page .page-item:last-child a, .jsgrid .rounded.jsgrid-pager .jsgrid-pager-nav-button:last-child .page-link, .jsgrid .rounded.jsgrid-pager .jsgrid-pager-nav-button:last-child a,
+.jsgrid .rounded.jsgrid-pager .jsgrid-pager-page:last-child .page-link,
+.jsgrid .rounded.jsgrid-pager .jsgrid-pager-page:last-child a, .pagination.loader-demo-box .page-item:last-child .page-link, .pagination.loader-demo-box .page-item:last-child .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination.loader-demo-box .page-item:last-child a,
+.pagination.loader-demo-box .page-item:last-child .jsgrid .jsgrid-pager .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination.loader-demo-box .page-item:last-child a, .pagination.loader-demo-box .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:last-child .page-link, .pagination.loader-demo-box .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:last-child a, .jsgrid .jsgrid-pager .pagination.loader-demo-box .jsgrid-pager-nav-button:last-child .page-link, .jsgrid .jsgrid-pager .pagination.loader-demo-box .jsgrid-pager-nav-button:last-child a,
+.pagination.loader-demo-box .jsgrid .jsgrid-pager .jsgrid-pager-page:last-child .page-link,
+.pagination.loader-demo-box .jsgrid .jsgrid-pager .jsgrid-pager-page:last-child a,
+.jsgrid .jsgrid-pager .pagination.loader-demo-box .jsgrid-pager-page:last-child .page-link,
+.jsgrid .jsgrid-pager .pagination.loader-demo-box .jsgrid-pager-page:last-child a, .jsgrid .loader-demo-box.jsgrid-pager .page-item:last-child .page-link, .jsgrid .loader-demo-box.jsgrid-pager .page-item:last-child .jsgrid-pager-nav-button a, .jsgrid .loader-demo-box.jsgrid-pager .jsgrid-pager-nav-button .page-item:last-child a,
+.jsgrid .loader-demo-box.jsgrid-pager .page-item:last-child .jsgrid-pager-page a,
+.jsgrid .loader-demo-box.jsgrid-pager .jsgrid-pager-page .page-item:last-child a, .jsgrid .loader-demo-box.jsgrid-pager .jsgrid-pager-nav-button:last-child .page-link, .jsgrid .loader-demo-box.jsgrid-pager .jsgrid-pager-nav-button:last-child a,
+.jsgrid .loader-demo-box.jsgrid-pager .jsgrid-pager-page:last-child .page-link,
+.jsgrid .loader-demo-box.jsgrid-pager .jsgrid-pager-page:last-child a {
+  border-radius: 0 25px 25px 0;
+}
+.pagination.rounded-flat .page-item, .pagination.rounded-flat .jsgrid .jsgrid-pager .jsgrid-pager-nav-button, .jsgrid .jsgrid-pager .pagination.rounded-flat .jsgrid-pager-nav-button,
+.pagination.rounded-flat .jsgrid .jsgrid-pager .jsgrid-pager-page,
+.jsgrid .jsgrid-pager .pagination.rounded-flat .jsgrid-pager-page, .jsgrid .rounded-flat.jsgrid-pager .page-item, .jsgrid .rounded-flat.jsgrid-pager .jsgrid-pager-nav-button,
+.jsgrid .rounded-flat.jsgrid-pager .jsgrid-pager-page {
+  margin-right: 3px;
+  margin-left: 3px;
+}
+.pagination.rounded-flat .page-item .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination.rounded-flat .page-item a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination.rounded-flat .page-item a, .pagination.rounded-flat .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link, .pagination.rounded-flat .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .pagination.rounded-flat .jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .pagination.rounded-flat .jsgrid-pager-nav-button a,
+.pagination.rounded-flat .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link,
+.pagination.rounded-flat .jsgrid .jsgrid-pager .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .pagination.rounded-flat .jsgrid-pager-page .page-link,
+.jsgrid .jsgrid-pager .pagination.rounded-flat .jsgrid-pager-page a, .jsgrid .rounded-flat.jsgrid-pager .page-item .page-link, .jsgrid .rounded-flat.jsgrid-pager .jsgrid-pager-nav-button .page-link, .jsgrid .rounded-flat.jsgrid-pager .jsgrid-pager-nav-button a,
+.jsgrid .rounded-flat.jsgrid-pager .jsgrid-pager-page .page-link,
+.jsgrid .rounded-flat.jsgrid-pager .jsgrid-pager-page a {
+  border: none;
+  border-radius: 50px;
+}
+.pagination.rounded-separated .page-item, .pagination.rounded-separated .jsgrid .jsgrid-pager .jsgrid-pager-nav-button, .jsgrid .jsgrid-pager .pagination.rounded-separated .jsgrid-pager-nav-button,
+.pagination.rounded-separated .jsgrid .jsgrid-pager .jsgrid-pager-page,
+.jsgrid .jsgrid-pager .pagination.rounded-separated .jsgrid-pager-page, .jsgrid .rounded-separated.jsgrid-pager .page-item, .jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-nav-button,
+.jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-page {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+.pagination.rounded-separated .page-item:first-child, .pagination.rounded-separated .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:first-child, .jsgrid .jsgrid-pager .pagination.rounded-separated .jsgrid-pager-nav-button:first-child,
+.pagination.rounded-separated .jsgrid .jsgrid-pager .jsgrid-pager-page:first-child,
+.jsgrid .jsgrid-pager .pagination.rounded-separated .jsgrid-pager-page:first-child, .jsgrid .rounded-separated.jsgrid-pager .page-item:first-child, .jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-nav-button:first-child,
+.jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-page:first-child {
+  margin-left: 0;
+}
+.pagination.rounded-separated .page-item:first-child .page-link, .pagination.rounded-separated .page-item:first-child .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination.rounded-separated .page-item:first-child a,
+.pagination.rounded-separated .page-item:first-child .jsgrid .jsgrid-pager .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination.rounded-separated .page-item:first-child a, .pagination.rounded-separated .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:first-child .page-link, .pagination.rounded-separated .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:first-child a, .jsgrid .jsgrid-pager .pagination.rounded-separated .jsgrid-pager-nav-button:first-child .page-link, .jsgrid .jsgrid-pager .pagination.rounded-separated .jsgrid-pager-nav-button:first-child a,
+.pagination.rounded-separated .jsgrid .jsgrid-pager .jsgrid-pager-page:first-child .page-link,
+.pagination.rounded-separated .jsgrid .jsgrid-pager .jsgrid-pager-page:first-child a,
+.jsgrid .jsgrid-pager .pagination.rounded-separated .jsgrid-pager-page:first-child .page-link,
+.jsgrid .jsgrid-pager .pagination.rounded-separated .jsgrid-pager-page:first-child a, .jsgrid .rounded-separated.jsgrid-pager .page-item:first-child .page-link, .jsgrid .rounded-separated.jsgrid-pager .page-item:first-child .jsgrid-pager-nav-button a, .jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-nav-button .page-item:first-child a,
+.jsgrid .rounded-separated.jsgrid-pager .page-item:first-child .jsgrid-pager-page a,
+.jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-page .page-item:first-child a, .jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-nav-button:first-child .page-link, .jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-nav-button:first-child a,
+.jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-page:first-child .page-link,
+.jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-page:first-child a {
+  border-radius: 10px 0 0 10px;
+}
+.pagination.rounded-separated .page-item:last-child, .pagination.rounded-separated .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:last-child, .jsgrid .jsgrid-pager .pagination.rounded-separated .jsgrid-pager-nav-button:last-child,
+.pagination.rounded-separated .jsgrid .jsgrid-pager .jsgrid-pager-page:last-child,
+.jsgrid .jsgrid-pager .pagination.rounded-separated .jsgrid-pager-page:last-child, .jsgrid .rounded-separated.jsgrid-pager .page-item:last-child, .jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-nav-button:last-child,
+.jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-page:last-child {
+  margin-right: 0;
+}
+.pagination.rounded-separated .page-item:last-child .page-link, .pagination.rounded-separated .page-item:last-child .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination.rounded-separated .page-item:last-child a,
+.pagination.rounded-separated .page-item:last-child .jsgrid .jsgrid-pager .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination.rounded-separated .page-item:last-child a, .pagination.rounded-separated .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:last-child .page-link, .pagination.rounded-separated .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:last-child a, .jsgrid .jsgrid-pager .pagination.rounded-separated .jsgrid-pager-nav-button:last-child .page-link, .jsgrid .jsgrid-pager .pagination.rounded-separated .jsgrid-pager-nav-button:last-child a,
+.pagination.rounded-separated .jsgrid .jsgrid-pager .jsgrid-pager-page:last-child .page-link,
+.pagination.rounded-separated .jsgrid .jsgrid-pager .jsgrid-pager-page:last-child a,
+.jsgrid .jsgrid-pager .pagination.rounded-separated .jsgrid-pager-page:last-child .page-link,
+.jsgrid .jsgrid-pager .pagination.rounded-separated .jsgrid-pager-page:last-child a, .jsgrid .rounded-separated.jsgrid-pager .page-item:last-child .page-link, .jsgrid .rounded-separated.jsgrid-pager .page-item:last-child .jsgrid-pager-nav-button a, .jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-nav-button .page-item:last-child a,
+.jsgrid .rounded-separated.jsgrid-pager .page-item:last-child .jsgrid-pager-page a,
+.jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-page .page-item:last-child a, .jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-nav-button:last-child .page-link, .jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-nav-button:last-child a,
+.jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-page:last-child .page-link,
+.jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-page:last-child a {
+  border-radius: 0 10px 10px 0;
+}
+.pagination.rounded-separated .page-item .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination.rounded-separated .page-item a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination.rounded-separated .page-item a, .pagination.rounded-separated .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link, .pagination.rounded-separated .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .pagination.rounded-separated .jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .pagination.rounded-separated .jsgrid-pager-nav-button a,
+.pagination.rounded-separated .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link,
+.pagination.rounded-separated .jsgrid .jsgrid-pager .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .pagination.rounded-separated .jsgrid-pager-page .page-link,
+.jsgrid .jsgrid-pager .pagination.rounded-separated .jsgrid-pager-page a, .jsgrid .rounded-separated.jsgrid-pager .page-item .page-link, .jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-nav-button .page-link, .jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-nav-button a,
+.jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-page .page-link,
+.jsgrid .rounded-separated.jsgrid-pager .jsgrid-pager-page a {
+  border-radius: 2px;
+}
 
+/* pagination variations */
+.pagination-primary .page-item.active .page-link, .pagination-primary .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination-primary .page-item.active a,
+.pagination-primary .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-primary .page-item.active a, .pagination-primary .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button .page-link, .pagination-primary .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .pagination-primary .active.jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .pagination-primary .active.jsgrid-pager-nav-button a,
+.pagination-primary .jsgrid .jsgrid-pager .active.jsgrid-pager-page .page-link,
+.pagination-primary .jsgrid .jsgrid-pager .active.jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .pagination-primary .active.jsgrid-pager-page .page-link,
+.jsgrid .jsgrid-pager .pagination-primary .active.jsgrid-pager-page a {
+  background: #28a745;
+  border-color: #28a745;
+}
+.pagination-primary .page-item .page-link:hover, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination-primary .page-item a:hover,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-primary .page-item a:hover, .pagination-primary .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link:hover, .pagination-primary .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a:hover, .jsgrid .jsgrid-pager .pagination-primary .jsgrid-pager-nav-button .page-link:hover, .jsgrid .jsgrid-pager .pagination-primary .jsgrid-pager-nav-button a:hover,
+.pagination-primary .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link:hover,
+.pagination-primary .jsgrid .jsgrid-pager .jsgrid-pager-page a:hover,
+.jsgrid .jsgrid-pager .pagination-primary .jsgrid-pager-page .page-link:hover,
+.jsgrid .jsgrid-pager .pagination-primary .jsgrid-pager-page a:hover {
+  background: #2fe1e6;
+  border-color: #28a745;
+  color: #ffffff;
+}
 
+.pagination-secondary .page-item.active .page-link, .pagination-secondary .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination-secondary .page-item.active a,
+.pagination-secondary .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-secondary .page-item.active a, .pagination-secondary .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button .page-link, .pagination-secondary .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .pagination-secondary .active.jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .pagination-secondary .active.jsgrid-pager-nav-button a,
+.pagination-secondary .jsgrid .jsgrid-pager .active.jsgrid-pager-page .page-link,
+.pagination-secondary .jsgrid .jsgrid-pager .active.jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .pagination-secondary .active.jsgrid-pager-page .page-link,
+.jsgrid .jsgrid-pager .pagination-secondary .active.jsgrid-pager-page a {
+  background: #d8d8d8;
+  border-color: #d8d8d8;
+}
+.pagination-secondary .page-item .page-link:hover, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination-secondary .page-item a:hover,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-secondary .page-item a:hover, .pagination-secondary .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link:hover, .pagination-secondary .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a:hover, .jsgrid .jsgrid-pager .pagination-secondary .jsgrid-pager-nav-button .page-link:hover, .jsgrid .jsgrid-pager .pagination-secondary .jsgrid-pager-nav-button a:hover,
+.pagination-secondary .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link:hover,
+.pagination-secondary .jsgrid .jsgrid-pager .jsgrid-pager-page a:hover,
+.jsgrid .jsgrid-pager .pagination-secondary .jsgrid-pager-page .page-link:hover,
+.jsgrid .jsgrid-pager .pagination-secondary .jsgrid-pager-page a:hover {
+  background: #e5e5e5;
+  border-color: #d8d8d8;
+  color: #ffffff;
+}
+
+.pagination-success .page-item.active .page-link, .pagination-success .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination-success .page-item.active a,
+.pagination-success .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-success .page-item.active a, .pagination-success .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button .page-link, .pagination-success .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .pagination-success .active.jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .pagination-success .active.jsgrid-pager-nav-button a,
+.pagination-success .jsgrid .jsgrid-pager .active.jsgrid-pager-page .page-link,
+.pagination-success .jsgrid .jsgrid-pager .active.jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .pagination-success .active.jsgrid-pager-page .page-link,
+.jsgrid .jsgrid-pager .pagination-success .active.jsgrid-pager-page a {
+  background: #38ce3c;
+  border-color: #38ce3c;
+}
+.pagination-success .page-item .page-link:hover, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination-success .page-item a:hover,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-success .page-item a:hover, .pagination-success .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link:hover, .pagination-success .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a:hover, .jsgrid .jsgrid-pager .pagination-success .jsgrid-pager-nav-button .page-link:hover, .jsgrid .jsgrid-pager .pagination-success .jsgrid-pager-nav-button a:hover,
+.pagination-success .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link:hover,
+.pagination-success .jsgrid .jsgrid-pager .jsgrid-pager-page a:hover,
+.jsgrid .jsgrid-pager .pagination-success .jsgrid-pager-page .page-link:hover,
+.jsgrid .jsgrid-pager .pagination-success .jsgrid-pager-page a:hover {
+  background: #4cd350;
+  border-color: #38ce3c;
+  color: #ffffff;
+}
+
+.pagination-info .page-item.active .page-link, .pagination-info .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination-info .page-item.active a,
+.pagination-info .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-info .page-item.active a, .pagination-info .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button .page-link, .pagination-info .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .pagination-info .active.jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .pagination-info .active.jsgrid-pager-nav-button a,
+.pagination-info .jsgrid .jsgrid-pager .active.jsgrid-pager-page .page-link,
+.pagination-info .jsgrid .jsgrid-pager .active.jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .pagination-info .active.jsgrid-pager-page .page-link,
+.jsgrid .jsgrid-pager .pagination-info .active.jsgrid-pager-page a {
+  background: #8e32e9;
+  border-color: #8e32e9;
+}
+.pagination-info .page-item .page-link:hover, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination-info .page-item a:hover,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-info .page-item a:hover, .pagination-info .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link:hover, .pagination-info .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a:hover, .jsgrid .jsgrid-pager .pagination-info .jsgrid-pager-nav-button .page-link:hover, .jsgrid .jsgrid-pager .pagination-info .jsgrid-pager-nav-button a:hover,
+.pagination-info .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link:hover,
+.pagination-info .jsgrid .jsgrid-pager .jsgrid-pager-page a:hover,
+.jsgrid .jsgrid-pager .pagination-info .jsgrid-pager-page .page-link:hover,
+.jsgrid .jsgrid-pager .pagination-info .jsgrid-pager-page a:hover {
+  background: #9b49eb;
+  border-color: #8e32e9;
+  color: #ffffff;
+}
+
+.pagination-warning .page-item.active .page-link, .pagination-warning .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination-warning .page-item.active a,
+.pagination-warning .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-warning .page-item.active a, .pagination-warning .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button .page-link, .pagination-warning .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .pagination-warning .active.jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .pagination-warning .active.jsgrid-pager-nav-button a,
+.pagination-warning .jsgrid .jsgrid-pager .active.jsgrid-pager-page .page-link,
+.pagination-warning .jsgrid .jsgrid-pager .active.jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .pagination-warning .active.jsgrid-pager-page .page-link,
+.jsgrid .jsgrid-pager .pagination-warning .active.jsgrid-pager-page a {
+  background: #ffde73;
+  border-color: #ffde73;
+}
+.pagination-warning .page-item .page-link:hover, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination-warning .page-item a:hover,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-warning .page-item a:hover, .pagination-warning .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link:hover, .pagination-warning .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a:hover, .jsgrid .jsgrid-pager .pagination-warning .jsgrid-pager-nav-button .page-link:hover, .jsgrid .jsgrid-pager .pagination-warning .jsgrid-pager-nav-button a:hover,
+.pagination-warning .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link:hover,
+.pagination-warning .jsgrid .jsgrid-pager .jsgrid-pager-page a:hover,
+.jsgrid .jsgrid-pager .pagination-warning .jsgrid-pager-page .page-link:hover,
+.jsgrid .jsgrid-pager .pagination-warning .jsgrid-pager-page a:hover {
+  background: #ffe48d;
+  border-color: #ffde73;
+  color: #ffffff;
+}
+
+.pagination-danger .page-item.active .page-link, .pagination-danger .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination-danger .page-item.active a,
+.pagination-danger .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-danger .page-item.active a, .pagination-danger .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button .page-link, .pagination-danger .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .pagination-danger .active.jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .pagination-danger .active.jsgrid-pager-nav-button a,
+.pagination-danger .jsgrid .jsgrid-pager .active.jsgrid-pager-page .page-link,
+.pagination-danger .jsgrid .jsgrid-pager .active.jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .pagination-danger .active.jsgrid-pager-page .page-link,
+.jsgrid .jsgrid-pager .pagination-danger .active.jsgrid-pager-page a {
+  background: #ff4d6b;
+  border-color: #ff4d6b;
+}
+.pagination-danger .page-item .page-link:hover, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination-danger .page-item a:hover,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-danger .page-item a:hover, .pagination-danger .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link:hover, .pagination-danger .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a:hover, .jsgrid .jsgrid-pager .pagination-danger .jsgrid-pager-nav-button .page-link:hover, .jsgrid .jsgrid-pager .pagination-danger .jsgrid-pager-nav-button a:hover,
+.pagination-danger .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link:hover,
+.pagination-danger .jsgrid .jsgrid-pager .jsgrid-pager-page a:hover,
+.jsgrid .jsgrid-pager .pagination-danger .jsgrid-pager-page .page-link:hover,
+.jsgrid .jsgrid-pager .pagination-danger .jsgrid-pager-page a:hover {
+  background: #ff6780;
+  border-color: #ff4d6b;
+  color: #ffffff;
+}
+
+.pagination-light .page-item.active .page-link, .pagination-light .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination-light .page-item.active a,
+.pagination-light .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-light .page-item.active a, .pagination-light .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button .page-link, .pagination-light .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .pagination-light .active.jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .pagination-light .active.jsgrid-pager-nav-button a,
+.pagination-light .jsgrid .jsgrid-pager .active.jsgrid-pager-page .page-link,
+.pagination-light .jsgrid .jsgrid-pager .active.jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .pagination-light .active.jsgrid-pager-page .page-link,
+.jsgrid .jsgrid-pager .pagination-light .active.jsgrid-pager-page a {
+  background: #f8f9fa;
+  border-color: #f8f9fa;
+}
+.pagination-light .page-item .page-link:hover, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination-light .page-item a:hover,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-light .page-item a:hover, .pagination-light .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link:hover, .pagination-light .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a:hover, .jsgrid .jsgrid-pager .pagination-light .jsgrid-pager-nav-button .page-link:hover, .jsgrid .jsgrid-pager .pagination-light .jsgrid-pager-nav-button a:hover,
+.pagination-light .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link:hover,
+.pagination-light .jsgrid .jsgrid-pager .jsgrid-pager-page a:hover,
+.jsgrid .jsgrid-pager .pagination-light .jsgrid-pager-page .page-link:hover,
+.jsgrid .jsgrid-pager .pagination-light .jsgrid-pager-page a:hover {
+  background: white;
+  border-color: #f8f9fa;
+  color: #ffffff;
+}
+
+.pagination-dark .page-item.active .page-link, .pagination-dark .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination-dark .page-item.active a,
+.pagination-dark .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-dark .page-item.active a, .pagination-dark .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button .page-link, .pagination-dark .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .pagination-dark .active.jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .pagination-dark .active.jsgrid-pager-nav-button a,
+.pagination-dark .jsgrid .jsgrid-pager .active.jsgrid-pager-page .page-link,
+.pagination-dark .jsgrid .jsgrid-pager .active.jsgrid-pager-page a,
+.jsgrid .jsgrid-pager .pagination-dark .active.jsgrid-pager-page .page-link,
+.jsgrid .jsgrid-pager .pagination-dark .active.jsgrid-pager-page a {
+  background: #3e4b5b;
+  border-color: #3e4b5b;
+}
+.pagination-dark .page-item .page-link:hover, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination-dark .page-item a:hover,
+.jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-dark .page-item a:hover, .pagination-dark .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link:hover, .pagination-dark .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a:hover, .jsgrid .jsgrid-pager .pagination-dark .jsgrid-pager-nav-button .page-link:hover, .jsgrid .jsgrid-pager .pagination-dark .jsgrid-pager-nav-button a:hover,
+.pagination-dark .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link:hover,
+.pagination-dark .jsgrid .jsgrid-pager .jsgrid-pager-page a:hover,
+.jsgrid .jsgrid-pager .pagination-dark .jsgrid-pager-page .page-link:hover,
+.jsgrid .jsgrid-pager .pagination-dark .jsgrid-pager-page a:hover {
+  background: #48586a;
+  border-color: #3e4b5b;
+  color: #ffffff;
+}
+
+/* Popovers */
+.popover-static-demo .popover {
+  width: 185px;
+  position: relative;
+  display: block;
+  float: left;
+  margin: 1rem 0.5rem;
+  z-index: 10;
+}
+.popover-static-demo .popover.bs-popover-bottom-demo .arrow, .popover-static-demo .popover.bs-popover-top-demo .arrow {
+  left: 50%;
+}
+.popover-static-demo .popover.bs-popover-left-demo .arrow, .popover-static-demo .popover.bs-popover-right-demo .arrow {
+  top: 50%;
+}
+
+.popover {
+  z-index: 1029;
+}
+.popover.bs-popover-top-demo .arrow:before {
+  border-top-color: var(--bs-border-color-translucent);
+}
+.popover.bs-popover-top-demo .arrow:after {
+  border-top-color: var(--bs-body-bg);
+}
+.popover.bs-popover-right-demo .arrow:before {
+  border-right-color: var(--bs-border-color-translucent);
+}
+.popover.bs-popover-right-demo .arrow:after {
+  border-right-color: var(--bs-body-bg);
+}
+.popover.bs-popover-bottom-demo .arrow:before {
+  border-bottom-color: var(--bs-border-color-translucent);
+}
+.popover.bs-popover-bottom-demo .arrow:after {
+  border-bottom-color: var(--bs-body-bg);
+}
+.popover.bs-popover-bottom-demo .popover-header:before {
+  border-bottom: 0;
+}
+.popover.bs-popover-left-demo .arrow:before {
+  border-left-color: var(--bs-border-color-translucent);
+}
+.popover.bs-popover-left-demo .arrow:after {
+  border-left-color: var(--bs-body-bg);
+}
+.popover .popover-header {
+  font-size: 0.9375rem;
+  border-bottom: 0;
+  background: #ffffff;
+  color: #ff4d6b;
+  border-bottom: 1px solid var(--bs-border-color-translucent);
+}
+.popover .popover-body {
+  color: #9c9fa6;
+}
+.popover.left .arrow:before {
+  border-left-color: var(--bs-border-color-translucent);
+}
+.popover.left .arrow:after {
+  border-left-color: var(--bs-body-bg);
+}
+.popover.right .arrow:before {
+  border-right-color: var(--bs-border-color-translucent);
+}
+.popover.right .arrow:after {
+  border-right-color: var(--bs-body-bg);
+}
+.popover.top .arrow:before {
+  border-top-color: var(--bs-border-color-translucent);
+}
+.popover.top .arrow:after {
+  border-top-color: var(--bs-body-bg);
+}
+.popover.bottom .arrow:before {
+  border-bottom-color: var(--bs-border-color-translucent);
+}
+.popover.bottom .arrow:after {
+  border-bottom-color: var(--bs-body-bg);
+}
+
+.popover-primary {
+  border-color: #28a745;
+}
+.popover-primary .popover-header {
+  background: #28a745;
+  color: #ffffff;
+  border-bottom: 0;
+}
+.popover-primary.bs-popover-top .arrow:before, .popover-primary.bs-popover-auto[data-popper-placement^=top] .arrow:before, .popover-primary.bs-popover-top .arrow:after, .popover-primary.bs-popover-auto[data-popper-placement^=top] .arrow:after {
+  border-top-color: #28a745;
+}
+.popover-primary.bs-popover-right .arrow:before, .popover-primary.bs-popover-right .arrow:after {
+  border-right-color: #28a745;
+}
+.popover-primary.bs-popover-bottom .arrow:before, .popover-primary.bs-popover-auto[data-popper-placement^=bottom] .arrow:before, .popover-primary.bs-popover-bottom .arrow:after, .popover-primary.bs-popover-auto[data-popper-placement^=bottom] .arrow:after {
+  border-bottom-color: #28a745;
+}
+.popover-primary.bs-popover-left .arrow:before, .popover-primary.bs-popover-left .arrow:after {
+  border-left-color: #28a745;
+}
+
+.popover-secondary {
+  border-color: #d8d8d8;
+}
+.popover-secondary .popover-header {
+  background: #d8d8d8;
+  color: #ffffff;
+  border-bottom: 0;
+}
+.popover-secondary.bs-popover-top .arrow:before, .popover-secondary.bs-popover-auto[data-popper-placement^=top] .arrow:before, .popover-secondary.bs-popover-top .arrow:after, .popover-secondary.bs-popover-auto[data-popper-placement^=top] .arrow:after {
+  border-top-color: #d8d8d8;
+}
+.popover-secondary.bs-popover-right .arrow:before, .popover-secondary.bs-popover-right .arrow:after {
+  border-right-color: #d8d8d8;
+}
+.popover-secondary.bs-popover-bottom .arrow:before, .popover-secondary.bs-popover-auto[data-popper-placement^=bottom] .arrow:before, .popover-secondary.bs-popover-bottom .arrow:after, .popover-secondary.bs-popover-auto[data-popper-placement^=bottom] .arrow:after {
+  border-bottom-color: #d8d8d8;
+}
+.popover-secondary.bs-popover-left .arrow:before, .popover-secondary.bs-popover-left .arrow:after {
+  border-left-color: #d8d8d8;
+}
+
+.popover-success {
+  border-color: #38ce3c;
+}
+.popover-success .popover-header {
+  background: #38ce3c;
+  color: #ffffff;
+  border-bottom: 0;
+}
+.popover-success.bs-popover-top .arrow:before, .popover-success.bs-popover-auto[data-popper-placement^=top] .arrow:before, .popover-success.bs-popover-top .arrow:after, .popover-success.bs-popover-auto[data-popper-placement^=top] .arrow:after {
+  border-top-color: #38ce3c;
+}
+.popover-success.bs-popover-right .arrow:before, .popover-success.bs-popover-right .arrow:after {
+  border-right-color: #38ce3c;
+}
+.popover-success.bs-popover-bottom .arrow:before, .popover-success.bs-popover-auto[data-popper-placement^=bottom] .arrow:before, .popover-success.bs-popover-bottom .arrow:after, .popover-success.bs-popover-auto[data-popper-placement^=bottom] .arrow:after {
+  border-bottom-color: #38ce3c;
+}
+.popover-success.bs-popover-left .arrow:before, .popover-success.bs-popover-left .arrow:after {
+  border-left-color: #38ce3c;
+}
+
+.popover-info {
+  border-color: #8e32e9;
+}
+.popover-info .popover-header {
+  background: #8e32e9;
+  color: #ffffff;
+  border-bottom: 0;
+}
+.popover-info.bs-popover-top .arrow:before, .popover-info.bs-popover-auto[data-popper-placement^=top] .arrow:before, .popover-info.bs-popover-top .arrow:after, .popover-info.bs-popover-auto[data-popper-placement^=top] .arrow:after {
+  border-top-color: #8e32e9;
+}
+.popover-info.bs-popover-right .arrow:before, .popover-info.bs-popover-right .arrow:after {
+  border-right-color: #8e32e9;
+}
+.popover-info.bs-popover-bottom .arrow:before, .popover-info.bs-popover-auto[data-popper-placement^=bottom] .arrow:before, .popover-info.bs-popover-bottom .arrow:after, .popover-info.bs-popover-auto[data-popper-placement^=bottom] .arrow:after {
+  border-bottom-color: #8e32e9;
+}
+.popover-info.bs-popover-left .arrow:before, .popover-info.bs-popover-left .arrow:after {
+  border-left-color: #8e32e9;
+}
+
+.popover-warning {
+  border-color: #ffde73;
+}
+.popover-warning .popover-header {
+  background: #ffde73;
+  color: #ffffff;
+  border-bottom: 0;
+}
+.popover-warning.bs-popover-top .arrow:before, .popover-warning.bs-popover-auto[data-popper-placement^=top] .arrow:before, .popover-warning.bs-popover-top .arrow:after, .popover-warning.bs-popover-auto[data-popper-placement^=top] .arrow:after {
+  border-top-color: #ffde73;
+}
+.popover-warning.bs-popover-right .arrow:before, .popover-warning.bs-popover-right .arrow:after {
+  border-right-color: #ffde73;
+}
+.popover-warning.bs-popover-bottom .arrow:before, .popover-warning.bs-popover-auto[data-popper-placement^=bottom] .arrow:before, .popover-warning.bs-popover-bottom .arrow:after, .popover-warning.bs-popover-auto[data-popper-placement^=bottom] .arrow:after {
+  border-bottom-color: #ffde73;
+}
+.popover-warning.bs-popover-left .arrow:before, .popover-warning.bs-popover-left .arrow:after {
+  border-left-color: #ffde73;
+}
+
+.popover-danger {
+  border-color: #ff4d6b;
+}
+.popover-danger .popover-header {
+  background: #ff4d6b;
+  color: #ffffff;
+  border-bottom: 0;
+}
+.popover-danger.bs-popover-top .arrow:before, .popover-danger.bs-popover-auto[data-popper-placement^=top] .arrow:before, .popover-danger.bs-popover-top .arrow:after, .popover-danger.bs-popover-auto[data-popper-placement^=top] .arrow:after {
+  border-top-color: #ff4d6b;
+}
+.popover-danger.bs-popover-right .arrow:before, .popover-danger.bs-popover-right .arrow:after {
+  border-right-color: #ff4d6b;
+}
+.popover-danger.bs-popover-bottom .arrow:before, .popover-danger.bs-popover-auto[data-popper-placement^=bottom] .arrow:before, .popover-danger.bs-popover-bottom .arrow:after, .popover-danger.bs-popover-auto[data-popper-placement^=bottom] .arrow:after {
+  border-bottom-color: #ff4d6b;
+}
+.popover-danger.bs-popover-left .arrow:before, .popover-danger.bs-popover-left .arrow:after {
+  border-left-color: #ff4d6b;
+}
+
+.popover-light {
+  border-color: #f8f9fa;
+}
+.popover-light .popover-header {
+  background: #f8f9fa;
+  color: #ffffff;
+  border-bottom: 0;
+}
+.popover-light.bs-popover-top .arrow:before, .popover-light.bs-popover-auto[data-popper-placement^=top] .arrow:before, .popover-light.bs-popover-top .arrow:after, .popover-light.bs-popover-auto[data-popper-placement^=top] .arrow:after {
+  border-top-color: #f8f9fa;
+}
+.popover-light.bs-popover-right .arrow:before, .popover-light.bs-popover-right .arrow:after {
+  border-right-color: #f8f9fa;
+}
+.popover-light.bs-popover-bottom .arrow:before, .popover-light.bs-popover-auto[data-popper-placement^=bottom] .arrow:before, .popover-light.bs-popover-bottom .arrow:after, .popover-light.bs-popover-auto[data-popper-placement^=bottom] .arrow:after {
+  border-bottom-color: #f8f9fa;
+}
+.popover-light.bs-popover-left .arrow:before, .popover-light.bs-popover-left .arrow:after {
+  border-left-color: #f8f9fa;
+}
+
+.popover-dark {
+  border-color: #3e4b5b;
+}
+.popover-dark .popover-header {
+  background: #3e4b5b;
+  color: #ffffff;
+  border-bottom: 0;
+}
+.popover-dark.bs-popover-top .arrow:before, .popover-dark.bs-popover-auto[data-popper-placement^=top] .arrow:before, .popover-dark.bs-popover-top .arrow:after, .popover-dark.bs-popover-auto[data-popper-placement^=top] .arrow:after {
+  border-top-color: #3e4b5b;
+}
+.popover-dark.bs-popover-right .arrow:before, .popover-dark.bs-popover-right .arrow:after {
+  border-right-color: #3e4b5b;
+}
+.popover-dark.bs-popover-bottom .arrow:before, .popover-dark.bs-popover-auto[data-popper-placement^=bottom] .arrow:before, .popover-dark.bs-popover-bottom .arrow:after, .popover-dark.bs-popover-auto[data-popper-placement^=bottom] .arrow:after {
+  border-bottom-color: #3e4b5b;
+}
+.popover-dark.bs-popover-left .arrow:before, .popover-dark.bs-popover-left .arrow:after {
+  border-left-color: #3e4b5b;
+}
 
 /* Preview */
 .preview-list .preview-item {
@@ -24737,14 +25357,13 @@ div.tagsinput span.tag a {
   min-height: calc(100vh - 70px);
   background: #fff;
   font-family: "Open Sans", sans-serif;
-  padding-top: 10px;
+  padding: 0;
   width: 240px;
   z-index: 11;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease;
-
 }
 .sidebar .nav {
   overflow: hidden;
@@ -24953,7 +25572,7 @@ div.tagsinput span.tag a {
   padding: 0;
 }
 .sidebar .nav.sub-menu .nav-item .nav-link {
-  color: #000;
+  color: #ffffff;
   padding: 0.75rem 2rem 0.75rem 2rem;
   position: relative;
   font-size: 0.8125rem;
@@ -24970,7 +25589,7 @@ div.tagsinput span.tag a {
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
-  color: #000;
+  color: white;
   font-size: 0.75rem;
 }
 .rtl .sidebar .nav.sub-menu .nav-item .nav-link:before {
@@ -26223,4 +26842,13 @@ div.tagsinput span.tag a {
   color: #fff;
 }
 
+@media only screen and (max-width: 479px) {
 
+
+  /* .form-horizontal .form-group:last-child {
+    text-align: center;
+    margin-top: 0;
+  } */
+
+
+}

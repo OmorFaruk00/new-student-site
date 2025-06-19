@@ -5,7 +5,7 @@
     <p>Hey enter your details to verify your account</p>
    </div>
     <div class="login-box">
-      <form class="auth_from" id="checkStudentsForm" @submit.prevent="checkStudents()">
+      <form id="checkStudentsForm" @submit.prevent="checkStudents()">
         <div class="form-group">
           <select id="role" class="form-control" v-model="department_id" v-on:change="getBatch" >
             <option selected disabled value="" class="custom-select">Select Department</option>

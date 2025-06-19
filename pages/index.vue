@@ -5,7 +5,7 @@
     <p>Hey enter your details to sign in to your account</p>
    </div>
     <div class="login-box">
-      <form @submit.prevent="submitLoginForm()" autocomplete="off" class="auth_from">
+      <form @submit.prevent="submitLoginForm()" autocomplete="off">
         <div class="form-group">
           <input type="email" class="form-control" required v-model="email"  placeholder="Email Address"/>
         </div>

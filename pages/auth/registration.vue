@@ -5,7 +5,7 @@
     <p>  Hello ! {{ student_name }}. Please put the following information bellow:</p>
    </div>
     <div class="login-box">
-      <form class="auth_from" id="registrationForm" @submit.prevent="registrationStudents()">
+      <form id="registrationForm" @submit.prevent="registrationStudents()">
 
 
 
