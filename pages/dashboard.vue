@@ -74,6 +74,7 @@
                     </div>
 
                   </div>
+                   <div class="serial">#1</div>
                 </div>
 
 
@@ -84,10 +85,7 @@
                       <span>34%</span>
                     </div>
                   </div>
-                  
                 </div>
-
-
               </div>
             </div>
           </div>

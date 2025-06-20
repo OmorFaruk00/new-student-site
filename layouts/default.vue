@@ -124,18 +124,18 @@
               <i class="fa fa-comment menu-icon"></i>
             </nuxt-link>
           </li>
-          <li class="nav-item" :class="{ 'active-nav': $route.path === '/Payment' }">
-            <nuxt-link class="nav-link" to="/Payment">
-              <span class="menu-title" @click="taggleMenu()">Pay Now</span>
-              <i class="fa fa-credit-card menu-icon"></i>
-            </nuxt-link>
-          </li>
-          <li class="nav-item" :class="{ 'active-nav': $route.path === '/download-form' }">
+           <li class="nav-item" :class="{ 'active-nav': $route.path === '/download-form' }">
             <nuxt-link class="nav-link" to="/download-form">
               <span class="menu-title" @click="taggleMenu()">Download Form</span>
               <i class="fa fa-download menu-icon"></i>
             </nuxt-link>
           </li>
+          <li class="nav-item" :class="{ 'active-nav': $route.path === '/Payment' }">
+            <nuxt-link class="nav-link" to="/Payment">
+              <span class="menu-title" @click="taggleMenu()">Pay Now</span>
+              <i class="fa fa-credit-card menu-icon"></i>
+            </nuxt-link>
+          </li>       
           <li class="nav-item" :class="{ 'active-nav': $route.path === '/account-details' }">
             <nuxt-link class="nav-link" to="/account-details">
               <span class="menu-title" @click="taggleMenu()">Accounts Details</span>
@@ -148,6 +148,7 @@
               <i class="fa fa-university menu-icon" aria-hidden="true"></i>
             </nuxt-link>
           </li>
+      
           <li class="nav-item" :class="{ 'active-nav': $route.path === '/academic-result' }">
             <nuxt-link class="nav-link" to="/academic-result">
               <span class="menu-title" @click="taggleMenu()">Academic Result</span>

@@ -140,7 +140,7 @@ button:hover {
   .form-control:focus {
     box-shadow: none;
     outline: 0 none;
-    border-color: #18AC4F;
+    border-color: #18AC4F !important;
   }
 
 
@@ -155,7 +155,13 @@ button:hover {
     background-position: right 0.75rem center;
     background-size: 1em;
     padding-right: 2.5rem;
+    border: 2px solid #dad3d3;
   }
+  select.form-control:focus {
+  border-color: #18AC4F !important;
+  outline: none;
+  box-shadow: none;
+}
 
   .form-group label {
     color: #000;
@@ -238,6 +244,18 @@ button:hover {
 
     }
 
+
+}
+.btn-bs{
+    background: #18AC4F !important;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+.btn-bs:hover{
+    color: #000 !important;
 
 }
 
