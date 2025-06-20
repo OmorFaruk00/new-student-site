@@ -1,42 +1,22 @@
 <template>
   <section>
     <div class="form-horizontal col-lg-6 mx-auto">
-      <div class="form-header mb-5">
+      <div class="form-header">
         <h4>Download Bank Slip</h4>
       </div>
       <div class="px-3">
-        <div class="row">
-          <div class="mb-3">
+        <div class="row">          
             <div class="form-group">
               <label for="">Bank Name <span class="text-danger">*</span></label>
-              <select
-                name="semester"
-                id="bank_name"
-                v-model="bank_id"
-                class="form-control"
-              >
+              <select name="semester" id="bank_name" v-model="bank_id" class="form-control">
                 <option value="" selected disabled hidden>Select one</option>
-                <option
-                  v-for="(bank, index) in banks"
-                  :key="index"
-                  :value="bank.id"
-                  v-text="bank.name"
-                ></option>
+                <option v-for="(bank, index) in banks" :key="index" :value="bank.id" v-text="bank.name"></option>
               </select>
-            </div>
-          </div>
-
-          <div class="mb-3">
+            </div>      
             <div class="form-group">
               <label for="">Fee Type <span class="text-danger">*</span></label>
-              <select
-                name="fee_type"
-                id="fees_type"
-                v-model="fees_type"
-                class="form-control"
-              >
+              <select name="fee_type" id="fees_type" v-model="fees_type" class="form-control">
                 <option value="" selected disabled hidden>Select one</option>
-
                 <option value="Registration Fee">Registration Fee</option>
                 <option value="Admission Fee">Admission Fee</option>
                 <option value="Tuition Fee">Tuition Fee</option>
@@ -50,30 +30,19 @@
                 <option value="Fine / Late Fee">Fine / Late Fee</option>
                 <option value="Others">Others</option>
               </select>
-            </div>
-          </div>
-
-          <div class="mb-2">
+            </div>      
             <div class="form-group">
               <label for="">Amount <span class="text-danger">*</span></label>
-              <input
-                type="number"
-                min="0"
-                oninput="validity.valid||(value='');"
-                class="form-control"
-                v-model="amount"
-                placeholder="Enter amount"
-              />
-            </div>
-          </div>
+              <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control" v-model="amount"
+                placeholder="Enter amount" />
+            </div>        
 
           <div class="float-right mb-3">
-            <button class="btn btn-primary btn-block" @click="addFeeType">
+            <button class="btn btn-bs btn-block" @click="addFeeType">
               <i class="fa fa-plus-circle"></i> Add
             </button>
           </div>
-
-          <div class="col-12" v-if="isdownload">
+          <div class="col-12 mb-4" v-if="isdownload">
             <div class="table-responsive">
               <table class="table table-bordered">
                 <thead>
@@ -83,25 +52,15 @@
                     <th>Action</th>
                   </tr>
                 </thead>
-
                 <tbody>
                   <tr v-for="(row, index) in all_fees" :key="index">
                     <td>{{ row.fee_type }}</td>
                     <td>
-                      <input
-                        type="number"
-                        :value="row.fee_amount"
-                        class="form-control"
-                        readonly
-                      />
+                      <input type="number" :value="row.fee_amount" class="form-control" readonly />
                     </td>
 
                     <td>
-                      <button
-                        type="button"
-                        class="btn btn-danger"
-                        @click="delete_row(row)"
-                      >
+                      <button type="button" class="btn btn-danger" @click="delete_row(row)">
                         <i class="fa fa-trash"></i>
                       </button>
                     </td>
@@ -109,13 +68,9 @@
                 </tbody>
               </table>
             </div>
-            <div class="float-right">
-              <button
-                :disabled="loading"
-                style="margin-top: 25px"
-                class="btn btn-primary btn-block"
-                @click="downloadBankSlip"
-              >
+            <div class="float-right mb-3">
+              <button :disabled="loading" style="margin-top: 25px" class="btn btn-bs btn-block"
+                @click="downloadBankSlip">
                 Download
 
                 <i v-if="loading" class="fa fa-spinner fa-spin ml-1"></i>
@@ -127,8 +82,8 @@
     </div>
   </section>
 </template>
-  
-  <script>
+
+<script>
 import download from "downloadjs";
 
 export default {
@@ -239,13 +194,9 @@ export default {
         .then((response) => {
           this.banks = response.data;
         })
-        .catch((error) => {});
+        .catch((error) => { });
     },
   },
 };
 </script>
-  <style scoped>
-</style>
-  
-  
-  
+<style scoped></style>

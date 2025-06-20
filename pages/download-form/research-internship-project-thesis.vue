@@ -1,81 +1,46 @@
 <template>
   <section>
     <div class="form-horizontal col-lg-8 mx-auto">
-      <div class="form-header mb-5">
+      <div class="form-header">
         <h4>Research / Internship / Project / Thesis Form</h4>
       </div>
-      <div class="px-3">
+      <div class="px-3 pb-4">
         <div class="row">
-          <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+          <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="form-group">
-              <label for=""
-                >Title of the Report <span class="text-danger">*</span></label
-              >
-              <input
-                type="text"
-                v-model="title"
-                class="form-control"
-                placeholder="Title of the Report"
-              />
+              <label for="">Title of the Report <span class="text-danger">*</span></label>
+              <input type="text" v-model="title" class="form-control" placeholder="Title of the Report" />
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="">Name of the Organization
+                <span class="text-danger">*</span></label>
+              <input type="text" v-model="organization" class="form-control" placeholder="Name of the Organization" />
             </div>
           </div>
 
-          <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+          <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="form-group">
-              <label for=""
-                >Name of the Organization
-                <span class="text-danger">*</span></label
-              >
-              <input
-                type="text"
-                v-model="organization"
-                class="form-control"
-                placeholder="Name of the Organization"
-              />
+              <label for="">Name of the Supervisor
+                <span class="text-danger">*</span></label>
+              <input type="text" v-model="supervisor" class="form-control" placeholder="Name of the Supervisor" />
             </div>
           </div>
 
-          <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
-            <div class="form-group">
-              <label for=""
-                >Name of the Supervisor
-                <span class="text-danger">*</span></label
-              >
-              <input
-                type="text"
-                v-model="supervisor"
-                class="form-control"
-                placeholder="Name of the Supervisor"
-              />
-            </div>
-          </div>
-
-          <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+          <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="form-group">
               <label for="">Name of the Co-Supervisor (if any)</label>
-              <input
-                type="text"
-                v-model="co_supervisor"
-                class="form-control"
-                placeholder="Name of the Co-Supervisor (if any)"
-              />
+              <input type="text" v-model="co_supervisor" class="form-control"
+                placeholder="Name of the Co-Supervisor (if any)" />
             </div>
           </div>
 
-          <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+          <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="form-group">
-              <label for=""
-                >Organization Address <span class="text-danger">*</span></label
-              >
-              <textarea
-                name="address"
-                v-model="address"
-                id=""
-                cols="30"
-                rows="2"
-                class="form-control"
-                placeholder="Organization Address"
-              ></textarea>
+              <label for="">Organization Address <span class="text-danger">*</span></label>
+              <textarea name="address" v-model="address" id="" cols="30" rows="2" class="form-control"
+                placeholder="Organization Address"></textarea>
             </div>
           </div>
 
@@ -83,27 +48,15 @@
             <div class="form-group">
               <div>
                 <label for="interest_field">Interest Field</label>
-                <multiselect
-                  v-model="interest_field"
-                  :options="options"
-                  :multiple="true"
-                  :searchable="true"
-                  placeholder="select"
-                  label="label"
-                  track-by="value"
-                  class=""
-                />
+                <multiselect v-model="interest_field" :options="options" :multiple="true" :searchable="true"
+                  placeholder="select" label="label" track-by="value" class="" />
               </div>
             </div>
           </div>
 
           <div class="">
-            <button
-              :disabled="loading"
-              style="margin-top: 25px"
-              class="btn btn-primary btn-block"
-              @click="downloadForm"
-            >
+            <button :disabled="loading" style="margin-top: 25px" class="btn btn-primary btn-block"
+              @click="downloadForm">
               Download
               <i v-if="loading" class="fa fa-spinner fa-spin ml-1"></i>
             </button>

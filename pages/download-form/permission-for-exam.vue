@@ -1,50 +1,35 @@
 <template>
   <section>
     <div class="form-horizontal col-lg-6 mx-auto">
-      <div class="form-header mb-5">
-        <h4>  Permission For Exam Form</h4>
+      <div class="form-header">
+        <h4> Permission For Exam Form</h4>
       </div>
-      <div class="px-3">       
-          <div class="form-group mb-4">
-            <label for="">Payment Amount</label>
-            <input
-              type="number"
-              min="0"
-              oninput="validity.valid||(value='');"
-              class="form-control"
-              v-model="payment_amount"
-              placeholder="Enter payment amount"
-            />
-          </div>
-          <div class="form-group mb-4">
-            <label for="">Payment Date</label>
-
-            <no-ssr>
-              <datepicker
-                placeholder="Select date"
-                class="custom-datepicker form-control"
-                v-model="payment_date"
-              ></datepicker>
-            </no-ssr>
-          </div>
-            <div class="form-group mb-4">
-              <label for="">Exam Date</label>
-              <no-ssr>
-                <datepicker
-                  placeholder="Select date"
-                  class="custom-datepicker form-control"
-                  v-model="exam_date"
-                ></datepicker>
-              </no-ssr>
-            </div>
-          <div class="pb-5">
-            <button :disabled="loading" class="btn btn-primary" @click="getExaminationPermissionForm">
-              Download
-              <i
-                  v-if="loading" class="fa fa-spinner fa-spin ml-1"></i>
-            </button>
-          </div>
-       
+      <div class="px-3 pb-2">
+        <div class="form-group">
+          <label for="">Payment Amount</label>
+          <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control"
+            v-model="payment_amount" placeholder="Enter payment amount" />
+        </div>
+        <div class="form-group">
+          <label for="">Payment Date</label>
+          <no-ssr>
+            <datepicker placeholder="Select date" class="custom-datepicker form-control" v-model="payment_date">
+            </datepicker>
+          </no-ssr>
+        </div>
+        <div class="form-group">
+          <label for="">Exam Date</label>
+          <no-ssr>
+            <datepicker placeholder="Select date" class="custom-datepicker form-control" v-model="exam_date">
+            </datepicker>
+          </no-ssr>
+        </div>
+        <div class="pb-5">
+          <button :disabled="loading" class="btn btn-primary" @click="getExaminationPermissionForm">
+            Download
+            <i v-if="loading" class="fa fa-spinner fa-spin ml-1"></i>
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -101,7 +86,7 @@ export default {
               exam_date: vm.exam_date,
             },
             responseType: "blob",
-            
+
           })
           .then((response) => {
             const content = response.headers["content-type"];
@@ -134,7 +119,7 @@ export default {
   border: none !important;
   padding: 5px 10px 0 10px;
   width: 100% !important;
-  
+
 
 }
 </style>

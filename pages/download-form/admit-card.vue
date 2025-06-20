@@ -1,15 +1,11 @@
 <template>
   <section>
     <div class="card col-lg-6 col-md-4 col-sm-12 offset-lg-3 offset-md-4">
-      <div class="card-header">Download Admit Card</div>
+      <div class="form-header">Download Admit Card</div>
       <div class="card-body">
         <div v-if="total_current_due < 501 + per_semester_fee / 2" class="row">
           <div class="">
-            <button
-              :disabled="midloading"
-              @click="admitCardPrint('mid')"
-              class="btn btn-primary mb-4 w-100"
-            >
+            <button :disabled="midloading" @click="admitCardPrint('mid')" class="btn btn-bs mb-4 w-100">
               <i class="fa fa-download mr-2"></i> Download Mid-Term Admit Card
               <i v-if="midloading" class="fa fa-spinner fa-spin ml-1"></i>
             </button>
@@ -17,17 +13,12 @@
         </div>
         <div v-if="total_current_due < 501" class="row">
           <div class="">
-            <button
-              :disabled="finalloading"
-              @click="admitCardPrint('final')"
-              class="btn btn-primary w-100"
-            >
+            <button :disabled="finalloading" @click="admitCardPrint('final')" class="btn btn-bs w-100">
               <i class="fa fa-download mr-2"></i> Download Final Admit Card
               <i v-if="finalloading" class="fa fa-spinner fa-spin ml-1"></i>
             </button>
           </div>
         </div>
-
         <div v-else class="row">
           <div class="col-lg-6 col-md-6 col-sm-12 offset-lg-3 offset-md-3">
             <h5 class="text-center text-info">
@@ -39,14 +30,11 @@
     </div>
   </section>
 </template>
-  
-  
-  <script>
+
+
+<script>
 import download from "downloadjs";
-
 export default {
-  // middleware: ['authenticated', 'feedbackAuthenticated'],
-
   data: function () {
     return {
       total_current_due: "",
@@ -70,7 +58,6 @@ export default {
     async admitCardPrint(term) {
       var token = window.$nuxt.$cookies.get("token");
       var user = window.$nuxt.$cookies.get("user");
-      // alert(term);
       if (term == "mid") {
         this.midloading = true;
       }
@@ -123,4 +110,3 @@ export default {
   },
 };
 </script>
-  

@@ -386,12 +386,11 @@ h1{ padding: 0 0 30px; }
 .download-btn{
     font-family: 'Raleway', sans-serif;
     color:#fff;
-    background: #28a745;
+    background: #3A9176;
     font-size: 16px;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 20px 20px;
+    text-transform: capitalize;
+    padding: 15px 20px;
     border-radius: 6px;
     border: none;
     transition: 0.5s ease-in-out;
@@ -400,11 +399,9 @@ h1{ padding: 0 0 30px; }
 }
 .download-btn:focus{ color: #fff; }
 .download-btn:hover{
-    color:#28a745;
-    background: none;
-    /* border-radius: 100px; */
-    box-shadow: 0 0 0 1px #fff, 0 0 0 2px #28a745, 
-                0 0 0 5px #28a745,0 0 0 6.5px #fff, 0 0 0 7px #28a745;
+    background:#18AC4F;
+    color: #fff;
+              
 }
 @media only screen and (max-width: 767px){
     .download-btn{ margin-bottom: 30px; }

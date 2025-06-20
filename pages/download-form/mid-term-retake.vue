@@ -1,68 +1,49 @@
 <template>
   <section>
-    <div class="form-horizontal col-lg-6  mx-auto">
-        <div class="form-header mb-5">
-                <h4> Mid-term Retake Form</h4>
-            </div>
+    <div class="form-horizontal col-lg-6  mx-auto mb-4">
+      <div class="form-header">
+        <h4> Mid-term Retake Form</h4>
+      </div>
       <div class="px-3">
         <div class="row">
-         
-            <div class="form-group mb-5">
-              <label for="">Semester</label>
-              <select
-                name="semester"
-                @change="fetchSemesterWiseCourses"
-                id="semester"
-                v-model="semester"
-                class="form-control"
-              >
-                <option value="" selected disabled hidden>Select one</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-              </select>
-            </div>       
+          <div class="form-group">
+            <label for="">Semester</label>
+            <select name="semester" @change="fetchSemesterWiseCourses" id="semester" v-model="semester"
+              class="form-control">
+              <option value="" selected disabled hidden>Select one</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+          </div>
 
-            <div class="form-group mb-3">
-              <label for="">Course Code / Course Title</label>
-              <select
-                name="course_id"
-                id="course_id"
-                v-model="course_id"
-                class="form-control"
-              >
-                <option value="" selected disabled hidden>Select one</option>
+          <div class="form-group mb-3">
+            <label for="">Course Code / Course Title</label>
+            <select name="course_id" id="course_id" v-model="course_id" class="form-control">
+              <option value="" selected disabled hidden>Select one</option>
 
-                <option
-                  :value="row.id"
-                  v-for="(row, index) in courses"
-                  :key="index"
-                >
-                  {{ row.code }} / {{ row.name }}
-                </option>
-              </select>
-            </div>
+              <option :value="row.id" v-for="(row, index) in courses" :key="index">
+                {{ row.code }} / {{ row.name }}
+              </option>
+            </select>
+          </div>
 
-          <div class="">
-            <button
-              
-              class="btn btn-primary btn-block"
-              @click="addRetakeSubject"
-            >
+          <div class="mb-4">
+            <button class="btn btn-bs" @click="addRetakeSubject">
               <i class="fa fa-plus-circle"></i> Add
             </button>
           </div>
 
-          <div class="col-lg-12 col-md-12 col-sm-12 mt-4" v-if="isdownload">
+          <div class="col-lg-12 col-md-12 col-sm-12 mt-4 mb-4" v-if="isdownload">
             <div class="table-responsive">
               <table class="table table-bordered">
                 <thead class="">
@@ -78,11 +59,7 @@
                     <td>{{ row.course_code }}</td>
                     <td class="text-center">{{ row.course_name }}</td>
                     <td class="text-center">
-                      <button
-                        type="button"
-                        class="btn btn-danger"
-                        @click="delete_row(row)"
-                      >
+                      <button type="button" class="btn btn-danger" @click="delete_row(row)">
                         <i class="fa fa-trash"></i>
                       </button>
                     </td>
@@ -90,15 +67,10 @@
                 </tbody>
               </table>
             </div>
-            <button :disabled="loading"
-              style="margin-top: 25px"
-              class="btn btn-primary"
-              @click="downloadRetakeForm"
-            >
-              Download  <i
-              v-if="loading" class="fa fa-spinner fa-spin ml-1"></i>
+            <button :disabled="loading" style="margin-top: 25px" class="btn btn-bs" @click="downloadRetakeForm">
+              Download <i v-if="loading" class="fa fa-spinner fa-spin ml-1"></i>
             </button>
-          </div>          
+          </div>
         </div>
       </div>
     </div>
@@ -132,11 +104,11 @@ export default {
       return this.$axios
         .get(
           "student/fetch-course-lists/" +
-            user.id +
-            "/" +
-            vm.semester +
-            "?token=" +
-            token
+          user.id +
+          "/" +
+          vm.semester +
+          "?token=" +
+          token
         )
         .then((response) => {
           vm.courses = response.data.courses;
