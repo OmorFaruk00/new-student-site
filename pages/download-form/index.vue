@@ -174,7 +174,6 @@
 
 <script>
 import download from "downloadjs";
-import { mapActions } from "vuex";
 
 export default {
   name: "index",
