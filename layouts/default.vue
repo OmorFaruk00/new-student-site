@@ -3,7 +3,7 @@
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo" href="#">
-          <img src="/images/logo.png" alt="logo" class="logo-dark" style="margin-bottom: 20px;"/>
+          <img src="/images/logo.png" alt="logo" class="logo-dark" style="margin-bottom: 20px;" />
           <!-- <img src="/images/logo.png" alt="logo-light" class="logo-light"> -->
         </a>
         <a class="navbar-brand brand-logo-mini" href="#"><img src="/images/logo.png" alt="logo" /></a>
@@ -112,19 +112,8 @@
             </nuxt-link>
           </li>
 
-          <li class="nav-item" :class="{ 'active-nav': $route.path === '/staffs-service-feedback' }">
-            <nuxt-link class="nav-link" to="/staffs-service-feedback">
-              <span class="menu-title" @click="taggleMenu()">Staffs Feedback</span>
-              <i class="fa fa-comment	 menu-icon"></i>
-            </nuxt-link>
-          </li>
-          <li class="nav-item" :class="{ 'active-nav': $route.path === '/teachers-service-feedback' }">
-            <nuxt-link class="nav-link" to="/teachers-service-feedback">
-              <span class="menu-title" @click="taggleMenu()">Teachers Feedback</span>
-              <i class="fa fa-comment menu-icon"></i>
-            </nuxt-link>
-          </li>
-           <li class="nav-item" :class="{ 'active-nav': $route.path === '/download-form' }">
+
+          <li class="nav-item" :class="{ 'active-nav': $route.path === '/download-form' }">
             <nuxt-link class="nav-link" to="/download-form">
               <span class="menu-title" @click="taggleMenu()">Download Form</span>
               <i class="fa fa-download menu-icon"></i>
@@ -135,7 +124,7 @@
               <span class="menu-title" @click="taggleMenu()">Pay Now</span>
               <i class="fa fa-credit-card menu-icon"></i>
             </nuxt-link>
-          </li>       
+          </li>
           <li class="nav-item" :class="{ 'active-nav': $route.path === '/account-details' }">
             <nuxt-link class="nav-link" to="/account-details">
               <span class="menu-title" @click="taggleMenu()">Accounts Details</span>
@@ -148,7 +137,7 @@
               <i class="fa fa-university menu-icon" aria-hidden="true"></i>
             </nuxt-link>
           </li>
-      
+
           <li class="nav-item" :class="{ 'active-nav': $route.path === '/academic-result' }">
             <nuxt-link class="nav-link" to="/academic-result">
               <span class="menu-title" @click="taggleMenu()">Academic Result</span>
@@ -162,13 +151,6 @@
               <i class="fa fa-envelope menu-icon"></i>
             </nuxt-link>
           </li>
-
-          <li class="nav-item" :class="{ 'active-nav': $route.path === '/support-ticket' }">
-            <nuxt-link class="nav-link" to="/support-ticket">
-              <span class="menu-title" @click="taggleMenu()">IT Support Ticket</span>
-              <i class="fa fa-life-ring menu-icon"></i>
-            </nuxt-link>
-          </li>
           <li class="nav-item" :class="{ 'active-nav': $route.path === '/attendance' }">
             <nuxt-link class="nav-link" to="/attendance">
               <span class="menu-title" @click="taggleMenu()">Class Attendance</span>
@@ -179,12 +161,6 @@
             <nuxt-link class="nav-link" to="/education-materials">
               <span class="menu-title" @click="taggleMenu()">Education Meterials</span>
               <i class="fa fa-graduation-cap menu-icon"></i>
-            </nuxt-link>
-          </li>
-          <li class="nav-item" :class="{ 'active-nav': $route.path === '/blog-post' }">
-            <nuxt-link class="nav-link" to="/blog-post">
-              <span class="menu-title" @click="taggleMenu()">Blog Post</span>
-              <i class="fa fa-newspaper-o menu-icon"></i>
             </nuxt-link>
           </li>
 
@@ -204,6 +180,31 @@
                     class="nav-link" to="/improvement/result"> Improvement Result </nuxt-link></li>
               </ul>
             </div>
+          </li>
+          <li class="nav-item" :class="{ 'active-nav': $route.path === '/blog-post' }">
+            <nuxt-link class="nav-link" to="/blog-post">
+              <span class="menu-title" @click="taggleMenu()">Blog Post</span>
+              <i class="fa fa-newspaper-o menu-icon"></i>
+            </nuxt-link>
+          </li>
+
+          <li class="nav-item" :class="{ 'active-nav': $route.path === '/staffs-service-feedback' }">
+            <nuxt-link class="nav-link" to="/staffs-service-feedback">
+              <span class="menu-title" @click="taggleMenu()">Staffs Feedback</span>
+              <i class="fa fa-comment	 menu-icon"></i>
+            </nuxt-link>
+          </li>
+          <li class="nav-item" :class="{ 'active-nav': $route.path === '/teachers-service-feedback' }">
+            <nuxt-link class="nav-link" to="/teachers-service-feedback">
+              <span class="menu-title" @click="taggleMenu()">Teachers Feedback</span>
+              <i class="fa fa-comment menu-icon"></i>
+            </nuxt-link>
+          </li>
+          <li class="nav-item" :class="{ 'active-nav': $route.path === '/support-ticket' }">
+            <nuxt-link class="nav-link" to="/support-ticket">
+              <span class="menu-title" @click="taggleMenu()">IT Support Ticket</span>
+              <i class="fa fa-life-ring menu-icon"></i>
+            </nuxt-link>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#tolet" aria-expanded="false" aria-controls="tolet">

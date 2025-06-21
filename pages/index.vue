@@ -72,7 +72,7 @@ export default {
             path: "/",
             maxAge: 1800,
           });
-          window.location.href = "/profile";
+          window.location.href = "/dashboard";
         })
         .catch((error) => {
           this.$toast.error(error.response.data.error, {
