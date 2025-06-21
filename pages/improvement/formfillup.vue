@@ -1,44 +1,44 @@
 <template>
   <section>
     <div class=" form-horizontal">
-      <div class="form-header py-2">Eligible Improvement Subject</div>
-      <div class="pt-4">
+      <div class="form-header">Eligible Improvement Subject</div>
+      <div class="px-3">
 
-        <div class="col-lg-6 col-md-6 col-sm-12 mx-auto mb-4">
+        <div class=" mb-4">
           <div class="form-group focused mb-0">
+            <label for="type">Exam Schedule *</label>
             <select v-model="currentExamSchedule" class="custom-select form-control" id="currentExamSchedule"
-                    name="currentExamSchedule" v-on:change="examScheduleChange()">
+              name="currentExamSchedule">
               <option selected value="">Select Exam Type</option>
               <option v-for="(currentExamScheduleSingle, key) in currentExamScheduleData" :key="key"
-                      v-bind:value="currentExamScheduleSingle.id">{{ currentExamScheduleSingle.name }}
+                v-bind:value="currentExamScheduleSingle.id">{{ currentExamScheduleSingle.name }}
               </option>
             </select>
-            <label for="type">Exam Schedule *</label>
           </div>
         </div>
-
-
-
-        <div class="col-lg-6 col-md-6 col-sm-12 mx-auto mb-4">
-
+        <div class=" mb-4">
           <div class="form-group focused mb-0">
-            <select v-model="type" class="custom-select form-control" id="type" name="type" v-on:change="getEligibleSubjects()">
+            <label for="type">Exam Type *</label>
+            <select v-model="type" class="custom-select form-control" id="type" name="type"
+              v-on:change="getEligibleSubjects()">
               <option selected value="">Select Exam Type</option>
               <option value="eligible_for_incourse">In-course</option>
               <option value="eligible_for_final">Final</option>
             </select>
-            <label for="type">Type *</label>
           </div>
-
+        </div>
+        <div class="text-center" v-if="loading">
+          <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
+        </div>
+        <div class="text-center py-4">
+          <small style="font-size: .98rem; margin-top: 8px;" class="form-text text-danger">&nbsp;NB.: For Vaiva & Thesis
+            Improvement you should have to apply both (Final & In-course) otherwise marks will be not updated </small>
         </div>
 
-        <div class="text-center mt-4">
-          <small style="font-size: .98rem; margin-top: 8px;" class="form-text text-danger">&nbsp;NB.: For Vaiva & Thesis Improvement you should have to apply both (Final & In-course) otherwise marks will be not updated </small>
-        </div>
 
       </div>
 
-      <div class="table-responsive px-3 pt-4" v-if="eligible_for_subjects && eligible_for_subjects.length > 0">
+      <div class="table-responsive px-3 p-4" v-if="eligible_for_subjects && eligible_for_subjects.length > 0">
         <table class="table table-bordered mb-0 table-sm">
           <tr>
             <th>SL.</th>
@@ -47,13 +47,13 @@
             <th>Grade</th>
             <th>Applied Times</th>
             <th>Exam Fee</th>
-            <th>Apply</th>
+            <th style="text-align: right;">Apply</th>
           </tr>
           <tr v-for="(course, key) in eligible_for_subjects" :key="key" v-if="eligible_for_subjects">
             <td>{{ key + 1 }}</td>
             <td class="align-middle">
-              <p>{{ course.name }}</p>
               <p>
+                <span>{{ course.name }}</span> <br>
                 <strong>Code: </strong>{{ course.code }},
                 <strong>Credit: </strong>{{ course.credit }},
                 <strong>Type: </strong>{{ course.course_type }}
@@ -80,18 +80,17 @@
 
             </td>
 
-            <td class="align-middle" v-if="type=='eligible_for_incourse'">{{ course.course_fee }}</td>
-            <td class="align-middle" v-if="type=='eligible_for_final'">{{ course.course_fee }}</td>
+            <td class="align-middle" v-if="type == 'eligible_for_incourse'">{{ course.course_fee }}</td>
+            <td class="align-middle" v-if="type == 'eligible_for_final'">{{ course.course_fee }}</td>
 
             <td class="align-middle">
-              <!-- {{ course.payment_status==null?'null':course.payment_status }} -->
               <button
-                v-if=" (course.payment_status == 0   && course.applied_in_current_exam_shedule==false) || course.payment_status == null "
+                v-if="(course.payment_status == 0 && course.applied_in_current_exam_shedule == false) || course.payment_status == null"
                 type="submit" class="btn btn-primary btn-sm" @click="applyImprovementRequest(course.id)">Apply
               </button>
 
-              <button v-else-if="(course.payment_status == 0 && course.applied_in_current_exam_shedule==true)"
-                      type="submit" class="btn btn-danger btn-sm" @click="cancelImprovementRequest(course.id)">Remove
+              <button v-else-if="(course.payment_status == 0 && course.applied_in_current_exam_shedule == true)"
+                type="submit" class="btn btn-danger btn-sm" @click="cancelImprovementRequest(course.id)">Remove
               </button>
 
               <strong class="text-success" v-else-if="(course.payment_status == 1)">Payment Complete</strong>
@@ -100,8 +99,8 @@
         </table>
       </div>
 
-      <button class="btn btn-lg btn-primary mt-4 mx-3" v-if="showDownloadButton==true" type="button" name="downloadApplication"
-              @click="downloadApplication()">Download Application Form
+      <button class="btn btn-lg btn-primary mt-4 mx-3" v-if="showDownloadButton == true" type="button"
+        name="downloadApplication" @click="downloadApplication()">Download Application Form
       </button>
     </div>
   </section>
@@ -123,6 +122,7 @@ export default {
       currentExamScheduleData: "",
       currentExamSchedule: '',
       showDownloadButton: false,
+      loading: false,
     }
   },
   mounted() {
@@ -135,19 +135,18 @@ export default {
       var token = window.$nuxt.$cookies.get('token');
       return await this.$axios.get('/get_current_improvement_exam_schedule?token=' + token)
         .then((response) => {
-          // console.log(response.data.data)
           this.currentExamScheduleData = response.data.data;
         })
         .catch((error) => {
-          this.$toast.error('currentExamSchedule Not found', {icon: "error_outline"});
+          this.$toast.error('currentExamSchedule Not found', { icon: "error_outline" });
         })
     },
     async getEligibleSubjects() {
-
       this.showDownloadButton = false;
+      this.loading = true;
 
       if (this.currentExamSchedule == '') {
-        this.$toast.error('Select An Exam Schedule', {icon: "error_outline"});
+        this.$toast.error('Select An Exam Schedule', { icon: "error_outline" });
         this.type = '';
         return;
       }
@@ -157,34 +156,30 @@ export default {
       if (this.type != '') {
         return await this.$axios.get('/' + this.type + '/' + this.currentExamSchedule + '?token=' + token)
           .then((response) => {
-            // console.log("response", response.data);
             this.eligible_for_subjects = response.data;
 
             for (var key in response.data) {
               if (this.showDownloadButton == false && response.data[key].payment_status != null) {
                 this.showDownloadButton = true;
-                // console.log("showDownloadButton", this.showDownloadButton);
               }
             }
-            // console.log("this.eligible_for_subjects", this.eligible_for_subjects);
           })
           .catch((error) => {
-            this.$toast.error('Not found', {icon: "error_outline"});
+            this.$toast.error('Not found', { icon: "error_outline" });
             this.eligible_for_subjects = null;
-          })
+          }).finally((final) => {
+            this.loading = false;
+          });
       } else {
         this.eligible_for_subjects = null;
       }
     },
 
-    async examScheduleChange() {
-      this.getEligibleSubjects();
-    },
+    // async examScheduleChange() {
+    //   this.getEligibleSubjects();
+    // },
 
     async applyImprovementRequest(course_id) {
-      /*console.log('course_id', course_id, 'currentExamSchedule_id', this.currentExamSchedule,
-        'type', this.type);*/
-
 
       if (confirm("Do you really want to apply?")) {
         var token = window.$nuxt.$cookies.get('token');
@@ -206,11 +201,11 @@ export default {
           'course_id': course_id,
         })
           .then((response) => {
-            this.getEligibleSubjects()
-            this.$toast.success(response.data.success, {icon: "error_outline"});
+            this.getEligibleSubjects();
+            this.$toast.success(response.data.success, { icon: "error_outline" });
           })
           .catch((error) => {
-            this.$toast.error(error.response.data.error, {icon: "error_outline"});
+            this.$toast.error(error.response.data.error, { icon: "error_outline" });
           })
       }
     },
@@ -233,38 +228,15 @@ export default {
           'course_id': course_id
         })
           .then((response) => {
-            this.getEligibleSubjects()
-            this.$toast.success(response.data.success, {icon: "error_outline"});
+            this.getEligibleSubjects();
+            this.$toast.success(response.data.success, { icon: "error_outline" });
           })
           .catch((error) => {
-            // console.log(error.response.data);
-            this.$toast.error(error.response.data.error, {icon: "error_outline"});
+            this.$toast.error(error.response.data.error, { icon: "error_outline" });
           })
       }
 
     },
-
-    /*downloadApplication() {
-      var token = window.$nuxt.$cookies.get('token');
-      var type = '';
-
-      if (this.type == 'eligible_for_incourse') {
-        type = 'incourse';
-      } else if (this.type == 'eligible_for_final') {
-        type = 'final';
-      }
-
-      window.open('https://api.diu.ac/download_application/' + this.currentExamSchedule + '/' + type + '?token=' + token);
-
-      /!*return await this.$axios.get('/download_application/'+  this.currentExamSchedule + '/' + type + '?token=' + token)
-      .then((response) => {
-          this.$toast.success(response.data.success, {icon: "error_outline"});
-      })
-      .catch((error) => {
-          console.log(error.response.data);
-          this.$toast.error(error.response.data.error, {icon: "error_outline"});
-      })*!/
-    },*/
 
     async downloadApplication() {
       var token = window.$nuxt.$cookies.get('token');
@@ -282,7 +254,7 @@ export default {
       }
 
       if (!user) {
-        this.$toast.info('Please login as a student', {icon: "error_outline"});
+        this.$toast.info('Please login as a student', { icon: "error_outline" });
         return false;
       } else {
         return await this.$axios.get(`/download_application/${this.currentExamSchedule}/${type}?token=${token}`, {
@@ -294,7 +266,7 @@ export default {
 
             download(response.data, `${type}_improvement_examination_form`, content);
 
-            this.$toast.success(`${typeMsg} Improvement Examination Form Download Successfully`, {icon: "error_outline"});
+            this.$toast.success(`${typeMsg} Improvement Examination Form Download Successfully`, { icon: "error_outline" });
 
           })
           .catch((error) => {

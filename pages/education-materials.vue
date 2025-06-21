@@ -1,15 +1,16 @@
 <template>
   <section>
-    <div class="card form-horizontal">
+    <div class="form-horizontal">
 
-      <div class="card-header">Education Materials</div>
+      <div class="form-header">Education Materials</div>
 
-      <div class="card-body">
+      <div class=" px-4">
 
         <form id="checkStudentsForm" @submit.prevent="getMaterials()">
           <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-12">
+            <div class="col-lg-8 col-md-8 col-sm-12">
               <div class="form-group focused">
+                  <label for="materials_type">Find Material *</label>
                 <select v-model="filter.materials_type" class="form-control" id="materials_type" name="materials_type"
                         required="">
                   <option selected value="">Select material name</option>
@@ -18,13 +19,14 @@
                   <option value="Lesson Plans">Lesson Plans</option>
                   <option value="Lecture Sheets">Lecture Sheets</option>
                 </select>
-                <label for="materials_type">Find Material *</label>
+
                 <small id="materials_type_help" class="form-text text-danger">&nbsp;</small>
               </div>
             </div>
 
-            <div class="col-lg-3 col-md-3 col-sm-12">
+            <div class="col-lg-8 col-md-8 col-sm-12">
               <div class="form-group focused">
+                 <label for="department_id">Department *</label>
                 <select class="form-control" id="department_id" name="department_id" v-model="filter.department_id"
                         required="">
                   <option selected value="">Select Department</option>
@@ -33,27 +35,24 @@
                     }}
                   </option>
                 </select>
-                <label for="department_id">Department *</label>
+
                 <small id="department_id_help" class="form-text text-danger">&nbsp;</small>
               </div>
             </div>
 
-            <div class="col-lg-3 col-md-3 col-sm-12">
+            <div class="col-lg-8 col-md-8 col-sm-12">
               <div class="form-group diu-focused">
-                <!--                <input id="semester" type="text" class="form-control" name="semester" v-model="filter.semester"
-                                       placeholder="Semester">-->
-
+             <label for="semester" class="">Semester</label>
                 <select class="form-control" id="semester" name="semester" v-model="filter.semester"
                         required="">
                   <option selected disabled hidden value="">Select semester</option>
                   <option v-for="(n,index) in 12" :key="index" :value="n">{{ n }}</option>
                 </select>
-                <label for="semester" class="">Semester</label>
                 <small id="semester_help" class="form-text text-danger">&nbsp;</small>
               </div>
             </div>
 
-            <div class="col-lg-3 col-md-3 col-sm-12 mb-4">
+            <div class="col-lg-8 col-md-8 col-sm-12 mb-4">
               <div class="form-group">
                 <button type="submit" style="margin-top: 0;margin-left: 0" class="btn btn-primary btn-block">Find</button>
               </div>

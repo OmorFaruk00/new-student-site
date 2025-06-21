@@ -1,12 +1,11 @@
 <template>
   <section>
-    <div class="form-horizontal col-lg-6 mx-auto">
-      <div class="card-header py-3">
-      
+    <div class="form-horizontal">
+      <div class="form-header">
         {{
-            has_mail_account
-              ? "Already created account.Login outlook and get awesome services"
-              : "Create Email Account"
+          has_mail_account
+            ? "Already created account.Login outlook and get awesome services"
+            : "Create Email Account"
         }}
       </div>
 
@@ -17,22 +16,22 @@
           <a href="https://outlook.office.com/" target="_blank" style="color: blue">
             https://outlook.office.com/</a>
         </p>
-   
         <form id="changeMailAccountForm" method="" action="JavaScript:void(0);">
-          <div class="mt-4">
-            <div class="form-group focused">
+          <div class="">
+            <div class="form-group">
+              <label for="username">Your email username
+                <small class="d-none d-lg-inline">(
+                  <em>You can {{ has_mail_account ? "not" : "" }} change your
+                    email username</em>
+                  )</small>
+              </label><br>
               <div class="input-group">
                 <input type="text" :readonly="has_mail_account" class="form-control" id="username" name="username"
                   placeholder="Your mail username" aria-describedby="username-addon" v-model="account.username" />
                 <div class="input-group-append">
                   <span class="input-group-text" id="username-addon">@students.diu.ac</span>
                 </div>
-                <label for="username">Your email username
-                  <small class="d-none d-lg-inline">(
-                    <em>You can {{ has_mail_account ? "not" : "" }} change your
-                      email username</em>
-                    )</small>
-                  </label>
+
               </div>
               <p>
                 <small id="username_help" class="form-text text-danger">&nbsp;</small>
@@ -41,9 +40,10 @@
           </div>
 
           <div class=" " v-if="!has_mail_account">
-            <div class="form-group focused e_password">
-              <input :type="showPassword?'text':'password'" class="form-control" id="password" name="password" v-model="account.password" />
+            <div class="form-group focused ">
               <label for="password">Password</label>
+              <input :type="showPassword ? 'text' : 'password'" class="form-control" id="password" name="password"
+                v-model="account.password" />
               <small id="password_help" class="form-text text-danger">&nbsp;</small>
 
               <div class="p_eye" @click="showPassword = !showPassword">
@@ -63,12 +63,12 @@
           </div>
 
           <div class="" v-if="!has_mail_account">
-            <div class="form-group focused e_password">
-              <input :type="showCPassword?'text':'password'" class="form-control" id="confirmed_password" name="confirmed_password"
-                v-model="account.confirmed_password" />
+            <div class="form-group focused">
               <label for="confirmed_password">Confirm Password</label>
+              <input :type="showCPassword ? 'text' : 'password'" class="form-control" id="confirmed_password"
+                name="confirmed_password" v-model="account.confirmed_password" />
               <small id="confirmed_password_help" class="form-text text-danger">&nbsp;</small>
-                <div class="p_eye" @click="showCPassword = !showCPassword">
+              <div class="p_eye" @click="showCPassword = !showCPassword">
                 <svg v-if="showCPassword" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                   viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round"
@@ -84,12 +84,12 @@
             </div>
           </div>
 
-          <div class=" pb-5">
+          <div class="pb-5 mb-5">
             <button style="margin-left: 0" type="button" class="btn btn-primary btn-sm" @click="createMailAccount()"
               v-if="has_mail_account == false">
               Create Account
             </button>
-     
+
           </div>
         </form>
       </div>
@@ -99,7 +99,6 @@
 
 <script>
 export default {
-  // middleware: "feedbackAuthenticated",
   data() {
     return {
       profile: [],
@@ -188,7 +187,6 @@ export default {
         .then(async (response) => {
           if (response.data.token) {
             let emailAccount = await this.createAccount(response.data.token);
-            // await this.licenseAssign(response.data.token, emailAccount.userPrincipalName)
             await this.studentInfoUpdate(emailAccount.userPrincipalName);
           }
 
@@ -292,7 +290,7 @@ export default {
   },
 
   created() {
-     this.getAuthUserProfile();
+    this.getAuthUserProfile();
   },
 };
 </script>
@@ -306,7 +304,6 @@ export default {
   color: #999;
   width: 30px;
   height: 30px;
-  margin-bottom: -50px;
 }
 
 .form-group {
@@ -317,6 +314,21 @@ export default {
   width: 24px;
   height: 24px;
   stroke: #666;
+  margin-top: 12px;
 }
-</style>
 
+.input-group-text {
+  height: 40px;
+  background: #fff;
+  box-shadow: none;
+  /* padding: 0px 0px 0px 10px; */
+  font-size: 14px;
+  color: #000;
+  position: relative;
+  transition: all 0.3s ease 0s;
+  border: 2px solid #18AC4F !important;
+  border-radius: 0px 8px 8px 0px;
+}
+
+
+</style>

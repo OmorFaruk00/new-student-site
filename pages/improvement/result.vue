@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="card db-gp form-horizontal mx-auto">
-      <div class="card-header">Improvement Exam Result</div>
+      <div class="form-header">Improvement Exam Result</div>
 
       <div class="card-body" v-if='examSchedules==null'>
         <div class="text-center text-danger">
@@ -10,20 +10,24 @@
       </div>
       <div class="card-body" v-if='examSchedules!=null'>
         <div class="form-group focused mb-0">
+          <label for="type">Exam Schedule *</label>
           <select v-model="selectedExamSchedule_id" class="custom-select form-control" id="selectedExamSchedule_id"
                   name="currentExamSchedule" v-on:change="examScheduleChange()">
-            <option selected value="">Select Improvement Exam</option>
+            <option selected disabled value="">Select Improvement Exam</option>
             <option v-for="(examSchedule, key, index) in examSchedules" v-bind:value="examSchedule.id">
               {{ examSchedule.name }}
             </option>
           </select>
-          <label for="type">Exam Schedule *</label>
+
         </div>
-        <br> 
+        <br>
       </div>
+        <div class="text-center" v-if="loading">
+          <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
+        </div>
 
      <div class="table-responsive px-3">
-      <table class="table table-bordered mb-0 table-sm" v-if='impResults!=null'>
+      <table class="table table-bordered mb-4 table-sm" v-if='impResults!=null'>
         <tr>
           <th>SL.</th>
           <th>Course</th>
@@ -35,8 +39,8 @@
         <tr v-for="(course, key, index) in impResults" v-if="impResults!=null">
           <td>{{ key + 1 }}</td>
           <td class="align-middle">
-            <p>{{ course.name }}</p>
             <p>
+              <span> {{ course.name }}</span><br>
               <strong>Code: </strong>{{ course.code }},
               <strong>Credit: </strong>{{ course.credit }},
               <strong>Type: </strong>{{ course.course_type }}
@@ -67,6 +71,7 @@
 
 
       </table>
+
      </div>
 
     </div>
@@ -80,7 +85,8 @@ export default {
     return {
       examSchedules: null,
       impResults: null,
-      selectedExamSchedule_id: null,
+      selectedExamSchedule_id: "",
+      loading:false,
     }
   },
   mounted() {
@@ -90,6 +96,7 @@ export default {
     async examScheduleChange() {
       var token = window.$nuxt.$cookies.get('token');
       this.impResults = null;
+      this.loading = true;
 
       if (this.selectedExamSchedule_id == '') {
         return;
@@ -103,7 +110,9 @@ export default {
         })
         .catch((error) => {
           this.$toast.error('No Result found', {icon: "error_outline"});
-        })
+        }).finally((final) => {
+            this.loading = false;
+          });
     },
 
 
