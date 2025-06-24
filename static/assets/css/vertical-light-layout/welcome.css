@@ -8,7 +8,8 @@
 .login-left {
     background-image: url('/images/welcome.jpeg');
     background-size: cover;
-    background-position: center;
+    background-position: top left ;
+    background-repeat: no-repeat;
     height: 100vh;
 
 
@@ -37,7 +38,7 @@
 
 .brand-logo {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 35px;
 
 }
 .auth-info h4{
@@ -224,8 +225,8 @@
 .copyright{
     text-align: center;
     font-size: 12px;
-    padding: 20px 0px;
     color: gray;
+    padding-bottom: 50px;
 }
 
 
