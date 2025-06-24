@@ -3,14 +3,14 @@
         <h2>To let publish page</h2>
     </div> -->
   <section>
-    <div class="form-horizontal">
-      <h4 class="form-header py-2">To-Let Publish</h4>
-      <div class=" my-3 p-3">
-        <div class="row p-2">
+    <div class="form-horizontal rounded">
+      <h3 class="form-header p-3">To-Let Publish</h3>
+      <div class=" my-3">
+        <div class="row p-3">
           <div class="">
             <form method="post" id="toletform">
               <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 ">
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                   <div class="form-group">
                     <label>To-Let Type</label>
                     <p class="text-danger" v-if="error.type" v-text="error.type[0]"></p>
@@ -22,7 +22,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                   <div class="form-group">
                     <label>Gender</label>
                     <p class="text-danger" v-if="error.gender" v-text="error.gender[0]"></p>
@@ -34,7 +34,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-6 col-md-6 col-sm-12  mb-3">
                   <div class="form-group">
                     <label>Campus</label>
                     <p class="text-danger" v-if="error.campus" v-text="error.campus[0]"></p>
@@ -46,7 +46,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-6 col-md-6 col-sm-12  mb-3">
                   <div class="form-group">
                     <label>Room Type</label>
                     <p class="text-danger" v-if="error.room_type" v-text="error.room_type[0]"></p>
@@ -60,7 +60,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-6 col-md-6 col-sm-12  mb-3">
                   <div class="form-group">
                     <label>Available Seat/Room</label>
                     <p class="text-danger" v-if="error.available_seat" v-text="error.available_seat[0]"></p>
@@ -68,21 +68,21 @@
                       placeholder="Enter Available seat/room" />
                   </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-6 col-md-6 col-sm-12  mb-3">
                   <div class="form-group">
                     <label>Available From</label>
                     <p class="text-danger" v-if="error.available_from" v-text="error.available_from[0]"></p>
                     <input v-model="available_from" type="date" class="form-control" placeholder="" />
                   </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-6 col-md-6 col-sm-12  mb-3">
                   <div class="form-group">
                     <label>Rent Per Seat/Room</label>
                     <p class="text-danger" v-if="error.rent" v-text="error.rent[0]"></p>
                     <input v-model="rent" type="number" class="form-control" placeholder="Enter Rent" />
                   </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-6 col-md-6 col-sm-12  mb-3">
                   <div class="form-group">
                     <label>Person Per Room</label>
                     <p class="text-danger" v-if="error.person_per_room" v-text="error.person_per_room[0]"></p>
@@ -91,7 +91,7 @@
                   </div>
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-6 col-md-6 col-sm-12  mb-3">
                   <div class="d-flex justify-content-between align-items-center">
                     <p class="mb-0 wifi-label">Wifi Available</p>
                     <div class="d-flex align-items-center">
@@ -108,7 +108,7 @@
                     </div>
                   </div>
                   <p class="text-danger" v-if="error.wifi" v-text="error.wifi[0]"></p>
-                </div>            
+                </div>
 
 
                 <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
@@ -116,7 +116,7 @@
                     <p>Maid Available</p>
                     <div class="d-flex align-items-center">
                       <div class="form-check form-check-inline">
-                      
+
                       <input class="form-check-input" type="radio" name="maid" id="maid" value="Available"
                         v-model="maid" />
                       <label class="" for="">Yes</label>
@@ -126,7 +126,7 @@
                         v-model="maid" />
                       <label class=""  for="">No</label>
                     </div>
-                  
+
                     </div>
                   </div>
                   <p class="text-danger" v-if="error.maid" v-text="error.maid[0]"></p>
@@ -169,12 +169,12 @@
                 </div>
               </div>
 
-              <div class="form-group mt-3">
+              <div class="form-group mt-3 mb-3" style="margin-bottom: 20px !important;">
                 <label>Other Details</label>
                 <p class="text-danger" v-if="error.details" v-text="error.details[0]"></p>
                 <textarea v-model="details" type="text" class="form-control" placeholder="Enter Details" />
               </div>
-              <div class="form-group">
+              <div class="form-group mb-3">
                 <label>Address</label>
                 <p class="text-danger" v-if="error.address" v-text="error.address[0]"></p>
                 <textarea v-model="address" type="text" class="form-control" placeholder="Enter Address" />
@@ -182,7 +182,7 @@
             </form>
           </div>
 
-          <div class=" ">
+          <div class=" mt-4">
             <button style="margin-left: 0" class="btn btn-primary btn-block" @click="ToLetPublish">
               Submit
             </button>

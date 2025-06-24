@@ -45,21 +45,55 @@
             </div>
           </div>
 
-                <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="bg-white shadow-sm p-3 rounded">
-             <h4 class="fw-semibold">Semester’s Grade</h4>
+          <div class=" col-12 bg-white shadow-sm p-3 rounded">
+            <div class="">
+              <h4 class="fw-semibold">Semester’s Grade</h4>
               <hr>
-              <canvas id="semesterChart"></canvas>
+
+              <div class="vertical ">
+                <div class="progress-bar">
+                  <div class="progress-track">
+                    <div class="progress-fill">
+                      <span>100%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="progress-bar">
+                  <div class="progress-track">
+                    <div class="progress-fill">
+                      <span>75%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="progress-bar">
+                  <div class="progress-track">
+                    <div class="progress-fill">
+                      <span>60%</span>
+                    </div>
+
+                  </div>
+                   <!-- <div class="serial">#1</div> -->
+                </div>
 
 
+
+                <div class="progress-bar">
+                  <div class="progress-track">
+                    <div class="progress-fill">
+                      <span>34%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
 
 
-
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="bg-white shadow-sm p-3 rounded" style="height: 330px;">
+            <div class="bg-white shadow-sm p-3 rounded">
               <h4 class="fw-semibold">Summary</h4>
               <hr>
               <table class="table table-borderless table-sm mb-0">
@@ -67,9 +101,7 @@
                   <tr>
                     <td class="fw-semibold"> <i class="fa fa-star me-2 text-muted"></i>GPA</td>
                     <td class="text-start fw-bold">: &nbsp; &nbsp; 3.36</td>
-
                   </tr>
-
                   <tr>
                     <td class="fw-semibold"> <i class="fa fa-file-text me-2 text-muted"></i>Avarage Grade</td>
                     <td class="text-start fw-bold">: &nbsp; &nbsp; B</td>
@@ -114,6 +146,13 @@
                 <div class="progress green">
                   <div class="progress-bar" style="width:75%; background:#5fad56;">
                     <div class="progress-value">75%</div>
+                  </div>
+                </div>
+
+                <p class="progress-title">Permission</p>
+                <div class="progress yellow">
+                  <div class="progress-bar" style="width:60%; background:#e8d324;">
+                    <div class="progress-value">60%</div>
                   </div>
                 </div>
 
@@ -173,10 +212,6 @@
               <span class="fw-semibold">Computer Science</span> <br>
               <span class="text-muted me-2">Today, 9:00 AM</span>
             </li>
-               <li>
-              <span class="fw-semibold">Computer Science</span> <br>
-              <span class="text-muted me-2">Today, 9:00 AM</span>
-            </li>
 
           </ul>
         </div>
@@ -193,9 +228,8 @@
 <script>
 export default {
   mounted() {
+    // DOM is ready
     this.updateProgressBars();
-    this.drowChart();
-
   },
   methods: {
     updateProgressBars() {
@@ -208,35 +242,6 @@ export default {
         const parent = span.parentElement;
         parent.style.height = percent;
         parent.style.top = pTop;
-      });
-    },
-    drowChart() {
-      const ctx = document.getElementById('semesterChart').getContext('2d');
-
-      const semesterChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['1st Sem', '2nd Sem', '3rd Sem', '4th Sem', '5th Sem', '6th Sem', '7th Sem', '8th Sem', '9th Sem'],
-          datasets: [{
-            label: 'GPA',
-            data: [3.2, 3.5, 3.6, 3.8, 3.7, 3.9, 4.0, 3.95, 3],
-            backgroundColor: '#4CAF50',
-            borderRadius: 5, barThickness: 20,
-            maxBarThickness: 30
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-              max: 4.0,
-              ticks: {
-                stepSize: 0.2
-              }
-            }
-
-          }
-        }
       });
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="form-horizontal">
+    <div class="form-horizontal rounded">
       <div class="form-header  py-2">Campus Adda (Registration Form For Campus Adda)</div>
       <div class="px-3">
 
@@ -40,58 +40,57 @@
           </div>
         </div>
 
-        <div class="row" v-if="register_check == '0'">
+        <div class="row pb-5" v-if="register_check == '0'">
 
           <div class="col-lg-12 col-md-12 col-sm-12 mt-4">
             <div class="table-responsive">
               <table class="table table-bordered">
                 <thead>
-                <tr>
-                  <td>Sl</td>
-                  <td>Name / Roll</td>
-                  <td>Facebook Url</td>
-                  <td>Member Activities</td>
-                  <td>Image (Casual Image)</td>
-                  <td>Action</td>
-                </tr>
+                  <tr>
+                    <td>Sl</td>
+                    <td>Name / Roll</td>
+                    <td>Facebook Url</td>
+                    <td>Member Activities</td>
+                    <td>Image (Casual Image)</td>
+                    <td>Action</td>
+                  </tr>
                 </thead>
 
                 <tbody id="docUpload">
 
-                <tr v-for="(row,index) in teamMember" :key="index">
-                  <td>{{ index + 1 }}</td>
-                  <td>{{ row.name }} / {{ row.roll_no }}</td>
+                  <tr v-for="(row, index) in teamMember" :key="index">
+                    <td>{{ index + 1 }}</td>
+                    <td>{{ row.name }} / {{ row.roll_no }}</td>
 
-                  <td>
-                    <div class="form-group" style="min-width: 200px">
-                      <input type="text" class="form-control" v-model="row.fb_url" placeholder="enter facebook url">
-                    </div>
-                  </td>
+                    <td>
+                      <div class="form-group" style="min-width: 200px">
+                        <input type="text" class="form-control" v-model="row.fb_url" placeholder="enter facebook url">
+                      </div>
+                    </td>
 
-                  <td>
-                    <div class="form-group" style="min-width: 200px">
-                      <select v-model="row.member_activity" class="form-control">
-                        <option value="Program Anchor">Program Anchor</option>
-                        <option value="Cultural">Cultural</option>
-                        <option value="Adda Bazz">Adda Bazz</option>
-                      </select>
-                    </div>
+                    <td>
+                      <div class="form-group" style="min-width: 200px">
+                        <select v-model="row.member_activity" class="form-control">
+                          <option value="Program Anchor">Program Anchor</option>
+                          <option value="Cultural">Cultural</option>
+                          <option value="Adda Bazz">Adda Bazz</option>
+                        </select>
+                      </div>
 
-                  </td>
-                  <td>
-                    <input type="file" accept="image/*">
-                    <br>
+                    </td>
+                    <td>
+                      <input type="file" accept="image/*">
+                      <br>
 
-                    <span class="text-danger">Upload file extension must be jpg / png and max size 1024KB</span>
-                  </td>
-                  <td>
+                      <span class="text-danger">Upload file extension must be jpg / png and max size 1024KB</span>
+                    </td>
+                    <td>
 
-                    <button v-if="user.id != row.student_id" type="button" class="btn btn-danger"
-                            @click="delete_row(row)"><i
-                      class="fa fa-trash"></i></button>
+                      <button v-if="user.id != row.student_id" type="button" class="btn btn-danger"
+                        @click="delete_row(row)"><i class="fa fa-trash"></i></button>
 
-                  </td>
-                </tr>
+                    </td>
+                  </tr>
                 </tbody>
 
               </table>
@@ -99,29 +98,32 @@
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-3"></div>
-          <div class="col-lg-4 col-md-4 col-sm-12">
-            <div class="form-group focused my-4">
 
+          <div class="col-lg-4 col-md-4 col-sm-12 mt-4">
+            <div class="form-group focused">
+
+              <label for="semester">Team Member *</label>
               <select v-model="team_member_id" class="custom-select form-control" name="team_member_id">
                 <option value="" selected disabled hidden>select one</option>
-                <option v-for="(batch_mate,index) in batch_mates" :key="index" :value="batch_mate.id">
+                <option v-for="(batch_mate, index) in batch_mates" :key="index" :value="batch_mate.id">
                   {{ batch_mate.roll_no }} - {{ batch_mate.name }} - {{ batch_mate.reg_code }}
                 </option>
               </select>
 
-              <label for="semester">Team Member *</label>
             </div>
           </div>
 
-          <div class="col-lg-2 col-md-2 col-sm-12 mt-4">
-            <button type="button" @click="addTeamMember" class="btn btn-primary" style="margin-top: -1px;"> Add</button>
+          <div class="col-lg-2 col-md-2 col-sm-12 mt-5">
+            <div class="form-group focused">
+              <button type="button" @click="addTeamMember" class="btn btn-primary" style="margin-top: -1px;">
+                Add</button>
+            </div>
           </div>
 
-          <div class="col-lg-3 col-md-3"></div>
 
 
-          <div class="col-12">
+
+          <div class="col-12 mt-3">
             <button type="button" class="btn btn-primary" @click="submit">submit</button>
           </div>
 
@@ -180,7 +182,7 @@ export default {
           this.batch_mates = response.data;
         })
         .catch((error) => {
-          this.$toast.error('Not found', {icon: "error_outline"});
+          this.$toast.error('Not found', { icon: "error_outline" });
         })
     },
 
@@ -189,13 +191,13 @@ export default {
       var vm = this;
 
       if (vm.teamMember.length > 5) {
-        vm.$toast.primary('Only Max 6 Team Members Allowed', {icon: "error_outline"});
+        vm.$toast.primary('Only Max 6 Team Members Allowed', { icon: "error_outline" });
         return false;
       }
 
       if (!vm.team_member_id) {
 
-        this.$toast.success('Please Select batch mate', {icon: "error_outline"});
+        this.$toast.success('Please Select batch mate', { icon: "error_outline" });
         return false;
 
       } else {
@@ -247,7 +249,7 @@ export default {
     },
 
     addDefaultMember() {
-      let vm = this;    
+      let vm = this;
 
       vm.teamMember.push({
         student_id: vm.authuser.id,
@@ -268,7 +270,7 @@ export default {
       let vm = this;
 
       if (vm.teamMember.length < 4) {
-        vm.$toast.primary('Min 4 and Max 6 members allowed', {icon: "error_outline"});
+        vm.$toast.primary('Min 4 and Max 6 members allowed', { icon: "error_outline" });
         return false;
       }
 
@@ -289,7 +291,7 @@ export default {
       })
         .then((response) => {
 
-          this.$toast.success(response.data.message, {icon: "error_outline"});
+          this.$toast.success(response.data.message, { icon: "error_outline" });
 
           vm.teamMember = [];
           vm.$emit('addDefaultMember');
@@ -300,14 +302,14 @@ export default {
           vm.errors = error.response.data;
 
           if (error.response.status == 401) {
-            this.$toast.primary(error.response.data.error, {icon: "error_outline"});
+            this.$toast.primary(error.response.data.error, { icon: "error_outline" });
           } else if (error.response.status == 400) {
-            this.$toast.primary(error.response.data.error, {icon: "error_outline"});
+            this.$toast.primary(error.response.data.error, { icon: "error_outline" });
           } else if (error.response.status == 422) {
 
-            this.$toast.primary('Image must be a file of type: jpeg, jpg, png and max size 1024KB', {icon: "error_outline"});
+            this.$toast.primary('Image must be a file of type: jpeg, jpg, png and max size 1024KB', { icon: "error_outline" });
           } else {
-            this.$toast.primary('Something went to wrong', {icon: "error_outline"});
+            this.$toast.primary('Something went to wrong', { icon: "error_outline" });
           }
 
         })

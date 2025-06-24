@@ -1,85 +1,63 @@
 <template>
-  <div class="container mt-3">
-    <div class="form-horizontal">
-      <div class="form-header">
-        <h4>Update Post</h4>
+  <div class=" my-3">
+    <div class="form-horizontal rounded">
+      <div class="form-header d-flex justify-content-between py-3">
+        <h3>Update Post</h3>
+        <div>
+          <nuxt-link to="/blog-post" class="btn btn-primary">Blog List</nuxt-link>
+        </div>
       </div>
       <div class="px-3 pt-4">
-        <div class="form-group">
+        <div class="form-group" style="margin-bottom: 10px !important;">
           <label>Title <span class="text-danger">*</span></label>
           <p class="text-danger" v-if="error.title" v-text="error.title[0]"></p>
-          <input
-            v-model="title"
-            type="text"
-            class="form-control"
-            placeholder="Please enter title"
-          />
+          <input v-model="title" type="text" class="form-control" placeholder="Please enter title" />
         </div>
-        <div class="form-group mb-4">
+        <div class="form-group" style="margin-bottom: 10px !important;">
           <label class="form-label">Select Categories</label>
-          <multiselect
-            v-model="selectedCategories"
-            :options="categories"
-            :multiple="true"
-            :searchable="true"
-            placeholder="Pick categories"
-            label="name"
-            track-by="id"
-            class="custom-multiselect"
-          />
+          <multiselect v-model="selectedCategories" :options="categories" :multiple="true" :searchable="true"
+            placeholder="Pick categories" label="name" track-by="id" class="custom-multiselect rounded"
+            style="border: 2px solid #18AC4F;" />
         </div>
 
-        <div class="form-group mb-4">
+        <div class="form-group" style="margin-bottom: 10px !important;">
           <label class="form-label">Select Tags</label>
-          <multiselect
-            v-model="selectedTags"
-            :options="tags"
-            :multiple="true"
-            :searchable="true"
-            placeholder="Pick tags"
-            label="name"
-            track-by="id"
-            class="custom-multiselect"
-          />
+          <multiselect v-model="selectedTags" :options="tags" :multiple="true" :searchable="true"
+            placeholder="Pick tags" label="name" track-by="id" class="custom-multiselect rounded"
+            style="border: 2px solid #18AC4F;" />
         </div>
-        <div class="form-group mb-4">
-            <label>Description <span class="text-danger">*</span></label>
+        <div class="form-group" style="margin-bottom: 10px !important;">
+          <label>Description <span class="text-danger">*</span></label>
           <textarea id="ckeditor" v-model="description"></textarea>
           <p class="text-danger" v-if="error.description" v-text="error.description[0]"></p>
         </div>
 
         <div class="form-group focused mx-auto">
-            <label>Image <span class="text-danger">*</span></label>
-          <div class="custom-file">           
-            <input
-              type="file"
-              class="custom-file-input form-control"
-              name="image"
-              ref="image"
-              id="image"
-              accept="images/*"
-            />
+          <label>Image <span class="text-danger">*</span></label>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input form-control" name="image" ref="image" id="image"
+              accept="images/*" />
             <p class="text-danger" v-if="error.file" v-text="error.file[0]"></p>
-  
+
 
             <label class="custom-file-label" for="image">Upload Image </label>
           </div>
           <img :src="image" alt="" height="90px" width="100px" class="pt-2">
-         
+
         </div>
         <div class="card-footer pb-5">
-        <button @click="postCreate" class="btn btn-primary float-right">
-          Submit
-        </button>
-      </div>
+          <button @click="postCreate" class="btn btn-primary float-right">
+            Submit
+          </button>
+        </div>
       </div>
 
-    
+
     </div>
   </div>
 </template>
-  
-  <script>
+
+<script>
 export default {
   data() {
     return {
@@ -91,7 +69,7 @@ export default {
       description: "",
       image: "",
       error: "",
-      id : this.$route.params.id,
+      id: this.$route.params.id,
     };
   },
   mounted() {
@@ -114,52 +92,52 @@ export default {
         formData.append(`tags_ids[${index}]`, tag.id);
       });
       formData.append("file", this.$refs.image.files[0]);
-    
-       if(this.title == ""){
+
+      if (this.title == "") {
         this.$toast.error('Please Enter Title', { icon: "error_outline" });
         return;
       }
-      else if(this.description == ""){
+      else if (this.description == "") {
         this.$toast.error('Please Enter Description', { icon: "error_outline" });
         return;
-      }    
-      else{
+      }
+      else {
 
-      return await this.$axios
-        .post("student-blog/post-update/"+ id + "?token=" + token, formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .then((response) => {
-          this.$toast.success('Post Updated Successfuly', { icon: "error_outline" });
+        return await this.$axios
+          .post("student-blog/post-update/" + id + "?token=" + token, formData, {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          })
+          .then((response) => {
+            this.$toast.success('Post Updated Successfuly', { icon: "error_outline" });
             this.$router.push({ path: "/blog-post" });
-        })
-        .catch((error) => {
-          if (error.response.status === 422) {
-            this.error = error.response.data;
-          } else {
-            this.$toast.error("Something Wrong");
-          }
-        });
-    }
+          })
+          .catch((error) => {
+            if (error.response.status === 422) {
+              this.error = error.response.data;
+            } else {
+              this.$toast.error("Something Wrong");
+            }
+          });
+      }
     },
     async getPostData() {
       var token = window.$nuxt.$cookies.get("token");
       var user = window.$nuxt.$cookies.get("user");
       var id = this.$route.params.id;
       return await this.$axios
-        .get("/student-blog/post/" + id +  "?token=" + token)
+        .get("/student-blog/post/" + id + "?token=" + token)
         .then((response) => {
           this.title = response.data.post.title;
           this.image = response.data.post.image;
           this.selectedCategories = response.data.post.categories;
           this.selectedTags = response.data.post.tags;
           this.$nextTick(() => {
-          if (CKEDITOR.instances['ckeditor']) {
-            CKEDITOR.instances['ckeditor'].setData(response.data.post.description); // Update CKEditor
-          }
-        });
+            if (CKEDITOR.instances['ckeditor']) {
+              CKEDITOR.instances['ckeditor'].setData(response.data.post.description); // Update CKEditor
+            }
+          });
         })
         .catch((error) => {
           console.log(error);
@@ -223,9 +201,11 @@ export default {
 :deep(.multiselect__tags) {
   min-height: 50px;
   padding-top: 15px;
+
 }
-.form-control[type=file]:not(:disabled):not([readonly]){
+
+.form-control[type=file]:not(:disabled):not([readonly]) {
   padding-top: 15px;
+
 }
 </style>
-  

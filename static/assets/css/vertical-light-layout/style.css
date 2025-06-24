@@ -7072,12 +7072,12 @@ textarea.is-invalid.tt-hint, .select2-container--default .select2-selection--sin
 .navbar-toggler:hover {
   text-decoration: none;
 }
-.navbar-toggler:focus {
+/* .navbar-toggler:focus {
   text-decoration: none;
   outline: 0;
   -webkit-box-shadow: 0 0 0 var(--bs-navbar-toggler-focus-width);
   box-shadow: 0 0 0 var(--bs-navbar-toggler-focus-width);
-}
+} */
 
 .navbar-toggler-icon {
   display: inline-block;
@@ -24346,12 +24346,12 @@ div.tagsinput span.tag a {
   -moz-transition: width 0.25s ease;
   -ms-transition: width 0.25s ease;
   color: #111111;
-  padding-left: 24px;
-  padding-right: 24px;
+  /* padding-left: 24px; */
+  /* padding-right: 24px; */
   width: calc(100% - 240px);
   height: 70px;
-  -webkit-box-shadow: 18px 1px 20px rgba(0, 0, 0, 0.1);
-  box-shadow: 18px 1px 20px rgba(0, 0, 0, 0.1);
+  /* -webkit-box-shadow: 18px 1px 20px rgba(0, 0, 0, 0.1); */
+  /* box-shadow: 18px 1px 20px rgba(0, 0, 0, 0.1); */
 }
 @media (max-width: 991px) {
   .navbar .navbar-menu-wrapper {
@@ -24735,13 +24735,14 @@ div.tagsinput span.tag a {
   min-height: calc(100vh - 70px);
   background: #fff;
   font-family: "Open Sans", sans-serif;
-  padding-top: 10px;
   width: 240px;
   z-index: 11;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease;
+  margin: 15px 0px 15px 12px !important;
+  border-radius: 7px !important;
 
 }
 .sidebar .nav {
@@ -25444,7 +25445,7 @@ div.tagsinput span.tag a {
 .content-wrapper {
   background: #ecf0f4;
   /* padding: 2.75rem 1.5rem 0; */
-  padding: 2.75rem 1rem 0;
+  padding: 1rem 1rem 0;
   width: 100%;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;

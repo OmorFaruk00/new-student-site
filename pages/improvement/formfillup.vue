@@ -1,9 +1,8 @@
 <template>
   <section>
-    <div class=" form-horizontal">
+    <div class=" form-horizontal rounded">
       <div class="form-header">Eligible Improvement Subject</div>
-      <div class="px-3">
-
+      <div class="px-3 col-lg-8 col-md-8 col-sm-12">
         <div class=" mb-4">
           <div class="form-group focused mb-0">
             <label for="type">Exam Schedule *</label>

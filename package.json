@@ -17,6 +17,7 @@
     "@nuxtjs/axios": "^5.12.4",
     "@nuxtjs/robots": "^2.4.2",
     "@nuxtjs/toast": "^3.3.1",
+    "chart.js": "^4.5.0",
     "cookie-universal-nuxt": "^2.1.4",
     "downloadjs": "^1.4.7",
     "express-session": "^1.17.1",

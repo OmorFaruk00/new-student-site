@@ -1,12 +1,11 @@
 <template>
     <section>
         <div>
-
             <template v-if="accounts.length > 0">
 
-                <div class="card">
-                    <div class="card-header" style="background: #28a745;">
-                        <h3 class="card-title text-center pt-2 text-white">Accounts Information</h3>
+                <div class="card rounded mb-3">
+                    <div class="form-header">
+                        <h3 class=" text-center">Accounts Information</h3>
 
                     </div>
                     <div class="card-body">
@@ -54,9 +53,9 @@
             </template>
             <template v-if="accounts_summary != ''">
 
-                <div class="card">
-                    <div class="card-header" style="background: #28a745;">
-                        <h3 class="card-title text-center pt-2 text-white">Other Information</h3>
+                <div class="card mb-3 rounded">
+                    <div class="form-header" >
+                        <h3 class=" text-center pt-2 ">Other Information</h3>
 
                     </div>
                     <div class="card-body">

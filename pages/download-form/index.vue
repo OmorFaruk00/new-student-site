@@ -1,172 +1,99 @@
 <template>
-  <div class="card mb-3">
-    <div class="card-body">
-      <div class="card-columns">
-        <button
-          type="button"
-          :disabled="loading"
-          @click="getScholarshipForm"
-          class="btn download-btn btn-block"
-        >
-          Scholarship
-        </button>
+  <div>
+    <div class="card rounded">
+      <div class="card-body">
+        <div class="card-columns">
+          <button type="button" :disabled="loading" @click="getScholarshipForm" class="btn download-btn btn-block">
+            Scholarship
+          </button>
 
-        <button
-          type="button"
-          :disabled="loading"
-          @click="getReAdmissionForm"
-          class="btn download-btn btn-block"
-        >
-          Re-admission
-        </button>
-        <nuxt-link to="/download-form/bank-slip" class="btn download-btn btn-block text-center"
-          >Bank Slip</nuxt-link
-        >
+          <button type="button" :disabled="loading" @click="getReAdmissionForm" class="btn download-btn btn-block">
+            Re-admission
+          </button>
+          <nuxt-link to="/download-form/bank-slip" class="btn download-btn btn-block text-center">Bank Slip</nuxt-link>
 
-        <nuxt-link to="/download-form/admit-card" class="btn download-btn btn-block text-center"
-          >Admit Card</nuxt-link
-        >
+          <nuxt-link to="/download-form/admit-card" class="btn download-btn btn-block text-center">Admit
+            Card</nuxt-link>
 
-        <nuxt-link
-          to="/download-form/permission-for-exam"
-          class="btn download-btn btn-block text-center"
-          >Permission For Exam</nuxt-link
-        >
+          <nuxt-link to="/download-form/permission-for-exam" class="btn download-btn btn-block text-center">Permission
+            For Exam</nuxt-link>
 
-        <nuxt-link
-          to="/download-form/mid-term-retake"
-          class="btn download-btn btn-block text-center"
-          >Mid Term Retake</nuxt-link
-        >
+          <nuxt-link to="/download-form/mid-term-retake" class="btn download-btn btn-block text-center">Mid Term
+            Retake</nuxt-link>
 
-        <button
-          type="button"
-          :disabled="loading"
-          class="btn download-btn btn-block"
-          @click="getProvisionalCertificate"
-        >
-          Provisional Certificate
-        </button>
+          <button type="button" :disabled="loading" class="btn download-btn btn-block"
+            @click="getProvisionalCertificate">
+            Provisional Certificate
+          </button>
 
-        <button
-          type="button"
-          :disabled="loading"
-          class="btn download-btn btn-block"
-          @click="getTranscriptMarkCertificate"
-        >
-          Transcript / Mark Certificate
-        </button>
+          <button type="button" :disabled="loading" class="btn download-btn btn-block"
+            @click="getTranscriptMarkCertificate">
+            Transcript / Mark Certificate
+          </button>
 
-        <nuxt-link to="/download-form/convocation" class="btn download-btn btn-block text-center"
-          >Convocation</nuxt-link
-        >
+          <nuxt-link to="/download-form/convocation"
+            class="btn download-btn btn-block text-center">Convocation</nuxt-link>
 
-        <button
-          type="button"
-          :disabled="loading"
-          class="btn download-btn btn-block"
-          @click="getApplicationForm('Appeared Certificate')"
-        >
-          Appeared Certificate
-        </button>
+          <button type="button" :disabled="loading" class="btn download-btn btn-block"
+            @click="getApplicationForm('Appeared Certificate')">
+            Appeared Certificate
+          </button>
 
-        <button
-          type="button"
-          :disabled="loading"
-          class="btn download-btn btn-block"
-          @click="getApplicationForm('Testimonial')"
-        >
-          Testimonial
-        </button>
+          <button type="button" :disabled="loading" class="btn download-btn btn-block"
+            @click="getApplicationForm('Testimonial')">
+            Testimonial
+          </button>
 
-        <button
-          type="button"
-          :disabled="loading"
-          class="btn download-btn btn-block"
-          @click="getApplicationForm('Character Certificate')"
-        >
-          Character Certificate
-        </button>
+          <button type="button" :disabled="loading" class="btn download-btn btn-block"
+            @click="getApplicationForm('Character Certificate')">
+            Character Certificate
+          </button>
 
-        <button
-          type="button"
-          :disabled="loading"
-          class="btn download-btn btn-block"
-          @click="getApplicationForm('Course Completion Certificate')"
-        >
-          Course Completion Certificate
-        </button>
+          <button type="button" :disabled="loading" class="btn download-btn btn-block"
+            @click="getApplicationForm('Course Completion Certificate')">
+            Course Completion Certificate
+          </button>
 
-        <button
-          type="button"
-          :disabled="loading"
-          class="btn download-btn btn-block"
-          @click="getApplicationForm('Medium of Instruction Certificate')"
-        >
-          Medium of Instruction Certificate
-        </button>
+          <button type="button" :disabled="loading" class="btn download-btn btn-block"
+            @click="getApplicationForm('Medium of Instruction Certificate')">
+            Medium of Instruction Certificate
+          </button>
 
-        <button
-          type="button"
-          :disabled="loading"
-          class="btn download-btn btn-block"
-          @click="getApplicationForm('Transcript of Academic Record')"
-        >
-          Transcript of Academic Record
-        </button>
+          <button type="button" :disabled="loading" class="btn download-btn btn-block"
+            @click="getApplicationForm('Transcript of Academic Record')">
+            Transcript of Academic Record
+          </button>
 
-        <button
-          type="button"
-          :disabled="loading"
-          class="btn download-btn btn-block"
-          @click="getApplicationForm('Recommendation Letter')"
-        >
-          Recommendation Letter
-        </button>
+          <button type="button" :disabled="loading" class="btn download-btn btn-block"
+            @click="getApplicationForm('Recommendation Letter')">
+            Recommendation Letter
+          </button>
 
-        <button
-          type="button"
-          :disabled="loading"
-          class="btn download-btn btn-block"
-          @click="getApplicationForm('English Proficiency Certificate')"
-        >
-          English Proficiency Certificate
-        </button>
+          <button type="button" :disabled="loading" class="btn download-btn btn-block"
+            @click="getApplicationForm('English Proficiency Certificate')">
+            English Proficiency Certificate
+          </button>
 
-        <button
-          type="button"
-          :disabled="loading"
-          class="btn download-btn btn-block"
-          @click="getApplicationForm('Studentship Certificate')"
-        >
-          Studentship Certificate
-        </button>
+          <button type="button" :disabled="loading" class="btn download-btn btn-block"
+            @click="getApplicationForm('Studentship Certificate')">
+            Studentship Certificate
+          </button>
 
-        <button
-          type="button"
-          :disabled="loading"
-          class="btn download-btn btn-block"
-          @click="getApplicationForm('Migration Certificate')"
-        >
-          Migration Certificate
-        </button>
+          <button type="button" :disabled="loading" class="btn download-btn btn-block"
+            @click="getApplicationForm('Migration Certificate')">
+            Migration Certificate
+          </button>
 
-        <button
-          type="button"
-          :disabled="loading"
-          class="btn download-btn btn-block"
-          @click="getProfessionalShortCourse"
-        >
-          Professional Short Course
-        </button>
+          <button type="button" :disabled="loading" class="btn download-btn btn-block"
+            @click="getProfessionalShortCourse">
+            Professional Short Course
+          </button>
 
-      
 
-        <nuxt-link
-          to="/download-form/research-internship-project-thesis"
-          class="btn download-btn btn-block text-center"
-          >Research /Internship / Project / Thesis</nuxt-link
-        >
+
+          <nuxt-link to="/download-form/research-internship-project-thesis"
+            class="btn download-btn btn-block text-center">Research /Internship / Project / Thesis</nuxt-link>
+        </div>
       </div>
     </div>
   </div>
@@ -179,13 +106,13 @@ export default {
   name: "index",
   data() {
     return {
-      loading:false
+      loading: false
     };
   },
   methods: {
     // Scholarship Form
     async getScholarshipForm() {
-      this.loading=true
+      this.loading = true
       var token = window.$nuxt.$cookies.get("token");
       var user = window.$nuxt.$cookies.get("user");
 
@@ -213,15 +140,15 @@ export default {
           .catch(error => {
             var errors = error.response;
             console.log(errors);
-          }).finally(()=>{
-            this.loading=false
+          }).finally(() => {
+            this.loading = false
           });
       }
     },
 
     // re-admission-form
     async getReAdmissionForm() {
-      this.loading=true
+      this.loading = true
       var token = window.$nuxt.$cookies.get("token");
       var user = window.$nuxt.$cookies.get("user");
 
@@ -249,15 +176,15 @@ export default {
           .catch(error => {
             var errors = error.response;
             console.log(errors);
-          }).finally(()=>{
-            this.loading=false
+          }).finally(() => {
+            this.loading = false
           });
       }
     },
 
     // Provisional Certificate
     async getProvisionalCertificate() {
-      this.loading=true
+      this.loading = true
       var token = window.$nuxt.$cookies.get("token");
       var user = window.$nuxt.$cookies.get("user");
 
@@ -280,14 +207,14 @@ export default {
         .catch(error => {
           var errors = error.response;
           console.log(errors);
-        }).finally(()=>{
-            this.loading=false
-          });
+        }).finally(() => {
+          this.loading = false
+        });
     },
 
     // Transcript Mark Certificate
     async getTranscriptMarkCertificate() {
-      this.loading=true
+      this.loading = true
       var token = window.$nuxt.$cookies.get("token");
       var user = window.$nuxt.$cookies.get("user");
 
@@ -310,9 +237,9 @@ export default {
         .catch(error => {
           var errors = error.response;
           console.log(errors);
-        }).finally(()=>{
-            this.loading=false
-          });
+        }).finally(() => {
+          this.loading = false
+        });
     },
 
     // getApplicationForm
@@ -320,7 +247,7 @@ export default {
       var vm = this;
 
       var certificate_name = name;
-      this.loading=true
+      this.loading = true
       var token = window.$nuxt.$cookies.get("token");
       var user = window.$nuxt.$cookies.get("user");
 
@@ -343,14 +270,14 @@ export default {
         .catch(error => {
           var errors = error.response;
           console.log(errors);
-        }).finally(()=>{
-            this.loading=false
-          });
+        }).finally(() => {
+          this.loading = false
+        });
     },
 
     // ProfessionalShortCourse
     async getProfessionalShortCourse() {
-      this.loading=true
+      this.loading = true
       var token = window.$nuxt.$cookies.get("token");
       var user = window.$nuxt.$cookies.get("user");
 
@@ -370,9 +297,9 @@ export default {
         .catch(error => {
           var errors = error.response;
           console.log(errors);
-        }).finally(()=>{
-            this.loading=false
-          });
+        }).finally(() => {
+          this.loading = false
+        });
     }
   }
 };
@@ -382,29 +309,39 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-h1{ padding: 0 0 30px; }
-.download-btn{
-    font-family: 'Raleway', sans-serif;
-    color:#fff;
-    background: #3A9176;
-    font-size: 16px;
-    font-weight: 700;
-    text-transform: capitalize;
-    padding: 15px 20px;
-    border-radius: 6px;
-    border: none;
-    transition: 0.5s ease-in-out;
-    width: 100%;
-    margin-bottom: 20px;
-}
-.download-btn:focus{ color: #fff; }
-.download-btn:hover{
-    background:#18AC4F;
-    color: #fff;
-              
-}
-@media only screen and (max-width: 767px){
-    .download-btn{ margin-bottom: 30px; }
+
+h1 {
+  padding: 0 0 30px;
 }
 
+.download-btn {
+  font-family: 'Raleway', sans-serif;
+  color: #fff;
+  background: #3A9176;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: capitalize;
+  padding: 15px 20px;
+  border-radius: 6px;
+  border: none;
+  transition: 0.5s ease-in-out;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.download-btn:focus {
+  color: #fff;
+}
+
+.download-btn:hover {
+  background: #18AC4F;
+  color: #fff;
+
+}
+
+@media only screen and (max-width: 767px) {
+  .download-btn {
+    margin-bottom: 30px;
+  }
+}
 </style>

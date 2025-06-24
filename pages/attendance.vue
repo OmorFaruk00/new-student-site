@@ -1,11 +1,11 @@
 <template>
   <section>
-    <div class="form-horizontal db-gp">
+    <div class="form-horizontal db-gp rounded">
       <div class="form-header">Attendance Report</div>
       <div class="px-3">
-        <form @submit.prevent="getAttendance">
-          <div class="mb-2">
-            <div class="form-group focused mb-4">
+        <form @submit.prevent="getAttendance" class="col-lg-8 col-md-8 col-sm-12">
+          <div class="mb-3">
+            <div class="form-group focused">
               <label for="semester">Semester *</label>
               <select v-model="mSemester" class="custom-select form-control" id="semester" name="semester"
                 @change="getCourseOnPresentSemester()" required>
@@ -15,7 +15,7 @@
             </div>
           </div>
           <div class="mb-2">
-            <div class="form-group focused mb-0">
+            <div class="form-group focused">
               <label for="course">Course *</label>
               <select v-model="mCourse" class="custom-select form-control" id="course" name="course" required>
                 <option value="" selected disabled hidden>select course</option>

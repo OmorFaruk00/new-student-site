@@ -53,7 +53,7 @@
     </div>
   </section>
 </template>
- 
+
 <script>
 
 export default {

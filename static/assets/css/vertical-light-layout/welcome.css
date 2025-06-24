@@ -89,14 +89,13 @@
     font-weight: 700;
 }
 .btn-sign:hover {
-    box-shadow: 0px 2px 10px rgba(23, 83, 209, 0.4);
-    color:#000;
+    color:#000 !important;
 }
 
 
-button:hover {
+/* button:hover {
     box-shadow: 0px 2px 10px rgba(23, 83, 209, 0.4)
-}
+} */
 
 .form-group {
     position: relative;
@@ -304,7 +303,7 @@ button:hover {
 
 .form-horizontal .form-group {
   position: relative;
-  margin: 0px !important;
+  margin:  0px !important;
   padding: 0px !important;
 }
 

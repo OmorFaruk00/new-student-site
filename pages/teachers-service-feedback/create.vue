@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="card">
+    <div class="card rounded">
       <div class="card-body">
 
         <div class="row">
@@ -59,7 +59,7 @@
                   </option>
                 </select>
 
-               
+
               </div>
             </div>
 

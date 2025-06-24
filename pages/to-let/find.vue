@@ -1,71 +1,35 @@
 <template>
-  <div class="px-5 main-body">
+  <div class=" main-body">
     <div v-if="tolets.length > 0">
       <div class="d-flex justify-content-between pt-4 find-header">
         <h2>To-Let Find</h2>
         <div>
-          <button
-            class="btn btn-outline-success my-2 my-sm-0"
-            type="button"
-            value="male"
-            :disabled="loading"
-            @click="searchByGender('male')"
-          >
+          <button class="btn btn-outline-success my-2 my-sm-0" type="button" value="male" :disabled="loading"
+            @click="searchByGender('male')">
             For Male
-            <div
-              v-if="loading"
-              class="spinner-border text-primary ml-2 spinner-border-sm"
-              role="status"
-              aria-hidden="true"
-            ></div>
+            <div v-if="loading" class="spinner-border text-primary ml-2 spinner-border-sm" role="status"
+              aria-hidden="true"></div>
           </button>
-          <button
-            class="btn btn-outline-success my-2 my-sm-0"
-            type="button"
-            @click="searchByGender('female')"
-            :disabled="loading"
-          >
+          <button class="btn btn-outline-success my-2 my-sm-0" type="button" @click="searchByGender('female')"
+            :disabled="loading">
             For Female
-            <div
-              v-if="loading"
-              class="spinner-border text-primary ml-2 spinner-border-sm"
-              role="status"
-              aria-hidden="true"
-            ></div>
+            <div v-if="loading" class="spinner-border text-primary ml-2 spinner-border-sm" role="status"
+              aria-hidden="true"></div>
           </button>
         </div>
         <form class="form-inline search-box d-inline-flex">
-          <input
-            v-model="search"
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button
-            class="btn btn-outline-success my-2 my-sm-0"
-            type="button"
-            @click="SearchTolet()"
-            :disabled="loading"
-          >
+          <input v-model="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="button" @click="SearchTolet()" :disabled="loading">
             Search
-            <div
-              v-if="loading"
-              class="spinner-border text-primary ml-2 spinner-border-sm"
-              role="status"
-              aria-hidden="true"
-            ></div>
+            <div v-if="loading" class="spinner-border text-primary ml-2 spinner-border-sm" role="status"
+              aria-hidden="true"></div>
           </button>
         </form>
       </div>
       <div>
         <div class="row pb-5">
-          <div
-            class="col-md-6 col-lg-4 col-sm-12 pt-5"
-            v-for="(tolet, i) in tolets"
-            :key="tolet._id"
-          >
-            <div class="card">
+          <div class="col-md-6 col-lg-4 col-sm-12 pt-5" v-for="(tolet, i) in tolets" :key="tolet._id">
+            <div class="card rounded">
               <div class="card-body">
                 <div>
                   <p><strong>Published By : </strong> {{ tolet.created_by }}</p>
@@ -80,14 +44,12 @@
                     <p>
                       <strong>
                         {{ tolet.available_seat }}
-                        {{ tolet.type }} Available</strong
-                      >
+                        {{ tolet.type }} Available</strong>
                     </p>
                   </div>
                   <div class="col-6">
                     <p>
-                      <strong
-                        >Rent {{ tolet.rent }} Taka Per {{ tolet.type }}
+                      <strong>Rent {{ tolet.rent }} Taka Per {{ tolet.type }}
                       </strong>
                     </p>
                   </div>
@@ -131,13 +93,9 @@
                   <p class="card-text pt-2 details">
                     {{ tolet.details }}
                   </p>
-                  <a
-                    class="float-right text-primary pt-2 more-details"
-                    :class="loading ? 'disabled' : ''"
-                    @click="ToletDetails(tolet.id)"
-                  >
-                    More Details</a
-                  >
+                  <a class="float-right text-primary pt-2 more-details" :class="loading ? 'disabled' : ''"
+                    @click="ToletDetails(tolet.id)">
+                    More Details</a>
                 </div>
                 <hr />
                 <h6 class="card-subtitle mb-2 text-muted">Address</h6>
@@ -149,21 +107,18 @@
                 <div class="d-flex justify-content-end">
                   <div v-if="profile.id == tolet.creater_id" class="d-flex justify-content-between align-items-center">
                     <h4 class="text-primary">Published</h4>
-                    <button class="btn btn-danger" @click="withdrawTolet(i,tolet.id)" :disabled="loading">
+                    <button class="btn btn-danger" @click="withdrawTolet(i, tolet.id)" :disabled="loading">
                       Withdraw Request
                     </button>
                   </div>
                   <div v-else>
-                    <button
-                      class="btn btn-primary"
-                      @click="
-                        SeatBooking(
-                          tolet.id,
-                          tolet.available_seat,
-                          tolet.creater_id
-                        )
-                      "
-                    >
+                    <button class="btn btn-primary" @click="
+                      SeatBooking(
+                        tolet.id,
+                        tolet.available_seat,
+                        tolet.creater_id
+                      )
+                      ">
                       Booking
                     </button>
                   </div>
@@ -173,26 +128,15 @@
           </div>
         </div>
       </div>
-      <div
-        class="modal fade"
-        id="ToletDetailsModel"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="ToletDetailsModel"
-        aria-hidden="true"
-      >
+      <div class="modal fade" id="ToletDetailsModel" tabindex="-1" role="dialog" aria-labelledby="ToletDetailsModel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLongTitle">
                 Tolet Details
               </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -207,14 +151,12 @@
                   <p>
                     <strong>
                       {{ details.available_seat }}
-                      {{ details.type }} Available</strong
-                    >
+                      {{ details.type }} Available</strong>
                   </p>
                 </div>
                 <div class="col-6">
                   <p>
-                    <strong
-                      >Rent {{ details.rent }} Taka Per {{ details.type }}
+                    <strong>Rent {{ details.rent }} Taka Per {{ details.type }}
                     </strong>
                   </p>
                 </div>
@@ -271,16 +213,13 @@
                   <h4 class="text-primary">published</h4>
                 </div>
                 <div v-else>
-                  <button
-                    class="btn btn-primary"
-                    @click="
-                      SeatBooking(
-                        details.id,
-                        details.available_seat,
-                        details.creater_id
-                      )
-                    "
-                  >
+                  <button class="btn btn-primary" @click="
+                    SeatBooking(
+                      details.id,
+                      details.available_seat,
+                      details.creater_id
+                    )
+                    ">
                     Booking
                   </button>
                 </div>
@@ -290,45 +229,25 @@
         </div>
       </div>
 
-      <div
-        class="modal fade"
-        id="BookingModel"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="BookingModel"
-        aria-hidden="true"
-      >
+      <div class="modal fade" id="BookingModel" tabindex="-1" role="dialog" aria-labelledby="BookingModel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="">
                 <!-- Tolet Details -->
               </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
               <div class="form-group">
                 <label>Seat/Room</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  placeholder="Enter Required Seat or Room"
-                  v-model="seat"
-                />
+                <input type="number" class="form-control" placeholder="Enter Required Seat or Room" v-model="seat" />
               </div>
               <span id="seat_error" class="text-danger"></span>
-              <p
-                class="text-danger"
-                v-if="error.seat"
-                v-text="error.seat[0]"
-              ></p>
+              <p class="text-danger" v-if="error.seat" v-text="error.seat[0]"></p>
               <div class="d-flex justify-content-end">
                 <button class="btn btn-primary" @click="SeatBookingSubmit()">
                   Submit
@@ -350,44 +269,19 @@
 
           <div class="col-lg-10 col-md-10 col-sm-12" v-if="!loading">
             <nav aria-label="Page navigation example" class="my-3 mx-2">
-              <ul class="pagination pagination-sm justify-content-end" :class="loading?'disabled':''">
-                <li
-                  class="page-item"
-                  :class="meta.current_page > 1 ? '' : 'disabled'"
-                >
-                  <a
-                    class="page-link"
-                    href="javaScript:void(0)"
-                    @click="paginatePreview"
-                    aria-label="Previous"
-                  >
+              <ul class="pagination pagination-sm justify-content-end" :class="loading ? 'disabled' : ''">
+                <li class="page-item" :class="meta.current_page > 1 ? '' : 'disabled'">
+                  <a class="page-link" href="javaScript:void(0)" @click="paginatePreview" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                     <span class="sr-only">Previous</span>
                   </a>
                 </li>
-                <li
-                  class="page-item"
-                  v-for="(row, index) in meta.last_page"
-                  :key="index"
-                  :class="row == meta.current_page ? 'active' : ''"
-                >
-                  <a
-                    class="page-link"
-                    href="javaScript:void(0)"
-                    @click="paginatePageWise(row)"
-                    v-text="row"
-                  ></a>
+                <li class="page-item" v-for="(row, index) in meta.last_page" :key="index"
+                  :class="row == meta.current_page ? 'active' : ''">
+                  <a class="page-link" href="javaScript:void(0)" @click="paginatePageWise(row)" v-text="row"></a>
                 </li>
-                <li
-                  class="page-item"
-                  :class="meta.last_page > meta.current_page ? '' : 'disabled'"
-                >
-                  <a
-                    class="page-link"
-                    href="javaScript:void(0)"
-                    @click="paginateNext"
-                    aria-label="Next"
-                  >
+                <li class="page-item" :class="meta.last_page > meta.current_page ? '' : 'disabled'">
+                  <a class="page-link" href="javaScript:void(0)" @click="paginateNext" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                     <span class="sr-only">Next</span>
                   </a>
@@ -398,11 +292,11 @@
         </div>
       </div>
     </div>
-   
-      <div v-if="loading" class="text-center mt-5">
-                    <i class="fa fa-spinner text-primary fa-spin fa-4x"></i>
-        </div>
-   
+
+    <div v-if="loading" class="text-center mt-5">
+      <i class="fa fa-spinner text-primary fa-spin fa-4x"></i>
+    </div>
+
   </div>
 </template>
 <style scoped>
@@ -416,6 +310,7 @@
   -webkit-box-orient: vertical;
   height: 58px;
 }
+
 .address {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -547,7 +442,7 @@ export default {
       return this.$axios
         .get("/toletsearch/" + this.search + "?token=" + token)
         .then(response => {
-           this.tolets = response.data;
+          this.tolets = response.data;
         })
         .catch(error => {
           this.$toast.error(error.response.data.error, {
@@ -558,7 +453,7 @@ export default {
           this.loading = false;
         });
     },
-    withdrawTolet(index,id) {
+    withdrawTolet(index, id) {
       this.loading = true;
       var token = window.$nuxt.$cookies.get("token");
       this.$axios
@@ -587,11 +482,11 @@ export default {
       return this.$axios
         .get(
           "/tolet/searchgender/" +
-            gender +
-            "?page=" +
-            this.page +
-            "&token=" +
-            token
+          gender +
+          "?page=" +
+          this.page +
+          "&token=" +
+          token
         )
         .then(response => {
           this.tolets = response.data.data;
@@ -609,7 +504,7 @@ export default {
     },
 
     ToletDetails(id) {
-      this.loading=true
+      this.loading = true
       var token = window.$nuxt.$cookies.get("token");
       return this.$axios
         .get("/toletdetails/" + id + "?token=" + token)
@@ -676,14 +571,14 @@ export default {
 };
 </script>
 <style scoped>
-.form-inline{
+.form-inline {
   background: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   border: none;
-  
-}
-.btn-outline-success:hover{
-  color:#000;
+
 }
 
+.btn-outline-success:hover {
+  color: #000;
+}
 </style>

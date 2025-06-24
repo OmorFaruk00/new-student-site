@@ -1,14 +1,11 @@
 <template>
   <section>
-    <div class="card mx-auto mb-4" style="max-width: 780px">
-      <div class="card-header">
-        <h4>Donate Blood</h4>
+    <div class="card mx-auto mb-4 rounded" style="max-width: 780px">
+      <div class="form-header">
+        <h3>Donate Blood</h3>
       </div>
       <div class="card-body ">
-        <form
-          @submit.prevent="wantToDonateBlood"
-          v-if="!profile.blood_status || profile.blood_status === 0"
-        >
+        <form @submit.prevent="wantToDonateBlood" v-if="!profile.blood_status || profile.blood_status === 0">
           <div class="mb-2 w-100 ">
             <div class="text-center">
               <img src="/images/nodonor.png" alt="" />
@@ -20,34 +17,24 @@
               <h5 class="text-primary mb-2">Want to be a Blood Donor ?</h5>
               <div class="form-group">
                 <div class="form-group form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    id="Donate_before"
-                    v-model="last_donate"
-                  />
-                  <label for="Donate_before" class="mt-1"
-                    >Do You Donate Blood Previously ?</label
-                  >
+                  <input type="checkbox" class="form-check-input" id="Donate_before" v-model="last_donate" />
+                  <label for="Donate_before" class="mt-1">Do You Donate Blood Previously ?</label>
                 </div>
               </div>
               <div class="form-group" v-if="last_donate">
                 <label for="">Last Donate Date</label>
                 <no-ssr>
-                  <datepicker
-                    placeholder="Select date"
-                    v-model="donate_date"
-                  ></datepicker>
+                  <datepicker placeholder="Select date" v-model="donate_date"></datepicker>
                 </no-ssr>
               </div>
             </div>
           </div>
           <span class="text-danger d-block" v-if="error.donate_date">{{
             error.donate_date[0]
-          }}</span>
+            }}</span>
           <span class="text-danger d-block" v-if="error.donor_status">{{
             error.donor_status[0]
-          }}</span>
+            }}</span>
           <button class="btn btn-primary ml-0">I Agree</button>
         </form>
 
@@ -59,11 +46,7 @@
               <h6 class="text-center">
                 ( <span class="text-danger">{{ profile.blood_group }}</span> )
               </h6>
-              <button
-                class="btn btn-primary ml-0"
-                v-if="donor_status"
-                @click.prevent="donateBloodNow"
-              >
+              <button class="btn btn-primary ml-0" v-if="donor_status" @click.prevent="donateBloodNow">
                 Donate Now
               </button>
             </div>
@@ -71,25 +54,17 @@
           <h5 class="text-primary text-capitalize mt-4">
             I Don't Want to Donate Blood For Some Time.
           </h5>
-          <button
-            class="btn btn-primary ml-0"
-            @click.prevent="denyBloodDonate"
-          >
+          <button class="btn btn-primary ml-0" @click.prevent="denyBloodDonate">
             I Agree
           </button>
         </div>
       </div>
     </div>
-    <div class="col-12 mx-auto form-horizontal px-4 ">
+    <div class="col-12 mx-auto form-horizontal rounded px-4 ">
       <h6 class="pt-4">Blood Donning Students:</h6>
       <div class="row ">
         <div class="col-md-3 col-12 form-group">
-          <select
-            class="custom-select form-control"
-            @change="getBloodDonor"
-            id="blood_group"
-            v-model="blood_group"
-          >
+          <select class="custom-select form-control" @change="getBloodDonor" id="blood_group" v-model="blood_group">
             <option selected value="">Select Blood Group</option>
             <option value="A+">A+</option>
             <option value="A-">A−</option>
@@ -102,11 +77,7 @@
           </select>
         </div>
       </div>
-      <div
-        class="spinner-border text-primary mt-5 mx-auto d-block"
-        role="status"
-        v-if="loading"
-      >
+      <div class="spinner-border text-primary mt-5 mx-auto d-block" role="status" v-if="loading">
         <span class="sr-only">Loading...</span>
       </div>
       <div v-else>
@@ -161,13 +132,10 @@
                         ? donor.rel_student_blood.length
                         : 0
                     }}</span>
-                    <span
-                      v-if="
-                        donor.rel_student_blood &&
-                          donor.rel_student_blood.length > 1
-                      "
-                      >times</span
-                    >
+                    <span v-if="
+                      donor.rel_student_blood &&
+                      donor.rel_student_blood.length > 1
+                    ">times</span>
                     <span v-else>time</span>
                   </td>
 
@@ -186,49 +154,25 @@
             <div class="col-lg-10 col-md-10 bpagination ml-auto">
               <nav aria-label="Page navigation example" class="my-3 mx-2">
                 <ul class="pagination pagination-sm justify-content-lg-end">
-                  <li
-                    class="page-item"
-                    :class="blood_donor.current_page > 1 ? '' : 'disabled'"
-                  >
-                    <a
-                      class="page-link p-2"
-                      href="javaScript:void(0)"
-                      @click="getBloodDonor(blood_donor.current_page - 1)"
-                      aria-label="Previous"
-                    >
+                  <li class="page-item" :class="blood_donor.current_page > 1 ? '' : 'disabled'">
+                    <a class="page-link p-2" href="javaScript:void(0)"
+                      @click="getBloodDonor(blood_donor.current_page - 1)" aria-label="Previous">
                       <span aria-hidden="true">&laquo;</span>
                       <span class="sr-only">Previous</span>
                     </a>
                   </li>
 
-                  <li
-                    class="page-item"
-                    v-for="(row, index) in last_page"
-                    :key="index"
-                    :class="blood_donor.current_page === row ? 'disabled' : ''"
-                  >
-                    <a
-                      class="page-link p-2"
-                      href="javaScript:void(0)"
-                      @click="getBloodDonor(row)"
-                      v-text="row"
-                    ></a>
+                  <li class="page-item" v-for="(row, index) in last_page" :key="index"
+                    :class="blood_donor.current_page === row ? 'disabled' : ''">
+                    <a class="page-link p-2" href="javaScript:void(0)" @click="getBloodDonor(row)" v-text="row"></a>
                   </li>
 
-                  <li
-                    class="page-item "
-                    :class="
-                      blood_donor.last_page > blood_donor.current_page
-                        ? ''
-                        : 'disabled'
-                    "
-                  >
-                    <a
-                      class="page-link p-2"
-                      href="javaScript:void(0)"
-                      @click="getBloodDonor(blood_donor.current_page + 1)"
-                      aria-label="Next"
-                    >
+                  <li class="page-item " :class="blood_donor.last_page > blood_donor.current_page
+                      ? ''
+                      : 'disabled'
+                    ">
+                    <a class="page-link p-2" href="javaScript:void(0)"
+                      @click="getBloodDonor(blood_donor.current_page + 1)" aria-label="Next">
                       <span aria-hidden="true">&raquo;</span>
                       <span class="sr-only">Next</span>
                     </a>
@@ -253,6 +197,7 @@ html {
 label {
   font-size: 1rem;
 }
+
 .bpagination {
   overflow-x: auto;
 }

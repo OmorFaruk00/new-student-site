@@ -3,10 +3,9 @@
     <div class="row">
 
         <div class="">
-            <div class="card">
+            <div class="card rounded mb-3">
                 <div class="">
-                    <!-- <h4 class="card-title">Basic Tab</h4>
-                    <p class="card-description">Horizontal bootstrap tab</p> -->
+
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab"
@@ -44,6 +43,7 @@
 
 
 </template>
+
 
 
 

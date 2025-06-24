@@ -60,9 +60,9 @@ module.exports = {
       {rel: 'stylesheet', href: '/assets/vendors/css/vendor.bundle.base.css'},
       {rel: 'stylesheet', href: '/assets/vendors/font-awesome/css/font-awesome.min.css'},
       {rel: 'stylesheet', href: '/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css'},
-      {rel: 'stylesheet', href: '/assets/vendors/jvectormap/jquery-jvectormap.css'},
+      // {rel: 'stylesheet', href: '/assets/vendors/jvectormap/jquery-jvectormap.css'},
       {rel: 'stylesheet', href: '/assets/vendors/daterangepicker/daterangepicker.css'},
-      {rel: 'stylesheet', href: '/assets/vendors/chartist/chartist.min.css'},
+      // {rel: 'stylesheet', href: '/assets/vendors/chartist/chartist.min.css'},
       {rel: 'stylesheet', href: '/assets/css/vertical-light-layout/style.css'},
       {rel: 'stylesheet', href: '/assets/css/vertical-light-layout/welcome.css'},
       {rel: 'stylesheet', href: '/assets/css/vertical-light-layout/dashboard.css'},
@@ -72,6 +72,7 @@ module.exports = {
     ],
     script: [
       {src: '/assets/vendors/js/vendor.bundle.base.js'},
+      {src: 'https://cdn.jsdelivr.net/npm/chart.js'},
       // {src: '/bootstrap/js/jquery-3.3.1.slim.min.js'},
       // { src: "https://cdn.jsdelivr.net/npm/vue-multiselect@2.1.6", defer: true },
       // {src: '/assets/vendors/chart.js/chart.umd.js'},
@@ -92,7 +93,7 @@ module.exports = {
       // {src: '/assets/js/todolist.js'},
       // {src: '/assets/js/dashboard.js'},
       // {src: '/assets/js/jq.tablesort.js'},
-      // {src: '/assets/js/tablesorter.js'},
+      
 
 
     ],

@@ -1,7 +1,7 @@
 <template>
-  <div class=" card ">
-    <div class="card-header">
-      <h3 class="text-center">To-Let Request</h3>
+  <div class=" card rounded">
+    <div class="form-header">
+      <h3 class="">To-Let Request</h3>
 
     </div>
     <div v-if="requests.length > 0" class="table-responsive p-3">

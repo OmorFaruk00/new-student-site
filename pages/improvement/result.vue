@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="card db-gp form-horizontal mx-auto">
+    <div class="card db-gp form-horizontal rouded">
       <div class="form-header">Improvement Exam Result</div>
 
       <div class="card-body" v-if='examSchedules==null'>
@@ -8,7 +8,7 @@
           You Have Not Applied Any Improvement Exam
         </div>
       </div>
-      <div class="card-body" v-if='examSchedules!=null'>
+      <div class="card-body col-lg-8 col-md-8 col-sm-12" v-if='examSchedules!=null'>
         <div class="form-group focused mb-0">
           <label for="type">Exam Schedule *</label>
           <select v-model="selectedExamSchedule_id" class="custom-select form-control" id="selectedExamSchedule_id"

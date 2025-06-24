@@ -1,51 +1,54 @@
 <template>
   <section>
-    <div class=" card form-horizontal">
-      <div class="card-header mb-4">Support Ticket Create</div>
-      <div class="px-3">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end mb-4">
-            <nuxt-link to="/support-ticket" class="btn btn-primary">Ticket Lists</nuxt-link>
-          </div>
+
+    <div class="form-horizontal rounded">
+      <div class="form-header d-flex justify-content-between">
+        <h3>Support Ticket Lists</h3>
+        <div class=" d-flex justify-content-end">
+          <nuxt-link to="/support-ticket" class="btn btn-primary">Ticket Lists</nuxt-link>
         </div>
 
-        <form @submit.prevent="createSupportTicket()">
-          <div class="row">
+      </div>
 
-            <div class="col-lg-6 col-md-6 col-sm-12 offset-lg-3 offset-md-3 mb-2">
-              <div class="form-group">
-                <label for="">Request Department (Support Ticket)
-                  <span class="text-danger">*</span></label>
-                <select name="support_ticket_department_id" id="support_ticket_department_id"
-                  v-model="support_ticket_department_id" class="form-control">
-                  <option value="" selected disabled hidden>Select one</option>
-                  <option v-for="(support_ticket_department,
-                  index) in support_ticket_departments" :key="index" :value="index"
-                    v-text="support_ticket_department"></option>
-                </select>
-            <small v-if="errors.support_ticket_department_id" class="text-danger with-errors" v-html="errors.support_ticket_department_id[0]"></small>
-            </div>
-             </div>
+      <form @submit.prevent="createSupportTicket()">
+        <div class="row p-4">
 
-          <div class="col-lg-6 col-md-6 col-sm-12 offset-lg-3 offset-md-3 mb-2">
+          <div class="col-lg-8 col-md-8 col-sm-12  mb-2">
             <div class="form-group">
-              <input type="text" class="form-control" v-model="subject" placeholder="Enter Subject" />
+              <label for="">Request Department (Support Ticket)
+                <span class="text-danger">*</span></label>
+              <select name="support_ticket_department_id" id="support_ticket_department_id"
+                v-model="support_ticket_department_id" class="form-control">
+                <option value="" selected disabled hidden>Select one</option>
+                <option v-for="(support_ticket_department,
+                  index) in support_ticket_departments" :key="index" :value="index" v-text="support_ticket_department">
+                </option>
+              </select>
+              <small v-if="errors.support_ticket_department_id" class="text-danger with-errors"
+                v-html="errors.support_ticket_department_id[0]"></small>
+            </div>
+          </div>
+
+          <div class="col-lg-8 col-md-8 col-sm-12  mb-2">
+            <div class="form-group">
               <label for="">Subject <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" v-model="subject" placeholder="Enter Subject" />
 
               <small v-if="errors.subject" class="text-danger with-errors" v-html="errors.subject[0]"></small>
             </div>
           </div>
-          <div class="col-lg-6 col-md-6 col-sm-12 offset-lg-3 offset-md-3 mb-2">
+          <div class="col-lg-8 col-md-8 col-sm-12  mb-2">
             <div class="form-group">
+              <label for="">Purpose <span class="text-danger">*</span></label>
               <textarea class="form-control" placeholder="Enter Purpose" name="purpose" id="Purpose" cols="30" rows="2"
                 v-model="purpose"></textarea>
 
-              <label for="">Purpose <span class="text-danger">*</span></label>
             </div>
           </div>
 
-          <div class="col-lg-6 col-md-6 col-sm-12 offset-lg-3 offset-md-3 mb-2">
+          <div class="col-lg-8 col-md-8 col-sm-12  mb-2">
             <div class="form-group">
+              <label for="">Priority <span class="text-danger">*</span></label>
               <select name="priority" id="priority" v-model="priority" class="form-control">
                 <option value="" selected disabled hidden>Select one</option>
                 <option value="low">Low</option>
@@ -54,11 +57,10 @@
                 <option value="urgent">Urgent</option>
               </select>
 
-              <label for="">Priority <span class="text-danger">*</span></label>
             </div>
           </div>
 
-          <div class="col-lg-6 col-md-6 col-sm-12 offset-lg-3 offset-md-3 mb-2">
+          <div class="col-lg-8 col-md-8 col-sm-12  mb-2">
             <div class="form-group">
               <label for="">File</label> <br />
               <input type="file" id="file_input" class="form-control" name="file[]" multiple="multiple"
@@ -70,14 +72,14 @@
             </div>
           </div>
 
-          <div class="col-lg-6 col-md-6 col-sm-12 offset-lg-3 offset-md-3 mb-2">
+          <div class="col-lg-8 col-md-8 col-sm-12  mb-5">
             <div class="form-group">
               <button type="submit" style="margin-left: 0" class="btn btn-primary">
                 Submit
               </button>
             </div>
           </div>
-      </div>
+        </div>
       </form>
     </div>
     </div>
@@ -110,7 +112,7 @@ export default {
 
       var token = window.$nuxt.$cookies.get('token');
 
-            
+
       this.$axios
         .get(
           `/support-ticket-departments-for-student`
@@ -120,21 +122,21 @@ export default {
         })
         .catch((error) => {
           if (error.response.status == 400) {
-              // toastr.error(error.response.data.error);
-              return false;
+            // toastr.error(error.response.data.error);
+            return false;
           } else if (error.response.status == 401) {
-              // toastr.error(error.response.data.message);
-              return false;
+            // toastr.error(error.response.data.message);
+            return false;
           } else if (error.response.status == 406) {
-              // toastr.error(error.response.data.message);
-              return false;
+            // toastr.error(error.response.data.message);
+            return false;
           } else {
-              // toastr.error("There was something wrong");
-              return false;
+            // toastr.error("There was something wrong");
+            return false;
           }
         });
 
-        
+
     },
 
     createSupportTicket() {
@@ -227,5 +229,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

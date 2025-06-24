@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="card">
+    <div class="card rounded">
       <div class="px-3">
 
         <div class="d-flex justify-content-between py-3">
@@ -40,10 +40,10 @@
                                    placeholder="select department">
                 </model-list-select>
 
-                
+
 
                 <select style="display: none" name="semester" class="form-control"></select>
-              
+
 
               </div>
             </div>

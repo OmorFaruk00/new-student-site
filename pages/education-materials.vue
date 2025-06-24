@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="form-horizontal">
+    <div class="form-horizontal rounded">
 
       <div class="form-header">Education Materials</div>
 
@@ -61,8 +61,8 @@
         </form>
 
 
-        <div class="row">
-          <div class="col-md-12">
+        <div class="row mb-5 pb-5">
+          <div class="">
             <div v-if="filter.materials_type == 'Syllabus'" class="table-responsive">
               <table class="table table-bordered mb-0" v-if="materials.syllabus.length > 0">
                 <thead class="thead-dark">
@@ -324,14 +324,5 @@ export default {
   }
 }
 </script>
-<style scoped>
 
-
-  table.table td p {
-    margin-bottom: -10px;
-  }
-.btn-primary{
-  /* margin-right: 20px !important; */
-}
-</style>
 

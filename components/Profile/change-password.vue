@@ -1,5 +1,5 @@
 <template>
-    <div class="form-horizontal col-lg-6 col-md-6 col-sm-12 mx-auto">
+    <div class="form-horizontal col-lg-8 col-md-8 col-sm-12 ">
       <div class="form-header">
                   Change Password
           </div>

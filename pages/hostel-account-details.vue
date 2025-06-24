@@ -1,6 +1,6 @@
 <template>
     <section>
-      <div class="card db-gp">
+      <div class="card db-gp rounded">
         <template v-if="rents">
           <div class="table-responsive">
             <div class="card-header text-left">
@@ -13,13 +13,13 @@
                 <th>SL</th>
                 <th>Hostel</th>
                 <th>In Date</th>
-                <th>Out Date</th>                
+                <th>Out Date</th>
                 <th>Bed Type</th>
                 <th>Monthly Rent</th>
               </tr>
               </thead>
-  
-              <tbody>              
+
+              <tbody>
               <tr v-for="(rent, key) in rents" :key="key">
                 <td>{{ key + 1 }}</td>
                 <td>{{ hostel_name }}</td>
@@ -28,19 +28,19 @@
                 <td v-else>Till Now</td>
                 <td>{{ rent.bed_type}}</td>
                 <td>{{ rent.monthly_fee | numFormat('0') }} Tk</td>
-              </tr>      
+              </tr>
 
-             
-             
+
+
               </tbody>
-  
+
             </table>
             </div>
           </div>
         </template>
-  
+
         <template v-if="accounts">
-          <div class="card-header p-3 h6">Hostel Accounts Information</div>
+          <div class="form-header p-3 h6">Hostel Accounts Information</div>
           <div class="table-responsive p-3">
             <table class="table table-striped table-bordered p-3">
               <thead>
@@ -52,7 +52,7 @@
                 <th style="text-align: right;">Amount</th>
               </tr>
               </thead>
-  
+
               <tbody>
               <tr v-for="(account, key) in accounts" :key="key">
                 <td>{{ key + 1 }}</td>
@@ -60,7 +60,7 @@
                 <td>{{ account.receipt_no }}</td>
                 <td>{{ account.purpose }}</td>
                 <td style="text-align: right;">{{ account.amount | numFormat('0') }} Tk</td>
-              </tr>              
+              </tr>
 
               <tr v-if="total_paid">
                 <th colspan="4"></th>
@@ -71,7 +71,7 @@
                 <th style="text-align: right;"> Total Due: {{ total_due | numFormat('0') }} Tk</th>
               </tr>
               </tbody>
-  
+
             </table>
           </div>
         </template>
@@ -83,23 +83,23 @@
                 </h3>
             </div>
         </template>
-  
-       
-  
+
+
+
       </div>
-  
+
       <!-- <h3 v-if="(accounts.length <0 )" class="p-4 text-center text-uppercase text-danger">
         <p>😢</p>
         <small>Account Details Not Found</small>
       </h3> -->
     </section>
   </template>
-  
+
   <script>
   import Vue from 'vue'
   import numeral from 'numeral'
   import numFormat from 'vue-filter-number-format'
-  
+
   Vue.filter('numFormat', numFormat(numeral));
   export default {
     // middleware: 'feedbackAuthenticated',
@@ -110,14 +110,14 @@
         total_due: "",
         rents:"",
         hostel_name:"",
-       
+
       }
     },
-  
+
     created() {
       this.getAccountsInfo();
     },
-  
+
     methods: {
       async getAccountsInfo() {
         var token = window.$nuxt.$cookies.get('token');
@@ -126,17 +126,16 @@
           .then((response) => {
             this.accounts = response.data.account_info;
             this.total_paid = response.data.paid_amount;
-            this.total_due = response.data.total_due; 
-            this.hostel_name = response.data.hostel; 
-            this.rents = response.data.rent; 
-            
+            this.total_due = response.data.total_due;
+            this.hostel_name = response.data.hostel;
+            this.rents = response.data.rent;
+
           })
           .catch((error) => {
             this.$toast.error('Not found', {icon: "error_outline"});
           })
       },
-  
+
     }
   }
   </script>
-  
