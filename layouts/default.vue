@@ -71,6 +71,12 @@
               <i class="fa fa-clock-o menu-icon"></i>
             </nuxt-link>
           </li>
+             <li class="nav-item" :class="{ 'active-nav': $route.path === '/class-routine' }">
+            <nuxt-link class="nav-link" to="/class-routine">
+              <span class="menu-title" @click="taggleMenu()">Class Routine</span>
+              <i class="fa fa-calendar menu-icon"></i>
+            </nuxt-link>
+          </li>
           <li class="nav-item" :class="{ 'active-nav': $route.path === '/education-materials' }">
             <nuxt-link class="nav-link" to="/education-materials">
               <span class="menu-title" @click="taggleMenu()">Education Meterials</span>
@@ -84,6 +90,7 @@
             <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
               <span class="menu-title">Improvement</span>
               <i class="fa fa-caret-down menu-icon px-1"></i>
+               <!-- <i class="icon-disc menu-icon"></i> -->
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">

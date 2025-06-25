@@ -58,7 +58,7 @@
 									</div>
 								</div>
 
-							
+
 
 								<button class="btn-sign">Login</button>
 							</form>
@@ -91,19 +91,19 @@
 									<input id="password" type="password" class="validate">
 									<label for="password">Password</label>
 								</div>
-							
+
 
 								<div class="input">
 									<input id="confirm-password" type="password" class="validate">
 									<label for="confirm-password">Confirm Password</label>
-								</div>					
+								</div>
 
 
 								<button   class="btn-sign mt-3" @click="verifyAccounts()">Verify</button>
 							</form>
 							<form v-if="register">
 								<h1>Registration</h1>
-								
+
 								<div class="input">
 									<input id="password" type="password" class="validate">
 									<label for="password">E-Mail Address</label>
@@ -116,12 +116,12 @@
 									<input id="password" type="password" class="validate">
 									<label for="password">Password</label>
 								</div>
-							
+
 
 								<div class="input">
 									<input id="confirm-password" type="password" class="validate">
 									<label for="confirm-password">Confirm Password</label>
-								</div>					
+								</div>
 
 
 								<button   class="btn-sign mt-3" @click="verifyAccounts()">Register</button>
@@ -131,12 +131,12 @@
 									up</b></a>
 						</div>
 
-					
+
 
 					</div>
 
-					
-			
+
+
 				</div>
 			</div>
 		</div>
@@ -174,7 +174,7 @@
 .brand-logo {
 	text-align: center;
 	margin-top: 50px;
-	
+
 }
 .brand-logo img {
 	width: 150px;
@@ -225,7 +225,7 @@
 	/* background-image: linear-gradient(to top, rgba(13, 60, 157, 0.7), rgba(18, 77, 198, 0.7),url("https://images.unsplash.com/photo-1508190163356-0569b6d34878?auto=format&fit=crop&w=2000&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D")); */
 	background-image: linear-gradient(to top, rgba(13, 60, 157, 0.7), rgba(18, 77, 198, 0.9));
 	background-size: cover;
-	position: absolute;	
+	position: absolute;
 	box-shadow: 0 10px 60px rgba(0, 0, 0, 0.25), 0 10px 20px rgba(0, 0, 0, 0.22);
 }
 
@@ -301,7 +301,7 @@ button:hover {
 	box-sizing: content-box;
 	transition: all 0.3s ease;
 	/* color: #9e9e9e; */
-	
+
 }
 
 .input label {
@@ -536,8 +536,8 @@ export default {
 	},
 	data() {
 		return {
-			email: "omorfaruk5020@gmail.com",
-			password: "Diu@12345",
+			email: "shantosr3559@gmail.com",
+			password: "Shanto@cse82",
 			showPassword: false,
 			verify: true,
 			register: false,
@@ -549,7 +549,7 @@ export default {
 			this.verify = false;
 			this.register = true;
 		},
-		
+
 	},
 	mounted() {
 		// INPUT FIELDS
@@ -579,11 +579,11 @@ export default {
 			}, 50);
 		});
 
-		
 
-		
 
-	
+
+
+
 	}
 
 

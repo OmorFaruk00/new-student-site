@@ -44,8 +44,8 @@ export default {
   data() {
     return {
       isVisible: false,
-      email: "omorfaruk5020@gmail.com",
-      password: "Diu@12345",
+      email: "shantosr3559@gmail.com",
+			password: "Shanto@cse82",
     };
   },
 

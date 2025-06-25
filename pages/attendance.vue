@@ -38,7 +38,7 @@
       </div>
 
 
-      <div class="col-lg-6 col-md-6 col-sm-12 offset-lg-3 offset-md-3 mb-3 pt-5">
+      <div class="col-lg-8 col-md-8 col-sm-12  mb-5 py-5 px-3">
         <div v-if="attendances != ''" style="display:block;margin-left:10px">
           <br>
           <b>Class Count:</b> {{ classHappendCount }} <br>
