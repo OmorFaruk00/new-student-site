@@ -47,61 +47,81 @@
               </div>
             </div>
           </div>
-
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="bg-white shadow-sm p-3 rounded">
-              <h4 class="fw-semibold">Semester’s Grade</h4>
+          <div class="col-lg-8 col-md-8 col-sm-12">
+            <div class="bg-white shadow-sm rounded">
+              <h4 class="fw-semibold p-3">Semester’s Grade</h4>
               <hr>
-              <canvas id="semesterChart"></canvas>
-              <div v-if="isResult" class="d-flex justify-content-center align-items-center">
+              <div style="height: 250px">
+                <canvas id="semesterChart" class="p-3"></canvas>
+              </div>
+              <div v-if="isResult" class="d-flex justify-content-center align-items-center pb-4">
                 <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
               </div>
 
 
+            </div>
+          </div>
 
+          <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="bg-white shadow-sm rounded h-100">
+              <h4 class="fw-semibold p-3">Summary</h4>
+              <hr />
+
+              <div v-if="dashboard.result" class="p-3">
+                <div class="d-flex justify-content-between mb-2">
+                  <span class="fw-semibold text-muted">
+                    <i class="fa fa-star me-2"></i>GPA
+                  </span>
+                  <span class="fw-bold text-dark">{{ dashboard.result.cgpa }}</span>
+                </div>
+
+                <div class="d-flex justify-content-between mb-2">
+                  <span class="fw-semibold text-muted">
+                    <i class="fa fa-file-text me-2"></i>Average Grade
+                  </span>
+                  <span class="fw-bold text-dark">{{ dashboard.result.grade_letter }}</span>
+                </div>
+
+                <div class="d-flex justify-content-between mb-2">
+                  <span class="fw-semibold text-muted">
+                    <i class="fa fa-file-text me-2"></i>Total Credit
+                  </span>
+                  <span class="fw-bold text-dark">{{ dashboard.result.total_credit_earned }}</span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                  <span class="fw-semibold text-muted">
+                    <i class="fa fa-file-text me-2"></i>Credit Exempted
+                  </span>
+                  <span class="fw-bold text-dark">{{ dashboard.result.exempted_credit }}</span>
+                </div>
+              </div>
             </div>
           </div>
 
 
 
 
-          <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="bg-white shadow-sm p-3 rounded" style="height: 275px;">
-              <h4 class="fw-semibold">Summary</h4>
+          <div class="col-lg-8 col-md-8 col-sm-12">
+            <div class="bg-white shadow-sm rounded pb-4">
+              <h4 class="fw-semibold p-3">Your Overall Performance This Semester</h4>
               <hr>
-              <table class="table table-borderless table-sm mb-0">
-                <tbody>
-                  <tr>
-                    <td class="fw-semibold"> <i class="fa fa-star me-2 text-muted"></i>GPA</td>
-                    <td v-if="dashboard.result" class="text-start fw-bold">: &nbsp; &nbsp; {{ dashboard.result.cgpa }}
-                    </td>
-
-                  </tr>
-
-                  <tr>
-                    <td class="fw-semibold"> <i class="fa fa-file-text me-2 text-muted"></i>Avarage Grade</td>
-                    <td v-if="dashboard.result" class="text-start fw-bold">: &nbsp; &nbsp; {{
-                      dashboard.result.grade_letter }}</td>
-                  </tr>
-                  <tr>
-                    <td class="fw-semibold"> <i class="fa fa-file-text me-2 text-muted"></i>Total Credit</td>
-                    <td v-if="dashboard.result" class="text-start fw-bold">: &nbsp; &nbsp; {{
-                      dashboard.result.total_credit_earned }}</td>
-                  </tr>
-                  <tr>
-                    <td class="fw-semibold"> <i class="fa fa-file-text me-2 text-muted"></i>Credit Examped</td>
-                    <td v-if="dashboard.result" class="text-start fw-bold">: &nbsp; &nbsp; {{
-                      dashboard.result.exempted_credit }}</td>
-                  </tr>
-
-                </tbody>
-              </table>
-
+              <h4 class="px-3">Class Attendance: 46/50</h4>
+              <hr>
+              <h4 class="px-3">Quiz Taken: 11/12</h4>
+              <hr>
+              <h4 class="px-3">Assignment Submited: 21/25</h4>
+              <hr>
+              <h4 class="px-3">Presentation Completed: 46/50</h4>
+              <hr>
+              <h4 class=""></h4>
             </div>
+
           </div>
-          <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="bg-white shadow-sm p-3 rounded">
-              <h4 class="fw-semibold">Attendance</h4>
+
+          <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="bg-white shadow-sm rounded h-100">
+              <h4 class="fw-semibold p-3">Attendance</h4>
               <hr>
 
               <div class="attendence-progress blue">
@@ -114,10 +134,10 @@
                 <div class="attendence-progress-value">70%</div>
               </div>
 
-              <div class="pt-4">
+              <div class="pt-4 p-3">
                 <div class="d-flex justify-content-between">
                   <p class="progress-title">Present</p>
-                  <p class="progress-title">{{ present + '%' }}</p>
+                  <p class="progress-title">{{ present }}</p>
                 </div>
                 <div class="progress green">
                   <div class="progress-bar" :style="{ width: present + '%', background: '#5fad56 !important' }">
@@ -126,12 +146,20 @@
 
                 <div class="d-flex justify-content-between">
                   <p class="progress-title">Absent</p>
-                  <p class="progress-title">{{ absent + '%' }}</p>
+                  <p class="progress-title">{{ absent }}</p>
                 </div>
 
                 <div class="progress  pink">
                   <div class="progress-bar" :style="{ width: absent + '%', background: '#ff4b7d !important' }">
 
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <p class="progress-title">Permission</p>
+                  <p class="progress-title">02</p>
+                </div>
+                <div class="progress green">
+                  <div class="progress-bar" style=" width:20%; background: #5fad56 !important">
                   </div>
                 </div>
 
@@ -146,10 +174,10 @@
 
       </div>
       <div class="col-lg-4 col-md-4 col-sm-12">
-        <div class="bg-white shadow-sm rounded p-3 mb-3">
-          <h4 class="fw-semibold">Announcements</h4>
+        <div class="bg-white shadow-sm rounded  mb-3">
+          <h4 class="fw-semibold p-3">Announcements</h4>
           <hr>
-          <div class="announcement pb-2">
+          <div class="announcement px-3 pb-3">
             <div v-if="dashboard.notice">
               <p v-for="notice in dashboard.notice" :key="notice.id">
                 <a :href="'https://diu.ac/notice-details/' + notice.slug" class="text-decoration-none text-dark"
@@ -157,18 +185,15 @@
                   <span class="me-2 text-dark">●</span>{{ notice.title }}
                 </a>
               </p>
-
-
-
             </div>
+            <nuxt-link to="#" class="btn-see"> See More</nuxt-link>
           </div>
         </div>
 
-        <div class="bg-white shadow-sm p-3 rounded" v-if="dashboard.routine">
-          <h4 class="fw-semibold">Today's Class Update</h4>
+        <div class="bg-white shadow-sm  rounded" v-if="dashboard.routine" style="height: 335px;">
+          <h4 class="fw-semibold p-3">Today's Class Update</h4>
           <hr>
-          <ul class="list-unstyled small mb-0">
-            <!-- <p>{{ dashboard.routine }}</p> -->
+          <ul class="list-unstyled small mb-0 p-5">
             <li v-for="routine in dashboard.routine" :key="routine.id">
               <span class="fw-semibold">{{ routine.course_name }} ({{ routine.course_code }})</span> <br>
               <span class=" me-2">Today, {{ routine.start_time }} - {{ routine.end_time }} &nbsp; &nbsp; Room: {{
@@ -180,6 +205,7 @@
         </div>
 
       </div>
+
     </div>
 
 
@@ -242,12 +268,14 @@ export default {
             label: 'GPA',
             data: this.dashboard.result.cgpa_list,
             backgroundColor: '#4CAF50',
-            borderRadius: 5, barThickness: 20,
-            maxBarThickness: 30
+            borderRadius: 5, barThickness: 10,
+            maxBarThickness: 10
           }],
 
         },
         options: {
+          responsive: true,             // chart resizes with screen
+          maintainAspectRatio: false,  // allows fixed height
           scales: {
             y: {
               beginAtZero: true,

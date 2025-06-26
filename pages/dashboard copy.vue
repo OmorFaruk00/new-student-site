@@ -13,8 +13,9 @@
                 <i class="fa fa-file-text text-white" style="font-size: 20px;"></i>
               </div>
               <div>
-                <h5 class="mb-0 fw-bold text-dark pt-1">$4,200.00</h5>
-                <small class="text-muted fw-bold">Total Payable</small>
+                <h5 v-if="dashboard.account" class="mb-0 fw-bold text-dark pt-1">৳{{
+                  dashboard.account.total_paid.toFixed(2) }}</h5>
+                <small class="text-muted fw-bold">Total Paid</small>
               </div>
             </div>
           </div>
@@ -26,8 +27,9 @@
                 <i class="fa fa-file-text text-white" style="font-size: 20px;"></i>
               </div>
               <div>
-                <h5 class="mb-0 fw-bold text-dark pt-1">$4,200.00</h5>
-                <small class="text-muted fw-bold">Total Paid</small>
+                <h5 v-if="dashboard.account" class="mb-0 fw-bold text-dark pt-1">৳{{
+                  dashboard.account.current_due.toFixed(2) }}</h5>
+                <small class="text-muted fw-bold">Current Due</small>
               </div>
             </div>
           </div>
@@ -39,52 +41,64 @@
                 <i class="fa fa-file-text text-white" style="font-size: 20px;"></i>
               </div>
               <div>
-                <h5 class="mb-0 fw-bold text-dark pt-1">$4,200.00</h5>
+                <h5 v-if="dashboard.account" class="mb-0 fw-bold text-dark pt-1">৳{{
+                  dashboard.account.total_due.toFixed(2) }}</h5>
                 <small class="text-muted fw-bold">Total Due</small>
               </div>
             </div>
           </div>
 
-          <div class=" col-12 bg-white shadow-sm p-3 rounded">
-            <div class="">
-              <h4 class="fw-semibold">Semester’s Grade</h4>
+
+
+
+
+          <div class="col-lg-8 col-md-8 col-sm-12">
+            <div class="bg-white shadow-sm rounded">
+              <h4 class="fw-semibold p-3">Semester’s Grade</h4>
               <hr>
+              <div style="height: 250px">
+                <canvas id="semesterChart" class="p-3"></canvas>
+              </div>
+              <div v-if="isResult" class="d-flex justify-content-center align-items-center pb-4">
+                <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
+              </div>
 
-              <div class="vertical ">
-                <div class="progress-bar">
-                  <div class="progress-track">
-                    <div class="progress-fill">
-                      <span>100%</span>
-                    </div>
-                  </div>
+
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="bg-white shadow-sm p-3 rounded h-100">
+              <h4 class="fw-semibold">Summary</h4>
+              <hr />
+
+              <div v-if="dashboard.result">
+                <div class="d-flex justify-content-between mb-2">
+                  <span class="fw-semibold text-muted">
+                    <i class="fa fa-star me-2"></i>GPA
+                  </span>
+                  <span class="fw-bold text-dark">{{ dashboard.result.cgpa }}</span>
                 </div>
 
-                <div class="progress-bar">
-                  <div class="progress-track">
-                    <div class="progress-fill">
-                      <span>75%</span>
-                    </div>
-                  </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <span class="fw-semibold text-muted">
+                    <i class="fa fa-file-text me-2"></i>Average Grade
+                  </span>
+                  <span class="fw-bold text-dark">{{ dashboard.result.grade_letter }}</span>
                 </div>
 
-                <div class="progress-bar">
-                  <div class="progress-track">
-                    <div class="progress-fill">
-                      <span>60%</span>
-                    </div>
-
-                  </div>
-                   <!-- <div class="serial">#1</div> -->
+                <div class="d-flex justify-content-between mb-2">
+                  <span class="fw-semibold text-muted">
+                    <i class="fa fa-file-text me-2"></i>Total Credit
+                  </span>
+                  <span class="fw-bold text-dark">{{ dashboard.result.total_credit_earned }}</span>
                 </div>
 
-
-
-                <div class="progress-bar">
-                  <div class="progress-track">
-                    <div class="progress-fill">
-                      <span>34%</span>
-                    </div>
-                  </div>
+                <div class="d-flex justify-content-between">
+                  <span class="fw-semibold text-muted">
+                    <i class="fa fa-file-text me-2"></i>Credit Exempted
+                  </span>
+                  <span class="fw-bold text-dark">{{ dashboard.result.exempted_credit }}</span>
                 </div>
               </div>
             </div>
@@ -92,38 +106,37 @@
 
 
 
-          <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="bg-white shadow-sm p-3 rounded">
-              <h4 class="fw-semibold">Summary</h4>
-              <hr>
-              <table class="table table-borderless table-sm mb-0">
-                <tbody>
-                  <tr>
-                    <td class="fw-semibold"> <i class="fa fa-star me-2 text-muted"></i>GPA</td>
-                    <td class="text-start fw-bold">: &nbsp; &nbsp; 3.36</td>
-                  </tr>
-                  <tr>
-                    <td class="fw-semibold"> <i class="fa fa-file-text me-2 text-muted"></i>Avarage Grade</td>
-                    <td class="text-start fw-bold">: &nbsp; &nbsp; B</td>
-                  </tr>
-                  <tr>
-                    <td class="fw-semibold"> <i class="fa fa-file-text me-2 text-muted"></i>Total Credit</td>
-                    <td class="text-start fw-bold">: &nbsp; &nbsp; 138</td>
-                  </tr>
-                  <tr>
-                    <td class="fw-semibold"> <i class="fa fa-file-text me-2 text-muted"></i>Credit Examped</td>
-                    <td class="text-start fw-bold">: &nbsp; &nbsp; 0</td>
-                  </tr>
 
-                </tbody>
-              </table>
+          <div class="col-lg-8 col-md-8 col-sm-12">
+            <div class="bg-white shadow-sm rounded pb-4">
+              <h4 class="fw-semibold p-3">Your Overall Performance This Semester</h4>
+              <hr>
+              <h4 class="px-3">Class Attendance: 46/50</h4>
+              <hr>
+              <h4 class="px-3">Class Attendance: 46/50</h4>
+              <hr>
+              <h4 class="px-3">Class Attendance: 46/50</h4>
+              <hr>
+              <h4 class="px-3">Class Attendance: 46/50</h4>
+              <hr>
+              <h4 class=""></h4>
+
+
+
+
+
+
 
             </div>
+
+
           </div>
-          <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="bg-white shadow-sm p-3 rounded">
-              <h4 class="fw-semibold">Attendance</h4>
+
+          <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="bg-white shadow-sm3 rounded">
+              <h4 class="fw-semibold p-3">Attendance</h4>
               <hr>
+
               <div class="attendence-progress blue">
                 <span class="attendence-progress-left">
                   <span class="attendence-progress-bar"></span>
@@ -131,28 +144,35 @@
                 <span class="attendence-progress-right">
                   <span class="attendence-progress-bar"></span>
                 </span>
-                <div class="attendence-progress-value">90%</div>
+                <div class="attendence-progress-value">70%</div>
               </div>
 
-              <div class="pt-4">
-                <p class="progress-title">Present</p>
-                <div class="progress pink">
-                  <div class="progress-bar" style="width:90%; background:#ff4b7d;">
-                    <div class="progress-value">90%</div>
-                  </div>
+              <div class="pt-4 p-3">
+                <div class="d-flex justify-content-between">
+                  <p class="progress-title">Present</p>
+                  <p class="progress-title">{{ present }}</p>
                 </div>
-
-                <p class="progress-title">Absense</p>
                 <div class="progress green">
-                  <div class="progress-bar" style="width:75%; background:#5fad56;">
-                    <div class="progress-value">75%</div>
+                  <div class="progress-bar" :style="{ width: present + '%', background: '#5fad56 !important' }">
                   </div>
                 </div>
 
-                <p class="progress-title">Permission</p>
-                <div class="progress yellow">
-                  <div class="progress-bar" style="width:60%; background:#e8d324;">
-                    <div class="progress-value">60%</div>
+                <div class="d-flex justify-content-between">
+                  <p class="progress-title">Absent</p>
+                  <p class="progress-title">{{ absent }}</p>
+                </div>
+
+                <div class="progress  pink">
+                  <div class="progress-bar" :style="{ width: absent + '%', background: '#ff4b7d !important' }">
+
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <p class="progress-title">Permission</p>
+                  <p class="progress-title">02</p>
+                </div>
+                <div class="progress green">
+                  <div class="progress-bar" style=" width:20%; background: #5fad56 !important">
                   </div>
                 </div>
 
@@ -167,51 +187,40 @@
 
       </div>
       <div class="col-lg-4 col-md-4 col-sm-12">
-        <div class="bg-white shadow-sm rounded p-3 mb-3">
-          <h4 class="fw-semibold">Announcements</h4>
+        <div class="bg-white shadow-sm rounded  mb-3">
+          <h4 class="fw-semibold p-3">Announcements</h4>
           <hr>
-          <div class="announcement">
-            <ul>
-              <li><span class="me-2 text-dark">●</span>মানোন্নয়ন পরীক্ষার (Improvement Exam) ফরম পূরণের সময় 20 মে
-                পর্যন্ত বৃদ্ধি। ফরম পূরণের সময় 20 মে পর্যন্ত বৃদ্ধি। </li>
-              <li><span class="me-2 text-dark">●</span>মানোন্নয়ন পরীক্ষার (Improvement Exam) ফরম পূরণের সময় 20 মে
-                পর্যন্ত বৃদ্ধি। ফরম পূরণের সময় 20 মে পর্যন্ত বৃদ্ধি। </li>
-              <li><span class="me-2 text-dark">●</span>মানোন্নয়ন পরীক্ষার (Improvement Exam) ফরম পূরণের সময় 20 মে
-                পর্যন্ত বৃদ্ধি। ফরম পূরণের সময় 20 মে পর্যন্ত বৃদ্ধি। </li>
-              <li><span class="me-2 text-dark">●</span>মানোন্নয়ন পরীক্ষার (Improvement Exam) ফরম পূরণের সময় 20 মে
-                পর্যন্ত বৃদ্ধি। ফরম পূরণের সময় 20 মে পর্যন্ত বৃদ্ধি। </li>
-              <li><span class="me-2 text-dark">●</span>মানোন্নয়ন পরীক্ষার (Improvement Exam) ফরম পূরণের সময় 20 মে
-                পর্যন্ত বৃদ্ধি। ফরম পূরণের সময় 20 মে পর্যন্ত বৃদ্ধি। </li>
-              <li><span class="me-2 text-dark">●</span>মানোন্নয়ন পরীক্ষার (Improvement Exam) ফরম পূরণের সময় 20 মে
-                পর্যন্ত বৃদ্ধি। ফরম পূরণের সময় 20 মে পর্যন্ত বৃদ্ধি। </li>
-              <li><span class="me-2 text-dark">●</span>মানোন্নয়ন পরীক্ষার (Improvement Exam) ফরম পূরণের সময় 20 মে
-                পর্যন্ত বৃদ্ধি। ফরম পূরণের সময় 20 মে পর্যন্ত বৃদ্ধি। </li>
-
-
-            </ul>
+          <div class="announcement px-3 pb-3">
+            <div v-if="dashboard.notice">
+              <p v-for="notice in dashboard.notice" :key="notice.id">
+                <a :href="'https://diu.ac/notice-details/' + notice.slug" class="text-decoration-none text-dark"
+                  target="_blank">
+                  <span class="me-2 text-dark">●</span>{{ notice.title }}
+                </a>
+              </p>
+              <p>
+                <span class="me-2 text-dark">●</span>ট্রাইমেস্টার (মে-আগষ্ট) আন্ডারগ্র্যাজুয়েট প্রোগ্রামের শিক্ষার্থীদের
+                মিডটার্ম
+              </p>
+              <p>
+                <span class="me-2 text-dark">●</span>ট্রাইমেস্টার (মে-আগষ্ট) আন্ডারগ্র্যাজুয়েট প্রোগ্রামের শিক্ষার্থীদের
+                মিডটার্ম
+              </p>
+            </div>
+            <nuxt-link to="#" class="btn-see"> See More</nuxt-link>
           </div>
         </div>
 
-        <div class="bg-white shadow-sm p-3 rounded">
+        <div class="bg-white shadow-sm p-3 rounded" v-if="dashboard.routine" style="height: 327px;">
           <h4 class="fw-semibold">Today's Class Update</h4>
           <hr>
           <ul class="list-unstyled small mb-0">
-            <li>
-              <span class="fw-semibold">Computer Science</span> <br>
-              <span class="text-muted me-2">Today, 9:00 AM</span>
+            <li v-for="routine in dashboard.routine" :key="routine.id">
+              <span class="fw-semibold">{{ routine.course_name }} ({{ routine.course_code }})</span> <br>
+              <span class=" me-2">Today, {{ routine.start_time }} - {{ routine.end_time }} &nbsp; &nbsp; Room: {{
+                routine.room }}</span>
             </li>
-            <li>
-              <span class="fw-semibold">Computer Science</span> <br>
-              <span class="text-muted me-2">Today, 9:00 AM</span>
-            </li>
-            <li>
-              <span class="fw-semibold">Computer Science</span> <br>
-              <span class="text-muted me-2">Today, 9:00 AM</span>
-            </li>
-            <li>
-              <span class="fw-semibold">Computer Science</span> <br>
-              <span class="text-muted me-2">Today, 9:00 AM</span>
-            </li>
+
 
           </ul>
         </div>
@@ -228,20 +237,76 @@
 <script>
 export default {
   mounted() {
-    // DOM is ready
-    this.updateProgressBars();
+    this.getData().then(() => {
+      this.drowChart();
+    });
+  },
+  data() {
+    return {
+      present: 60,
+      absent: 40,
+      dashboard: '',
+      semesterList: [],
+      cgpaList: [],
+      isResult: true,
+
+    }
   },
   methods: {
-    updateProgressBars() {
-      const spans = document.querySelectorAll('.vertical .progress-fill span');
-      spans.forEach(span => {
-        const percent = span.textContent.trim(); // "70%"
-        const value = parseFloat(percent.replace('%', '')); // 70
-        const pTop = (100 - value) + "%";
+    async getData() {
+      var token = window.$nuxt.$cookies.get("token");
+      var user = window.$nuxt.$cookies.get("user");
+      return await this.$axios
+        .get("/student/dashboard/" + user.id + "?token=" + token)
+        .then((response) => {
+          this.dashboard = response.data;
+          console.log(response.data)
 
-        const parent = span.parentElement;
-        parent.style.height = percent;
-        parent.style.top = pTop;
+        })
+        .catch((error) => {
+          if (error.response.status == 400) {
+            this.$toast.error(error.response.data.message, {
+              icon: "error_outline",
+            });
+            return;
+          }
+          this.$toast.error("Not found", { icon: "error_outline" });
+        }).finally((final) => {
+          this.isResult = false;
+        });
+    },
+
+    drowChart() {
+      const ctx = document.getElementById('semesterChart').getContext('2d');
+
+      const semesterChart = new Chart(ctx, {
+        type: 'bar',
+
+        data: {
+          labels: this.dashboard.result.semester_list,
+          datasets: [{
+            label: 'GPA',
+            data: this.dashboard.result.cgpa_list,
+            backgroundColor: '#4CAF50',
+            borderRadius: 5, barThickness: 10,
+            maxBarThickness: 10
+          }],
+
+        },
+        options: {
+          responsive: true,             // chart resizes with screen
+          maintainAspectRatio: false,  // allows fixed height
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 4.0,
+              ticks: {
+                stepSize: 0.2
+              }
+            }
+
+          }
+        }
       });
     }
   }

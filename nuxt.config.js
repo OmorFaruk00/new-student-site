@@ -55,13 +55,13 @@ module.exports = {
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.png'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons'},
-      {rel: 'stylesheet', href: '/assets/vendors/simple-line-icons/css/simple-line-icons.css'},
-      {rel: 'stylesheet', href: '/assets/vendors/flag-icon-css/css/flag-icons.min.css'},
+      // {rel: 'stylesheet', href: '/assets/vendors/simple-line-icons/css/simple-line-icons.css'},
+      // {rel: 'stylesheet', href: '/assets/vendors/flag-icon-css/css/flag-icons.min.css'},
       {rel: 'stylesheet', href: '/assets/vendors/css/vendor.bundle.base.css'},
       {rel: 'stylesheet', href: '/assets/vendors/font-awesome/css/font-awesome.min.css'},
-      {rel: 'stylesheet', href: '/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css'},
+      // {rel: 'stylesheet', href: '/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css'},
       // {rel: 'stylesheet', href: '/assets/vendors/jvectormap/jquery-jvectormap.css'},
-      {rel: 'stylesheet', href: '/assets/vendors/daterangepicker/daterangepicker.css'},
+      // {rel: 'stylesheet', href: '/assets/vendors/daterangepicker/daterangepicker.css'},
       // {rel: 'stylesheet', href: '/assets/vendors/chartist/chartist.min.css'},
       {rel: 'stylesheet', href: '/assets/css/vertical-light-layout/style.css'},
       {rel: 'stylesheet', href: '/assets/css/vertical-light-layout/welcome.css'},
@@ -93,7 +93,7 @@ module.exports = {
       // {src: '/assets/js/todolist.js'},
       // {src: '/assets/js/dashboard.js'},
       // {src: '/assets/js/jq.tablesort.js'},
-      
+
 
 
     ],

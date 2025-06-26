@@ -12,6 +12,16 @@
   cursor: pointer;
 
 }
+.btn-see{
+  color: #18AC4F !important;
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn-see:hover{
+  color: #000 !important;
+  cursor: pointer;
+
+}
 
 .attendence-progress{
     width: 100px;
