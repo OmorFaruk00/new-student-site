@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="card db-gp form-horizontal rouded">
+    <div class="card rounded db-gp form-horizontal rouded">
       <div class="form-header">Improvement Exam Result</div>
 
       <div class="card-body" v-if='examSchedules==null'>

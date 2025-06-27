@@ -9,7 +9,7 @@
                  <img src="/images/logo.png" alt="logo">
                  <h4 class="pt-3">Students Portal - DIU</h4>
                </div>
-              
+
                <h4>Welcome back!</h4>
                <h6 class="font-weight-light">Happy to see you again!</h6>
                <form class="pt-3" @submit.prevent="submitLoginForm()" autocomplete="off">
@@ -47,7 +47,7 @@
                  <div class="my-3">
                    <button type="submit" class="btn d-grid btn-primary btn-lg font-weight-medium auth-form-btn" >LOGIN</button>
                  </div>
-             
+
                  <div class="text-center mt-4 font-weight-light"> Don't have an account?  <nuxt-link to="/auth/register" class="text-primary font-weight-bold">Create Accounts</nuxt-link>
                  </div>
                </form>

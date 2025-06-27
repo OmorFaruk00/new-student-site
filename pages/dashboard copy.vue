@@ -47,11 +47,6 @@
               </div>
             </div>
           </div>
-
-
-
-
-
           <div class="col-lg-8 col-md-8 col-sm-12">
             <div class="bg-white shadow-sm rounded">
               <h4 class="fw-semibold p-3">Semester’s Grade</h4>
@@ -68,11 +63,11 @@
           </div>
 
           <div class="col-lg-4 col-md-4 col-sm-12">
-            <div class="bg-white shadow-sm p-3 rounded h-100">
-              <h4 class="fw-semibold">Summary</h4>
+            <div class="bg-white shadow-sm rounded h-100">
+              <h4 class="fw-semibold p-3">Summary</h4>
               <hr />
 
-              <div v-if="dashboard.result">
+              <div v-if="dashboard.result" class="p-3">
                 <div class="d-flex justify-content-between mb-2">
                   <span class="fw-semibold text-muted">
                     <i class="fa fa-star me-2"></i>GPA
@@ -113,27 +108,19 @@
               <hr>
               <h4 class="px-3">Class Attendance: 46/50</h4>
               <hr>
-              <h4 class="px-3">Class Attendance: 46/50</h4>
+              <h4 class="px-3">Quiz Taken: 11/12</h4>
               <hr>
-              <h4 class="px-3">Class Attendance: 46/50</h4>
+              <h4 class="px-3">Assignment Submited: 21/25</h4>
               <hr>
-              <h4 class="px-3">Class Attendance: 46/50</h4>
+              <h4 class="px-3">Presentation Completed: 46/50</h4>
               <hr>
               <h4 class=""></h4>
-
-
-
-
-
-
-
             </div>
-
 
           </div>
 
           <div class="col-lg-4 col-md-4 col-sm-12">
-            <div class="bg-white shadow-sm3 rounded">
+            <div class="bg-white shadow-sm rounded h-100">
               <h4 class="fw-semibold p-3">Attendance</h4>
               <hr>
 
@@ -198,23 +185,15 @@
                   <span class="me-2 text-dark">●</span>{{ notice.title }}
                 </a>
               </p>
-              <p>
-                <span class="me-2 text-dark">●</span>ট্রাইমেস্টার (মে-আগষ্ট) আন্ডারগ্র্যাজুয়েট প্রোগ্রামের শিক্ষার্থীদের
-                মিডটার্ম
-              </p>
-              <p>
-                <span class="me-2 text-dark">●</span>ট্রাইমেস্টার (মে-আগষ্ট) আন্ডারগ্র্যাজুয়েট প্রোগ্রামের শিক্ষার্থীদের
-                মিডটার্ম
-              </p>
             </div>
             <nuxt-link to="#" class="btn-see"> See More</nuxt-link>
           </div>
         </div>
 
-        <div class="bg-white shadow-sm p-3 rounded" v-if="dashboard.routine" style="height: 327px;">
-          <h4 class="fw-semibold">Today's Class Update</h4>
+        <div class="bg-white shadow-sm  rounded" v-if="dashboard.routine" style="height: 335px;">
+          <h4 class="fw-semibold p-3">Today's Class Update</h4>
           <hr>
-          <ul class="list-unstyled small mb-0">
+          <ul class="list-unstyled small mb-0 p-5">
             <li v-for="routine in dashboard.routine" :key="routine.id">
               <span class="fw-semibold">{{ routine.course_name }} ({{ routine.course_code }})</span> <br>
               <span class=" me-2">Today, {{ routine.start_time }} - {{ routine.end_time }} &nbsp; &nbsp; Room: {{
@@ -226,6 +205,7 @@
         </div>
 
       </div>
+
     </div>
 
 

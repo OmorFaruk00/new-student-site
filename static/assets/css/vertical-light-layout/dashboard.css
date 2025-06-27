@@ -1,3 +1,17 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.payment {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+
+}
+.payment i{
+  font-size: 12px;
+   padding: 10px;
+}
 .announcement p{
  margin-bottom: 10px;
  font-weight: 600;

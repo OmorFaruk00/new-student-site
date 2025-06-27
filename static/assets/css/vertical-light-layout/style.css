@@ -6952,7 +6952,7 @@ textarea.is-invalid.tt-hint, .select2-container--default .select2-selection--sin
   --bs-navbar-brand-hover-color: rgba(var(--bs-emphasis-color-rgb), 1);
   --bs-navbar-nav-link-padding-x: 0.5rem;
   --bs-navbar-toggler-padding-y: 0.25rem;
-  --bs-navbar-toggler-padding-x: 0.75rem;
+  /* --bs-navbar-toggler-padding-x: 0.75rem; */
   --bs-navbar-toggler-font-size: 1.25rem;
   --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   --bs-navbar-toggler-border-color: rgba(var(--bs-emphasis-color-rgb), 0.15);
@@ -24678,11 +24678,11 @@ div.tagsinput span.tag a {
   color: inherit;
 }
 .sidebar .nav .nav-item .nav-link i.menu-icon {
-  font-size: 1.125rem;
-  line-height: 1;
-  /* margin-left: auto; */
+  height: 20px;
+  width: 20px;
   color: #626262;
   margin-right: 10px !important;
+  padding-top: 2px;
 }
 .rtl .sidebar .nav .nav-item .nav-link i.menu-icon {
   margin-left: 0;

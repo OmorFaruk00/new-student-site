@@ -42,7 +42,7 @@
 
             <div class="col-lg-8 col-md-8 col-sm-12">
               <div class="form-group diu-focused">
-                <label for="semester" class="">Semester</label>
+                <label for="semester" class="">Semester *</label>
                 <select class="form-control" id="semester" name="semester" v-model="filter.semester" required="">
                   <option selected disabled hidden value="">Select semester</option>
                   <option v-for="(n, index) in 12" :key="index" :value="n">{{ n }}</option>

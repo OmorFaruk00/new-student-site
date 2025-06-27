@@ -9,16 +9,12 @@
             </a>
             <hr>
           </div>
-
           <li class="nav-item" :class="{ 'active-nav': $route.path === '/dashboard' }">
             <nuxt-link class="nav-link" to="/dashboard">
               <i class="fa fa-tachometer menu-icon"></i>
               <span class="menu-title" @click="taggleMenu()">Dashboard</span>
-
-
             </nuxt-link>
           </li>
-
           <li class="nav-item" :class="{ 'active-nav': $route.path === '/profile' }">
             <nuxt-link class="nav-link" to="/profile">
               <i class="fa fa-user menu-icon"></i>
@@ -26,8 +22,6 @@
 
             </nuxt-link>
           </li>
-
-
           <li class="nav-item" :class="{ 'active-nav': $route.path === '/download-form' }">
             <nuxt-link class="nav-link" to="/download-form">
               <i class="fa fa-download menu-icon"></i>
@@ -52,30 +46,28 @@
               <span class="menu-title" @click="taggleMenu()">Hostel Accounts Details</span>
             </nuxt-link>
           </li>
-
           <li class="nav-item" :class="{ 'active-nav': $route.path === '/academic-result' }">
             <nuxt-link class="nav-link" to="/academic-result">
               <i class="fa fa-book menu-icon"></i>
               <span class="menu-title" @click="taggleMenu()">Academic Result</span>
             </nuxt-link>
           </li>
-
           <li class="nav-item" :class="{ 'active-nav': $route.path === '/mail-account' }">
             <nuxt-link class="nav-link" to="/mail-account">
               <i class="fa fa-envelope menu-icon"></i>
-              <span class="menu-title" @click="taggleMenu()">DIU Mail Account</span>
+              <span class="menu-title" @click="taggleMenu()">Mail Account</span>
             </nuxt-link>
           </li>
           <li class="nav-item" :class="{ 'active-nav': $route.path === '/attendance' }">
             <nuxt-link class="nav-link" to="/attendance">
               <i class="fa fa-clock-o menu-icon"></i>
-              <span class="menu-title" @click="taggleMenu()">Class Attendance</span>
+              <span class="menu-title" @click="taggleMenu()">Attendance</span>
             </nuxt-link>
           </li>
           <li class="nav-item" :class="{ 'active-nav': $route.path === '/class-routine' }">
             <nuxt-link class="nav-link" to="/class-routine">
               <i class="fa fa-calendar menu-icon"></i>
-              <span class="menu-title" @click="taggleMenu()">Class Routine</span>
+              <span class="menu-title" @click="taggleMenu()"> Routine</span>
             </nuxt-link>
           </li>
           <li class="nav-item" :class="{ 'active-nav': $route.path === '/education-materials' }">
@@ -84,22 +76,21 @@
               <span class="menu-title" @click="taggleMenu()">Education Meterials</span>
             </nuxt-link>
           </li>
-
-
-
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
               <i class="fa fa-line-chart menu-icon px-1"></i>
-              <span class="menu-title">Improvement</span>
-              <!-- <i class="icon-disc menu-icon"></i> -->
+              <span class="menu-title ">Improvement <i class="fa fa-angle-down"
+                  style="margin-left: 50px !important;"></i></span>
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-
-                <li class="nav-item" :class="{ 'active': $route.path === '/improvement/formfillup' }"> <nuxt-link
-                    class="nav-link" to="/improvement/formfillup"> Eligible Subject </nuxt-link></li>
-                <li class="nav-item" :class="{ 'active': $route.path === '/improvement/result' }"> <nuxt-link
-                    class="nav-link" to="/improvement/result"> Improvement Result </nuxt-link></li>
+                <li class="nav-item" :class="{ 'active': $route.path === '/improvement/formfillup' }"
+                  @click="taggleMenu()"> <nuxt-link class="nav-link" to="/improvement/formfillup"> <i
+                      class="fa fa-book me-2"></i> Eligible Subject </nuxt-link></li>
+                <li class="nav-item" :class="{ 'active': $route.path === '/improvement/result' }" @click="taggleMenu()">
+                  <nuxt-link class="nav-link" to="/improvement/result"> <i class="fa fa-file-text me-2"></i> Result
+                  </nuxt-link>
+                </li>
               </ul>
             </div>
           </li>
@@ -107,55 +98,62 @@
             'active-nav': ['/blog-post', '/blog-post/create'].includes($route.path) ||
               $route.path.startsWith('/blog-post/edit')
           }">
-
-
-
             <nuxt-link class="nav-link" to="/blog-post">
               <i class="fa fa-newspaper-o menu-icon"></i>
               <span class="menu-title" @click="taggleMenu()">Blog/Fourm</span>
             </nuxt-link>
           </li>
-
-          <li class="nav-item" :class="{ 'active-nav': $route.path === '/staffs-service-feedback' }">
-            <nuxt-link class="nav-link" to="/staffs-service-feedback">
-              <i class="fa fa-comment	 menu-icon"></i>
-              <span class="menu-title" @click="taggleMenu()">Staffs Feedback</span>
-            </nuxt-link>
-          </li>
-          <li class="nav-item" :class="{ 'active-nav': $route.path === '/teachers-service-feedback' }">
-            <nuxt-link class="nav-link" to="/teachers-service-feedback">
-              <i class="fa fa-comment menu-icon"></i>
-              <span class="menu-title" @click="taggleMenu()">Teachers Feedback</span>
-            </nuxt-link>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#feedback" aria-expanded="false"
+              aria-controls="feedback">
+              <i class="fa fa-comment menu-icon px-1"></i>
+              <span class="menu-title ">Feedback <i class="fa fa-angle-down"
+                  style="margin-left: 70px !important;"></i></span>
+            </a>
+            <div class="collapse" id="feedback">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item" :class="{ 'active': $route.path === '/staffs-service-feedback' }"
+                  @click="taggleMenu()"> <nuxt-link class="nav-link" to="/staffs-service-feedback"> <i
+                      class="fa fa-comment  me-2"></i> Staffs</nuxt-link></li>
+                <li class="nav-item" :class="{ 'active': $route.path === '/teachers-service-feedback' }"
+                  @click="taggleMenu()">
+                  <nuxt-link class="nav-link" to="/teachers-service-feedback"> <i class="fa fa-comment  me-2"></i>
+                    Teachers
+                  </nuxt-link>
+                </li>
+              </ul>
+            </div>
           </li>
           <li class="nav-item" :class="{ 'active-nav': $route.path === '/support-ticket' }">
             <nuxt-link class="nav-link" to="/support-ticket">
-              <i class="fa fa-life-ring menu-icon"></i>
-              <span class="menu-title" @click="taggleMenu()">IT Support Ticket</span>
+              <i class="fa fa-headphones menu-icon"></i>
+              <span class="menu-title" @click="taggleMenu()">Support Ticket</span>
             </nuxt-link>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#tolet" aria-expanded="false" aria-controls="tolet">
               <i class="fa fa-bed menu-icon px-1"></i>
-              <span class="menu-title">To-let</span>
-               <!-- <i class="fa fa-caret-down"  style="margin-left: auto;"></i> -->
+              <span class="menu-title">To-let <i class="fa fa-angle-down"
+                  style="margin-left: 95px !important;"></i></span>
             </a>
             <div class="collapse" id="tolet">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item" :class="{ 'active-nav': $route.path === '/to-let/publish' }">
-                  <nuxt-link class="nav-link" to="/to-let/publish">T0-Let Publish</nuxt-link>
+
+                <li class="nav-item" :class="{ 'active': $route.path === '/to-let/publish' }" @click="taggleMenu()">
+                  <nuxt-link class="nav-link" to="/to-let/publish"> <i class="fa fa-file-text me-2"></i> To-Let
+                    Publish</nuxt-link>
                 </li>
-                <li class="nav-item" :class="{ 'active-nav': $route.path === '/to-let/find' }">
-                  <nuxt-link class="nav-link" to="/to-let/find">To-let Find</nuxt-link>
+                <li class="nav-item" :class="{ 'active': $route.path === '/to-let/findt' }" @click="taggleMenu()">
+                  <nuxt-link class="nav-link" to="/to-let/find"> <i class="fa fa-search me-2"></i> To-let
+                    Find</nuxt-link>
                 </li>
-                <li class="nav-item" :class="{ 'active-nav': $route.path === '/to-let/request' }">
-                  <nuxt-link class="nav-link" to="/to-let/request">To-let Request</nuxt-link>
+                <li class="nav-item" :class="{ 'active': $route.path === '/to-let/request' }" @click="taggleMenu()">
+                  <nuxt-link class="nav-link" to="/to-let/request"> <i class="fa fa-pencil-square-o me-2"></i> To-let
+                    Request</nuxt-link>
                 </li>
               </ul>
             </div>
           </li>
-
-
           <li class="nav-item" :class="{ 'active-nav': $route.path === '/campus-adda' }">
             <nuxt-link class="nav-link" to="/campus-adda">
               <i class="fa fa-user-secret menu-icon"></i>
@@ -168,14 +166,11 @@
               <span class="menu-title" @click="taggleMenu()">Blood Donate</span>
             </nuxt-link>
           </li>
-
         </ul>
       </nav>
-
       <div class="main-panel">
         <div class="content-wrapper">
-          <nav class="navbar col-lg-12 col-12 mb-3 rounded ">
-
+          <nav class="navbar rounded ">
             <div class="">
               <img src="/images/logo.png" alt="logo" class="mobile-logo"
                 style="margin-bottom: 20px; height: 30px; width: 40px; margin-left: 20px;" />
@@ -183,30 +178,27 @@
                 type="button" data-toggle="minimize">
                 <span class="fa fa-bars menu-btn"></span>
               </button>
-
             </div>
-
-
             <div class="navbar-menu-wrapper d-flex align-items-center">
               <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item dropdown  user-dropdown ">
-                <div class="card border rounded px-2 py-1">
-                  <nuxt-link to="/support-ticket" class="d-block text-center">
-                    <img src="/images/support.png" alt="Support" height="20">
-                  </nuxt-link>
-                </div>
-
-
+                  <div class="card border rounded px-2 py-1">
+                    <nuxt-link to="/support-ticket" class="d-block text-center">
+                      <img src="/images/support.png" alt="Support" height="20">
+                    </nuxt-link>
+                  </div>
                 </li>
-
                 <li class="nav-item dropdown">
                   <a class="nav-link count-indicator message-dropdown" id="messageDropdown" href="#"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-bell"></i>
+                    <span class=" rounded px-2 py-1" style="background: #ecf0f4;"> <i class="fa fa-bell "
+                        style="font-size: 15px;"></i></span>
+
                     <span class="count">7</span>
                   </a>
-                  <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
+                  <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 custom-dropdown"
                     aria-labelledby="messageDropdown">
+
                     <a class="dropdown-item py-3">
                       <p class="mb-0 font-weight-medium float-start me-2">You have 7 unread mails </p>
                       <span class="badge badge-pill badge-primary float-end">View all</span>
@@ -221,40 +213,27 @@
                         <p class="font-weight-light small-text"> The meeting is cancelled </p>
                       </div>
                     </a>
-                    <a class="dropdown-item preview-item">
-                      <div class="preview-thumbnail">
-                        <img src="assets/images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
-                      </div>
-                      <div class="preview-item-content flex-grow py-2">
-                        <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
-                        <p class="font-weight-light small-text"> The meeting is cancelled </p>
-                      </div>
-                    </a>
-                    <a class="dropdown-item preview-item">
-                      <div class="preview-thumbnail">
-                        <img src="assets/images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
-                      </div>
-                      <div class="preview-item-content flex-grow py-2">
-                        <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
-                        <p class="font-weight-light small-text"> The meeting is cancelled </p>
-                      </div>
-                    </a>
+
                   </div>
                 </li>
                 <li class="nav-item dropdown  user-dropdown ">
                   <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <img class="img-xs rounded-circle ms-2" :src="authuser.profile_photo" alt="Profile image"> <span
-                      class="font-weight-bold d-none d-xl-inline-flex"> {{ authuser.name }}</span> <i class="fa fa-caret-down" style="padding-left: 10px !important;"></i></a>
+                      class="font-weight-bold d-none d-xl-inline-flex me-2"> {{ authuser.name }}</span> <i
+                      class="fa fa-angle-down"></i></a>
                   <div class="dropdown-menu dropdown-menu-right navbar-dropdown log-out-dropdown"
                     aria-labelledby="UserDropdown">
 
                     <nuxt-link to="/profile" class="dropdown-item" active-class="active-link"><i
-                        class="fa fa-user text-primary" style="padding-right: 10px !important;"></i> View Profile
+                        class="fa fa-user text-muted" style="padding-right: 10px !important;"></i> View Profile
+                    </nuxt-link>
+                    <nuxt-link to="/change-password" class="dropdown-item" active-class="active-link"><i
+                        class="fa fa-cog text-muted" style="padding-right: 10px !important;"></i> Change Password
                     </nuxt-link>
 
-                    <a class="dropdown-item" @click="logout()"><i
-                        class="fa fa-sign-out text-primary"  style="padding-right: 10px !important;"></i>Log
+                    <a class="dropdown-item" @click="logout()"><i class="fa fa-sign-out text-muted"
+                        style="padding-right: 10px !important;"></i>Log
                       Out</a>
                   </div>
                 </li>
@@ -265,7 +244,9 @@
               </button>
             </div>
           </nav>
-          <nuxt />
+         <div class="mt-3">
+           <nuxt />
+         </div>
         </div>
       </div>
 
@@ -275,9 +256,13 @@
 </template>
 
 <script>
+// import TopBar from '@/components/TopBar.vue'
 
 export default {
   middleware: "authenticated",
+  // components: {
+  //   TopBar
+  // },
 
   data() {
     return {
@@ -319,9 +304,9 @@ export default {
 }
 </script>
 <style scoped>
-.active-link {
-  background-color: #e6f7ff;
-  color: #000;
+.nav-link {
+  font-family: 'Roboto', sans-serif;
+  color: #6c757d !important;
 }
 
 .nuxt-link-exact-active .menu-icon {
@@ -332,39 +317,39 @@ export default {
 .active-nav .nav-link,
 .active-nav .menu-title,
 .active-nav .menu-icon {
-  color: #000 !important;
+  color: #fff !important;
 }
-
-
 
 .active-nav {
   background-color: #18AC4F !important;
+  color: #fff !important;
   border-radius: 7px;
-  padding: 6px 10px;
   margin: 0px 10px !important;
   padding: 0px 18px !important;
 }
 
+.active-nav:hover {
+  background-color: #18AC4F !important;
+}
+
 .sub-menu .active {
   background-color: #18AC4F !important;
-  color: #000 !important;
+  color: #fff !important;
   border-radius: 7px;
-
 }
 
-.nav-item:hover .nav-link {
+.nav-item:hover .nav-link,
+.nav-item:hover .menu-title,
+.nav-item:hover .menu-icon {
   color: #18AC4F !important;
-
 }
 
-.nav-item:hover .sub-menu .nav-link {
-  color: #000 !important;
-
+.nav-item:hover .sub-menu .nav-item.active .nav-link {
+  color: #fff !important;
 }
 
 .nav-item:hover {
   background: #ffff !important;
-
 }
 
 .sub-menu .nav-item .nav-link:hover {
@@ -377,6 +362,7 @@ export default {
   color: #fff;
   border: none;
   border-radius: 10px;
+  margin-left: 20px;
 }
 
 .navbar-toggler {
@@ -400,12 +386,9 @@ export default {
   display: none !important;
 }
 
-
 .mobile-logo {
   display: none !important;
 }
-
-
 
 @media (max-width: 1200px) {
   .log-out-dropdown {
@@ -423,6 +406,9 @@ export default {
     display: none !important;
   }
 
+
+}
+@media (min-width: 400px) and (max-width: 800px) {
   .mobile-logo {
     display: block !important;
     margin-bottom: 0px !important;
@@ -430,10 +416,5 @@ export default {
   }
 }
 
-@media (max-width: 320px) {
-  .log-out-dropdown {
-    left: -85px !important;
 
-  }
-}
 </style>
