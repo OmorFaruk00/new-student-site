@@ -1,6 +1,8 @@
 <template>
-  <div >
+  <div>
+    <ImprovementAlert />
     <div class="row">
+
       <div class="col-lg-8 col-md-8 col-sm-12 ">
         <div class="row g-3 mb-3">
           <div class="col-lg-4 col-md-4 col-sm-12">
@@ -52,7 +54,7 @@
               <div style="height: 250px">
                 <canvas id="semesterChart" class="p-3"></canvas>
               </div>
-              <div v-if="isResult" class="d-flex justify-content-center align-items-center pb-4">
+              <div v-if="loading" class="d-flex justify-content-center align-items-center pb-4">
                 <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
               </div>
             </div>
@@ -176,7 +178,7 @@
         <div class="bg-white shadow-sm  rounded" v-if="dashboard.routine" style="height: 330px;">
           <h4 class="fw-semibold p-3">Today's Class Update</h4>
           <hr>
-          <ul class="list-unstyled small mb-0 p-5">
+          <ul class="list-unstyled small mb-0 px-3">
             <li v-for="routine in dashboard.routine" :key="routine.id">
               <span class="fw-semibold">{{ routine.course_name }} ({{ routine.course_code }})</span> <br>
               <span class=" me-2">Today, {{ routine.start_time }} - {{ routine.end_time }} &nbsp; &nbsp; Room: {{
@@ -186,23 +188,31 @@
 
           </ul>
         </div>
-
       </div>
-
     </div>
-
-
-
-
   </div>
-
 </template>
 <script>
+import ImprovementAlert from '@/components/ImprovementAlert.vue';
 export default {
+  components: {
+    ImprovementAlert
+  },
   mounted() {
-    this.getData().then(() => {
+
+    const deshboardData = localStorage.getItem("deshboardData");
+
+    if (deshboardData) {
+      this.dashboard = JSON.parse(deshboardData);
       this.drowChart();
-    });
+    } else {
+      this.getData().then(() => {
+        this.drowChart();
+      });
+    }
+
+
+
   },
   data() {
     return {
@@ -211,21 +221,20 @@ export default {
       dashboard: '',
       semesterList: [],
       cgpaList: [],
-      isResult: true,
-      loading: true,
+      loading: false,
 
     }
   },
   methods: {
     async getData() {
+      this.loading = true;
       var token = window.$nuxt.$cookies.get("token");
       var user = window.$nuxt.$cookies.get("user");
       return await this.$axios
         .get("/student/dashboard/" + user.id + "?token=" + token)
         .then((response) => {
+          localStorage.setItem("deshboardData", JSON.stringify(response.data));
           this.dashboard = response.data;
-          console.log(response.data)
-
         })
         .catch((error) => {
           if (error.response.status == 400) {
@@ -236,7 +245,6 @@ export default {
           }
           this.$toast.error("Not found", { icon: "error_outline" });
         }).finally((final) => {
-          this.isResult = false;
           this.loading = false;
         });
     },

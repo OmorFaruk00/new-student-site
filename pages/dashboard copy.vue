@@ -1,16 +1,14 @@
 <template>
-  <div class="">
+  <div >
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-12 ">
         <div class="row g-3 mb-3">
-
-
           <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="bg-white shadow-sm p-3 rounded d-flex justify-content-start align-items-center"
               style="height:100px;">
-              <div class="rounded-circle d-flex justify-content-center align-items-center me-3"
-                style="width: 48px; height: 48px; background-color: #2563eb;">
-                <i class="fa fa-file-text text-white" style="font-size: 20px;"></i>
+              <div class="payment  d-flex justify-content-center align-items-center me-2"
+                style="background-color: #2563eb;">
+                <i class="fa fa-file-text text-white"></i>
               </div>
               <div>
                 <h5 v-if="dashboard.account" class="mb-0 fw-bold text-dark pt-1">৳{{
@@ -22,9 +20,9 @@
           <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="bg-white shadow-sm p-3 rounded d-flex justify-content-start align-items-center"
               style="height:100px;">
-              <div class="rounded-circle d-flex justify-content-center align-items-center me-3"
-                style="width: 48px; height: 48px; background-color: orange;">
-                <i class="fa fa-file-text text-white" style="font-size: 20px;"></i>
+              <div class="payment d-flex justify-content-center align-items-center me-2"
+                style=" background-color: orange;">
+                <i class="fa fa-file-text text-white"></i>
               </div>
               <div>
                 <h5 v-if="dashboard.account" class="mb-0 fw-bold text-dark pt-1">৳{{
@@ -36,9 +34,9 @@
           <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="bg-white shadow-sm p-3 rounded d-flex justify-content-start align-items-center"
               style="height:100px;">
-              <div class="rounded-circle d-flex justify-content-center align-items-center me-3"
-                style="width: 48px; height: 48px; background-color: #000;">
-                <i class="fa fa-file-text text-white" style="font-size: 20px;"></i>
+              <div class="payment  d-flex justify-content-center align-items-center me-2"
+                style="background-color: #000;">
+                <i class="fa fa-file-text text-white"></i>
               </div>
               <div>
                 <h5 v-if="dashboard.account" class="mb-0 fw-bold text-dark pt-1">৳{{
@@ -57,51 +55,43 @@
               <div v-if="isResult" class="d-flex justify-content-center align-items-center pb-4">
                 <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
               </div>
-
-
             </div>
           </div>
-
           <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="bg-white shadow-sm rounded h-100">
               <h4 class="fw-semibold p-3">Summary</h4>
               <hr />
-
               <div v-if="dashboard.result" class="p-3">
                 <div class="d-flex justify-content-between mb-2">
-                  <span class="fw-semibold text-muted">
-                    <i class="fa fa-star me-2"></i>GPA
+                  <span class="fw-semibold">
+                    <i class="fa fa-star me-2 text-muted"></i>GPA
                   </span>
                   <span class="fw-bold text-dark">{{ dashboard.result.cgpa }}</span>
                 </div>
-
                 <div class="d-flex justify-content-between mb-2">
-                  <span class="fw-semibold text-muted">
-                    <i class="fa fa-file-text me-2"></i>Average Grade
+                  <span class="fw-semibold">
+                    <i class="fa fa-file-text me-2 text-muted"></i>Average Grade
                   </span>
                   <span class="fw-bold text-dark">{{ dashboard.result.grade_letter }}</span>
                 </div>
-
                 <div class="d-flex justify-content-between mb-2">
-                  <span class="fw-semibold text-muted">
-                    <i class="fa fa-file-text me-2"></i>Total Credit
+                  <span class="fw-semibold">
+                    <i class="fa fa-file-text text-muted me-2"></i>Total Credit
                   </span>
                   <span class="fw-bold text-dark">{{ dashboard.result.total_credit_earned }}</span>
                 </div>
-
                 <div class="d-flex justify-content-between">
-                  <span class="fw-semibold text-muted">
-                    <i class="fa fa-file-text me-2"></i>Credit Exempted
+                  <span class="fw-semibold">
+                    <i class="fa fa-file-text text-muted me-2"></i>Credit Exempted
                   </span>
                   <span class="fw-bold text-dark">{{ dashboard.result.exempted_credit }}</span>
                 </div>
               </div>
+              <div v-if="loading" class="d-flex justify-content-center align-items-center pb-4">
+                <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
+              </div>
             </div>
           </div>
-
-
-
-
           <div class="col-lg-8 col-md-8 col-sm-12">
             <div class="bg-white shadow-sm rounded pb-4">
               <h4 class="fw-semibold p-3">Your Overall Performance This Semester</h4>
@@ -143,15 +133,12 @@
                   <div class="progress-bar" :style="{ width: present + '%', background: '#5fad56 !important' }">
                   </div>
                 </div>
-
                 <div class="d-flex justify-content-between">
                   <p class="progress-title">Absent</p>
                   <p class="progress-title">{{ absent }}</p>
                 </div>
-
                 <div class="progress  pink">
                   <div class="progress-bar" :style="{ width: absent + '%', background: '#ff4b7d !important' }">
-
                   </div>
                 </div>
                 <div class="d-flex justify-content-between">
@@ -162,35 +149,31 @@
                   <div class="progress-bar" style=" width:20%; background: #5fad56 !important">
                   </div>
                 </div>
-
               </div>
-
-
             </div>
           </div>
-
-
         </div>
-
       </div>
       <div class="col-lg-4 col-md-4 col-sm-12">
         <div class="bg-white shadow-sm rounded  mb-3">
           <h4 class="fw-semibold p-3">Announcements</h4>
           <hr>
-          <div class="announcement px-3 pb-3">
+          <div class="announcement px-3 pb-3 pt-1">
             <div v-if="dashboard.notice">
               <p v-for="notice in dashboard.notice" :key="notice.id">
-                <a :href="'https://diu.ac/notice-details/' + notice.slug" class="text-decoration-none text-dark"
-                  target="_blank">
+                <a :href="'/announcement/' + notice.slug" class="text-decoration-none text-dark">
                   <span class="me-2 text-dark">●</span>{{ notice.title }}
                 </a>
               </p>
+              <nuxt-link to="/announcement" class="btn-see"> See More</nuxt-link>
             </div>
-            <nuxt-link to="#" class="btn-see"> See More</nuxt-link>
+            <div v-if="loading" class="d-flex justify-content-center align-items-center pb-4">
+              <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
+            </div>
           </div>
         </div>
 
-        <div class="bg-white shadow-sm  rounded" v-if="dashboard.routine" style="height: 335px;">
+        <div class="bg-white shadow-sm  rounded" v-if="dashboard.routine" style="height: 330px;">
           <h4 class="fw-semibold p-3">Today's Class Update</h4>
           <hr>
           <ul class="list-unstyled small mb-0 p-5">
@@ -229,6 +212,7 @@ export default {
       semesterList: [],
       cgpaList: [],
       isResult: true,
+      loading: true,
 
     }
   },
@@ -253,6 +237,7 @@ export default {
           this.$toast.error("Not found", { icon: "error_outline" });
         }).finally((final) => {
           this.isResult = false;
+          this.loading = false;
         });
     },
 

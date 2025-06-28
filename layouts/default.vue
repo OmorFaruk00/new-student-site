@@ -189,32 +189,8 @@
                   </div>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link count-indicator message-dropdown" id="messageDropdown" href="#"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class=" rounded px-2 py-1" style="background: #ecf0f4;"> <i class="fa fa-bell "
-                        style="font-size: 15px;"></i></span>
+                  <Notification />
 
-                    <span class="count">7</span>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 custom-dropdown"
-                    aria-labelledby="messageDropdown">
-
-                    <a class="dropdown-item py-3">
-                      <p class="mb-0 font-weight-medium float-start me-2">You have 7 unread mails </p>
-                      <span class="badge badge-pill badge-primary float-end">View all</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                      <div class="preview-thumbnail">
-                        <img src="assets/images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
-                      </div>
-                      <div class="preview-item-content flex-grow py-2">
-                        <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
-                        <p class="font-weight-light small-text"> The meeting is cancelled </p>
-                      </div>
-                    </a>
-
-                  </div>
                 </li>
                 <li class="nav-item dropdown  user-dropdown ">
                   <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-bs-toggle="dropdown"
@@ -224,7 +200,6 @@
                       class="fa fa-angle-down"></i></a>
                   <div class="dropdown-menu dropdown-menu-right navbar-dropdown log-out-dropdown"
                     aria-labelledby="UserDropdown">
-
                     <nuxt-link to="/profile" class="dropdown-item" active-class="active-link"><i
                         class="fa fa-user text-muted" style="padding-right: 10px !important;"></i> View Profile
                     </nuxt-link>
@@ -244,9 +219,9 @@
               </button>
             </div>
           </nav>
-         <div class="mt-3">
-           <nuxt />
-         </div>
+          <div class="mt-3">
+            <nuxt />
+          </div>
         </div>
       </div>
 
@@ -256,13 +231,13 @@
 </template>
 
 <script>
-// import TopBar from '@/components/TopBar.vue'
+import Notification from '@/components/Notification.vue';
 
 export default {
   middleware: "authenticated",
-  // components: {
-  //   TopBar
-  // },
+  components: {
+    Notification
+  },
 
   data() {
     return {
@@ -279,6 +254,8 @@ export default {
     logout() {
       window.$nuxt.$cookies.remove("token");
       window.$nuxt.$cookies.remove("user");
+      window.$nuxt.$cookies.remove("currentExamSchedule");
+      localStorage.removeItem("deshboardData");
       this.$router.push("/");
     },
     toggleSidebar() {
@@ -408,6 +385,7 @@ export default {
 
 
 }
+
 @media (min-width: 400px) and (max-width: 800px) {
   .mobile-logo {
     display: block !important;
