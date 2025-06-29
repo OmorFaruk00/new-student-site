@@ -1,39 +1,10 @@
 <template>
   <section class="d-flex">
-    <!-- <li class="nav-item dropdown  user-dropdown ">
+    <li class="nav-item dropdown  user-dropdown ">
       <div class="card border rounded px-2 py-1">
         <nuxt-link to="/support-ticket" class="d-block text-center">
           <img src="/images/support.png" alt="Support" height="20">
         </nuxt-link>
-      </div>
-    </li> -->
-
-      <li class="nav-item dropdown">
-      <div>
-        <a class="nav-link count-indicator message-dropdown" id="SupportDropdown" href="#" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          <span class="rounded px-2 py-1" style="background: #ecf0f4;">
-            <img src="/images/support.png" alt="Support" height="20">
-          </span>
-          <span class="count">1</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
-                    aria-labelledby="messageDropdown">
-                    <a href="/support-ticket" class="dropdown-item py-3">
-                      <p class="mb-0 font-weight-medium float-start me-2">You have 1 unseen Ticket </p>
-                      <span class="badge badge-pill badge-primary float-end">View all</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-
-                      <div class="preview-item-content flex-grow p">
-                        <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
-                        <p class="font-weight-light small-text"> The meeting is cancelled </p>
-                      </div>
-                    </a>
-
-
-                  </div>
       </div>
     </li>
     <li class="nav-item dropdown">

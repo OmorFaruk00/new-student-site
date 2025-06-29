@@ -181,17 +181,9 @@
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center">
               <ul class="navbar-nav navbar-nav-right">
-                <li class="nav-item dropdown  user-dropdown ">
-                  <div class="card border rounded px-2 py-1">
-                    <nuxt-link to="/support-ticket" class="d-block text-center">
-                      <img src="/images/support.png" alt="Support" height="20">
-                    </nuxt-link>
-                  </div>
-                </li>
-                <li class="nav-item dropdown">
+
                   <Notification />
 
-                </li>
                 <li class="nav-item dropdown  user-dropdown ">
                   <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-bs-toggle="dropdown"
                     aria-expanded="false">

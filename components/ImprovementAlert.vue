@@ -1,45 +1,87 @@
 <template>
-  <div v-if="currentExamSchedule != ''">
-    <div v-for="(singleCurrentExamSchedule, index) in currentExamSchedule" :key="index">
-      <div class="my-3" :id="'upgradeAlert-' + index">
-        <div class="custom-alert">
-          <div class="custom-alert-text">
-            <strong class="text-truncate d-inline-block w-100"
-              style="max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
-              {{ singleCurrentExamSchedule.name }}
-            </strong>
-            <div class="pt-2" style="font-size: 13px;">
-              <div class="d-flex flex-column flex-sm-row align-items-start flex-wrap">
-                <div class="d-inline-flex align-items-center me-sm-4 mb-1">
-                  <i class="fa fa-calendar me-1" style="font-size: 11px;"></i>
-                  <small>
-                    Form Fill-up Last Date:
-                    <strong class="ms-1">{{ singleCurrentExamSchedule.form_fillup_last_date.slice(0, 10) }}</strong>
-                  </small>
-                </div>
-                <div class="d-inline-flex align-items-center mb-1">
-                  <i class="fa fa-calendar me-1" style="font-size: 11px;"></i>
-                  <small>
-                    Exam Start Date:
-                    <strong class="ms-1">{{ singleCurrentExamSchedule.exam_start_date.slice(0, 10) }}</strong>
-                  </small>
-                </div>
+  <div>
+    <div v-if="currentExamSchedule != ''">
+        <div class="my-3" :id="'showAlert-' + index">
+          <div class="custom-alert">
+            <div class="d-flex flex-row flex-nowrap align-items-center justify-content-between w-100">
+              <div class="flex-grow-1 flex-shrink-1 me-2" style="min-width: 0;">
+                <strong class="d-block text-truncate"
+                  style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                  Improvement Exam Scheduled
+                </strong>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <button class="show-btn" @click="showModal">Show</button>
+                <button class="close-btn" aria-label="Close"
+                  :onclick="'document.getElementById(\'showAlert-' + index + '\').style.display = \'none\''">
+                  &times;
+                </button>
               </div>
             </div>
           </div>
-          <a href="/improvement/formfillup" class="upgrade-btn">Apply</a>
-          <button class="close-btn" aria-label="Close"
-            :onclick="'document.getElementById(\'upgradeAlert-' + index + '\').style.display = \'none\''">
-            &times;
-          </button>
+        </div>
+    </div>
+
+
+
+    <!-- Exam Schedule Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fw-semibold" id="exampleModalLabel"> {{ currentExamSchedule.length }} Improvement
+              Exam Scheduled
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="closeModal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body p-2" v-if="currentExamSchedule != ''">
+            <div class="mb-4">
+              <div class="table-responsive mb-3" v-for="(singleCurrentExamSchedule, index) in currentExamSchedule"
+                :key="index">
+                <table class="table table-bordered mb-0 custom-table ">
+                  <tbody>
+                    <tr>
+                      <th >Name</th>
+                      <td >{{ singleCurrentExamSchedule.name }}</td>
+                    </tr>
+                    <tr>
+                      <th >Form Fill-up Last Date</th>
+                      <td >{{ singleCurrentExamSchedule.form_fillup_last_date }}</td>
+                    </tr>
+                    <tr>
+                      <th >Exam Start Date</th>
+                      <td>{{ singleCurrentExamSchedule.exam_start_date }}</td>
+                    </tr>
+                    <tr v-if="singleCurrentExamSchedule.departmentNames">
+                      <td colspan="2" >
+                        <div class="d-flex flex-wrap gap-1 rounded" style="font-size: 10px !important;">
+                          <span class="badge badge-primary rounded"
+                            v-for="(dept, deptIndex) in singleCurrentExamSchedule.departmentNames" :key="deptIndex">
+                            {{ dept }}
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" @click="closeModal">
+              Close
+            </button>
+            <a href="improvement/formfillup" type="button" class="btn btn-primary">Apply</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
 </template>
 <script>
-
 export default {
   data() {
     return {
@@ -48,19 +90,24 @@ export default {
 
     };
   },
-
   mounted() {
-
     const improvementExamSchedule = this.$cookies.get("currentExamSchedule");
 
     if (improvementExamSchedule) {
       this.currentExamSchedule = improvementExamSchedule;
     } else {
-      this.getCurrentImprovementExamSchedule();
+      // this.getCurrentImprovementExamSchedule();
     }
 
   },
   methods: {
+    showModal() {
+        $('#exampleModal').modal('show');
+    },
+    closeModal() {
+        $('#exampleModal').modal('hide');
+     ;
+    },
     async getCurrentImprovementExamSchedule() {
       var token = window.$nuxt.$cookies.get("token");
       return await this.$axios
@@ -80,14 +127,18 @@ export default {
         });
     },
 
-
   }
 }
 </script>
 <style scoped>
+.custom-table th,
+.custom-table td {
+  padding: 4px 5px;
+  font-size: 12px;
+}
+
 .custom-alert {
   background-color: #ffc107;
-  /* Yellow */
   color: #000;
   border-radius: 0.5rem;
   padding: 1rem 1.5rem;
@@ -95,13 +146,14 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 80px;
 }
 
 .custom-alert-text {
   max-width: 80%;
 }
 
-.upgrade-btn {
+.show-btn {
   background-color: #ff009a;
   color: white;
   border: none;
@@ -111,6 +163,11 @@ export default {
   white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
+  text-transform: uppercase;
+}
+.show-btn:hover {
+  color: #000 !important;
+
 }
 
 .close-btn {

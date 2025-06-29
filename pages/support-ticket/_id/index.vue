@@ -1,11 +1,11 @@
 <template>
   <section>
     <div class="card">
-      <div class="card-header">Support Ticket Create</div>
-      <div class="card-body">
+      <div class="form-header">Support Ticket Create</div>
+      <div class="px-3">
 
         <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end">
+          <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end ">
 
             <button v-if="supportTicketDetails.status == 'active'" class="btn btn-danger" type="button" style="margin-right: 10px;"
                     @click="changeStatus('canceled')">Cancel
@@ -20,7 +20,7 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-8 col-md-8 col-sm-12 offset-lg-2 offset-md-2">
+          <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="table-responsive">
 
 
