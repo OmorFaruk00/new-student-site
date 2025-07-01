@@ -1,10 +1,42 @@
 <template>
   <section class="d-flex">
-    <li class="nav-item dropdown  user-dropdown ">
+    <!-- <li class="nav-item dropdown  user-dropdown ">
       <div class="card border rounded px-2 py-1">
         <nuxt-link to="/support-ticket" class="d-block text-center">
           <img src="/images/support.png" alt="Support" height="20">
         </nuxt-link>
+      </div>
+    </li> -->
+
+      <li class="nav-item dropdown">
+      <div>
+        <a class="nav-link count-indicator message-dropdown" id="SupportDropdown" href="#" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <span class="rounded px-2 py-1" style="background: #ecf0f4;">
+            <img src="/images/support.png" alt="Support" height="20">
+          </span>
+          <span class="count">{{  currentSupportTicket.length }}</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
+                    aria-labelledby="messageDropdown">
+                    <a href="/support-ticket" class="dropdown-item py-3">
+                      <p class="mb-0 font-weight-medium float-start me-2">You have {{ currentSupportTicket.length }} unseen Ticket </p>
+                      <span class="badge badge-pill badge-primary float-end">View all</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+               <div v-for="(ticket, index) in currentSupportTicket">
+                     <a @click="seenTicket(ticket.id)"   class="dropdown-item preview-item">
+
+                      <div class="preview-item-content flex-grow">
+                        <p class="preview-subject ellipsis font-weight-medium text-dark  m-0">{{ ticket.subject }}</p>
+                        <p class="font-weight-medium small-text  m-0"> {{ ticket.status }} </p>
+                      </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+               </div>
+
+
+                  </div>
       </div>
     </li>
     <li class="nav-item dropdown">
@@ -14,7 +46,7 @@
           <span class="rounded px-2 py-1" style="background: #ecf0f4;">
             <i class="fa fa-bell" style="font-size: 15px;"></i>
           </span>
-          <span class="count">{{ notificationCount }}</span>
+          <span class="count">{{ currentExamSchedule.length }}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 rounded custom-dropdown"
           aria-labelledby="messageDropdown">
@@ -63,7 +95,7 @@ export default {
     return {
       authuser: "",
       currentExamSchedule: '',
-      notificationCount: 0,
+      currentSupportTicket: '',
 
     };
   },
@@ -71,17 +103,41 @@ export default {
   mounted() {
 
     const improvementExamSchedule = this.$cookies.get("currentExamSchedule");
-    const count = this.$cookies.get("ExamScheduleNotification");
 
     if (improvementExamSchedule) {
       this.currentExamSchedule = improvementExamSchedule;
-      this.notificationCount = this.notificationCount + count;
     } else {
       this.getCurrentImprovementExamSchedule();
     }
+    this.getCurrentSupportTicket()
+
+
+    //  const supportTicket = this.$cookies.get("SupportTicketNotification");
+
+    // if(supportTicket){
+    //   this.currentSupportTicket = supportTicket;
+    // } else {
+    //   this.getCurrentSupportTicket();
+    // }
+
 
   },
   methods: {
+    async seenTicket(id){
+      var token = window.$nuxt.$cookies.get("token");
+      return await this.$axios
+        .get("/student/support-ticket-seen/" + id + "?token=" + token)
+        .then(response => {
+          // window.$nuxt.$cookies.remove("SupportTicketNotification");
+          this.getCurrentSupportTicket();
+          this.$router.push('/support-ticket/' + id);
+        })
+        .catch(error => {
+          console.log(error);
+
+        });
+
+    },
     async getCurrentImprovementExamSchedule() {
       var token = window.$nuxt.$cookies.get("token");
       return await this.$axios
@@ -91,19 +147,29 @@ export default {
             path: "/",
             maxAge: 1800
           });
-          window.$nuxt.$cookies.set("ExamScheduleNotification", response.data.data.length, {
-            path: "/",
-            maxAge: 1800
-          });
           this.currentExamSchedule = response.data.data;
-          var count = response.data.data.length;
-          this.notificationCount = this.notificationCount + count;
         })
         .catch(error => {
           console.log(error);
           // this.$toast.error("currentExamSchedule Not found", {
           //   icon: "error_outline"
           // });
+        });
+    },
+    async getCurrentSupportTicket() {
+      var token = window.$nuxt.$cookies.get("token");
+      return await this.$axios
+        .get("/student/support-ticket-unseen?token=" + token)
+        .then(response => {
+          window.$nuxt.$cookies.set("SupportTicketNotification", response.data, {
+            path: "/",
+            maxAge: 1800
+          });
+          this.currentSupportTicket = response.data;
+
+        })
+        .catch(error => {
+          console.log(error);
         });
     },
 

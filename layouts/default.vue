@@ -247,6 +247,7 @@ export default {
       window.$nuxt.$cookies.remove("token");
       window.$nuxt.$cookies.remove("user");
       window.$nuxt.$cookies.remove("currentExamSchedule");
+      window.$nuxt.$cookies.remove("SupportTicketNotification");
       localStorage.removeItem("deshboardData");
       this.$router.push("/");
     },

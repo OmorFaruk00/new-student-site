@@ -8,32 +8,35 @@
       </div>
     </li> -->
 
-      <li class="nav-item dropdown">
+    <li class="nav-item dropdown">
       <div>
         <a class="nav-link count-indicator message-dropdown" id="SupportDropdown" href="#" data-bs-toggle="dropdown"
           aria-expanded="false">
           <span class="rounded px-2 py-1" style="background: #ecf0f4;">
             <img src="/images/support.png" alt="Support" height="20">
           </span>
-          <span class="count">1</span>
+          <span class="count">{{ unseenCount }}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
-                    aria-labelledby="messageDropdown">
-                    <a href="/support-ticket" class="dropdown-item py-3">
-                      <p class="mb-0 font-weight-medium float-start me-2">You have 1 unseen Ticket </p>
-                      <span class="badge badge-pill badge-primary float-end">View all</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
+          aria-labelledby="messageDropdown">
+          <a href="/support-ticket" class="dropdown-item py-3">
+            <p class="mb-0 font-weight-medium float-start me-2">You have {{ unseenCount }} unseen Ticket </p>
+            <span class="badge badge-pill badge-primary float-end">View all</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <div v-for="(ticket, index) in supportTicket">
+            <a @click="markSeen(ticket.id)" class="dropdown-item preview-item">
 
-                      <div class="preview-item-content flex-grow p">
-                        <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
-                        <p class="font-weight-light small-text"> The meeting is cancelled </p>
-                      </div>
-                    </a>
+              <div class="preview-item-content flex-grow">
+                <p class="preview-subject ellipsis font-weight-medium text-dark  m-0">{{ ticket.subject }}</p>
+                <p class="font-weight-medium small-text  m-0"> {{ ticket.status }} </p>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+          </div>
 
 
-                  </div>
+        </div>
       </div>
     </li>
     <li class="nav-item dropdown">
@@ -43,7 +46,7 @@
           <span class="rounded px-2 py-1" style="background: #ecf0f4;">
             <i class="fa fa-bell" style="font-size: 15px;"></i>
           </span>
-          <span class="count">{{ notificationCount }}</span>
+          <span class="count">{{ currentExamSchedule.length }}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 rounded custom-dropdown"
           aria-labelledby="messageDropdown">
@@ -92,25 +95,40 @@ export default {
     return {
       authuser: "",
       currentExamSchedule: '',
-      notificationCount: 0,
+      currentSupportTicket: '',
 
     };
+  },
+  computed: {
+    supportTicket() {
+      return this.$store.state.notifications.supportTicket
+    },
+    unseenCount() {
+      return this.supportTicket.filter(n => !n.seen).length
+    }
+  },
+  created() {
+    this.$store.dispatch('notifications/fatchSupportTicket')
+
   },
 
   mounted() {
 
     const improvementExamSchedule = this.$cookies.get("currentExamSchedule");
-    const count = this.$cookies.get("ExamScheduleNotification");
 
     if (improvementExamSchedule) {
       this.currentExamSchedule = improvementExamSchedule;
-      this.notificationCount = this.notificationCount + count;
     } else {
       this.getCurrentImprovementExamSchedule();
     }
 
   },
   methods: {
+    markSeen(id) {
+      this.$store.dispatch('notifications/markAsSeen', id);
+      this.$router.push('/support-ticket/' + id);
+    },
+
     async getCurrentImprovementExamSchedule() {
       var token = window.$nuxt.$cookies.get("token");
       return await this.$axios
@@ -120,13 +138,7 @@ export default {
             path: "/",
             maxAge: 1800
           });
-          window.$nuxt.$cookies.set("ExamScheduleNotification", response.data.data.length, {
-            path: "/",
-            maxAge: 1800
-          });
           this.currentExamSchedule = response.data.data;
-          var count = response.data.data.length;
-          this.notificationCount = this.notificationCount + count;
         })
         .catch(error => {
           console.log(error);
@@ -135,6 +147,7 @@ export default {
           // });
         });
     },
+
 
 
   }

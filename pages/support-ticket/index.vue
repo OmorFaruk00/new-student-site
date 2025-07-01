@@ -201,4 +201,10 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+table th, .jsgrid .jsgrid-table th, .table td, .jsgrid .jsgrid-table td {
+  white-space: normal;
+  border: 2px solid #e8e5e5;
+}
+</style>
+

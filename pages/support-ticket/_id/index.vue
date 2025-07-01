@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="card">
+    <div class="card rounded">
       <div class="form-header">Support Ticket Create</div>
       <div class="px-3">
 
@@ -419,11 +419,14 @@ export default {
   },
 
   created() {
-    this.fetchTicketDetails()
+    this.fetchTicketDetails();
+    this.$store.dispatch('notifications/markAsSeen', this.id)
   }
 }
 </script>
-
 <style scoped>
-
+table th, .jsgrid .jsgrid-table th, .table td, .jsgrid .jsgrid-table td {
+  white-space: normal;
+  border: 2px solid #e8e5e5;
+}
 </style>
