@@ -1,184 +1,59 @@
 <template>
-  <div>
-    <div v-if="currentExamSchedule != ''">
-        <div class="my-3" :id="'showAlert-' + index">
-          <div class="custom-alert">
-            <div class="d-flex flex-row flex-nowrap align-items-center justify-content-between w-100">
-              <div class="flex-grow-1 flex-shrink-1 me-2" style="min-width: 0;">
-                <strong class="d-block text-truncate"
-                  style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                  Improvement Exam Scheduled
-                </strong>
-              </div>
-              <div class="d-flex align-items-center gap-2">
-                <button class="show-btn" @click="showModal">Show</button>
-                <button class="close-btn" aria-label="Close"
-                  :onclick="'document.getElementById(\'showAlert-' + index + '\').style.display = \'none\''">
-                  &times;
-                </button>
-              </div>
-            </div>
-          </div>
+  <div class="conainer">
+	<div class="circle_percent" data-percent="20">
+    	<div class="circle_inner">
+        	<div class="round_per"></div>
         </div>
     </div>
 
-
-
-    <!-- Exam Schedule Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title fw-semibold" id="exampleModalLabel"> {{ currentExamSchedule.length }} Improvement
-              Exam Scheduled
-            </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="closeModal">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body p-2" v-if="currentExamSchedule != ''">
-            <div class="mb-4">
-              <div class="table-responsive mb-3" v-for="(singleCurrentExamSchedule, index) in currentExamSchedule"
-                :key="index">
-                <table class="table table-bordered mb-0 custom-table ">
-                  <tbody>
-                    <tr>
-                      <th >Name</th>
-                      <td >{{ singleCurrentExamSchedule.name }}</td>
-                    </tr>
-                    <tr>
-                      <th >Form Fill-up Last Date</th>
-                      <td >{{ singleCurrentExamSchedule.form_fillup_last_date }}</td>
-                    </tr>
-                    <tr>
-                      <th >Exam Start Date</th>
-                      <td>{{ singleCurrentExamSchedule.exam_start_date }}</td>
-                    </tr>
-                    <tr v-if="singleCurrentExamSchedule.departmentNames">
-                      <td colspan="2" >
-                        <div class="d-flex flex-wrap gap-1 rounded" style="font-size: 10px !important;">
-                          <span class="badge badge-primary rounded"
-                            v-for="(dept, deptIndex) in singleCurrentExamSchedule.departmentNames" :key="deptIndex">
-                            {{ dept }}
-                          </span>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" @click="closeModal">
-              Close
-            </button>
-            <a href="improvement/formfillup" type="button" class="btn btn-primary">Apply</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 </template>
 <script>
 export default {
-  data() {
-    return {
-      authuser: "",
-      currentExamSchedule: "",
-
-    };
-  },
   mounted() {
-    const improvementExamSchedule = this.$cookies.get("currentExamSchedule");
+    this.$nextTick(() => {
+      $('.circle_percent').each(function () {
+        const $this = $(this)
+        const $dataV = $this.data('percent')
+        const $dataDeg = $dataV * 3.6
+        const $round = $this.find('.round_per')
 
-    if (improvementExamSchedule) {
-      this.currentExamSchedule = improvementExamSchedule;
-    } else {
-      // this.getCurrentImprovementExamSchedule();
-    }
+        $round.css('transform', 'rotate(' + parseInt($dataDeg + 180) + 'deg)')
+        $this.append('<div class="circle_inbox"><span class="percent_text"></span></div>')
 
-  },
-  methods: {
-    showModal() {
-        $('#exampleModal').modal('show');
-    },
-    closeModal() {
-        $('#exampleModal').modal('hide');
-     ;
-    },
-    async getCurrentImprovementExamSchedule() {
-      var token = window.$nuxt.$cookies.get("token");
-      return await this.$axios
-        .get("/get_current_improvement_exam_schedule?token=" + token)
-        .then(response => {
-          window.$nuxt.$cookies.set("currentExamSchedule", response.data.data, {
-            path: "/",
-            maxAge: 1800
-          });
-          this.currentExamSchedule = response.data.data;
-        })
-        .catch(error => {
-          console.log(error);
-          // this.$toast.error("currentExamSchedule Not found", {
-          //   icon: "error_outline"
-          // });
-        });
-    },
+        $this.prop('Counter', 0).animate(
+          { Counter: $dataV },
+          {
+            duration: 2000,
+            easing: 'swing',
+            step: function (now) {
+              $this.find('.percent_text').text(Math.ceil(now) + '%')
+            }
+          }
+        )
 
+        if ($dataV >= 51) {
+          $round.css('transform', 'rotate(360deg)')
+          setTimeout(function () {
+            $this.addClass('percent_more')
+          }, 1000)
+          setTimeout(function () {
+            $round.css('transform', 'rotate(' + parseInt($dataDeg + 180) + 'deg)')
+          }, 1000)
+        }
+      })
+    })
   }
 }
 </script>
-<style scoped>
-.custom-table th,
-.custom-table td {
-  padding: 4px 5px;
-  font-size: 12px;
-}
 
-.custom-alert {
-  background-color: #ffc107;
-  color: #000;
-  border-radius: 0.5rem;
-  padding: 1rem 1.5rem;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 80px;
-}
+<style>
 
-.custom-alert-text {
-  max-width: 80%;
-}
-
-.show-btn {
-  background-color: #ff009a;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  font-weight: bold;
-  border-radius: 0.375rem;
-  white-space: nowrap;
-  text-decoration: none;
-  cursor: pointer;
-  text-transform: uppercase;
-}
-.show-btn:hover {
-  color: #000 !important;
-
-}
-
-.close-btn {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background: #fff;
-  border-radius: 50%;
-  border: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #000;
-}
+.circle_percent {font-size:100px; width:1em; height:1em; position: relative; background: #333; border-radius:50%; overflow:hidden; display:inline-block; margin:20px;}
+.circle_inner {position: absolute; left: 0; top: 0; width: 1em; height: 1em; clip:rect(0 1em 1em .5em);}
+.round_per {position: absolute; left: 0; top: 0; width: 1em; height: 1em; background: #18AC4F; clip:rect(0 1em 1em .5em); transform:rotate(180deg); transition:1.05s;}
+.percent_more .circle_inner {clip:rect(0 .5em 1em 0em);}
+/* .percent_more:after {position: absolute; left: .5em; top:0em; right: 0; bottom: 0; background: red; content:'';} */
+.circle_inbox {position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px; background: #fff; z-index:3; border-radius: 50%;}
+.percent_text {position: absolute; font-size: 36px; left: 50%; top: 50%; transform: translate(-50%,-50%); z-index: 3;}
 </style>

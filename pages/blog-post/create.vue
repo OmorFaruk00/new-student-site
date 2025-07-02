@@ -32,17 +32,13 @@
           <p class="text-danger" v-if="error.description" v-text="error.description[0]"></p>
         </div>
 
-        <div class="form-group focused mx-auto">
+        <div class="form-group focused mx-auto " style="margin-bottom: 15px !important;">
           <label>Image <span class="text-danger">*</span></label>
           <div class="custom-file">
             <input type="file" class="custom-file-input form-control" name="image" ref="image" id="image"
               accept="images/*" />
             <p class="text-danger" v-if="error.file" v-text="error.file[0]"></p>
-
-
-            <label class="custom-file-label" for="image">Upload Image </label>
           </div>
-
         </div>
 
         <div class="form-group">

@@ -16,7 +16,7 @@
             <small id="batch_mate_id_help" class="form-text text-danger">&nbsp;</small>
           </div>
           <div class="form-group pb-4">
-            <button type="submit" class="btn btn-primary btn-sm">
+            <button :disabled="loading" type="submit" class="btn btn-primary btn-sm">
               Show
               <i v-if="loading" class="fa fa-spinner fa-spin text-primary"></i>
             </button>
@@ -110,12 +110,12 @@ course, courseIndex
                       <td>
                         <span v-if="semesters.exempted == 0">{{
                           course.marks.letter_grade
-                          }}</span><span v-else>Exempted</span>
+                        }}</span><span v-else>Exempted</span>
                       </td>
                       <td style="text-align: right">
                         <span v-if="semesters.exempted == 0">{{
                           course.marks.grade_point | numFormat("0.00")
-                          }}</span><span v-else>Exempted</span>
+                        }}</span><span v-else>Exempted</span>
                       </td>
                     </tr>
                     <tr v-if="
@@ -286,12 +286,12 @@ course, courseIndex
                     <td>
                       <span v-if="semesters.exempted == 0">{{
                         course.marks.letter_grade
-                        }}</span><span v-else>Exempted</span>
+                      }}</span><span v-else>Exempted</span>
                     </td>
                     <td style="text-align: right">
                       <span v-if="semesters.exempted == 0">{{
                         course.marks.grade_point | numFormat("0.00")
-                        }}</span><span v-else>Exempted</span>
+                      }}</span><span v-else>Exempted</span>
                     </td>
                   </tr>
                   <tr v-if="

@@ -1,7 +1,7 @@
 <template>
 
   <div class="card rounded mb-3">
-    <h3 class="fw-bold p-4">Select Payment Method</h3>
+    <h3 class="fw-bold px-4 pt-3">Select Payment Method</h3>
     <div class="px-4">
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
@@ -87,10 +87,10 @@
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12">
               <div class="pay-card p-3 mb-3  mx-auto">
-                <img src="images/card.png" style="height: 200px;width:100%;">
+                <img src="images/card.png" style="height: 220px;width:100%;">
               </div>
             </div>
-            <div class="col-lg-8 col-md-8 col-sm-12 py-3">
+            <div class="col-lg-6 col-md-6 col-sm-12 py-3">
               <div class="form-group">
                 <select class="form-control" id="batch_mate_id" name="batch_mate_id" required
                   v-model="card_payment_type">
@@ -105,7 +105,7 @@
                 <input type="number" class="form-control" v-model="card_amount" required placeholder="Amount">
               </div>
               <div class="row">
-                <div class="col-10 col-md-10 col-sm-12 mb-3">
+                <div class="col-9 col-md-9 col-sm-12 mb-3">
                   <input type="checkbox" name="option1" v-model="isChecked">
                   &nbsp; I agree to the
                   <a href="https://diu.ac/terms_and_conditions" target="_blank">Terms &
@@ -115,7 +115,7 @@
                     Policy</a>
                 </div>
 
-                <div class="col-lg-2 col-md-2 col-sm-12 text-end">
+                <div class="col-lg-3 col-md-3 col-sm-12 text-end">
                   <button :disabled="cloading" type="submit" class="btn btn-primary" @click="paymentCard">
                     Pay <i v-if="cloading" class="fa fa-spinner fa-spin"></i>
                   </button>
@@ -138,6 +138,9 @@
 
 </template>
 <style scoped>
+.nav-tabs .nav-link {
+  background: none !important;
+}
 .tab-content {
   border: none;
   padding: 30px 0px;

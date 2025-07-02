@@ -115,43 +115,45 @@
             <div class="bg-white shadow-sm rounded h-100">
               <h4 class="fw-semibold p-3">Attendance</h4>
               <hr>
-
-              <div class="attendence-progress blue">
-                <span class="attendence-progress-left">
-                  <span class="attendence-progress-bar"></span>
-                </span>
-                <span class="attendence-progress-right">
-                  <span class="attendence-progress-bar"></span>
-                </span>
-                <div class="attendence-progress-value">70%</div>
+              <div v-if="dashboard.attendance">
+                <div class="d-flex justify-content-center">
+                  <div class="circle_percent" :data-percent="dashboard.attendance.attendancePercentage">
+                    <div class="circle_inner">
+                      <div class="round_per"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="pt-4 p-3">
+                  <div class="d-flex justify-content-between">
+                    <p class="progress-title">Present</p>
+                    <p class="progress-title">{{ dashboard.attendance.totalPresent }}</p>
+                  </div>
+                  <div class="progress green">
+                    <div class="progress-bar"
+                      :style="{ width: dashboard.attendance.totalPresent + '%', background: '#5fad56 !important' }">
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <p class="progress-title">Absent</p>
+                    <p class="progress-title">{{ dashboard.attendance.totalAbsent }}</p>
+                  </div>
+                  <div class="progress  pink">
+                    <div class="progress-bar"
+                      :style="{ width: dashboard.attendance.totalAbsent + '%', background: '#ff4b7d !important' }">
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <p class="progress-title">Total Class</p>
+                    <p class="progress-title">{{ dashboard.attendance.classHappendCount }}</p>
+                  </div>
+                  <div class="progress green">
+                    <div class="progress-bar"
+                      :style="{ width: dashboard.attendance.classHappendCount + '%', background: '#5fad56 !important' }">
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div class="pt-4 p-3">
-                <div class="d-flex justify-content-between">
-                  <p class="progress-title">Present</p>
-                  <p class="progress-title">{{ present }}</p>
-                </div>
-                <div class="progress green">
-                  <div class="progress-bar" :style="{ width: present + '%', background: '#5fad56 !important' }">
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between">
-                  <p class="progress-title">Absent</p>
-                  <p class="progress-title">{{ absent }}</p>
-                </div>
-                <div class="progress  pink">
-                  <div class="progress-bar" :style="{ width: absent + '%', background: '#ff4b7d !important' }">
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between">
-                  <p class="progress-title">Permission</p>
-                  <p class="progress-title">02</p>
-                </div>
-                <div class="progress green">
-                  <div class="progress-bar" style=" width:20%; background: #5fad56 !important">
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -210,6 +212,7 @@ export default {
         this.drowChart();
       });
     }
+    this.progressBar();
 
 
 
@@ -222,6 +225,7 @@ export default {
       semesterList: [],
       cgpaList: [],
       loading: false,
+      per: 50,
 
     }
   },
@@ -281,6 +285,40 @@ export default {
           }
         }
       });
+    },
+    progressBar() {
+      this.$nextTick(() => {
+        $('.circle_percent').each(function () {
+          const $this = $(this)
+          const $dataV = $this.data('percent')
+          const $dataDeg = $dataV * 3.6
+          const $round = $this.find('.round_per')
+
+          $round.css('transform', 'rotate(' + parseInt($dataDeg + 180) + 'deg)')
+          $this.append('<div class="circle_inbox"><span class="percent_text"></span></div>')
+
+          $this.prop('Counter', 0).animate(
+            { Counter: $dataV },
+            {
+              duration: 2000,
+              easing: 'swing',
+              step: function (now) {
+                $this.find('.percent_text').text(Math.ceil(now) + '%')
+              }
+            }
+          )
+
+          if ($dataV >= 51) {
+            $round.css('transform', 'rotate(360deg)')
+            setTimeout(function () {
+              $this.addClass('percent_more')
+            }, 1000)
+            setTimeout(function () {
+              $round.css('transform', 'rotate(' + parseInt($dataDeg + 180) + 'deg)')
+            }, 1000)
+          }
+        })
+      })
     }
   }
 };
