@@ -1,7 +1,7 @@
 <template>
   <div class=" main-body">
     <div v-if="tolets.length > 0">
-      <div class="d-flex justify-content-between pt-4 find-header">
+      <div class="d-flex justify-content-between pt-3 find-header">
         <h2>To-Let Find</h2>
         <div>
           <button class="btn btn-outline-success my-2 my-sm-0" type="button" value="male" :disabled="loading"
@@ -17,18 +17,33 @@
               aria-hidden="true"></div>
           </button>
         </div>
-        <form class="form-inline search-box d-inline-flex">
-          <input v-model="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+        <!-- <form class="form-inline d-inline-flex ">
+          <input v-model="search" class=" mr-sm- " type="search" placeholder="Search" aria-label="Search"
+           />
           <button class="btn btn-outline-success my-2 my-sm-0" type="button" @click="SearchTolet()" :disabled="loading">
             Search
             <div v-if="loading" class="spinner-border text-primary ml-2 spinner-border-sm" role="status"
               aria-hidden="true"></div>
           </button>
-        </form>
+        </form> -->
+        <div class="input-group" style="width: 300px; border:2px solid #18AC4F; border-radius: 0.25rem;">
+          <input type="text" class="form-control" placeholder="Search" v-model="search">
+          <div class="input-group-append" style="height:40px;">
+            <button class="btn btn-secondary" type="button" style="background-color: #18AC4F;height:40px;"
+              @click="SearchTolet()" :disabled="loading">
+              <i class="fa fa-search text-black"></i>
+            </button>
+            <div v-if="loading" class="spinner-border text-primary ml-2 spinner-border-sm" role="status"
+              aria-hidden="true"></div>
+          </div>
+        </div>
+
+
+
       </div>
       <div>
-        <div class="row pb-5">
-          <div class="col-md-6 col-lg-4 col-sm-12 pt-5" v-for="(tolet, i) in tolets" :key="tolet._id">
+        <div class="row pb-3">
+          <div class="col-md-6 col-lg-4 col-sm-12 pt-4" v-for="(tolet, i) in tolets" :key="tolet._id">
             <div class="card rounded">
               <div class="card-body">
                 <div>
@@ -136,7 +151,7 @@
               <h5 class="modal-title" id="exampleModalLongTitle">
                 Tolet Details
               </h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -237,7 +252,7 @@
               <h5 class="modal-title" id="">
                 <!-- Tolet Details -->
               </h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>

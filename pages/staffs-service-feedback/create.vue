@@ -27,7 +27,7 @@
               </div>
             </div>
 
-            <div class="form-horizontal">
+            <div class="form-horizontal mb-3">
               <div class="form-group">
                 <label for="">Department <span class="text-danger">*</span></label>
 

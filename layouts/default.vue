@@ -187,7 +187,8 @@
                 <li class="nav-item dropdown  user-dropdown ">
                   <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    <img class="img-xs rounded-circle ms-2" :src="authuser.profile_photo" alt="Profile image"> <span
+                    <img v-if="authuser.profile_photo" class="img-xs rounded-circle ms-2" :src="authuser.profile_photo" alt="Profile image"><span v-else><i
+                        class="fa fa-user text-muted" style="padding-right: 10px !important;"></i></span> <span
                       class="font-weight-bold d-none d-xl-inline-flex me-2"> {{ authuser.name }}</span> <i
                       class="fa fa-angle-down"></i></a>
                   <div class="dropdown-menu dropdown-menu-right navbar-dropdown log-out-dropdown"

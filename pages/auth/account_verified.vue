@@ -4,11 +4,11 @@
             <strong>Verify your email address</strong>
         </div>
         <p><strong>A fresh verification link has been sent to your email address.</strong> Before proceeding, please check your email for a verification link. If you did not receive the email</p>
-        
+
         <form class="mt-3" id="registrationForm" @submit.prevent="requestAnother()">
             <div class="form-group diu-focused">
+              <label for="email" class="">E-Mail Address</label>
                 <input id="email" type="email" class="form-control" name="email" v-model="email" autofocus>
-                <label for="email" class="">E-Mail Address</label>
                 <small id="email_help" class="form-text text-danger">&nbsp;</small>
             </div>
             <div class="form-group">
@@ -20,7 +20,7 @@
 </template>
 <script>
     export default {
-        layout: 'authLayout',
+        layout: "authLayout",
         data() {
             return {
                 token: "",

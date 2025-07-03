@@ -24,7 +24,7 @@
         <button class="btn-sign">Log in</button>
       </form>
        <div class="text-center pt-2">
-        <a href="#" class="forget_password">Forgot Password?</a>
+        <a href="/auth/forgot_password" class="forget_password">Forgot Password?</a>
        </div>
        <hr>
         <div class="text-center">

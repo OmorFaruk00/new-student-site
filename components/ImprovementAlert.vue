@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div v-if="currentExamSchedule != ''">
-        <div class="my-3" :id="'showAlert-' + index">
+    <div v-if="currentExamSchedule && alertVisible">
+        <div class="my-3" id="showAlert">
           <div class="custom-alert">
             <div class="d-flex flex-row flex-nowrap align-items-center justify-content-between w-100">
               <div class="flex-grow-1 flex-shrink-1 me-2" style="min-width: 0;">
@@ -13,7 +13,7 @@
               <div class="d-flex align-items-center gap-2">
                 <button class="show-btn" @click="showModal">Show</button>
                 <button class="close-btn" aria-label="Close"
-                  :onclick="'document.getElementById(\'showAlert-' + index + '\').style.display = \'none\''">
+                  @click="hideAlert">
                   &times;
                 </button>
               </div>
@@ -74,7 +74,7 @@
             <button type="button" class="btn btn-danger" @click="closeModal">
               Close
             </button>
-            <a href="improvement/formfillup" type="button" class="btn btn-primary">Apply</a>
+            <a href="/improvement/formfillup" type="button" class="btn btn-primary">Apply</a>
           </div>
         </div>
       </div>
@@ -87,6 +87,7 @@ export default {
     return {
       authuser: "",
       currentExamSchedule: "",
+      alertVisible: true
 
     };
   },
@@ -96,7 +97,7 @@ export default {
     if (improvementExamSchedule) {
       this.currentExamSchedule = improvementExamSchedule;
     } else {
-      // this.getCurrentImprovementExamSchedule();
+      this.getCurrentImprovementExamSchedule();
     }
 
   },
@@ -106,7 +107,10 @@ export default {
     },
     closeModal() {
         $('#exampleModal').modal('hide');
-     ;
+
+    },
+    hideAlert() {
+      this.alertVisible = false;
     },
     async getCurrentImprovementExamSchedule() {
       var token = window.$nuxt.$cookies.get("token");

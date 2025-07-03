@@ -72,7 +72,7 @@ export default {
           this.$toast.success("Registration successfull", {
             icon: "error_outline"
           });
-          this.$router.push("/auth/account_vefified");
+          this.$router.push("/auth/account_verified");
         })
         .catch(error => {
           this.$toast.error(error.response.data.error, {
