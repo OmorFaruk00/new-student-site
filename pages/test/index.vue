@@ -42,13 +42,13 @@
                      <label class="form-check-label text-muted">
                        <input type="checkbox" class="form-check-input"> Keep me signed in </label>
                    </div>
-                   <a href="#" class="auth-link  text-primary font-weight-medium">Forgot password?</a>
+                   <a href="#" class="auth-link  font-weight-medium">Forgot password?</a>
                  </div>
                  <div class="my-3">
                    <button type="submit" class="btn d-grid btn-primary btn-lg font-weight-medium auth-form-btn" >LOGIN</button>
                  </div>
 
-                 <div class="text-center mt-4 font-weight-light"> Don't have an account?  <nuxt-link to="/auth/register" class="text-primary font-weight-bold">Create Accounts</nuxt-link>
+                 <div class="text-center mt-4 font-weight-light"> Don't have an account?  <nuxt-link to="/auth/register" class="font-weight-bold">Create Accounts</nuxt-link>
                  </div>
                </form>
              </div>

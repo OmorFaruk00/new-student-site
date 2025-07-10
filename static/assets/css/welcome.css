@@ -5,17 +5,17 @@
 }
 
 .login-left {
-    background-image: url('/images/login.png');    
+    background-image: url('/images/login.png');
     background-size: cover;
     background-position: center;
     height: 100vh;
-    
+
 
 }
 
 
 .login-right {
-  background-image: 
+  background-image:
     linear-gradient(to top, rgba(13, 60, 157, 0.7), rgba(18, 77, 198, 0.9)),
     url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvPlxv_fTMk4fsyyiLM76lJMAEX1je99pb5Q&s'); /* Replace with your actual path */
   background-size: cover;
@@ -58,7 +58,7 @@
     padding: 2rem;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.16);
     z-index: 5555 !important;
-    position: relative; 
+    position: relative;
 }
 .check-login{
     background-color: #2069ff;
@@ -67,10 +67,10 @@
     box-shadow: 0px 20px 40px rgba(23, 83, 209, 0.8);
     z-index: 1 !important;
     margin-top: -50px;
-    position: relative; 
+    position: relative;
 }
 .check-title {
-  display: block; 
+  display: block;
   text-align: center;
   color: #fff;
   font-size: 18px;
@@ -116,11 +116,11 @@
 }
 .btn-sign:hover {
     box-shadow: 0px 2px 10px rgba(23, 83, 209, 0.4);
-    color:#000; 
+    color:#000;
 }
 .btn-help:hover {
     box-shadow: 0px 2px 10px rgba(23, 83, 209, 0.4);
-    color:#000; 
+    color:#000;
 }
 
 .btn-help {
@@ -257,7 +257,7 @@ button:hover {
 .fa-eye{
     font-size: 20px;
     position: absolute;
-    top: 50%; 
+    top: 50%;
     right: 10px;
     transform: translateY(-50%);
     cursor: pointer;
@@ -297,16 +297,16 @@ button:hover {
     }
     .login-right {
         width: 35%;
-      
+
     }
-  
-  
+
+
 }
 
 
 .welcome {
     display: grid;
-    place-items: center; 
+    place-items: center;
     padding: 1rem;
     text-align: center;
     margin-top: 10%;
@@ -341,7 +341,7 @@ button:hover {
 
 
 
-/*	
+/*
 ========================
 			3D Effect
 ========================
@@ -350,22 +350,22 @@ button:hover {
     /* color: #2069ff; */
     color:  #28a745;
     letter-spacing: .1px;
-    text-shadow: 
-      -1px -1px 1px #efede3, 
-      0px 1px 0 #2e2e2e, 
-      0px 2px 0 #2c2c2c, 
-      0px 3px 0 #2a2a2a, 
-      0px 4px 0 #282828, 
-      0px 5px 0 #262626, 
-      0px 6px 0 #242424, 
-      0px 7px 0 #222, 
-      0px 8px 0 #202020, 
-      0px 9px 0 #1e1e1e, 
-      0px 10px 0 #1c1c1c, 
-      0px 11px 0 #1a1a1a, 
-      0px 12px 0 #181818, 
-      0px 13px 0 #161616, 
-      0px 14px 0 #141414, 
+    text-shadow:
+      -1px -1px 1px #efede3,
+      0px 1px 0 #2e2e2e,
+      0px 2px 0 #2c2c2c,
+      0px 3px 0 #2a2a2a,
+      0px 4px 0 #282828,
+      0px 5px 0 #262626,
+      0px 6px 0 #242424,
+      0px 7px 0 #222,
+      0px 8px 0 #202020,
+      0px 9px 0 #1e1e1e,
+      0px 10px 0 #1c1c1c,
+      0px 11px 0 #1a1a1a,
+      0px 12px 0 #181818,
+      0px 13px 0 #161616,
+      0px 14px 0 #141414,
       0px 15px 0 #121212,
       2px 20px 5px rgba(0, 0, 0, 0.9),
       5px 23px 5px rgba(0, 0, 0, 0.3),
@@ -374,4 +374,4 @@ button:hover {
  }
 
 
- 
+

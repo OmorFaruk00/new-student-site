@@ -7,13 +7,13 @@
           <button class="btn btn-outline-success my-2 my-sm-0" type="button" value="male" :disabled="loading"
             @click="searchByGender('male')">
             For Male
-            <div v-if="loading" class="spinner-border text-primary ml-2 spinner-border-sm" role="status"
+            <div v-if="loading" class="spinner-border ml-2 spinner-border-sm" role="status"
               aria-hidden="true"></div>
           </button>
           <button class="btn btn-outline-success my-2 my-sm-0" type="button" @click="searchByGender('female')"
             :disabled="loading">
             For Female
-            <div v-if="loading" class="spinner-border text-primary ml-2 spinner-border-sm" role="status"
+            <div v-if="loading" class="spinner-border ml-2 spinner-border-sm" role="status"
               aria-hidden="true"></div>
           </button>
         </div>
@@ -22,7 +22,7 @@
            />
           <button class="btn btn-outline-success my-2 my-sm-0" type="button" @click="SearchTolet()" :disabled="loading">
             Search
-            <div v-if="loading" class="spinner-border text-primary ml-2 spinner-border-sm" role="status"
+            <div v-if="loading" class="spinner-border ml-2 spinner-border-sm" role="status"
               aria-hidden="true"></div>
           </button>
         </form> -->
@@ -33,7 +33,7 @@
               @click="SearchTolet()" :disabled="loading">
               <i class="fa fa-search text-black"></i>
             </button>
-            <div v-if="loading" class="spinner-border text-primary ml-2 spinner-border-sm" role="status"
+            <div v-if="loading" class="spinner-border ml-2 spinner-border-sm" role="status"
               aria-hidden="true"></div>
           </div>
         </div>
@@ -108,7 +108,7 @@
                   <p class="card-text pt-2 details">
                     {{ tolet.details }}
                   </p>
-                  <a class="float-right text-primary pt-2 more-details" :class="loading ? 'disabled' : ''"
+                  <a class="float-right pt-2 more-details" :class="loading ? 'disabled' : ''"
                     @click="ToletDetails(tolet.id)">
                     More Details</a>
                 </div>
@@ -309,7 +309,7 @@
     </div>
 
     <div v-if="loading" class="text-center mt-5">
-      <i class="fa fa-spinner text-primary fa-spin fa-4x"></i>
+      <i class="fa fa-spinner fa-spin fa-4x"></i>
     </div>
 
   </div>

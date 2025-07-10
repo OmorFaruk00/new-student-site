@@ -14,7 +14,7 @@
           </div>
           <div class="row px-4">
             <div class="col-lg-12 col-md-12 col-sm-12">
-              <h5 class="text-primary mb-2">Want to be a Blood Donor ?</h5>
+              <h5 class="mb-2">Want to be a Blood Donor ?</h5>
               <div class="form-group">
                 <div class="form-group form-check">
                   <input type="checkbox" class="form-check-input" id="Donate_before" v-model="last_donate" />
@@ -51,7 +51,7 @@
               </button>
             </div>
           </div>
-          <h5 class="text-primary text-capitalize mt-4">
+          <h5 class="text-capitalize mt-4">
             I Don't Want to Donate Blood For Some Time.
           </h5>
           <button class="btn btn-primary ml-0" @click.prevent="denyBloodDonate">
@@ -77,7 +77,7 @@
           </select>
         </div>
       </div>
-      <div class="spinner-border text-primary mt-5 mx-auto d-block" role="status" v-if="loading">
+      <div class="spinner-border mt-5 mx-auto d-block" role="status" v-if="loading">
         <span class="sr-only">Loading...</span>
       </div>
       <div v-else>

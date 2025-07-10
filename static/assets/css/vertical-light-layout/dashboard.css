@@ -1,6 +1,9 @@
 body{
     font-family: 'Roboto', sans-serif;
 }
+.text-primary {
+    color: #18AC4F !important;
+}
 
 .payment {
   height: 40px;

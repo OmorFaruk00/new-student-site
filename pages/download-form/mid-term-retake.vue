@@ -1,12 +1,12 @@
 <template>
   <section>
-    <div class="form-horizontal col-lg-6  mx-auto mb-4">
+    <div class="form-horizontal rounded mb-4">
       <div class="form-header">
         <h4> Mid-term Retake Form</h4>
       </div>
-      <div class="px-3">
-        <div class="row">
-          <div class="form-group">
+      <div class="p-3 row">
+        <div class="col-lg-8 col-md-8 col-sm-12">
+          <div class="form-group" style="margin-bottom:20px !important;">
             <label for="">Semester</label>
             <select name="semester" @change="fetchSemesterWiseCourses" id="semester" v-model="semester"
               class="form-control">
@@ -26,7 +26,7 @@
             </select>
           </div>
 
-          <div class="form-group mb-3">
+          <div class="form-group" style="margin-bottom:20px !important;">
             <label for="">Course Code / Course Title</label>
             <select name="course_id" id="course_id" v-model="course_id" class="form-control">
               <option value="" selected disabled hidden>Select one</option>
@@ -43,7 +43,10 @@
             </button>
           </div>
 
-          <div class="col-lg-12 col-md-12 col-sm-12 mt-4 mb-4" v-if="isdownload">
+
+        </div>
+
+         <div class="col-lg-8 col-md-8 col-sm-12 mt-4 mb-4" v-if="isdownload">
             <div class="table-responsive">
               <table class="table table-bordered">
                 <thead class="">
@@ -71,7 +74,6 @@
               Download <i v-if="loading" class="fa fa-spinner fa-spin ml-1"></i>
             </button>
           </div>
-        </div>
       </div>
     </div>
   </section>

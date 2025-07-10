@@ -1,9 +1,9 @@
 <template>
   <section>
-    <div class="form-horizontal col-lg-6 mx-auto">
-      <div class="form-header py-2">Download Convovation Form</div>
+    <div class="form-horizontal rounded">
+      <div class="form-header">Download Convovation Form</div>
 
-      <div class="px-3">
+      <div class=" col-lg-8 col-md-8 col-sm-12 px-3 pb-2">
 
 
         <h5 class="card-title">For Dual Degree (Second Degree Information)</h5>
@@ -17,30 +17,30 @@
           </div>
         </div>
 
-        <div class="row" v-if="second_degree == true">
+        <div class="row mb-3" v-if="second_degree == true">
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 10px !important;">
               <label for="">Program / Degree</label>
               <input type="text" class="form-control" v-model="form.program" placeholder="Enter program or degree">
             </div>
           </div>
 
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 10px !important;">
               <label for="">Major In</label>
               <input type="text" class="form-control" v-model="form.major_in" placeholder="Enter major in">
             </div>
           </div>
 
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 10px !important;">
               <label for="">Roll No</label>
               <input type="number" class="form-control" v-model="form.roll_no" placeholder="Enter roll">
             </div>
           </div>
 
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="form-group">
+            <div class="form-group mb-5" style="margin-bottom: 10px !important;">
               <label for="">Registration No</label>
               <input type="text" class="form-control" v-model="form.registration_no"
                      placeholder="Enter registration no">
@@ -48,28 +48,28 @@
           </div>
 
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="form-group">
+            <div class="form-group pt-5" style="margin-bottom: 10px !important;">
               <label for="">Batch</label>
               <input type="text" class="form-control" v-model="form.batch" placeholder="Enter batch">
             </div>
           </div>
 
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 10px !important;">
               <label for="">Session</label>
               <input type="text" class="form-control" v-model="form.session" placeholder="Enter session">
             </div>
           </div>
 
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 10px !important;">
               <label for="">Group</label>
               <input type="text" class="form-control" v-model="form.group" placeholder="Enter group">
             </div>
           </div>
 
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 10px !important;">
               <label for="">Duration of the Course (Month)</label>
               <input type="text" class="form-control" v-model="form.duration_of_the_course"
                      placeholder="Enter duration of the course">
@@ -77,7 +77,7 @@
           </div>
 
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 10px !important;">
               <label for="">Shift</label>
               <select name="shift" id="shift" class="form-control" v-model="form.shift">
                 <option value="" selected disabled hidden>Select one</option>
@@ -88,21 +88,21 @@
           </div>
 
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 10px !important;">
               <label for="">Passing Year</label>
               <input type="text" class="form-control" v-model="form.passing_year" placeholder="Enter passing year">
             </div>
           </div>
 
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="form-group">
+            <div class="form-group"   style="margin-bottom: 10px !important;">
               <label for="">Result (CGPA)</label>
               <input type="text" class="form-control" v-model="form.result" placeholder="Enter result">
             </div>
           </div>
 
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="form-group">
+            <div class="form-group"   style="margin-bottom: 10px !important;">
               <label for="">Result Published Date</label>
 
               <no-ssr>
@@ -113,14 +113,14 @@
 
         </div>
 
-      
-          <div class="pb-5">
+
+          <div class="pb-5 mb-4">
             <button class="btn btn-primary" :disabled="loading" @click="getConvocationForm">Download
               <i
                 v-if="loading" class="fa fa-spinner fa-spin ml-1"></i>
             </button>
           </div>
-        
+
       </div>
     </div>
   </section>
@@ -274,7 +274,7 @@ export default {
   border: none !important;
   padding: 5px 10px 0 10px;
   width: 100% !important;
-  
+
 
 }
 </style>

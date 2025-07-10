@@ -55,7 +55,7 @@
                 <canvas id="semesterChart" class="p-3"></canvas>
               </div>
               <div v-if="loading" class="d-flex justify-content-center align-items-center pb-4">
-                <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
+                <i class="fa fa-spinner fa-spin fa-4x text-success"></i>
               </div>
             </div>
           </div>
@@ -90,7 +90,7 @@
                 </div>
               </div>
               <div v-if="loading" class="d-flex justify-content-center align-items-center pb-4">
-                <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
+                <i class="fa fa-spinner fa-spin fa-4x text-success"></i>
               </div>
             </div>
           </div>
@@ -98,13 +98,13 @@
             <div class="bg-white shadow-sm rounded pb-4">
               <h4 class="fw-semibold p-3">Your Overall Performance This Semester</h4>
               <hr>
-              <h4 class="px-3">Class Attendance: 46/50</h4>
+              <h4 class="px-3">Class Attendance: 0/0</h4>
               <hr>
-              <h4 class="px-3">Quiz Taken: 11/12</h4>
+              <h4 class="px-3">Quiz Taken: 0/0</h4>
               <hr>
-              <h4 class="px-3">Assignment Submited: 21/25</h4>
+              <h4 class="px-3">Assignment Submited: 0/0</h4>
               <hr>
-              <h4 class="px-3">Presentation Completed: 46/50</h4>
+              <h4 class="px-3">Presentation Completed: 0/0</h4>
               <hr>
               <h4 class=""></h4>
             </div>
@@ -172,7 +172,7 @@
               <nuxt-link to="/announcement" class="btn-see"> See More</nuxt-link>
             </div>
             <div v-if="loading" class="d-flex justify-content-center align-items-center pb-4">
-              <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
+              <i class="fa fa-spinner fa-spin fa-4x text-success"></i>
             </div>
           </div>
         </div>

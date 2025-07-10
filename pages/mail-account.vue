@@ -9,7 +9,7 @@
         }}
       </div>
 
-      <div class="card-body mt-3  px-3 col-lg-8 col-md-8 col-sm-12">
+      <div class="card-body mt-3  px-3 col-lg-8 col-md-8 col-sm-12 pb-1">
         <p style="color: red; text-align: center; font-size: 15px">
           You can check your email from:
 

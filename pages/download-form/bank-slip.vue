@@ -1,19 +1,19 @@
 <template>
   <section>
-    <div class="form-horizontal col-lg-6 mx-auto">
+    <div class="form-horizontal rounded">
       <div class="form-header">
         <h4>Download Bank Slip</h4>
       </div>
-      <div class="px-3">
-        <div class="row">          
-            <div class="form-group">
+      <div class=" row px-3 ">
+        <div class="col-lg-8 col-md-8 col-sm-12 ">
+            <div class="form-group" style="margin-bottom: 20px !important;">
               <label for="">Bank Name <span class="text-danger">*</span></label>
               <select name="semester" id="bank_name" v-model="bank_id" class="form-control">
                 <option value="" selected disabled hidden>Select one</option>
                 <option v-for="(bank, index) in banks" :key="index" :value="bank.id" v-text="bank.name"></option>
               </select>
-            </div>      
-            <div class="form-group">
+            </div>
+            <div class="form-group " style="margin-bottom: 20px !important;">
               <label for="">Fee Type <span class="text-danger">*</span></label>
               <select name="fee_type" id="fees_type" v-model="fees_type" class="form-control">
                 <option value="" selected disabled hidden>Select one</option>
@@ -30,19 +30,19 @@
                 <option value="Fine / Late Fee">Fine / Late Fee</option>
                 <option value="Others">Others</option>
               </select>
-            </div>      
-            <div class="form-group">
+            </div>
+            <div class="form-group" style="margin-bottom: 20px !important;">
               <label for="">Amount <span class="text-danger">*</span></label>
               <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control" v-model="amount"
                 placeholder="Enter amount" />
-            </div>        
+            </div>
 
-          <div class="float-right mb-3">
+          <div class="float-right pb-5" style="margin-bottom: 20px !important;">
             <button class="btn btn-bs btn-block" @click="addFeeType">
               <i class="fa fa-plus-circle"></i> Add
             </button>
           </div>
-          <div class="col-12 mb-4" v-if="isdownload">
+          <div class="mb-3" v-if="isdownload">
             <div class="table-responsive">
               <table class="table table-bordered">
                 <thead>
@@ -68,8 +68,8 @@
                 </tbody>
               </table>
             </div>
-            <div class="float-right mb-3">
-              <button :disabled="loading" style="margin-top: 25px" class="btn btn-bs btn-block"
+            <div class="float-right mb-3 pb-5">
+              <button :disabled="loading" style="margin: 20px 0px" class="btn btn-bs btn-block"
                 @click="downloadBankSlip">
                 Download
 

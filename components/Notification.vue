@@ -76,12 +76,12 @@
               <div class="dropdown-divider"></div>
             </div>
           </div>
-          <a class="dropdown-item preview-item">
+          <!-- <a class="dropdown-item preview-item">
             <div>
               <p class="preview-subject ellipsis font-weight-medium text-dark m-0">Other Notification</p>
               <p class="font-weight-light small mb-0">Other notification details will be here.</p>
             </div>
-          </a>
+          </a> -->
 
         </div>
       </div>
