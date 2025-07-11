@@ -1,6 +1,8 @@
 <template>
-  <div >
+  <div>
+    <ImprovementAlert />
     <div class="row">
+
       <div class="col-lg-8 col-md-8 col-sm-12 ">
         <div class="row g-3 mb-3">
           <div class="col-lg-4 col-md-4 col-sm-12">
@@ -52,7 +54,7 @@
               <div style="height: 250px">
                 <canvas id="semesterChart" class="p-3"></canvas>
               </div>
-              <div v-if="isResult" class="d-flex justify-content-center align-items-center pb-4">
+              <div v-if="loading" class="d-flex justify-content-center align-items-center pb-4">
                 <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
               </div>
             </div>
@@ -96,13 +98,13 @@
             <div class="bg-white shadow-sm rounded pb-4">
               <h4 class="fw-semibold p-3">Your Overall Performance This Semester</h4>
               <hr>
-              <h4 class="px-3">Class Attendance: 46/50</h4>
+              <h4 class="px-3">Class Attendance: 0/0</h4>
               <hr>
-              <h4 class="px-3">Quiz Taken: 11/12</h4>
+              <h4 class="px-3">Quiz Taken: 0/0</h4>
               <hr>
-              <h4 class="px-3">Assignment Submited: 21/25</h4>
+              <h4 class="px-3">Assignment Submited: 0/0</h4>
               <hr>
-              <h4 class="px-3">Presentation Completed: 46/50</h4>
+              <h4 class="px-3">Presentation Completed: 0/0</h4>
               <hr>
               <h4 class=""></h4>
             </div>
@@ -113,43 +115,45 @@
             <div class="bg-white shadow-sm rounded h-100">
               <h4 class="fw-semibold p-3">Attendance</h4>
               <hr>
-
-              <div class="attendence-progress blue">
-                <span class="attendence-progress-left">
-                  <span class="attendence-progress-bar"></span>
-                </span>
-                <span class="attendence-progress-right">
-                  <span class="attendence-progress-bar"></span>
-                </span>
-                <div class="attendence-progress-value">70%</div>
+              <div v-if="dashboard.attendance">
+                <div class="d-flex justify-content-center">
+                  <div class="circle_percent" :data-percent="dashboard.attendance.attendancePercentage">
+                    <div class="circle_inner">
+                      <div class="round_per"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="pt-4 p-3">
+                  <div class="d-flex justify-content-between">
+                    <p class="progress-title">Present</p>
+                    <p class="progress-title">{{ dashboard.attendance.totalPresent }}</p>
+                  </div>
+                  <div class="progress green">
+                    <div class="progress-bar"
+                      :style="{ width: dashboard.attendance.totalPresent + '%', background: '#5fad56 !important' }">
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <p class="progress-title">Absent</p>
+                    <p class="progress-title">{{ dashboard.attendance.totalAbsent }}</p>
+                  </div>
+                  <div class="progress  pink">
+                    <div class="progress-bar"
+                      :style="{ width: dashboard.attendance.totalAbsent + '%', background: '#ff4b7d !important' }">
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <p class="progress-title">Total Class</p>
+                    <p class="progress-title">{{ dashboard.attendance.classHappendCount }}</p>
+                  </div>
+                  <div class="progress green">
+                    <div class="progress-bar"
+                      :style="{ width: dashboard.attendance.classHappendCount + '%', background: '#5fad56 !important' }">
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div class="pt-4 p-3">
-                <div class="d-flex justify-content-between">
-                  <p class="progress-title">Present</p>
-                  <p class="progress-title">{{ present }}</p>
-                </div>
-                <div class="progress green">
-                  <div class="progress-bar" :style="{ width: present + '%', background: '#5fad56 !important' }">
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between">
-                  <p class="progress-title">Absent</p>
-                  <p class="progress-title">{{ absent }}</p>
-                </div>
-                <div class="progress  pink">
-                  <div class="progress-bar" :style="{ width: absent + '%', background: '#ff4b7d !important' }">
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between">
-                  <p class="progress-title">Permission</p>
-                  <p class="progress-title">02</p>
-                </div>
-                <div class="progress green">
-                  <div class="progress-bar" style=" width:20%; background: #5fad56 !important">
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -176,7 +180,7 @@
         <div class="bg-white shadow-sm  rounded" v-if="dashboard.routine" style="height: 330px;">
           <h4 class="fw-semibold p-3">Today's Class Update</h4>
           <hr>
-          <ul class="list-unstyled small mb-0 p-5">
+          <ul class="list-unstyled small mb-0 px-3">
             <li v-for="routine in dashboard.routine" :key="routine.id">
               <span class="fw-semibold">{{ routine.course_name }} ({{ routine.course_code }})</span> <br>
               <span class=" me-2">Today, {{ routine.start_time }} - {{ routine.end_time }} &nbsp; &nbsp; Room: {{
@@ -186,23 +190,32 @@
 
           </ul>
         </div>
-
       </div>
-
     </div>
-
-
-
-
   </div>
-
 </template>
 <script>
+import ImprovementAlert from '@/components/ImprovementAlert.vue';
 export default {
+  components: {
+    ImprovementAlert
+  },
   mounted() {
-    this.getData().then(() => {
+
+    const deshboardData = localStorage.getItem("deshboardData");
+
+    if (deshboardData) {
+      this.dashboard = JSON.parse(deshboardData);
       this.drowChart();
-    });
+    } else {
+      this.getData().then(() => {
+        this.drowChart();
+      });
+    }
+    this.progressBar();
+
+
+
   },
   data() {
     return {
@@ -211,21 +224,21 @@ export default {
       dashboard: '',
       semesterList: [],
       cgpaList: [],
-      isResult: true,
-      loading: true,
+      loading: false,
+      per: 50,
 
     }
   },
   methods: {
     async getData() {
+      this.loading = true;
       var token = window.$nuxt.$cookies.get("token");
       var user = window.$nuxt.$cookies.get("user");
       return await this.$axios
         .get("/student/dashboard/" + user.id + "?token=" + token)
         .then((response) => {
+          localStorage.setItem("deshboardData", JSON.stringify(response.data));
           this.dashboard = response.data;
-          console.log(response.data)
-
         })
         .catch((error) => {
           if (error.response.status == 400) {
@@ -236,7 +249,6 @@ export default {
           }
           this.$toast.error("Not found", { icon: "error_outline" });
         }).finally((final) => {
-          this.isResult = false;
           this.loading = false;
         });
     },
@@ -273,6 +285,40 @@ export default {
           }
         }
       });
+    },
+    progressBar() {
+      this.$nextTick(() => {
+        $('.circle_percent').each(function () {
+          const $this = $(this)
+          const $dataV = $this.data('percent')
+          const $dataDeg = $dataV * 3.6
+          const $round = $this.find('.round_per')
+
+          $round.css('transform', 'rotate(' + parseInt($dataDeg + 180) + 'deg)')
+          $this.append('<div class="circle_inbox"><span class="percent_text"></span></div>')
+
+          $this.prop('Counter', 0).animate(
+            { Counter: $dataV },
+            {
+              duration: 2000,
+              easing: 'swing',
+              step: function (now) {
+                $this.find('.percent_text').text(Math.ceil(now) + '%')
+              }
+            }
+          )
+
+          if ($dataV >= 51) {
+            $round.css('transform', 'rotate(360deg)')
+            setTimeout(function () {
+              $this.addClass('percent_more')
+            }, 1000)
+            setTimeout(function () {
+              $round.css('transform', 'rotate(' + parseInt($dataDeg + 180) + 'deg)')
+            }, 1000)
+          }
+        })
+      })
     }
   }
 };

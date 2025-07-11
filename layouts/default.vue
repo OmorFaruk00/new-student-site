@@ -101,7 +101,7 @@
           <li class="nav-item" :class="{ 'active-nav': $route.path === '/profile' }">
             <nuxt-link class="nav-link" to="/profile">
               <i class="fa fa-user menu-icon"></i>
-              <span class="menu-title" @click="taggleMenu()">Account</span>
+              <span class="menu-title" @click="taggleMenu()">Profile</span>
 
             </nuxt-link>
           </li>
@@ -295,116 +295,5 @@ export default {
 }
 </script>
 <style scoped>
-.nav-link {
-  font-family: 'Roboto', sans-serif;
-  color: #6c757d !important;
-}
 
-.nuxt-link-exact-active .menu-icon {
-  color: #18AC4F !important;
-  font-weight: bolder;
-}
-
-.active-nav .nav-link,
-.active-nav .menu-title,
-.active-nav .menu-icon {
-  color: #fff !important;
-}
-
-.active-nav {
-  background-color: #18AC4F !important;
-  color: #fff !important;
-  border-radius: 7px;
-  margin: 0px 10px !important;
-  padding: 0px 18px !important;
-}
-
-.active-nav:hover {
-  background-color: #18AC4F !important;
-}
-
-.sub-menu .active {
-  background-color: #18AC4F !important;
-  color: #fff !important;
-  border-radius: 7px;
-}
-
-.nav-item:hover .nav-link,
-.nav-item:hover .menu-title,
-.nav-item:hover .menu-icon {
-  color: #18AC4F !important;
-}
-
-.nav-item:hover .sub-menu .nav-item.active .nav-link {
-  color: #fff !important;
-}
-
-.nav-item:hover {
-  background: #ffff !important;
-}
-
-.sub-menu .nav-item .nav-link:hover {
-  color: #18AC4F !important;
-}
-
-.menu-btn {
-  background: #18AC4F !important;
-  padding: 8px 12px;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  margin-left: 20px;
-}
-
-.navbar-toggler {
-  border: none;
-  background: none;
-}
-
-.desktop-logo img {
-  height: 50px !important;
-  width: 100px !important;
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
-}
-
-.desktop-logo {
-  display: block;
-  transition: all 0.3s ease;
-}
-
-.sidebar-icon-only .desktop-logo {
-  display: none !important;
-}
-
-.mobile-logo {
-  display: none !important;
-}
-
-@media (max-width: 1200px) {
-  .log-out-dropdown {
-    left: -150px !important;
-
-  }
-}
-
-@media (max-width: 1000px) {
-  .menu-btn {
-    display: none !important;
-  }
-
-  .desktop-logo {
-    display: none !important;
-  }
-
-
-}
-
-@media (min-width: 400px) and (max-width: 800px) {
-  .mobile-logo {
-    display: block !important;
-    margin-bottom: 0px !important;
-    margin-top: 20px !important;
-  }
-}
 </style>

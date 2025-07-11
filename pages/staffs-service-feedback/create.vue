@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <div class="card rounded">
+  <section class="mb-3">
+    <div class="card rounded ">
       <div class="px-3">
 
         <div class="d-flex justify-content-between py-3">

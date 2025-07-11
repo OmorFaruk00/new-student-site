@@ -2,7 +2,7 @@
   <section>
     <div class="card rounded">
       <div class="form-header d-flex justify-content-between">
-        <h3>Support Ticket Lists</h3>
+        <h3> Ticket Lists</h3>
         <div class=" d-flex justify-content-end">
           <nuxt-link to="/support-ticket/create" class="btn btn-primary">Create Ticket</nuxt-link>
         </div>

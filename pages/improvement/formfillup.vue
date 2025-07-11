@@ -92,7 +92,7 @@
                 type="submit" class="btn btn-danger btn-sm" @click="cancelImprovementRequest(course.id)">Remove
               </button>
 
-              <strong class="text-success" v-else-if="(course.payment_status == 1)">Payment Complete</strong>
+              <strong class="text-primary" v-else-if="(course.payment_status == 1)">Payment Complete</strong>
             </td>
           </tr>
         </table>

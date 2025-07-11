@@ -1,58 +1,163 @@
 <template>
   <section>
-   <div class="auth-info text-center">
-     <h4>Forgot Your Password</h4>
-    <p>Hey Enter your email to recover your password.</p>
-   </div>
-    <div class="login-box py-5" style="height: 300px;">
-      <form @submit.prevent="passwordForgot()" autocomplete="off" class="pt-4">
-        <div class="form-group">
-          <input type="email" class="form-control" required v-model="email"  placeholder="Email Address"  />
-        </div>
-
-
-
-
-        <button class="btn-sign">Send</button>
-      </form>
-
-       <hr>
-        <div class="text-center">
-          <p class="text-muted">Already have an account? <nuxt-link to="/" class="signup">Sign In</nuxt-link> </p>
-        </div>
-
+    <div class="auth-info text-center mb-4">
+      <h4>Forgot Your Password</h4>
     </div>
 
+    <div class="login-box mx-auto p-4 shadow rounded bg-white">
+      <!-- Tabs -->
+      <ul class="nav nav-tabs mb-4" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" :class="{ active: ispasswordReset }" @click="passwordResetform" role="tab">Forgot
+            Password</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" :class="{ active: isEmailReset }" @click="emailResetForm" role="tab">Forgot Email</a>
+        </li>
+      </ul>
+
+      <!-- Tab content -->
+      <div class="tab-content">
+        <!-- Forgot Password -->
+        <div v-if="ispasswordReset">
+          <p class="text-muted">Enter your email address below and we'll send you a link to reset your password.</p>
+          <form @submit.prevent="passwordForgot">
+            <div class="mb-3">
+              <label class="form-label fw-bold">Email</label>
+              <input type="email" class="form-control" v-model="email" placeholder="Enter your email" required />
+            </div>
+            <button class="btn-sign w-100">Send</button>
+          </form>
+        </div>
+
+        <!-- Forgot Email -->
+        <div v-if="isEmailReset">
+          <p class="text-muted">Enter your registration code to retrieve your registered email address.</p>
+          <form @submit.prevent="emailReset">
+            <div class="mb-3">
+              <label class="form-label fw-bold">Registration No</label>
+              <input type="text" class="form-control" v-model="reg_code" placeholder="Enter your registration code"
+                required />
+            </div>
+            <div class="alert alert-success" v-if="email_address">
+              Your Email Address is {{ email_address }}
+            </div>
+            <button class="btn-sign w-100">Find My Email</button>
+          </form>
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- Sign in link -->
+      <div class="text-center pt-2">
+        <p class="text-muted">
+          Already have an account?
+          <NuxtLink to="/" class="signup text-success fw-bold">Sign In</NuxtLink>
+        </p>
+      </div>
+    </div>
   </section>
 </template>
+
+
 <script>
-    export default {
-        layout: 'authLayout',
-        data() {
-            return {
-                email: "",
-            }
-        },
-        methods: {
-            async passwordForgot () {
-                return await this.$axios.post('/student/forgot_password', {
-                    email: this.email,
-                })
-                .then((response) => {
-                    $(".form-text").html("&nbsp;");
-                    this.$toast.success(response.data.success, {icon: "error_outline"});
-                })
-                .catch((error) => {
-                    this.$toast.error(error.response.data.error, {icon: "error_outline"});
-                    $(".form-text").html("&nbsp;");
-                    $.each(error.response.data, function(index, value){
-                        $("#" + index + "_help").html(value[0]);
-                    });
-                    if (error.response.status == 422) {
-                        this.$toast.error('Validation Error', {icon: "error_outline"});
-                    }
-                })
-            },
+export default {
+  layout: "authLayout",
+  data() {
+    return {
+      email: "",
+      reg_code: "",
+      email_address: "",
+      ispasswordReset: true,
+      isEmailReset: false,
+    };
+  },
+  methods: {
+    passwordResetform() {
+      this.ispasswordReset = true;
+      this.isEmailReset = false;
+    },
+    emailResetForm() {
+      this.ispasswordReset = false;
+      this.isEmailReset = true;
+    },
+    async passwordForgot() {
+      try {
+        const response = await this.$axios.post("/student/forgot_password", {
+          email: this.email,
+        });
+        this.$toast.success(response.data.success);
+      } catch (error) {
+        if (error.response?.status === 422) {
+          this.$toast.error("Validation Error");
+        } else {
+          this.$toast.error(error.response?.data?.error || "Something went wrong");
         }
-    }
+      }
+    },
+    async emailReset() {
+      return await this.$axios.post('/student/email_reset', {
+        reg_code: this.reg_code,
+      })
+        .then((response) => {
+          this.email_address = response.data.email;
+        })
+        .catch((error) => {
+          this.email_address = "";
+          this.$toast.error(error.response.data.error, { icon: "error_outline" });
+          $(".form-text").html("&nbsp;");
+          $.each(error.response.data, function (index, value) {
+            $("#" + index + "_help").html(value[0]);
+          });
+          if (error.response.status == 422) {
+            this.$toast.error('Validation Error', { icon: "error_outline" });
+          }
+        })
+    },
+  },
+};
 </script>
+
+<style scoped>
+.tab-content {
+  border: none !important;
+  margin-top: -30px;
+}
+
+.nav-tabs {
+  border-bottom: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  font-size: 12px !important;
+  /* padding-left: 20px; */
+
+}
+
+.nav-tabs .nav-link {
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #666;
+  font-weight: 500;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.nav-tabs .nav-link.active {
+  color: #18ac4f;
+  border-bottom: 3px solid #18ac4f;
+}
+
+@media (max-width: 576px) {
+  .nav-tabs .nav-link {
+    font-size: 14px;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .login-box {
+    padding: 1rem !important;
+  }
+}
+</style>

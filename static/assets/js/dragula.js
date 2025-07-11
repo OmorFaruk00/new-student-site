@@ -8,9 +8,9 @@
       console.log($(el));
       iconTochange = $(el).find('.icon-check');
       if (iconTochange.hasClass('text-primary')) {
-        iconTochange.removeClass('text-primary').addClass('text-success');
-      } else if (iconTochange.hasClass('text-success')) {
-        iconTochange.removeClass('text-success').addClass('text-primary');
+        iconTochange.removeClass('text-primary').addClass('text-primary');
+      } else if (iconTochange.hasClass('text-primary')) {
+        iconTochange.removeClass('text-primary').addClass('text-primary');
       }
     })
 })(jQuery);

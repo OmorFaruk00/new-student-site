@@ -309,7 +309,7 @@
     </div>
 
     <div v-if="loading" class="text-center mt-5">
-      <i class="fa fa-spinner fa-spin fa-4x"></i>
+      <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
     </div>
 
   </div>
@@ -339,6 +339,8 @@
 
 .more-details {
   cursor: pointer;
+  color: #28a745;
+  text-decoration: none;
 }
 
 @media only screen and (max-width: 880px) {

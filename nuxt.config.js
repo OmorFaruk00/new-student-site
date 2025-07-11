@@ -53,7 +53,8 @@ module.exports = {
 
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.png'},
-      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900'},
+      // {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900'},
+      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons'},
       {rel: 'stylesheet', href: '/assets/vendors/css/vendor.bundle.base.css'},
       {rel: 'stylesheet', href: '/assets/vendors/font-awesome/css/font-awesome.min.css'},

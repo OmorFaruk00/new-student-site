@@ -17,7 +17,6 @@
             https://outlook.office.com/</a>
         </p>
         <form id="changeMailAccountForm" method="" action="JavaScript:void(0);">
-          <div class="">
             <div class="form-group">
               <label for="username">Your email username
                 <small class="d-none d-lg-inline">(
@@ -37,7 +36,6 @@
                 <small id="username_help" class="form-text text-danger">&nbsp;</small>
               </p>
             </div>
-          </div>
 
           <div class=" " v-if="!has_mail_account">
             <div class="form-group focused ">

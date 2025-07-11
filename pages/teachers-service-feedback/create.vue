@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="mb-3">
     <div class="card rounded">
       <div class="card-body">
 

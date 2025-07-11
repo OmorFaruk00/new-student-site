@@ -55,7 +55,7 @@
                 <canvas id="semesterChart" class="p-3"></canvas>
               </div>
               <div v-if="loading" class="d-flex justify-content-center align-items-center pb-4">
-                <i class="fa fa-spinner fa-spin fa-4x text-success"></i>
+                <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
               </div>
             </div>
           </div>
@@ -63,34 +63,30 @@
             <div class="bg-white shadow-sm rounded h-100">
               <h4 class="fw-semibold p-3">Summary</h4>
               <hr />
-              <div v-if="dashboard.result" class="p-3">
-                <div class="d-flex justify-content-between mb-2">
-                  <span class="fw-semibold">
-                    <i class="fa fa-star me-2 text-muted"></i>GPA
-                  </span>
-                  <span class="fw-bold text-dark">{{ dashboard.result.cgpa }}</span>
+              <div class="summary-card" v-if="dashboard.result">
+                <div class="summary-row">
+                  <span class="icon"><i class="fa fa-star"></i></span>
+                  <span class="label">GPA</span>
+                  <span class="value">: {{ dashboard.result.cgpa }}</span>
                 </div>
-                <div class="d-flex justify-content-between mb-2">
-                  <span class="fw-semibold">
-                    <i class="fa fa-file-text me-2 text-muted"></i>Average Grade
-                  </span>
-                  <span class="fw-bold text-dark">{{ dashboard.result.grade_letter }}</span>
+                <div class="summary-row">
+                  <span class="icon"><i class="fa fa-file-text"></i></span>
+                  <span class="label">Average Grade</span>
+                  <span class="value">: {{ dashboard.result.grade_letter }}</span>
                 </div>
-                <div class="d-flex justify-content-between mb-2">
-                  <span class="fw-semibold">
-                    <i class="fa fa-file-text text-muted me-2"></i>Total Credit
-                  </span>
-                  <span class="fw-bold text-dark">{{ dashboard.result.total_credit_earned }}</span>
+                <div class="summary-row">
+                  <span class="icon"><i class="fa fa-file-text"></i></span>
+                  <span class="label">Total Credit</span>
+                  <span class="value">: {{ dashboard.result.total_credit_earned }}</span>
                 </div>
-                <div class="d-flex justify-content-between">
-                  <span class="fw-semibold">
-                    <i class="fa fa-file-text text-muted me-2"></i>Credit Exempted
-                  </span>
-                  <span class="fw-bold text-dark">{{ dashboard.result.exempted_credit }}</span>
+                <div class="summary-row">
+                  <span class="icon"><i class="fa fa-file-text"></i></span>
+                  <span class="label">Credit Exempted</span>
+                  <span class="value">: {{ dashboard.result.exempted_credit }}</span>
                 </div>
               </div>
               <div v-if="loading" class="d-flex justify-content-center align-items-center pb-4">
-                <i class="fa fa-spinner fa-spin fa-4x text-success"></i>
+                <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
               </div>
             </div>
           </div>
@@ -166,13 +162,13 @@
             <div v-if="dashboard.notice">
               <p v-for="notice in dashboard.notice" :key="notice.id">
                 <a :href="'/announcement/' + notice.slug" class="text-decoration-none text-dark">
-                  <span class="me-2 text-dark">●</span>{{ notice.title }}
+                  <i class="fa fa-circle me-2" style="font-size: 12px !important;"></i> {{ notice.title }}
                 </a>
               </p>
               <nuxt-link to="/announcement" class="btn-see"> See More</nuxt-link>
             </div>
             <div v-if="loading" class="d-flex justify-content-center align-items-center pb-4">
-              <i class="fa fa-spinner fa-spin fa-4x text-success"></i>
+              <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
             </div>
           </div>
         </div>

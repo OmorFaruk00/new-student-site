@@ -3,7 +3,7 @@
 
     <div class="form-horizontal rounded">
       <div class="form-header d-flex justify-content-between">
-        <h3>Support Ticket Lists</h3>
+        <h3>Ticket Create</h3>
         <div class=" d-flex justify-content-end">
           <nuxt-link to="/support-ticket" class="btn btn-primary">Ticket Lists</nuxt-link>
         </div>

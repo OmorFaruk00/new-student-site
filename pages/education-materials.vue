@@ -51,7 +51,7 @@
               </div>
             </div>
 
-            <div class="col-lg-8 col-md-8 col-sm-12 mb-4">
+            <div class="col-lg-8 col-md-8 col-sm-12 mb-3">
               <div class="form-group">
                 <button type="submit" style="margin-top: 0;margin-left: 0"
                   class="btn btn-primary btn-block">Find</button>

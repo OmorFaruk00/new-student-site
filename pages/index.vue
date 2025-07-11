@@ -15,7 +15,7 @@
         </div>
         <div class="" style="margin-bottom: 50px; margin-top: -10px;">
           <span class=" remember">
-            <input type="checkbox" id="remember" />
+            <input type="checkbox" id="remember"  />
             <label for="remember">Remember me</label>
           </span>
         </div>

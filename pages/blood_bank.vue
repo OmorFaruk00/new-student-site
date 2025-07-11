@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="mb-3">
     <div class="card mx-auto mb-4 rounded" style="max-width: 780px">
       <div class="form-header">
         <h3>Donate Blood</h3>
@@ -31,10 +31,10 @@
           </div>
           <span class="text-danger d-block" v-if="error.donate_date">{{
             error.donate_date[0]
-            }}</span>
+          }}</span>
           <span class="text-danger d-block" v-if="error.donor_status">{{
             error.donor_status[0]
-            }}</span>
+          }}</span>
           <button class="btn btn-primary ml-0">I Agree</button>
         </form>
 
@@ -101,7 +101,7 @@
 
               <tbody>
                 <tr v-for="(donor, i) in blood_donor.data" :key="i">
-                  <td>{{ i + 1 }}</td>
+                  <td>{{ (blood_donor.current_page - 1) * blood_donor.per_page + i + 1 }}</td>
                   <td>{{ donor.NAME ? donor.NAME : "N/A" }}</td>
                   <td>{{ donor.PHONE_NO ? donor.PHONE_NO : "N/A" }}</td>
                   <td>{{ donor.EMAIL ? donor.EMAIL : "N/A" }}</td>
@@ -127,7 +127,7 @@
                     }}
                   </td>
                   <td class="text-center">
-                    <span class="text-success">{{
+                    <span class="text-primary">{{
                       donor.rel_student_blood
                         ? donor.rel_student_blood.length
                         : 0
@@ -151,37 +151,40 @@
             </table>
           </div>
           <div class="row">
-            <div class="col-lg-10 col-md-10 bpagination ml-auto">
+            <div class=" bpagination">
               <nav aria-label="Page navigation example" class="my-3 mx-2">
                 <ul class="pagination pagination-sm justify-content-lg-end">
+
+                  <!-- Previous -->
                   <li class="page-item" :class="blood_donor.current_page > 1 ? '' : 'disabled'">
-                    <a class="page-link p-2" href="javaScript:void(0)"
+                    <a class="page-link p-2" href="javascript:void(0)"
                       @click="getBloodDonor(blood_donor.current_page - 1)" aria-label="Previous">
                       <span aria-hidden="true">&laquo;</span>
-                      <span class="sr-only">Previous</span>
                     </a>
                   </li>
 
-                  <li class="page-item" v-for="(row, index) in last_page" :key="index"
-                    :class="blood_donor.current_page === row ? 'disabled' : ''">
-                    <a class="page-link p-2" href="javaScript:void(0)" @click="getBloodDonor(row)" v-text="row"></a>
+                  <!-- Page Numbers -->
+                  <li class="page-item" v-for="page in filteredPages" :key="page.label"
+                    :class="{ active: page.number === blood_donor.current_page, disabled: page.label === '...' }">
+                    <a class="page-link p-2" href="javascript:void(0)" v-if="page.label !== '...'"
+                      @click="getBloodDonor(page.number)">
+                      {{ page.label }}
+                    </a>
+                    <span class="page-link p-2" v-else>{{ page.label }}</span>
                   </li>
 
-                  <li class="page-item " :class="blood_donor.last_page > blood_donor.current_page
-                      ? ''
-                      : 'disabled'
-                    ">
-                    <a class="page-link p-2" href="javaScript:void(0)"
+                  <!-- Next -->
+                  <li class="page-item" :class="blood_donor.current_page < blood_donor.last_page ? '' : 'disabled'">
+                    <a class="page-link p-2" href="javascript:void(0)"
                       @click="getBloodDonor(blood_donor.current_page + 1)" aria-label="Next">
                       <span aria-hidden="true">&raquo;</span>
-                      <span class="sr-only">Next</span>
                     </a>
                   </li>
+
                 </ul>
               </nav>
             </div>
           </div>
-
         </div>
         <h3 class="mt-1" v-else>No Blood Donor Found.</h3>
       </div>
@@ -206,9 +209,52 @@ label {
 export default {
   head() {
     return {
-      title: "Blood Bank"
+      // title: "Blood Bank"
     };
   },
+  computed: {
+    filteredPages() {
+      const current = this.blood_donor.current_page;
+      const last = this.blood_donor.last_page;
+      const pages = [];
+
+      // Always show first page
+      pages.push({ label: 1, number: 1 });
+
+      // If total pages ≤ 10, show all
+      if (last <= 10) {
+        for (let i = 2; i < last; i++) {
+          pages.push({ label: i, number: i });
+        }
+      } else {
+        // Add left ellipsis if needed
+        if (current > 5) {
+          pages.push({ label: '...' });
+        }
+
+        // Show middle pages around current
+        const start = Math.max(2, current - 4);
+        const end = Math.min(last - 1, current + 4);
+        for (let i = start; i <= end; i++) {
+          pages.push({ label: i, number: i });
+        }
+
+        // Add right ellipsis if needed
+        if (current < last - 4) {
+          pages.push({ label: '...' });
+        }
+      }
+
+      // Always show last page (if more than 1)
+      if (last > 1) {
+        pages.push({ label: last, number: last });
+      }
+
+      return pages;
+    }
+  },
+
+
   mounted() {
     this.getAuthUserProfile();
     this.getBloodDonor();
