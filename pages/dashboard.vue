@@ -2,7 +2,6 @@
   <div>
     <ImprovementAlert />
     <div class="row">
-
       <div class="col-lg-8 col-md-8 col-sm-12 ">
         <div class="row g-3 mb-3">
           <div class="col-lg-4 col-md-4 col-sm-12">
@@ -155,35 +154,16 @@
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-12">
-        <div class="bg-white shadow-sm rounded  mb-3">
-          <h4 class="fw-semibold p-3">Announcements</h4>
-          <hr>
-          <div class="announcement px-3 pb-3 pt-1">
-            <div v-if="dashboard.notice">
-              <p v-for="notice in dashboard.notice" :key="notice.id">
-                <a :href="'/announcement/' + notice.slug" class="text-decoration-none text-dark">
-                  <i class="fa fa-circle me-2" style="font-size: 12px !important;"></i> {{ notice.title }}
-                </a>
-              </p>
-              <nuxt-link to="/announcement" class="btn-see"> See More</nuxt-link>
-            </div>
-            <div v-if="loading" class="d-flex justify-content-center align-items-center pb-4">
-              <i class="fa fa-spinner fa-spin fa-4x text-primary"></i>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white shadow-sm  rounded" v-if="dashboard.routine" style="height: 330px;">
+        <Announcement />
+        <div class="bg-white shadow-sm  rounded" style="height: 330px;">
           <h4 class="fw-semibold p-3">Today's Class Update</h4>
           <hr>
-          <ul class="list-unstyled small mb-0 px-3">
+          <ul class="list-unstyled small mb-0 px-3" v-if="dashboard.routine">
             <li v-for="routine in dashboard.routine" :key="routine.id">
               <span class="fw-semibold">{{ routine.course_name }} ({{ routine.course_code }})</span> <br>
               <span class=" me-2">Today, {{ routine.start_time }} - {{ routine.end_time }} &nbsp; &nbsp; Room: {{
                 routine.room }}</span>
             </li>
-
-
           </ul>
         </div>
       </div>
@@ -192,9 +172,11 @@
 </template>
 <script>
 import ImprovementAlert from '@/components/ImprovementAlert.vue';
+import Announcement from '@/components/Dashboard/announcement.vue';
 export default {
   components: {
-    ImprovementAlert
+    ImprovementAlert,
+    Announcement
   },
   mounted() {
 

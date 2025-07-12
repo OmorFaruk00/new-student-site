@@ -11,6 +11,7 @@
                                 <h3 class="h2">Look like you're lost</h3>
 
                                 <p>the page you are looking for not avaible!</p>
+                                <a href="/" class="link_404">Go to Home</a>
                             </div>
                         </div>
                     </div>
@@ -19,6 +20,13 @@
         </section>
     </div>
 </template>
+
+<script>
+export default {
+  layout: "empty",
+
+};
+</script>
 <style scoped>
 /*======================
     404 page
@@ -62,6 +70,8 @@
     background: #39ac31;
     margin: 20px 0;
     display: inline-block;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
 .contant_box_404 {

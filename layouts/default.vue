@@ -9,7 +9,7 @@
             </a>
             <hr>
           </div>
-          <li class="nav-item" :class="{ 'active-nav': $route.path === '/dashboard' }">
+          <li class="nav-item" :class="{ 'active-nav': $route.path.replace(/\/+$/, '') === '/dashboard' }">
             <nuxt-link class="nav-link" to="/dashboard">
               <i class="fa fa-tachometer menu-icon"></i>
               <span class="menu-title" @click="taggleMenu()">Dashboard</span>
@@ -269,6 +269,7 @@ export default {
       window.$nuxt.$cookies.remove("user");
       window.$nuxt.$cookies.remove("currentExamSchedule");
       window.$nuxt.$cookies.remove("SupportTicketNotification");
+      window.$nuxt.$cookies.remove("Announcement");
       localStorage.removeItem("deshboardData");
       this.$router.push("/");
     },

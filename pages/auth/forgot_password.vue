@@ -1,18 +1,23 @@
 <template>
   <section>
-    <div class="auth-info text-center mb-4">
-      <h4>Forgot Your Password</h4>
+    <div class="auth-info text-center mb-4" v-if="ispasswordReset">
+      <h4>Forgot Password</h4>
+      <p >Enter your email address below and we'll send you a link to reset your password.</p>
+    </div>
+      <div class="auth-info text-center mb-4" v-if="isEmailReset">
+      <h4>Forgot Email</h4>
+      <p >Enter your registration code to retrieve your registered email address.</p>
     </div>
 
-    <div class="login-box mx-auto p-4 shadow rounded bg-white">
+    <div class="login-box mx-auto  shadow rounded bg-white">
       <!-- Tabs -->
-      <ul class="nav nav-tabs mb-4" role="tablist">
+      <ul class="nav nav-tabs mb-5" role="tablist">
         <li class="nav-item">
-          <a class="nav-link" :class="{ active: ispasswordReset }" @click="passwordResetform" role="tab">Forgot
+          <a class="nav-link me-3" :class="{ active: ispasswordReset }" @click="passwordResetform" role="tab">Forgot
             Password</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" :class="{ active: isEmailReset }" @click="emailResetForm" role="tab">Forgot Email</a>
+          <a class="nav-link" :class="{ active: isEmailReset }" @click="emailResetForm" role="tab" >Forgot Email</a>
         </li>
       </ul>
 
@@ -20,10 +25,8 @@
       <div class="tab-content">
         <!-- Forgot Password -->
         <div v-if="ispasswordReset">
-          <p class="text-muted">Enter your email address below and we'll send you a link to reset your password.</p>
           <form @submit.prevent="passwordForgot">
             <div class="mb-3">
-              <label class="form-label fw-bold">Email</label>
               <input type="email" class="form-control" v-model="email" placeholder="Enter your email" required />
             </div>
             <button class="btn-sign w-100">Send</button>
@@ -32,11 +35,9 @@
 
         <!-- Forgot Email -->
         <div v-if="isEmailReset">
-          <p class="text-muted">Enter your registration code to retrieve your registered email address.</p>
           <form @submit.prevent="emailReset">
             <div class="mb-3">
-              <label class="form-label fw-bold">Registration No</label>
-              <input type="text" class="form-control" v-model="reg_code" placeholder="Enter your registration code"
+              <input type="text" class="form-control" v-model="reg_code" placeholder="Enter your registration no"
                 required />
             </div>
             <div class="alert alert-success" v-if="email_address">
@@ -123,6 +124,7 @@ export default {
 .tab-content {
   border: none !important;
   margin-top: -30px;
+  padding: 0px !important;
 }
 
 .nav-tabs {
@@ -130,7 +132,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  font-size: 12px !important;
+  font-size: 14px !important;
   /* padding-left: 20px; */
 
 }
@@ -141,16 +143,18 @@ export default {
   color: #666;
   font-weight: 500;
   background-color: transparent;
-  padding: 0.5rem 1rem;
   transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 5px 0px;
+  /* margin:0px 5px; */
 }
 
 .nav-tabs .nav-link.active {
   color: #18ac4f;
-  border-bottom: 3px solid #18ac4f;
+  border-bottom: 2px solid #18ac4f;
 }
 
-@media (max-width: 576px) {
+/* @media (max-width: 576px) {
   .nav-tabs .nav-link {
     font-size: 14px;
     padding: 0.4rem 0.6rem;
@@ -159,5 +163,5 @@ export default {
   .login-box {
     padding: 1rem !important;
   }
-}
+} */
 </style>

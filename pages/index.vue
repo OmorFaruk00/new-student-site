@@ -13,12 +13,13 @@
           <input id="password" type="password" class="form-control" v-model="password"  placeholder="Password"/>
           <i :class="isVisible ? 'fa fa-eye' : 'fa fa-eye-slash'"    class="toggle-password" @click="togglePassword"></i>
         </div>
-        <div class="" style="margin-bottom: 50px; margin-top: -10px;">
-          <span class=" remember">
-            <input type="checkbox" id="remember"  />
-            <label for="remember">Remember me</label>
-          </span>
-        </div>
+    <div>
+ <div class="float-start" id="remember"  style="margin-top: -10px;">
+   <input id="checkbox-2" class="checkbox-custom" name="checkbox-2" type="checkbox">
+  <label for="checkbox-2" class="checkbox-custom-label text-muted">Remember me
+</label>
+ </div>
+</div>
 
 
         <button class="btn-sign">Log in</button>
