@@ -72,7 +72,7 @@
           <div class="row">
             <div class="col-lg-4 col-md-3 col-sm-12">
               <div class="pay-card p-3 mb-3  mx-auto">
-                <img src="/images/rocket.png" class="pay-img">
+                <img src="/images/rocket.png" style="height: 170px;width:100%">
 
               </div>
             </div>
@@ -87,7 +87,7 @@
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12">
               <div class="pay-card p-3 mb-3  mx-auto">
-                <img src="images/card.png" style="height: 220px;width:100%;">
+                <img src="/images/card.png" style="height: 220px;width:100%;">
               </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 py-3">

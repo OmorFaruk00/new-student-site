@@ -1,19 +1,19 @@
 <template>
   <section>
-    <div class="form-horizontal col-lg-8 mx-auto">
+    <div class="form-horizontal rounded">
       <div class="form-header">
         <h4>Research / Internship / Project / Thesis Form</h4>
       </div>
-      <div class="px-3 pb-4">
+      <div class="px-3 pb-4 col-lg-8">
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="form-group">
+            <div class="form-group" >
               <label for="">Title of the Report <span class="text-danger">*</span></label>
               <input type="text" v-model="title" class="form-control" placeholder="Title of the Report" />
             </div>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="form-group">
+            <div class="form-group" >
               <label for="">Name of the Organization
                 <span class="text-danger">*</span></label>
               <input type="text" v-model="organization" class="form-control" placeholder="Name of the Organization" />
@@ -46,10 +46,10 @@
 
           <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="form-group">
-              <div>
                 <label for="interest_field">Interest Field</label>
                 <multiselect v-model="interest_field" :options="options" :multiple="true" :searchable="true"
-                  placeholder="select" label="label" track-by="value" class="" />
+                  placeholder="select" label="label" track-by="value" class="custom-multiselect rounded "
+            style="border: 2px solid #18AC4F;"/>
               </div>
             </div>
           </div>
@@ -198,5 +198,8 @@ export default {
 :deep(.multiselect__tags) {
   min-height: 50px;
   padding-top: 15px;
+}
+.form-group{
+  margin-bottom: 10px !important;
 }
 </style>

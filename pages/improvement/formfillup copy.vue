@@ -43,7 +43,7 @@
             <th>Grade</th>
             <th>Applied Times</th>
             <th>Exam Fee</th>
-            <th style="text-align: center;">Apply</th>
+            <th style="text-align: right;">Apply</th>
           </tr>
           <tr v-for="(course, key) in eligible_for_subjects" :key="key" v-if="eligible_for_subjects">
             <td>{{ key + 1 }}</td>
@@ -94,16 +94,14 @@
           </tr>
         </table>
         <div class="mt-3">
-          <button :disabled="isAplication" class="btn btn-lg btn-bs w-100 mb-2" v-if="showDownloadButton == true" type="button"
+          <button class="btn btn-lg btn-bs w-100 mb-2" v-if="showDownloadButton == true" type="button"
             name="downloadApplication" @click="downloadApplication()">
             Download Application Form
-             <i v-if="isAplication" class="fa fa-spinner fa-spin ml-1"></i>
           </button>
 
-          <button :disabled="isAdmit" class="btn btn-lg btn-bs w-100 mt-2" v-if="payment_status == 1" type="button"
-            name="downloadApplication" @click="downloadAdnitcard()" >
+          <button class="btn btn-lg btn-bs w-100 mt-2" v-if="payment_status == 1" type="button"
+            name="downloadApplication" @click="downloadAdnitcard()">
             Download Admit Card
-            <i v-if="isAdmit" class="fa fa-spinner fa-spin ml-1"></i>
           </button>
         </div>
 
@@ -132,9 +130,6 @@ export default {
       currentExamSchedule: '',
       showDownloadButton: false,
       payment_status: '',
-      loading:false,
-      isAplication:false,
-      isAdmit:false,
     }
   },
   mounted() {
@@ -157,7 +152,6 @@ export default {
     async getEligibleSubjects() {
 
       this.showDownloadButton = false;
-      this.loading = true;
 
       if (this.currentExamSchedule == '') {
         this.$toast.error('Select An Exam Schedule', { icon: "error_outline" });
@@ -170,7 +164,6 @@ export default {
       if (this.type != '') {
         return await this.$axios.get('/' + this.type + '/' + this.currentExamSchedule + '?token=' + token)
           .then((response) => {
-            this.loading = false;
             // console.log("response", response.data[0].payment_status);
             this.eligible_for_subjects = response.data;
             this.payment_status = response.data[0].payment_status;
@@ -258,10 +251,11 @@ export default {
       }
 
     },
+
+
     async downloadApplication() {
       var token = window.$nuxt.$cookies.get('token');
       var user = window.$nuxt.$cookies.get('user');
-      this.isAplication = true;
 
       var type = '';
       var typeMsg = '';
@@ -282,9 +276,11 @@ export default {
           responseType: 'blob',
         })
           .then((response) => {
-            this.isAplication = false;
+
             const content = response.headers['content-type'];
+
             download(response.data, `${type}_improvement_examination_form`, content);
+
             this.$toast.success(`${typeMsg} Improvement Examination Form Download Successfully`, { icon: "error_outline" });
 
           })
@@ -301,7 +297,6 @@ export default {
       var token = window.$nuxt.$cookies.get('token');
       var user = window.$nuxt.$cookies.get('user');
       var student_id = user.id;
-      this.isAdmit = true;
 
       var type = '';
       var typeMsg = '';
@@ -322,7 +317,6 @@ export default {
           responseType: 'blob',
         })
           .then((response) => {
-            this.isAdmit = false;
 
             const content = response.headers['content-type'];
 

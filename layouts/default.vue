@@ -107,7 +107,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#tolet" aria-expanded="false" aria-controls="tolet">
-              <i class="fa fa-bed menu-icon px-1"></i>
+              <i class="fa fa-bed menu-icon"></i>
               <span class="menu-title">To-let <i class="fa fa-angle-down"
                   style="margin-left: 95px !important;"></i></span>
             </a>
@@ -154,7 +154,7 @@
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#feedback" aria-expanded="false"
               aria-controls="feedback">
-              <i class="fa fa-comment menu-icon px-1"></i>
+              <i class="fa fa-comment menu-icon"></i>
               <span class="menu-title ">Feedback <i class="fa fa-angle-down"
                   style="margin-left: 70px !important;"></i></span>
             </a>
