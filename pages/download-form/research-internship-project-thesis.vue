@@ -46,10 +46,11 @@
 
           <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="form-group">
+              <div>
                 <label for="interest_field">Interest Field</label>
                 <multiselect v-model="interest_field" :options="options" :multiple="true" :searchable="true"
                   placeholder="select" label="label" track-by="value" class="custom-multiselect rounded "
-            style="border: 2px solid #18AC4F;"/>
+            style="border: 2px solid #18AC4F;" />
               </div>
             </div>
           </div>

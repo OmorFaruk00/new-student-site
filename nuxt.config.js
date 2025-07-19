@@ -56,21 +56,19 @@ module.exports = {
       // {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons'},
+      {rel: 'stylesheet', href: '/assets/vendors/simple-line-icons/css/simple-line-icons.css'},
+      {rel: 'stylesheet', href: '/assets/vendors/flag-icon-css/css/flag-icons.min.css'},
       {rel: 'stylesheet', href: '/assets/vendors/css/vendor.bundle.base.css'},
       {rel: 'stylesheet', href: '/assets/vendors/font-awesome/css/font-awesome.min.css'},
       {rel: 'stylesheet', href: '/assets/css/vertical-light-layout/style.css'},
       {rel: 'stylesheet', href: '/assets/css/vertical-light-layout/welcome.css'},
       {rel: 'stylesheet', href: '/assets/css/vertical-light-layout/dashboard.css'},
-      // { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/vue-multiselect@2.1.6/dist/vue-multiselect.min.css" },
 
 
     ],
     script: [
       {src: '/assets/vendors/js/vendor.bundle.base.js'},
       {src: '/assets/vendors/js/chart.js'},
-      // {src: 'https://cdn.jsdelivr.net/npm/chart.js'},
-      // {src: '/bootstrap/js/jquery-3.3.1.slim.min.js'},
-      // { src: "https://cdn.jsdelivr.net/npm/vue-multiselect@2.1.6", defer: true },
 
 
 
